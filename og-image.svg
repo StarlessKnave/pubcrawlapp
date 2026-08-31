@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0c0805"/>
+      <stop offset="50%" stop-color="#171008"/>
+      <stop offset="100%" stop-color="#050302"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#fff4cc"/>
+      <stop offset="50%" stop-color="#ffd700"/>
+      <stop offset="100%" stop-color="#c59b27"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Vintage Gold Border -->
+  <rect x="24" y="24" width="1152" height="582" rx="16" fill="none" stroke="#d4af37" stroke-width="6"/>
+  <rect x="36" y="36" width="1128" height="558" rx="12" fill="none" stroke="#4d3816" stroke-width="2"/>
+
+  <!-- Top Badge -->
+  <rect x="390" y="80" width="420" height="44" rx="22" fill="#1e140a" stroke="#d4af37" stroke-width="1.5"/>
+  <text x="600" y="108" fill="#ffd700" font-size="20" font-weight="bold" font-family="system-ui, -apple-system, sans-serif" text-anchor="middle" letter-spacing="2">DUBLIN PUB CRAWL GENERATOR</text>
+
+  <!-- Title -->
+  <text x="600" y="210" fill="url(#gold)" font-size="62" font-weight="900" font-family="system-ui, -apple-system, sans-serif" text-anchor="middle">57 Historic Dublin Pubs</text>
+  <text x="600" y="270" fill="#f5ebd9" font-size="32" font-weight="600" font-family="system-ui, -apple-system, sans-serif" text-anchor="middle">Walking Loops · Guinness Ratings · Live Times</text>
+
+  <!-- Features Container -->
+  <rect x="160" y="330" width="880" height="130" rx="20" fill="#140e08" stroke="#33220f" stroke-width="2"/>
+  <text x="600" y="382" fill="#e8dac8" font-size="24" font-weight="bold" font-family="system-ui, -apple-system, sans-serif" text-anchor="middle">🍺 Creamiest Pints of Plain  ·  🚶 Multi-Stop Route Optimizer</text>
+  <text x="600" y="428" fill="#34d399" font-size="22" font-weight="bold" font-family="system-ui, -apple-system, sans-serif" text-anchor="middle">🕒 Live Pub Opening Status  ·  🧭 1-Tap Google Maps Export</text>
+
+  <!-- Watermark -->
+  <text x="600" y="540" fill="#d4af37" font-size="30" font-weight="bold" font-family="system-ui, -apple-system, sans-serif" text-anchor="middle">dublinpubcrawl.app ☘️</text>
+</svg>
