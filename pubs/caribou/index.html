@@ -205,23 +205,26 @@
 
   
   <!-- Top Navigation Header -->
-  <header class="bg-[#0a0406]/95 backdrop-blur-[17px] border-b border-[#2a1720] px-4 py-3 sticky top-0 z-50">
-    <div class="max-w-5xl mx-auto flex items-center justify-between gap-3">
-      <a href="/" class="flex items-center gap-2 group text-left">
-        <img src="/favicon-32x32.png" alt="Dublin Pub Crawl Logo" class="h-7 w-7 rounded-full border border-[#d9ac5e]/40 group-hover:scale-105 transition-transform" />
-        <span class="font-headline font-bold text-white text-base tracking-wide group-hover:text-[#d9ac5e] transition-colors">
-          Dublin Pub Crawl
+  <header class="bg-[#0a0406]/95 backdrop-blur-[17px] border-b border-[#2a1720] px-3 sm:px-4 py-2 sm:py-3 sticky top-0 z-50">
+    <div class="max-w-5xl mx-auto flex items-center justify-between gap-1.5 sm:gap-3">
+      <a href="/" class="flex items-center gap-1.5 sm:gap-2 text-left focus:outline-none group shrink-0">
+        <img src="data:image/png;base64,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" 
+             alt="Dublin Pub Crawl Logo" 
+             class="h-7 sm:h-7 md:h-8 w-auto object-contain shrink-0 drop-shadow-[0_1px_4px_rgba(255,255,255,0.25)] group-hover:scale-105 transition-transform" />
+        <span class="font-bold tracking-normal sm:tracking-wider uppercase text-white font-headline group-hover:text-[#d9ac5e] transition-colors leading-none flex flex-col sm:flex-row sm:gap-1.5 text-left">
+          <span class="text-[11px] sm:text-sm md:text-xl whitespace-nowrap">Dublin Pub Crawl</span>
+          <span class="text-[9.5px] sm:text-sm md:text-xl text-[#d9ac5e] font-semibold sm:font-bold tracking-wide sm:tracking-wider whitespace-nowrap leading-none mt-0.5 sm:mt-0">Generator</span>
         </span>
       </a>
-      <div class="flex items-center gap-2">
-        <a href="/pubs/" class="px-2.5 sm:px-3 py-1.5 text-xs font-headline font-bold uppercase rounded-[3px] border border-[#d9ac5e]/40 text-[#d9ac5e] hover:bg-[#d9ac5e] hover:text-[#0a0406] transition-all">
-          118 Pubs
+      <div class="flex items-center gap-1 sm:gap-1.5 text-xs shrink-0 justify-end">
+        <a href="/pubs/" class="h-8 w-[58px] sm:w-auto px-1 sm:px-3 bg-[#12070b] hover:bg-[#1f0d14] text-[#d9ac5e] hover:text-white font-headline font-bold rounded-[3px] border border-[#d9ac5e]/50 hover:border-[#d9ac5e] transition-all flex items-center justify-center text-center shadow active:scale-95 whitespace-nowrap leading-none shrink-0" title="View 118 Dublin Pubs">
+          <span class="text-[10.5px] sm:text-xs">118 Pubs</span>
         </a>
-        <a href="/routes/" class="px-2.5 sm:px-3 py-1.5 text-xs font-headline font-bold uppercase rounded-[3px] border border-[#d9ac5e]/40 text-[#d9ac5e] hover:bg-[#d9ac5e] hover:text-[#0a0406] transition-all">
-          Routes
+        <a href="/routes/" class="h-8 w-[58px] sm:w-auto px-1 sm:px-3 bg-[#12070b] hover:bg-[#1f0d14] text-[#d9ac5e] hover:text-white font-headline font-bold rounded-[3px] border border-[#d9ac5e]/50 hover:border-[#d9ac5e] transition-all flex items-center justify-center text-center shadow active:scale-95 whitespace-nowrap leading-none shrink-0" title="View Curated Routes">
+          <span class="text-[10.5px] sm:text-xs">Routes</span>
         </a>
-        <a href="/" class="br-button-primary px-3 sm:px-3.5 py-1.5 text-xs shadow-md">
-          Live Map 🗺️
+        <a href="/" class="br-button-primary h-8 w-[58px] sm:w-auto px-1 sm:px-3 flex items-center justify-center text-center shadow-lg active:scale-95 shrink-0 whitespace-nowrap leading-none" title="Open Interactive Map">
+          <span class="text-[10.5px] sm:text-xs tracking-tight font-headline font-bold">Live Map</span>
         </a>
       </div>
     </div>
@@ -249,17 +252,16 @@
               Est. 2024
             </span>
             <span class="px-2.5 py-1 text-xs font-semibold rounded bg-[#180d12] text-[#cfbeac] border border-[#2a1720]">
-              📍 South City / Grafton
+              South City / Grafton
             </span>
             <span class="px-2.5 py-1 text-xs font-semibold rounded bg-[#180d12] text-[#cfbeac] border border-[#2a1720]">
-              🍻 Modern Craft Taphouse &amp; Smash Burgers
+              Modern Craft Taphouse &amp; Smash Burgers
             </span>
           </div>
           <h1 class="text-3xl sm:text-5xl font-headline font-bold text-white tracking-wide mb-3">
             Caribou
           </h1>
           <p class="text-sm text-[#cfbeac] flex items-center gap-1.5">
-            <span>📮</span>
             <span>15 Stephen Street Lower, D02 X003</span>
           </p>
         </div>
@@ -279,15 +281,12 @@
       <div class="mt-8 pt-6 border-t border-[#2a1720] flex flex-wrap items-center gap-3">
         <a href="https://dublinpubcrawl.app/?add=caribou" class="br-button-primary px-5 py-2.5 text-xs sm:text-sm flex items-center gap-2 shadow-lg">
           <span>+ Add to Dublin Pub Crawl</span>
-          <span>🗺️</span>
         </a>
         <a href="https://dublinpubcrawl.app/?focus=caribou" class="br-button-secondary px-4 py-2.5 text-xs sm:text-sm flex items-center gap-2">
           <span>View on Live Map</span>
-          <span>🔍</span>
         </a>
         <a href="https://www.google.com/maps/dir/?api=1&destination=53.340973,-6.26345&travelmode=walking" target="_blank" rel="noopener noreferrer" class="br-button-secondary px-4 py-2.5 text-xs sm:text-sm flex items-center gap-2">
           <span>Walking Directions</span>
-          <span>📍</span>
         </a>
       </div>
     </div>
@@ -298,9 +297,8 @@
       <div class="md:col-span-1 flex flex-col gap-6">
         <!-- Technical Stout Quality Breakdown -->
         <div class="guinness-panel p-5 rounded-xl">
-          <h2 class="font-headline font-bold text-[#d9ac5e] text-sm uppercase tracking-wider mb-4 flex items-center gap-2">
-            <span>🍺</span>
-            <span>Stout Score Breakdown</span>
+          <h2 class="font-headline font-bold text-[#d9ac5e] text-sm uppercase tracking-wider mb-4">
+            Stout Score Breakdown
           </h2>
           <ul class="space-y-3 text-xs">
             <li class="flex items-center justify-between py-1.5 border-b border-[#2a1720]">
@@ -328,9 +326,8 @@
 
         <!-- Verified Opening Hours -->
         <div class="guinness-panel p-5 rounded-xl">
-          <h2 class="font-headline font-bold text-[#d9ac5e] text-sm uppercase tracking-wider mb-3 flex items-center gap-2">
-            <span>⏰</span>
-            <span>Verified Opening Hours</span>
+          <h2 class="font-headline font-bold text-[#d9ac5e] text-sm uppercase tracking-wider mb-3">
+            Verified Opening Hours
           </h2>
           <div class="space-y-2 text-xs">
             <div class="flex items-center justify-between py-1 border-b border-[#2a1720]">
@@ -420,7 +417,7 @@
             <p class="text-xs text-[#cfbeac] line-clamp-2">Intimate, unpretentious corner pub where conversation rules. Renowned for Dublin toasted specials and spotless Guinness.</p>
           </div>
           <div class="pt-3 border-t border-[#2a1720] flex items-center justify-between">
-            <span class="text-[11px] text-[#d9ac5e] font-medium">🚶 17m · ~1 min walk</span>
+            <span class="text-[11px] text-[#d9ac5e] font-medium">17m · ~1 min walk</span>
             <a href="/pubs/peters-pub/" class="text-[11px] font-headline font-bold uppercase text-[#d9ac5e] hover:text-white transition-colors">
               Pub Guide →
             </a>
@@ -441,7 +438,7 @@
             <p class="text-xs text-[#cfbeac] line-clamp-2">Family-run Dublin pub steps from Grafton Street with stained glass, warm wood, and top-tier Guinness.</p>
           </div>
           <div class="pt-3 border-t border-[#2a1720] flex items-center justify-between">
-            <span class="text-[11px] text-[#d9ac5e] font-medium">🚶 111m · ~1 min walk</span>
+            <span class="text-[11px] text-[#d9ac5e] font-medium">111m · ~1 min walk</span>
             <a href="/pubs/sheehans-pub/" class="text-[11px] font-headline font-bold uppercase text-[#d9ac5e] hover:text-white transition-colors">
               Pub Guide →
             </a>
@@ -462,7 +459,7 @@
             <p class="text-xs text-[#cfbeac] line-clamp-2">A stylish 1930s-inspired cocktail lounge featuring plush velvet banquettes, marble tables, and a bespoke tableside martini trolley.</p>
           </div>
           <div class="pt-3 border-t border-[#2a1720] flex items-center justify-between">
-            <span class="text-[11px] text-[#d9ac5e] font-medium">🚶 131m · ~2 min walk</span>
+            <span class="text-[11px] text-[#d9ac5e] font-medium">131m · ~2 min walk</span>
             <a href="/pubs/the-sidecar-at-the-westbury/" class="text-[11px] font-headline font-bold uppercase text-[#d9ac5e] hover:text-white transition-colors">
               Pub Guide →
             </a>

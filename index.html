@@ -1464,14 +1464,23 @@
           <p class="text-xs text-[#a39890] font-body">Browse all 118 curated pubs + user nominations</p>
         </div>
         <div class="flex items-center gap-2">
-          <a href="/pubs/" target="_blank" class="hidden sm:flex px-2.5 py-1.5 bg-[#180d12] hover:bg-[#26131d] text-[#d9ac5e] hover:text-white rounded-[3px] text-xs font-headline font-bold uppercase border border-[#d9ac5e]/40 transition-all items-center gap-1">
-            <span>Full Directory Page ↗</span>
-          </a>
-          <button onclick="closeDirectoryModal(); openNominateModal();" class="br-button-primary px-3 py-1.5 text-xs">
-            + Nominate New Pub
+          <button onclick="closeDirectoryModal(); openNominateModal();" class="px-3 py-1.5 bg-[#180d12] hover:bg-[#26131d] text-[#d9ac5e] hover:text-white rounded-[3px] text-xs font-headline font-bold uppercase border border-[#d9ac5e]/40 transition-all">
+            + Nominate Pub
           </button>
           <button onclick="closeDirectoryModal()" class="text-[#a39890] hover:text-white text-lg px-2">✕</button>
         </div>
+      </div>
+
+      <!-- Top Pub Directory Callout Banner -->
+      <div class="px-4 py-2.5 bg-gradient-to-r from-[#1c0e15] to-[#12070b] border-b border-[#d9ac5e]/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2.5">
+        <div class="flex items-center gap-2 text-xs">
+          <span class="text-[#d9ac5e] font-headline font-bold uppercase tracking-wider">Pub Directory Hub:</span>
+          <span class="text-[#cfbeac] text-[11px] sm:text-xs">Browse all 118 individual pub guide pages with verified opening hours &amp; Guinness Stout Scores™</span>
+        </div>
+        <a href="/pubs/" class="br-button-primary px-3.5 py-1.5 text-xs font-headline font-bold uppercase flex items-center gap-1.5 shrink-0 shadow whitespace-nowrap">
+          <span>Open Pub Directory</span>
+          <span>→</span>
+        </a>
       </div>
 
       <!-- Filters -->
