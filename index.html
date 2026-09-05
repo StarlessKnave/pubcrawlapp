@@ -6298,6 +6298,11 @@
       showPubPopup(pubId);
     }
 
+    function getPubSlug(name) {
+      if (!name) return '';
+      return name.toLowerCase().replace(/['"]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+    }
+
     function showPubPopup(pubId) {
       if (pubId === 'guinness_gravity_bar' || pubId === 'gravity_bar' || pubId === 'guinness_storehouse') {
         showGravityBarPopup();
@@ -6446,10 +6451,13 @@
 
         ${crawlActionBanner}
 
-        <div>
+        <div class="flex flex-col gap-1.5">
           <button onclick="openSinglePubInGoogleMaps('${pub.id}')" class="w-full py-2.5 bg-[#13281c] hover:bg-emerald-600 border border-emerald-500/60 hover:border-emerald-500 text-emerald-300 hover:text-white font-headline font-bold text-xs rounded-[3px] transition-all shadow flex items-center justify-center gap-1.5 active:scale-95 uppercase tracking-wide">
             <span>Open in Google Maps</span>
           </button>
+          <a href="/pubs/${getPubSlug(pub.name)}/" target="_blank" class="text-[11px] text-center text-[#d9ac5e] hover:underline font-headline uppercase tracking-wider py-1 block">
+            Read Full Pub Guide &amp; History →
+          </a>
         </div>
       `;
     }
@@ -7268,7 +7276,10 @@
         <section class="flex flex-col gap-3">
           <div class="flex items-center justify-between">
             <h2 class="text-sm font-headline font-bold text-[#d9ac5e] uppercase tracking-wider">Curated Dublin Pub Crawl Routes</h2>
-            <a href="/routes/" class="text-[11px] text-[#d9ac5e] hover:underline font-headline uppercase">Explore All Routes →</a>
+            <div class="flex items-center gap-3">
+              <a href="/routes/" class="text-[11px] text-[#d9ac5e] hover:underline font-headline uppercase">Explore 6 Routes →</a>
+              <a href="/pubs/" class="text-[11px] text-[#d9ac5e] hover:underline font-headline uppercase">118 Pubs Directory →</a>
+            </div>
           </div>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
             
