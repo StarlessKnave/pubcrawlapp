@@ -368,6 +368,58 @@
       -ms-overflow-style: none;
       scrollbar-width: none;
     }
+    /* Mobile Modal Safe Viewport Fix - Prevents Top Cutoff */
+    @media (max-width: 639px) {
+      .modal-mobile-safe,
+      #directory-modal,
+      #stout-score-modal,
+      #guide-modal,
+      #experiences-modal,
+      #generator-modal,
+      #nominate-modal,
+      #review-modal,
+      #hours-modal,
+      #export-phone-modal,
+      #ios-safari-location-modal {
+        align-items: flex-start !important;
+        justify-content: center !important;
+        padding-top: calc(max(env(safe-area-inset-top, 0px), 14px) + 12px) !important;
+        padding-bottom: calc(max(env(safe-area-inset-bottom, 0px), 14px) + 16px) !important;
+        padding-left: 8px !important;
+        padding-right: 8px !important;
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+      }
+      .modal-mobile-safe.flex,
+      #directory-modal.flex,
+      #stout-score-modal.flex,
+      #guide-modal.flex,
+      #experiences-modal.flex,
+      #generator-modal.flex,
+      #nominate-modal.flex,
+      #review-modal.flex,
+      #hours-modal.flex,
+      #export-phone-modal.flex,
+      #ios-safari-location-modal.flex {
+        display: flex !important;
+      }
+      .modal-mobile-safe > div,
+      .modal-mobile-safe > article,
+      #directory-modal > div,
+      #stout-score-modal > div,
+      #guide-modal > div,
+      #experiences-modal > div,
+      #generator-modal > div,
+      #nominate-modal > div,
+      #review-modal > div,
+      #hours-modal > div,
+      #export-phone-modal > div,
+      #ios-safari-location-modal > div {
+        max-height: calc(100dvh - max(env(safe-area-inset-top, 0px), 14px) - max(env(safe-area-inset-bottom, 0px), 14px) - 36px) !important;
+        margin-top: 0 !important;
+        width: 100% !important;
+      }
+    }
     .font-headline {
       font-family: var(--font-knockout) !important;
       letter-spacing: 0.05em;
@@ -1031,19 +1083,19 @@
   </nav>
 
   <!-- 5.5 GENERATOR SETUP MODAL (FOR MOBILE & MENU TRIGGERS) -->
-  <div id="generator-modal" class="fixed inset-0 z-50 bg-black/65 backdrop-blur-md hidden items-center justify-center p-3 sm:p-4">
-    <div class="guinness-panel border-2 border-[#d9ac5e] rounded-[4px] max-w-sm w-full shadow-2xl overflow-hidden flex flex-col">
+  <div id="generator-modal" class="modal-mobile-safe fixed inset-0 z-50 bg-black/65 backdrop-blur-md hidden items-start sm:items-center justify-center p-2.5 pt-4 sm:p-4 overflow-y-auto" onclick="if(event.target === this) closeGeneratorModal()">
+    <div class="guinness-panel border-2 border-[#d9ac5e] rounded-[4px] max-w-sm w-full shadow-2xl overflow-hidden flex flex-col max-h-[calc(100dvh-32px)] sm:max-h-[88vh]">
       
       <!-- Header -->
-      <div class="p-4 border-b border-[#2a1720] flex items-center justify-between bg-[#0e0609]/65 backdrop-blur-md shrink-0">
-        <div>
-          <span class="px-3 py-1 rounded-[3px] text-xs font-headline font-bold uppercase tracking-wider bg-[#d9ac5e] text-[#0a0406] shadow-md">
+      <div class="p-3.5 sm:p-4 border-b border-[#2a1720] flex items-center justify-between bg-[#0e0609]/65 backdrop-blur-md shrink-0 gap-2">
+        <div class="min-w-0">
+          <span class="px-2.5 py-0.5 rounded-[3px] text-[10px] sm:text-xs font-headline font-bold uppercase tracking-wider bg-[#d9ac5e] text-[#0a0406] shadow-md">
             Option 1 · Quick Generator
           </span>
-          <h3 class="text-base font-headline font-bold text-white uppercase tracking-wider mt-1.5 glass-text-shadow">Pick a Dublin Pub Crawl</h3>
-          <p class="text-xs text-gray-200 font-body">Select a route below • Customize stops on next screen</p>
+          <h3 class="text-sm sm:text-base font-headline font-bold text-white uppercase tracking-wider mt-1 glass-text-shadow truncate">Pick a Dublin Pub Crawl</h3>
+          <p class="text-[11px] sm:text-xs text-gray-200 font-body truncate">Select a route below • Customize stops next</p>
         </div>
-        <button onclick="closeGeneratorModal()" class="text-gray-300 hover:text-white text-xl px-2 font-bold cursor-pointer">✕</button>
+        <button onclick="closeGeneratorModal()" class="text-gray-300 hover:text-white text-xl p-1.5 sm:px-2 font-bold cursor-pointer shrink-0" aria-label="Close generator modal">✕</button>
       </div>
 
       <!-- Body -->
@@ -1116,22 +1168,22 @@
   </div>
 
   <!-- 5.8 STOUT SCORE METHODOLOGY & RANKINGS MODAL -->
-  <div id="stout-score-modal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-sm hidden items-center justify-center p-3 sm:p-4">
-    <div class="guinness-panel border border-[#d9ac5e]/50 rounded-[4px] max-w-2xl w-full shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
+  <div id="stout-score-modal" class="modal-mobile-safe fixed inset-0 z-50 bg-black/85 backdrop-blur-sm hidden items-start sm:items-center justify-center p-2.5 pt-4 sm:p-4 overflow-y-auto" onclick="if(event.target === this) closeStoutScoreModal()">
+    <div class="guinness-panel border border-[#d9ac5e]/50 rounded-[4px] max-w-2xl w-full shadow-2xl overflow-hidden flex flex-col max-h-[calc(100dvh-32px)] sm:max-h-[90vh]">
       
       <!-- Modal Header -->
-      <div class="p-4 border-b border-[#2a1720] flex items-center justify-between bg-[#0e0609] shrink-0">
-        <div>
+      <div class="p-3.5 sm:p-4 border-b border-[#2a1720] flex items-center justify-between bg-[#0e0609] shrink-0 gap-2">
+        <div class="min-w-0">
           <div class="flex items-center gap-2">
             <span class="px-2 py-0.5 rounded-[2px] text-[9.5px] font-headline font-bold uppercase tracking-wider bg-[#d9ac5e] text-[#0b0407] shadow-sm">
               Dublin Stout Index
             </span>
-            <span class="text-xs text-[#a39890] font-mono">0.0 – 10.0 Scale</span>
+            <span class="text-[11px] sm:text-xs text-[#a39890] font-mono">0.0 – 10.0 Scale</span>
           </div>
-          <h3 class="text-base sm:text-lg font-headline font-bold text-white uppercase tracking-wider mt-1">How the Stout Score is Assigned</h3>
-          <p class="text-xs text-[#a39890] font-body">Pint ratings, cellar quality standards & Dublin heritage benchmarks</p>
+          <h3 class="text-sm sm:text-lg font-headline font-bold text-white uppercase tracking-wider mt-1 truncate">How the Stout Score is Assigned</h3>
+          <p class="text-[11px] sm:text-xs text-[#a39890] font-body truncate sm:whitespace-normal">Pint ratings, cellar standards & heritage benchmarks</p>
         </div>
-        <button onclick="closeStoutScoreModal()" class="text-[#a39890] hover:text-white text-lg px-2">✕</button>
+        <button onclick="closeStoutScoreModal()" class="text-[#a39890] hover:text-white text-xl sm:text-lg p-1.5 sm:px-2 leading-none shrink-0 cursor-pointer" aria-label="Close stout score modal">✕</button>
       </div>
 
       <!-- Modal Body (Scrollable) -->
@@ -1237,10 +1289,10 @@
   </div>
 
   <!-- 5.9 IOS SAFARI LOCATION PERMISSION HELPER MODAL -->
-  <div id="ios-safari-location-modal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-sm hidden items-center justify-center p-3 sm:p-4">
-    <div class="guinness-panel border border-cyan-500/50 rounded-[4px] max-w-md w-full shadow-2xl overflow-hidden flex flex-col">
+  <div id="ios-safari-location-modal" class="modal-mobile-safe fixed inset-0 z-50 bg-black/85 backdrop-blur-sm hidden items-start sm:items-center justify-center p-2.5 pt-4 sm:p-4 overflow-y-auto" onclick="if(event.target === this) closeIosLocationModal()">
+    <div class="guinness-panel border border-cyan-500/50 rounded-[4px] max-w-md w-full shadow-2xl overflow-hidden flex flex-col max-h-[calc(100dvh-32px)] sm:max-h-[88vh]">
       <!-- Modal Header -->
-      <div class="p-4 border-b border-[#2a1720] flex items-center justify-between bg-[#0e0609] shrink-0">
+      <div class="p-3.5 sm:p-4 border-b border-[#2a1720] flex items-center justify-between bg-[#0e0609] shrink-0 gap-2">
         <div class="flex items-center gap-2.5">
           <div class="w-8 h-8 rounded-[2px] bg-cyan-950 border border-cyan-500/50 flex items-center justify-center text-cyan-300 shadow-inner">
             <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
@@ -1312,14 +1364,14 @@
   </div>
 
   <!-- 6. OPENING HOURS TIMETABLE MODAL (z-[60] so it renders over directory modal) -->
-  <div id="hours-modal" class="fixed inset-0 z-[60] bg-black/85 backdrop-blur-sm hidden items-center justify-center p-4">
-    <div class="guinness-panel border border-[#d9ac5e]/40 rounded-[4px] max-w-sm w-full shadow-2xl overflow-hidden flex flex-col">
-      <div class="p-4 border-b border-[#2a1720] flex items-center justify-between bg-[#0e0609]">
-        <div>
-          <h3 id="hours-modal-title" class="text-sm font-headline font-bold text-white uppercase tracking-wider">Pub Opening Times</h3>
-          <p id="hours-modal-address" class="text-xs text-[#a39890] truncate font-body">Dublin, Ireland</p>
+  <div id="hours-modal" class="modal-mobile-safe fixed inset-0 z-[60] bg-black/85 backdrop-blur-sm hidden items-start sm:items-center justify-center p-2.5 pt-4 sm:p-4 overflow-y-auto" onclick="if(event.target === this) closeHoursModal()">
+    <div class="guinness-panel border border-[#d9ac5e]/40 rounded-[4px] max-w-sm w-full shadow-2xl overflow-hidden flex flex-col max-h-[calc(100dvh-32px)] sm:max-h-[88vh]">
+      <div class="p-3.5 sm:p-4 border-b border-[#2a1720] flex items-center justify-between bg-[#0e0609] shrink-0 gap-2">
+        <div class="min-w-0">
+          <h3 id="hours-modal-title" class="text-xs sm:text-sm font-headline font-bold text-white uppercase tracking-wider truncate">Pub Opening Times</h3>
+          <p id="hours-modal-address" class="text-[11px] sm:text-xs text-[#a39890] truncate font-body">Dublin, Ireland</p>
         </div>
-        <button onclick="closeHoursModal()" class="text-[#a39890] hover:text-white text-lg px-2">✕</button>
+        <button onclick="closeHoursModal()" class="text-[#a39890] hover:text-white text-xl sm:text-lg p-1.5 sm:px-2 shrink-0 cursor-pointer" aria-label="Close hours modal">✕</button>
       </div>
 
       <div class="p-4 flex flex-col gap-2 text-xs font-body">
@@ -1344,15 +1396,15 @@
   </div>
 
   <!-- 7. NOMINATE A PUB MODAL -->
-  <div id="nominate-modal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-sm hidden items-center justify-center p-4">
-    <div class="guinness-panel border border-[#d9ac5e]/40 rounded-[4px] max-w-lg w-full shadow-2xl overflow-hidden flex flex-col">
+  <div id="nominate-modal" class="modal-mobile-safe fixed inset-0 z-50 bg-black/85 backdrop-blur-sm hidden items-start sm:items-center justify-center p-2.5 pt-4 sm:p-4 overflow-y-auto" onclick="if(event.target === this) closeNominateModal()">
+    <div class="guinness-panel border border-[#d9ac5e]/40 rounded-[4px] max-w-lg w-full shadow-2xl overflow-hidden flex flex-col max-h-[calc(100dvh-32px)] sm:max-h-[88vh]">
       
-      <div class="p-4 border-b border-[#2a1720] flex items-center justify-between bg-[#0e0609]">
-        <div>
-          <h3 class="text-sm font-headline font-bold text-white uppercase tracking-wider">Nominate a Dublin Pub</h3>
-          <p class="text-xs text-[#a39890] font-body">Know a great snug or top-tier Guinness pint? Nominate it for the map!</p>
+      <div class="p-3.5 sm:p-4 border-b border-[#2a1720] flex items-center justify-between bg-[#0e0609] shrink-0 gap-2">
+        <div class="min-w-0">
+          <h3 class="text-xs sm:text-sm font-headline font-bold text-white uppercase tracking-wider truncate">Nominate a Dublin Pub</h3>
+          <p class="text-[11px] sm:text-xs text-[#a39890] font-body truncate sm:whitespace-normal">Know a great snug or top-tier pint? Nominate it!</p>
         </div>
-        <button onclick="closeNominateModal()" class="text-[#a39890] hover:text-white text-lg px-2">✕</button>
+        <button onclick="closeNominateModal()" class="text-[#a39890] hover:text-white text-xl sm:text-lg p-1.5 sm:px-2 shrink-0 cursor-pointer" aria-label="Close nominate modal">✕</button>
       </div>
 
       <form id="nominate-form" onsubmit="submitPubNomination(event)" class="p-4 flex flex-col gap-3 text-xs font-body">
@@ -1400,15 +1452,15 @@
   </div>
 
   <!-- 8. LEAVE A REVIEW & FEATURE REQUEST MODAL -->
-  <div id="review-modal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-sm hidden items-center justify-center p-4">
-    <div class="guinness-panel border border-[#d9ac5e]/40 rounded-[4px] max-w-lg w-full shadow-2xl overflow-hidden flex flex-col">
+  <div id="review-modal" class="modal-mobile-safe fixed inset-0 z-50 bg-black/85 backdrop-blur-sm hidden items-start sm:items-center justify-center p-2.5 pt-4 sm:p-4 overflow-y-auto" onclick="if(event.target === this) closeReviewModal()">
+    <div class="guinness-panel border border-[#d9ac5e]/40 rounded-[4px] max-w-lg w-full shadow-2xl overflow-hidden flex flex-col max-h-[calc(100dvh-32px)] sm:max-h-[88vh]">
       
-      <div class="p-4 border-b border-[#2a1720] flex items-center justify-between bg-[#0e0609]">
-        <div>
-          <h3 class="text-sm font-headline font-bold text-white uppercase tracking-wider">Leave a Review & Request Features</h3>
-          <p class="text-xs text-[#a39890] font-body">Help improve the Dublin Pub Crawl experience with your feedback</p>
+      <div class="p-3.5 sm:p-4 border-b border-[#2a1720] flex items-center justify-between bg-[#0e0609] shrink-0 gap-2">
+        <div class="min-w-0">
+          <h3 class="text-xs sm:text-sm font-headline font-bold text-white uppercase tracking-wider truncate">Leave a Review & Request Features</h3>
+          <p class="text-[11px] sm:text-xs text-[#a39890] font-body truncate sm:whitespace-normal">Help improve the Dublin Pub Crawl experience</p>
         </div>
-        <button onclick="closeReviewModal()" class="text-[#a39890] hover:text-white text-lg px-2">✕</button>
+        <button onclick="closeReviewModal()" class="text-[#a39890] hover:text-white text-xl sm:text-lg p-1.5 sm:px-2 shrink-0 cursor-pointer" aria-label="Close review modal">✕</button>
       </div>
 
       <form id="review-form" onsubmit="submitReviewAndFeedback(event)" class="p-4 flex flex-col gap-3 text-xs font-body">
@@ -1455,19 +1507,19 @@
   </div>
 
   <!-- 9. FULL DIRECTORY SEARCH MODAL -->
-  <div id="directory-modal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-sm hidden items-center justify-center p-4">
-    <div class="guinness-panel border border-[#d9ac5e]/50 rounded-[4px] max-w-4xl w-full max-h-[85vh] flex flex-col shadow-2xl overflow-hidden">
+  <div id="directory-modal" class="modal-mobile-safe fixed inset-0 z-50 bg-black/85 backdrop-blur-sm hidden items-start sm:items-center justify-center p-2.5 pt-4 sm:p-4 overflow-y-auto" onclick="if(event.target === this) closeDirectoryModal()">
+    <div class="guinness-panel border border-[#d9ac5e]/50 rounded-[4px] max-w-4xl w-full max-h-[calc(100dvh-32px)] sm:max-h-[85vh] flex flex-col shadow-2xl overflow-hidden">
       
-      <div class="p-4 border-b border-[#2a1720] flex items-center justify-between bg-[#0e0609]">
-        <div>
-          <h3 class="text-sm font-headline font-bold text-white uppercase tracking-wider">Central Dublin Pubs Directory</h3>
-          <p class="text-xs text-[#a39890] font-body">Browse all 118 curated pubs + user nominations</p>
+      <div class="p-3 sm:p-4 border-b border-[#2a1720] flex items-center justify-between bg-[#0e0609] shrink-0 gap-2">
+        <div class="min-w-0">
+          <h3 class="text-xs sm:text-sm font-headline font-bold text-white uppercase tracking-wider truncate">Central Dublin Pubs Directory</h3>
+          <p class="text-[11px] sm:text-xs text-[#a39890] font-body truncate">Browse all 118 curated pubs + nominations</p>
         </div>
-        <div class="flex items-center gap-2">
-          <button onclick="closeDirectoryModal(); openNominateModal();" class="px-3 py-1.5 bg-[#180d12] hover:bg-[#26131d] text-[#d9ac5e] hover:text-white rounded-[3px] text-xs font-headline font-bold uppercase border border-[#d9ac5e]/40 transition-all">
+        <div class="flex items-center gap-1.5 sm:gap-2 shrink-0">
+          <button onclick="closeDirectoryModal(); openNominateModal();" class="hidden sm:inline-flex px-3 py-1.5 bg-[#180d12] hover:bg-[#26131d] text-[#d9ac5e] hover:text-white rounded-[3px] text-xs font-headline font-bold uppercase border border-[#d9ac5e]/40 transition-all">
             + Nominate Pub
           </button>
-          <button onclick="closeDirectoryModal()" class="text-[#a39890] hover:text-white text-lg px-2">✕</button>
+          <button onclick="closeDirectoryModal()" class="text-[#a39890] hover:text-white text-xl sm:text-lg p-1.5 sm:px-2 leading-none shrink-0 cursor-pointer" aria-label="Close directory modal">✕</button>
         </div>
       </div>
 
@@ -1507,15 +1559,15 @@
   </div>
 
   <!-- 9. EXPORT ROUTE TO PHONE (QR CODE & SHARE) MODAL -->
-  <div id="export-phone-modal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-sm hidden items-center justify-center p-4">
-    <div class="guinness-panel border border-[#d9ac5e]/50 rounded-[4px] max-w-md w-full shadow-2xl overflow-hidden flex flex-col">
+  <div id="export-phone-modal" class="modal-mobile-safe fixed inset-0 z-50 bg-black/85 backdrop-blur-sm hidden items-start sm:items-center justify-center p-2.5 pt-4 sm:p-4 overflow-y-auto" onclick="if(event.target === this) closeExportPhoneModal()">
+    <div class="guinness-panel border border-[#d9ac5e]/50 rounded-[4px] max-w-md w-full shadow-2xl overflow-hidden flex flex-col max-h-[calc(100dvh-32px)] sm:max-h-[88vh]">
       
-      <div class="p-4 border-b border-[#2a1720] flex items-center justify-between bg-[#0e0609]">
-        <div>
-          <h3 class="text-sm font-headline font-bold text-white uppercase tracking-wider">Export Route to Mobile</h3>
-          <p class="text-xs text-[#a39890] font-body">Open walking directions in Google Maps on mobile</p>
+      <div class="p-3.5 sm:p-4 border-b border-[#2a1720] flex items-center justify-between bg-[#0e0609] shrink-0 gap-2">
+        <div class="min-w-0">
+          <h3 class="text-xs sm:text-sm font-headline font-bold text-white uppercase tracking-wider truncate">Export Route to Mobile</h3>
+          <p class="text-[11px] sm:text-xs text-[#a39890] font-body truncate sm:whitespace-normal">Open walking directions in Google Maps</p>
         </div>
-        <button onclick="closeExportPhoneModal()" class="text-[#a39890] hover:text-white text-lg px-2">✕</button>
+        <button onclick="closeExportPhoneModal()" class="text-[#a39890] hover:text-white text-xl sm:text-lg p-1.5 sm:px-2 shrink-0 cursor-pointer" aria-label="Close export modal">✕</button>
       </div>
 
       <div class="p-5 flex flex-col items-center gap-4 text-xs font-body">
@@ -1572,16 +1624,16 @@
   </div>
 
   <!-- 10. DUBLIN EXPERIENCES & NIGHTLIFE AFFILIATE HUB MODAL -->
-  <div id="experiences-modal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-sm hidden items-center justify-center p-3 sm:p-4">
-    <div class="guinness-panel border border-[#d9ac5e]/50 rounded-[4px] max-w-3xl w-full shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
+  <div id="experiences-modal" class="modal-mobile-safe fixed inset-0 z-50 bg-black/85 backdrop-blur-sm hidden items-start sm:items-center justify-center p-2.5 pt-4 sm:p-4 overflow-y-auto" onclick="if(event.target === this) closeExperiencesModal()">
+    <div class="guinness-panel border border-[#d9ac5e]/50 rounded-[4px] max-w-3xl w-full shadow-2xl overflow-hidden flex flex-col max-h-[calc(100dvh-32px)] sm:max-h-[90vh]">
       
       <!-- Header -->
-      <div class="p-4 border-b border-[#2a1720] flex items-center justify-between bg-[#0e0609] shrink-0">
-        <div>
-          <h3 class="text-sm sm:text-base font-headline font-bold text-white uppercase tracking-wider">Dublin Nightlife & Experience Passes</h3>
-          <p class="text-xs text-[#a39890] font-body">Brewery tours, whiskey tastings, trad sessions, taxis & city stays</p>
+      <div class="p-3.5 sm:p-4 border-b border-[#2a1720] flex items-center justify-between bg-[#0e0609] shrink-0 gap-2">
+        <div class="min-w-0">
+          <h3 class="text-xs sm:text-base font-headline font-bold text-white uppercase tracking-wider truncate">Dublin Nightlife & Experience Passes</h3>
+          <p class="text-[11px] sm:text-xs text-[#a39890] font-body truncate sm:whitespace-normal">Brewery tours, whiskey tastings, trad sessions & city stays</p>
         </div>
-        <button onclick="closeExperiencesModal()" class="text-[#a39890] hover:text-white text-lg px-2">✕</button>
+        <button onclick="closeExperiencesModal()" class="text-[#a39890] hover:text-white text-xl sm:text-lg p-1.5 sm:px-2 leading-none shrink-0 cursor-pointer" aria-label="Close experiences modal">✕</button>
       </div>
 
       <!-- Experience Cards Grid -->
@@ -6970,41 +7022,63 @@
 
     // Directory Modal
     function openDirectoryModal() {
-      document.getElementById('directory-modal').classList.remove('hidden');
-      document.getElementById('directory-modal').classList.add('flex');
+      const modal = document.getElementById('directory-modal');
+      if (modal) {
+        modal.scrollTop = 0;
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      }
     }
 
     function closeDirectoryModal() {
-      document.getElementById('directory-modal').classList.remove('flex');
-      document.getElementById('directory-modal').classList.add('hidden');
+      const modal = document.getElementById('directory-modal');
+      if (modal) {
+        modal.classList.remove('flex');
+        modal.classList.add('hidden');
+      }
     }
 
     // Stout Score Methodology Modal
     function openStoutScoreModal() {
-      document.getElementById('stout-score-modal').classList.remove('hidden');
-      document.getElementById('stout-score-modal').classList.add('flex');
+      const modal = document.getElementById('stout-score-modal');
+      if (modal) {
+        modal.scrollTop = 0;
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      }
     }
 
     function closeStoutScoreModal() {
-      document.getElementById('stout-score-modal').classList.remove('flex');
-      document.getElementById('stout-score-modal').classList.add('hidden');
+      const modal = document.getElementById('stout-score-modal');
+      if (modal) {
+        modal.classList.remove('flex');
+        modal.classList.add('hidden');
+      }
     }
 
     // Dublin Experiences & Nightlife Hub Modal
     function openExperiencesModal() {
-      document.getElementById('experiences-modal').classList.remove('hidden');
-      document.getElementById('experiences-modal').classList.add('flex');
+      const modal = document.getElementById('experiences-modal');
+      if (modal) {
+        modal.scrollTop = 0;
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      }
     }
 
     function closeExperiencesModal() {
-      document.getElementById('experiences-modal').classList.remove('flex');
-      document.getElementById('experiences-modal').classList.add('hidden');
+      const modal = document.getElementById('experiences-modal');
+      if (modal) {
+        modal.classList.remove('flex');
+        modal.classList.add('hidden');
+      }
     }
 
     // Dublin Pub Guide & Route FAQ Modal
     function openGuideModal() {
       const modal = document.getElementById('guide-modal');
       if (modal) {
+        modal.scrollTop = 0;
         modal.classList.remove('hidden');
         modal.classList.add('flex');
       }
@@ -7255,24 +7329,24 @@
   </script>
 
   <!-- ACCESSIBLE DUBLIN PUB GUIDE & ROUTE DIRECTORY MODAL (SEO & HUMAN ACCESSIBLE) -->
-  <article id="guide-modal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-sm hidden items-center justify-center p-3 sm:p-4" aria-label="Dublin Pub Crawl Guide & FAQ" onclick="if(event.target === this) closeGuideModal()">
-    <div class="guinness-panel border border-[#d9ac5e]/50 rounded-[4px] max-w-3xl w-full shadow-2xl overflow-hidden flex flex-col max-h-[92vh]">
+  <article id="guide-modal" class="modal-mobile-safe fixed inset-0 z-50 bg-black/85 backdrop-blur-sm hidden items-start sm:items-center justify-center p-2.5 pt-4 sm:p-4 overflow-y-auto" aria-label="Dublin Pub Crawl Guide & FAQ" onclick="if(event.target === this) closeGuideModal()">
+    <div class="guinness-panel border border-[#d9ac5e]/50 rounded-[4px] max-w-3xl w-full shadow-2xl overflow-hidden flex flex-col max-h-[calc(100dvh-32px)] sm:max-h-[92vh]">
       
       <!-- Modal Header -->
-      <div class="p-4 border-b border-[#2a1720] flex items-center justify-between bg-[#0e0609] shrink-0">
-        <div>
+      <div class="p-3.5 sm:p-4 border-b border-[#2a1720] flex items-center justify-between bg-[#0e0609] shrink-0 gap-2">
+        <div class="min-w-0">
           <div class="flex items-center gap-2">
             <span class="px-2 py-0.5 rounded-[2px] text-[9.5px] font-headline font-bold uppercase tracking-wider bg-[#d9ac5e] text-[#0b0407] shadow-sm">
               Dublin Pub Guide &amp; FAQ
             </span>
-            <span class="text-xs text-[#a39890] font-mono">118 Heritage Pubs</span>
+            <span class="text-[11px] sm:text-xs text-[#a39890] font-mono">118 Heritage Pubs</span>
           </div>
-          <h1 class="text-base sm:text-xl font-headline font-bold text-white uppercase tracking-wider mt-1">
+          <h1 class="text-sm sm:text-xl font-headline font-bold text-white uppercase tracking-wider mt-1 truncate sm:whitespace-normal">
             Dublin Pub Crawl Guide &amp; Curated Routes
           </h1>
-          <p class="text-xs text-[#a39890] font-body">Authentic heritage trails, Guinness stout benchmarks, and local pub secrets</p>
+          <p class="text-[11px] sm:text-xs text-[#a39890] font-body truncate sm:whitespace-normal">Authentic heritage trails, Guinness stout benchmarks & secrets</p>
         </div>
-        <button onclick="closeGuideModal()" class="text-[#a39890] hover:text-white text-xl px-2.5 py-1 rounded hover:bg-white/10 transition-colors" title="Close guide">✕</button>
+        <button onclick="closeGuideModal()" class="text-[#a39890] hover:text-white text-xl p-1.5 sm:px-2.5 sm:py-1 rounded hover:bg-white/10 transition-colors shrink-0 cursor-pointer" title="Close guide" aria-label="Close guide modal">✕</button>
       </div>
 
       <!-- Modal Body (Scrollable) -->
