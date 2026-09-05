@@ -1464,6 +1464,9 @@
           <p class="text-xs text-[#a39890] font-body">Browse all 118 curated pubs + user nominations</p>
         </div>
         <div class="flex items-center gap-2">
+          <a href="/pubs/" target="_blank" class="hidden sm:flex px-2.5 py-1.5 bg-[#180d12] hover:bg-[#26131d] text-[#d9ac5e] hover:text-white rounded-[3px] text-xs font-headline font-bold uppercase border border-[#d9ac5e]/40 transition-all items-center gap-1">
+            <span>Full Directory Page ↗</span>
+          </a>
           <button onclick="closeDirectoryModal(); openNominateModal();" class="br-button-primary px-3 py-1.5 text-xs">
             + Nominate New Pub
           </button>
@@ -7117,16 +7120,19 @@
           </div>
           <div class="pt-2 border-t border-[#2a1720] flex items-center justify-between gap-2 text-xs">
             <span class="text-[#d9ac5e] font-headline font-bold text-xs">★ ${pub.guinnessRating}</span>
-            <div class="flex gap-1 font-headline">
-              <button onclick="closeDirectoryModal(); focusPub('${pub.id}')" class="px-2.5 py-1 bg-[#180d12] hover:bg-[#26131d] text-[#c4b9b0] hover:text-white rounded-[2px] text-[11px] font-bold uppercase border border-white/10">
+            <div class="flex gap-1 font-headline items-center">
+              <a href="/pubs/${getPubSlug(pub.name)}/" target="_blank" class="px-2 py-1 bg-[#180d12] hover:bg-[#26131d] text-[#d9ac5e] hover:text-white rounded-[2px] text-[10.5px] font-bold uppercase border border-[#d9ac5e]/30">
+                Guide ↗
+              </a>
+              <button onclick="closeDirectoryModal(); focusPub('${pub.id}')" class="px-2 py-1 bg-[#180d12] hover:bg-[#26131d] text-[#c4b9b0] hover:text-white rounded-[2px] text-[10.5px] font-bold uppercase border border-white/10">
                 Map Pin
               </button>
               ${isInRoute ? `
-                <span class="px-2.5 py-1 bg-[#0b1c12] text-emerald-300 border border-emerald-700/60 rounded-[2px] text-[11px] font-bold uppercase">
+                <span class="px-2 py-1 bg-[#0b1c12] text-emerald-300 border border-emerald-700/60 rounded-[2px] text-[10.5px] font-bold uppercase">
                   In Route ✓
                 </span>
               ` : `
-                <button onclick="addPubDirectly('${pub.id}')" class="br-button-primary px-2.5 py-1 rounded-[2px] text-[11px] font-bold uppercase">
+                <button onclick="addPubDirectly('${pub.id}')" class="br-button-primary px-2 py-1 rounded-[2px] text-[10.5px] font-bold uppercase">
                   + Add
                 </button>
               `}
