@@ -7264,11 +7264,11 @@
           </p>
         </section>
 
-        <!-- Curated Walking Routes Section (with 1-click Load Route buttons) -->
+        <!-- Curated Walking Routes Section (with 1-click Load Route buttons & Landing Page links) -->
         <section class="flex flex-col gap-3">
           <div class="flex items-center justify-between">
             <h2 class="text-sm font-headline font-bold text-[#d9ac5e] uppercase tracking-wider">Curated Dublin Pub Crawl Routes</h2>
-            <span class="text-[11px] text-[#a39890]">1-Click Route Loading</span>
+            <a href="/routes/" class="text-[11px] text-[#d9ac5e] hover:underline font-headline uppercase">Explore All Routes →</a>
           </div>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
             
@@ -7283,10 +7283,15 @@
                   Dublin's definitive historic pub tour featuring Bowes Lounge, The Palace Bar, The Long Hall, Kehoe's, and Mulligan's of Poolbeg Street.
                 </p>
               </div>
-              <button onclick="loadGuideRoute('classic')" class="br-button-primary w-full py-1.5 px-3 text-[11px] flex items-center justify-center gap-1.5 shadow active:scale-98">
-                <span>Load This Route</span>
-                <span>→</span>
-              </button>
+              <div class="flex flex-col gap-1.5">
+                <button onclick="loadGuideRoute('classic')" class="br-button-primary w-full py-1.5 px-3 text-[11px] flex items-center justify-center gap-1.5 shadow active:scale-98">
+                  <span>Load This Route</span>
+                  <span>→</span>
+                </button>
+                <a href="/routes/classic-heritage-crawl/" class="text-[10.5px] text-[#a39890] hover:text-[#d9ac5e] font-headline uppercase text-center transition-colors">
+                  View Full Route Guide &amp; Tips →
+                </a>
+              </div>
             </div>
 
             <!-- Route 2: Traditional Irish Music Trail -->
@@ -7300,10 +7305,15 @@
                   Authentic acoustic trad sessions at The Cobblestone in Smithfield, O'Donoghue's on Merrion Row, and The Piper's Corner on Marlborough Street.
                 </p>
               </div>
-              <button onclick="loadGuideRoute('trad')" class="br-button-primary w-full py-1.5 px-3 text-[11px] flex items-center justify-center gap-1.5 shadow active:scale-98">
-                <span>Load This Route</span>
-                <span>→</span>
-              </button>
+              <div class="flex flex-col gap-1.5">
+                <button onclick="loadGuideRoute('trad')" class="br-button-primary w-full py-1.5 px-3 text-[11px] flex items-center justify-center gap-1.5 shadow active:scale-98">
+                  <span>Load This Route</span>
+                  <span>→</span>
+                </button>
+                <a href="/routes/traditional-irish-music-trail/" class="text-[10.5px] text-[#a39890] hover:text-[#d9ac5e] font-headline uppercase text-center transition-colors">
+                  View Full Route Guide &amp; Tips →
+                </a>
+              </div>
             </div>
 
             <!-- Route 3: Victorian Snug Trail -->
@@ -7317,10 +7327,15 @@
                   Private wooden snugs preserved from the 19th century at Kehoe's, The Stag's Head, Ryan's of Parkgate Street, and Slattery's of Beggar's Bush.
                 </p>
               </div>
-              <button onclick="loadGuideRoute('snugs')" class="br-button-primary w-full py-1.5 px-3 text-[11px] flex items-center justify-center gap-1.5 shadow active:scale-98">
-                <span>Load This Route</span>
-                <span>→</span>
-              </button>
+              <div class="flex flex-col gap-1.5">
+                <button onclick="loadGuideRoute('snugs')" class="br-button-primary w-full py-1.5 px-3 text-[11px] flex items-center justify-center gap-1.5 shadow active:scale-98">
+                  <span>Load This Route</span>
+                  <span>→</span>
+                </button>
+                <a href="/routes/victorian-snug-trail/" class="text-[10.5px] text-[#a39890] hover:text-[#d9ac5e] font-headline uppercase text-center transition-colors">
+                  View Full Route Guide &amp; Tips →
+                </a>
+              </div>
             </div>
 
             <!-- Route 4: Historic Liberties Pub Trail -->
@@ -7334,10 +7349,15 @@
                   Traditional working-class Dublin pubs in the brewing quarter, including John Fallon's 'The Capstan Bar', The Lord Edward, and Arthur's Pub.
                 </p>
               </div>
-              <button onclick="loadGuideRoute('liberties')" class="br-button-primary w-full py-1.5 px-3 text-[11px] flex items-center justify-center gap-1.5 shadow active:scale-98">
-                <span>Load This Route</span>
-                <span>→</span>
-              </button>
+              <div class="flex flex-col gap-1.5">
+                <button onclick="loadGuideRoute('liberties')" class="br-button-primary w-full py-1.5 px-3 text-[11px] flex items-center justify-center gap-1.5 shadow active:scale-98">
+                  <span>Load This Route</span>
+                  <span>→</span>
+                </button>
+                <a href="/routes/historic-liberties-trail/" class="text-[10.5px] text-[#a39890] hover:text-[#d9ac5e] font-headline uppercase text-center transition-colors">
+                  View Full Route Guide &amp; Tips →
+                </a>
+              </div>
             </div>
 
             <!-- Route 5: Literary Dublin Pub Crawl -->
@@ -7351,10 +7371,15 @@
                   Drinking dens frequented by James Joyce, Brendan Behan, and Flann O'Brien, including Davy Byrnes, The Palace Bar, and Neary's.
                 </p>
               </div>
-              <button onclick="loadGuideRoute('literary')" class="br-button-primary w-full py-1.5 px-3 text-[11px] flex items-center justify-center gap-1.5 shadow active:scale-98">
-                <span>Load This Route</span>
-                <span>→</span>
-              </button>
+              <div class="flex flex-col gap-1.5">
+                <button onclick="loadGuideRoute('literary')" class="br-button-primary w-full py-1.5 px-3 text-[11px] flex items-center justify-center gap-1.5 shadow active:scale-98">
+                  <span>Load This Route</span>
+                  <span>→</span>
+                </button>
+                <a href="/routes/literary-dublin-pub-crawl/" class="text-[10.5px] text-[#a39890] hover:text-[#d9ac5e] font-headline uppercase text-center transition-colors">
+                  View Full Route Guide &amp; Tips →
+                </a>
+              </div>
             </div>
 
             <!-- Route 6: Walk to Guinness Storehouse -->
@@ -7368,10 +7393,15 @@
                   Historic walk from Christchurch through the heart of the Liberties directly to St. James's Gate and the Guinness Storehouse.
                 </p>
               </div>
-              <button onclick="loadGuideRoute('walk_to_guinness')" class="br-button-primary w-full py-1.5 px-3 text-[11px] flex items-center justify-center gap-1.5 shadow active:scale-98">
-                <span>Load This Route</span>
-                <span>→</span>
-              </button>
+              <div class="flex flex-col gap-1.5">
+                <button onclick="loadGuideRoute('walk_to_guinness')" class="br-button-primary w-full py-1.5 px-3 text-[11px] flex items-center justify-center gap-1.5 shadow active:scale-98">
+                  <span>Load This Route</span>
+                  <span>→</span>
+                </button>
+                <a href="/routes/walk-to-guinness/" class="text-[10.5px] text-[#a39890] hover:text-[#d9ac5e] font-headline uppercase text-center transition-colors">
+                  View Full Route Guide &amp; Tips →
+                </a>
+              </div>
             </div>
 
           </div>

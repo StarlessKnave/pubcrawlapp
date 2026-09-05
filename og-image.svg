@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0a0704"/>
+      <stop offset="50%" stop-color="#181007"/>
+      <stop offset="100%" stop-color="#050302"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#fff2b2"/>
+      <stop offset="50%" stop-color="#ffd700"/>
+      <stop offset="100%" stop-color="#c59b27"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Vintage Gold Border -->
+  <rect x="18" y="18" width="1164" height="594" rx="18" fill="none" stroke="#d4af37" stroke-width="5"/>
+  <rect x="28" y="28" width="1144" height="574" rx="14" fill="none" stroke="#4d3816" stroke-width="1.5"/>
+
+  <!-- Header & Brand -->
+  <text x="600" y="72" fill="#d4af37" font-size="20" font-weight="bold" font-family="system-ui, -apple-system, sans-serif" text-anchor="middle" letter-spacing="3">DUBLIN PUB CRAWL GENERATOR</text>
+  <text x="600" y="128" fill="url(#gold)" font-size="44" font-weight="900" font-family="system-ui, -apple-system, sans-serif" text-anchor="middle">57 Historic Heritage Pubs · Walking Routes</text>
+
+  <!-- Left Column: Top Pub Stops -->
+  <!-- Stop 1 -->
+  <rect x="60" y="160" width="520" height="76" rx="14" fill="#140d07" stroke="#33220f" stroke-width="1.5"/>
+  <circle cx="105" cy="198" r="20" fill="#d4af37"/>
+  <text x="105" y="205" fill="#000" font-size="18" font-weight="900" font-family="system-ui, sans-serif" text-anchor="middle">1</text>
+  <text x="140" y="190" fill="#ffd700" font-size="20" font-weight="bold" font-family="system-ui, sans-serif">The Cobblestone</text>
+  <text x="140" y="215" fill="#cfbeac" font-size="14" font-family="system-ui, sans-serif">Traditional Live Music · Smithfield</text>
+
+  <!-- Stop 2 -->
+  <rect x="60" y="248" width="520" height="76" rx="14" fill="#140d07" stroke="#33220f" stroke-width="1.5"/>
+  <circle cx="105" cy="286" r="20" fill="#d4af37"/>
+  <text x="105" y="293" fill="#000" font-size="18" font-weight="900" font-family="system-ui, sans-serif" text-anchor="middle">2</text>
+  <text x="140" y="278" fill="#ffd700" font-size="20" font-weight="bold" font-family="system-ui, sans-serif">The Brazen Head</text>
+  <text x="140" y="303" fill="#cfbeac" font-size="14" font-family="system-ui, sans-serif">Dublin's Oldest Pub (1198) · Bridge St</text>
+
+  <!-- Stop 3 -->
+  <rect x="60" y="336" width="520" height="76" rx="14" fill="#140d07" stroke="#33220f" stroke-width="1.5"/>
+  <circle cx="105" cy="374" r="20" fill="#d4af37"/>
+  <text x="105" y="381" fill="#000" font-size="18" font-weight="900" font-family="system-ui, sans-serif" text-anchor="middle">3</text>
+  <text x="140" y="366" fill="#ffd700" font-size="20" font-weight="bold" font-family="system-ui, sans-serif">The Long Hall</text>
+  <text x="140" y="391" fill="#cfbeac" font-size="14" font-family="system-ui, sans-serif">Victorian Snug &amp; Polished Brass · South City</text>
+
+  <!-- Right Column: Top Pub Stops -->
+  <!-- Stop 4 -->
+  <rect x="620" y="160" width="520" height="76" rx="14" fill="#140d07" stroke="#33220f" stroke-width="1.5"/>
+  <circle cx="665" cy="198" r="20" fill="#d4af37"/>
+  <text x="665" y="205" fill="#000" font-size="18" font-weight="900" font-family="system-ui, sans-serif" text-anchor="middle">4</text>
+  <text x="700" y="190" fill="#ffd700" font-size="20" font-weight="bold" font-family="system-ui, sans-serif">Mulligan's</text>
+  <text x="700" y="215" fill="#cfbeac" font-size="14" font-family="system-ui, sans-serif">Historic Creamy Pint of Plain · Poolbeg St</text>
+
+  <!-- Stop 5 -->
+  <rect x="620" y="248" width="520" height="76" rx="14" fill="#140d07" stroke="#33220f" stroke-width="1.5"/>
+  <circle cx="665" cy="286" r="20" fill="#d4af37"/>
+  <text x="665" y="293" fill="#000" font-size="18" font-weight="900" font-family="system-ui, sans-serif" text-anchor="middle">5</text>
+  <text x="700" y="278" fill="#ffd700" font-size="20" font-weight="bold" font-family="system-ui, sans-serif">The Palace Bar</text>
+  <text x="700" y="303" fill="#cfbeac" font-size="14" font-family="system-ui, sans-serif">Literary Heritage &amp; Fine Whiskey · Fleet St</text>
+
+  <!-- Stop 6 / Feature Card -->
+  <rect x="620" y="336" width="520" height="76" rx="14" fill="#1e140a" stroke="#c59b27" stroke-width="1.5"/>
+  <circle cx="665" cy="374" r="20" fill="#34d399"/>
+  <text x="665" y="381" fill="#000" font-size="16" font-weight="900" font-family="system-ui, sans-serif" text-anchor="middle">★</text>
+  <text x="700" y="366" fill="#ffffff" font-size="20" font-weight="bold" font-family="system-ui, sans-serif">52 More Curated Heritage Pubs</text>
+  <text x="700" y="391" fill="#ffd700" font-size="14" font-family="system-ui, sans-serif">Customized 3, 5, 7, 10 Pub Crawl Loops</text>
+
+  <!-- Metrics Bar -->
+  <rect x="60" y="432" width="1080" height="68" rx="16" fill="#100a05" stroke="#3d2a13" stroke-width="1.5"/>
+  <text x="600" y="474" fill="#f5ebd9" font-size="20" font-weight="bold" font-family="system-ui, sans-serif" text-anchor="middle">🍺 Guinness Stout Ratings  ·  🚶 Shortest Walk 2-Opt Optimizer  ·  🧭 1-Tap Google Maps Route</text>
+
+  <!-- Footer Watermark -->
+  <text x="600" y="555" fill="#d4af37" font-size="28" font-weight="bold" font-family="system-ui, sans-serif" text-anchor="middle">dublinpubcrawl.app ☘️</text>
+</svg>
