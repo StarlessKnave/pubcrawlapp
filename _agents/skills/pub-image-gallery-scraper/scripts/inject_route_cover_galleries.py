@@ -303,7 +303,7 @@ def inject_into_route_subpages(route_stops_by_slug, route_covers_by_slug):
             stop_strip = f"""            <!-- Stop {s_num} 5-Photo Gallery Strip -->
             <div id="route-stop-gallery-{s_num}" data-idx="0" data-photos='{s_json}' class="mb-3.5 rounded-lg overflow-hidden border border-[#2a1720] bg-[#0a0406] relative group/stopgal">
               <img id="route-stop-img-{s_num}" src="{sp0}" alt="{stop['name']} photo" class="w-full h-44 sm:h-52 object-cover transition-all duration-300" loading="lazy" />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/20 pointer-events-none"></div>
+              <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-black/15 pointer-events-none"></div>
               <button type="button" onclick="stepRouteStopPhoto({s_num}, -1)" aria-label="Previous stop photo"
                       class="absolute left-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-[#0a0406]/85 hover:bg-[#d9ac5e] text-[#f5ead8] hover:text-[#0a0406] border border-[#d9ac5e]/50 flex items-center justify-center font-bold text-base transition-all shadow-md z-10">
                 &#8249;
@@ -312,8 +312,7 @@ def inject_into_route_subpages(route_stops_by_slug, route_covers_by_slug):
                       class="absolute right-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-[#0a0406]/85 hover:bg-[#d9ac5e] text-[#f5ead8] hover:text-[#0a0406] border border-[#d9ac5e]/50 flex items-center justify-center font-bold text-base transition-all shadow-md z-10">
                 &#8250;
               </button>
-              <div class="absolute bottom-2 left-2.5 right-2.5 flex items-center justify-between gap-2">
-                <span id="route-stop-caption-{s_num}" class="text-[11px] text-[#ede5d8] font-medium truncate">{sc0}</span>
+              <div class="absolute bottom-2 right-2.5 flex items-center justify-end">
                 <span id="route-stop-counter-{s_num}" class="px-2 py-0.5 rounded bg-black/80 border border-[#d9ac5e]/40 text-[10px] font-mono text-[#d9ac5e] font-bold shrink-0">1 / {len(s_photos)}</span>
               </div>
             </div>"""

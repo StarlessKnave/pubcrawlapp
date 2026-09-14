@@ -36,11 +36,11 @@ def build_five_gbp_photos(pub_id, pub_name):
     while len(photos) < 5 and photos:
         photos.append(photos[-1])
     return [
-        {"url": photos[0], "caption": f"{pub_name} · Google Business Profile Photo #1"},
-        {"url": photos[1], "caption": f"{pub_name} · Google Business Profile Photo #2"},
-        {"url": photos[2], "caption": f"{pub_name} · Google Business Profile Photo #3"},
-        {"url": photos[3], "caption": f"{pub_name} · Google Business Profile Photo #4"},
-        {"url": photos[4], "caption": f"{pub_name} · Google Business Profile Photo #5"},
+        {"url": photos[0], "caption": pub_name},
+        {"url": photos[1], "caption": pub_name},
+        {"url": photos[2], "caption": pub_name},
+        {"url": photos[3], "caption": pub_name},
+        {"url": photos[4], "caption": pub_name},
     ]
 
 
@@ -78,10 +78,10 @@ def inject_into_index_html():
           <div class="relative h-48 sm:h-64 w-full bg-[#0a0406] group">
             <img id="pin-gallery-img-${pub.id}"
                  src="${(pub.gallery && pub.gallery[0]) ? pub.gallery[0].url : ''}"
-                 alt="${pub.name} Google Business Profile Photo"
+                 alt="${pub.name} Photo"
                  onclick="openPubGalleryLightbox('${pub.id}', window['currentPinPhotoIdx_' + '${pub.id}'] || 0)"
                  class="w-full h-full object-cover cursor-pointer transition-opacity duration-200" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/20 pointer-events-none"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-black/15 pointer-events-none"></div>
             <!-- Left & Right Side Scrolling Arrows -->
             <button type="button"
                     onclick="event.stopPropagation(); stepPinGalleryPhoto('${pub.id}', -1)"
@@ -95,11 +95,8 @@ def inject_into_index_html():
                     class="absolute right-2 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-[#0a0406]/85 hover:bg-[#d9ac5e] text-[#f5ead8] hover:text-[#0a0406] border border-[#d9ac5e]/50 flex items-center justify-center font-bold text-lg transition-all shadow-md z-10">
               &#8250;
             </button>
-            <!-- Bottom Caption & Photo Counter Badge -->
-            <div class="absolute bottom-2 left-2.5 right-2.5 flex items-center justify-between gap-2">
-              <span id="pin-gallery-caption-${pub.id}" class="text-[11px] text-[#ede5d8] font-medium truncate">
-                ${(pub.gallery && pub.gallery[0]) ? pub.gallery[0].caption : pub.name}
-              </span>
+            <!-- Bottom Photo Counter Badge -->
+            <div class="absolute bottom-2 right-2.5 flex items-center justify-end">
               <span id="pin-gallery-counter-${pub.id}" class="px-2.5 py-0.5 rounded bg-black/80 border border-[#d9ac5e]/40 text-[10.5px] font-mono text-[#d9ac5e] font-bold shrink-0">
                 1 / 5
               </span>
@@ -149,8 +146,8 @@ def inject_into_pub_directory(gallery_by_id):
         photos_json = json.dumps([p0, p1, p2, p3, p4]).replace("'", "&#39;")
         new_strip = f"""          <!-- Directory Card 5-Photo Gallery Strip -->
           <div id="dir-card-gallery-{slug}" data-idx="0" data-photos='{photos_json}' class="dir-card-gallery mb-3 rounded-lg overflow-hidden border border-[#2a1720] bg-[#0a0406] relative group/gal">
-            <img id="dir-gal-img-{slug}" src="{p0}" alt="{slug} Google Business Profile photo" class="w-full h-36 object-cover transition-all duration-300" loading="lazy" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20 pointer-events-none"></div>
+            <img id="dir-gal-img-{slug}" src="{p0}" alt="{slug} photo" class="w-full h-36 object-cover transition-all duration-300" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-black/15 pointer-events-none"></div>
             <button type="button" onclick="stepDirCardPhoto('{slug}', -1)" aria-label="Previous photo"
                     class="absolute left-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-[#0a0406]/85 hover:bg-[#d9ac5e] text-[#f5ead8] hover:text-[#0a0406] border border-[#d9ac5e]/50 flex items-center justify-center font-bold text-base transition-all shadow-md z-10">
               &#8249;
@@ -159,8 +156,7 @@ def inject_into_pub_directory(gallery_by_id):
                     class="absolute right-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-[#0a0406]/85 hover:bg-[#d9ac5e] text-[#f5ead8] hover:text-[#0a0406] border border-[#d9ac5e]/50 flex items-center justify-center font-bold text-base transition-all shadow-md z-10">
               &#8250;
             </button>
-            <div class="absolute bottom-2 left-2 right-2 flex items-center justify-between">
-              <span class="text-[10px] text-[#ede5d8] font-medium">Google Business Profile</span>
+            <div class="absolute bottom-2 right-2 flex items-center justify-end">
               <span id="dir-gal-counter-{slug}" class="px-2 py-0.5 rounded bg-black/75 border border-[#d9ac5e]/30 text-[10px] font-mono text-[#d9ac5e] font-bold">1 / 5</span>
             </div>
           </div>"""
@@ -208,40 +204,34 @@ def inject_into_pub_subpages(gallery_by_id):
         gbp = gal["gbpUrl"]
 
         subpage_gallery_html = f"""
-    <!-- Pub Subpage Photo Gallery & Google Business Profile Section -->
+    <!-- Pub Subpage Photo Gallery Section -->
     <section id="pub-photo-gallery" class="mt-8 mb-6 guinness-panel p-6 sm:p-8 rounded-xl">
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-5">
         <div>
           <h2 class="text-xl sm:text-2xl font-headline font-bold text-white uppercase tracking-wide">
-            5-Photo Gallery &amp; <span class="text-[#d9ac5e]">Google Business Profile</span>
+            5-Photo <span class="text-[#d9ac5e]">Gallery</span>
           </h2>
-          <p class="text-xs text-[#cfbeac] mt-0.5">5 Verified Photos Pulled Directly from Google Maps Business Profile &amp; Street View</p>
         </div>
       </div>
       <!-- Top Row: 2 Feature Photos -->
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
         <div class="rounded-lg overflow-hidden border border-[#2a1720] bg-[#0a0406] group">
           <img src="{p0}" alt="{c0}" class="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
-          <div class="p-2.5 text-[11px] text-[#ede5d8] font-medium border-t border-[#2a1720]">{c0}</div>
         </div>
         <div class="rounded-lg overflow-hidden border border-[#2a1720] bg-[#0a0406] group">
           <img src="{p1}" alt="{c1}" class="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
-          <div class="p-2.5 text-[11px] text-[#ede5d8] font-medium border-t border-[#2a1720]">{c1}</div>
         </div>
       </div>
       <!-- Bottom Row: 3 Additional Verified Photos -->
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <div class="rounded-lg overflow-hidden border border-[#2a1720] bg-[#0a0406] group">
           <img src="{p2}" alt="{c2}" class="w-full h-44 object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
-          <div class="p-2.5 text-[11px] text-[#ede5d8] font-medium border-t border-[#2a1720]">{c2}</div>
         </div>
         <div class="rounded-lg overflow-hidden border border-[#2a1720] bg-[#0a0406] group">
           <img src="{p3}" alt="{c3}" class="w-full h-44 object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
-          <div class="p-2.5 text-[11px] text-[#ede5d8] font-medium border-t border-[#2a1720]">{c3}</div>
         </div>
         <div class="rounded-lg overflow-hidden border border-[#2a1720] bg-[#0a0406] group">
           <img src="{p4}" alt="{c4}" class="w-full h-44 object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
-          <div class="p-2.5 text-[11px] text-[#ede5d8] font-medium border-t border-[#2a1720]">{c4}</div>
         </div>
       </div>
     </section>
