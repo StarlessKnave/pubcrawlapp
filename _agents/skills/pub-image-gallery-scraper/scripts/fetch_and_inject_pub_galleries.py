@@ -82,23 +82,32 @@ def inject_into_index_html():
                  onclick="openPubGalleryLightbox('${pub.id}', window['currentPinPhotoIdx_' + '${pub.id}'] || 0)"
                  class="w-full h-full object-cover cursor-pointer transition-opacity duration-200" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/30 pointer-events-none"></div>
+            <!-- Left & Right Side Scrolling Arrows -->
+            <button type="button"
+                    onclick="event.stopPropagation(); stepPinGalleryPhoto('${pub.id}', -1)"
+                    aria-label="Previous photo"
+                    class="absolute left-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-[#0a0406]/85 hover:bg-[#d9ac5e] text-[#f5ead8] hover:text-[#0a0406] border border-[#d9ac5e]/50 flex items-center justify-center font-bold text-base transition-all shadow-md z-10">
+              &#8249;
+            </button>
+            <button type="button"
+                    onclick="event.stopPropagation(); stepPinGalleryPhoto('${pub.id}', 1)"
+                    aria-label="Next photo"
+                    class="absolute right-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-[#0a0406]/85 hover:bg-[#d9ac5e] text-[#f5ead8] hover:text-[#0a0406] border border-[#d9ac5e]/50 flex items-center justify-center font-bold text-base transition-all shadow-md z-10">
+              &#8250;
+            </button>
             <!-- Top Badge: Google Business Profile Photos Link -->
             <a href="${pub.gbpUrl || '#'}" target="_blank" rel="noopener"
                class="absolute top-1.5 right-1.5 px-2 py-0.5 rounded bg-[#0a0406]/90 hover:bg-[#d9ac5e] text-[#d9ac5e] hover:text-[#0a0406] border border-[#d9ac5e]/50 text-[9.5px] font-headline font-bold uppercase tracking-wider transition-all flex items-center gap-1 shadow">
               <span>📸 Google Photos (5) ↗</span>
             </a>
-            <!-- Bottom Caption & 5-Photo Switcher Pills -->
+            <!-- Bottom Caption & Photo Counter Badge -->
             <div class="absolute bottom-1.5 left-2 right-2 flex items-center justify-between gap-1.5">
               <span id="pin-gallery-caption-${pub.id}" class="text-[10px] text-[#ede5d8] font-medium truncate">
                 ${(pub.gallery && pub.gallery[0]) ? pub.gallery[0].caption : pub.name}
               </span>
-              <div class="flex items-center gap-1 shrink-0">
-                <button type="button" onclick="switchPinGalleryPhoto('${pub.id}', 0)" id="pin-tab-${pub.id}-0" class="w-5 h-5 rounded-full bg-[#d9ac5e] text-[#0a0406] font-bold text-[10px] flex items-center justify-center">1</button>
-                <button type="button" onclick="switchPinGalleryPhoto('${pub.id}', 1)" id="pin-tab-${pub.id}-1" class="w-5 h-5 rounded-full bg-black/70 text-[#ede5d8] border border-white/20 font-bold text-[10px] flex items-center justify-center">2</button>
-                <button type="button" onclick="switchPinGalleryPhoto('${pub.id}', 2)" id="pin-tab-${pub.id}-2" class="w-5 h-5 rounded-full bg-black/70 text-[#ede5d8] border border-white/20 font-bold text-[10px] flex items-center justify-center">3</button>
-                <button type="button" onclick="switchPinGalleryPhoto('${pub.id}', 3)" id="pin-tab-${pub.id}-3" class="w-5 h-5 rounded-full bg-black/70 text-[#ede5d8] border border-white/20 font-bold text-[10px] flex items-center justify-center">4</button>
-                <button type="button" onclick="switchPinGalleryPhoto('${pub.id}', 4)" id="pin-tab-${pub.id}-4" class="w-5 h-5 rounded-full bg-black/70 text-[#ede5d8] border border-white/20 font-bold text-[10px] flex items-center justify-center">5</button>
-              </div>
+              <span id="pin-gallery-counter-${pub.id}" class="px-2 py-0.5 rounded bg-black/75 border border-[#d9ac5e]/30 text-[10px] font-mono text-[#d9ac5e] font-bold shrink-0">
+                1 / 5
+              </span>
             </div>
           </div>
         </div>
@@ -142,28 +151,31 @@ def inject_into_pub_directory(gallery_by_id):
         p4 = gal["photos"][4]["url"]
         gbp = gal["gbpUrl"]
 
+        photos_json = json.dumps([p0, p1, p2, p3, p4]).replace("'", "&#39;")
         new_strip = f"""          <!-- Directory Card 5-Photo Gallery Strip -->
-          <div class="dir-card-gallery mb-3 rounded-lg overflow-hidden border border-[#2a1720] bg-[#0a0406] relative group/gal">
+          <div id="dir-card-gallery-{slug}" data-idx="0" data-photos='{photos_json}' class="dir-card-gallery mb-3 rounded-lg overflow-hidden border border-[#2a1720] bg-[#0a0406] relative group/gal">
             <img id="dir-gal-img-{slug}" src="{p0}" alt="{slug} Google Business Profile photo" class="w-full h-36 object-cover transition-all duration-300" loading="lazy" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30 pointer-events-none"></div>
+            <button type="button" onclick="stepDirCardPhoto('{slug}', -1)" aria-label="Previous photo"
+                    class="absolute left-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-[#0a0406]/85 hover:bg-[#d9ac5e] text-[#f5ead8] hover:text-[#0a0406] border border-[#d9ac5e]/50 flex items-center justify-center font-bold text-base transition-all shadow-md z-10">
+              &#8249;
+            </button>
+            <button type="button" onclick="stepDirCardPhoto('{slug}', 1)" aria-label="Next photo"
+                    class="absolute right-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-[#0a0406]/85 hover:bg-[#d9ac5e] text-[#f5ead8] hover:text-[#0a0406] border border-[#d9ac5e]/50 flex items-center justify-center font-bold text-base transition-all shadow-md z-10">
+              &#8250;
+            </button>
             <a href="{gbp}" target="_blank" rel="noopener"
                class="absolute top-2 right-2 px-2 py-0.5 rounded bg-[#0a0406]/85 hover:bg-[#d9ac5e] text-[#d9ac5e] hover:text-[#0a0406] border border-[#d9ac5e]/50 text-[10px] font-headline font-bold uppercase tracking-wider transition-all">
               📸 Google Photos (5) ↗
             </a>
             <div class="absolute bottom-2 left-2 right-2 flex items-center justify-between">
               <span class="text-[10px] text-[#ede5d8] font-medium">Google Business Profile</span>
-              <div class="flex items-center gap-1">
-                <button type="button" onclick="switchDirCardPhoto('{slug}', '{p0}', this)" class="dir-gal-btn w-5 h-5 rounded-full bg-[#d9ac5e] text-[#0a0406] font-bold text-[10px] flex items-center justify-center">1</button>
-                <button type="button" onclick="switchDirCardPhoto('{slug}', '{p1}', this)" class="dir-gal-btn w-5 h-5 rounded-full bg-black/75 text-[#ede5d8] border border-white/20 font-bold text-[10px] flex items-center justify-center">2</button>
-                <button type="button" onclick="switchDirCardPhoto('{slug}', '{p2}', this)" class="dir-gal-btn w-5 h-5 rounded-full bg-black/75 text-[#ede5d8] border border-white/20 font-bold text-[10px] flex items-center justify-center">3</button>
-                <button type="button" onclick="switchDirCardPhoto('{slug}', '{p3}', this)" class="dir-gal-btn w-5 h-5 rounded-full bg-black/75 text-[#ede5d8] border border-white/20 font-bold text-[10px] flex items-center justify-center">4</button>
-                <button type="button" onclick="switchDirCardPhoto('{slug}', '{p4}', this)" class="dir-gal-btn w-5 h-5 rounded-full bg-black/75 text-[#ede5d8] border border-white/20 font-bold text-[10px] flex items-center justify-center">5</button>
-              </div>
+              <span id="dir-gal-counter-{slug}" class="px-2 py-0.5 rounded bg-black/75 border border-[#d9ac5e]/30 text-[10px] font-mono text-[#d9ac5e] font-bold">1 / 5</span>
             </div>
           </div>"""
 
         card_html = re.sub(
-            r"<!-- Directory Card [35]-Photo Gallery Strip -->.*?</div>\s*</div>\s*</div>",
+            r"<!-- Directory Card [35]-Photo Gallery Strip -->.*?(?=\s*<div class=\"flex items-start justify-between gap-2 mb-2\">)",
             new_strip,
             card_html,
             flags=re.DOTALL,
