@@ -780,12 +780,17 @@
 
     <!-- Header Actions (Guinness Storehouse Navigation Style - Equal Width, No-Swipe Grid on Mobile) -->
     <div class="flex items-center gap-1 sm:gap-1.5 text-xs shrink-0 justify-end">
-      <!-- 1. THE PUBS BUTTON -->
-      <button onclick="openDirectoryModal()" class="h-8 w-[58px] sm:w-auto px-1 sm:px-3 md:px-3.5 bg-[#12070b] hover:bg-[#1f0d14] text-[#d9ac5e] hover:text-white font-headline font-bold rounded-[3px] border border-[#d9ac5e]/50 hover:border-[#d9ac5e] transition-all flex items-center justify-center shadow active:scale-95 whitespace-nowrap leading-none shrink-0" title="View pub directory">
+      <!-- 1. THE PUBS BUTTON (Direct link to /pubs/ directory page) -->
+      <a href="/pubs/" class="h-8 w-[58px] sm:w-auto px-1 sm:px-3 md:px-3.5 bg-[#12070b] hover:bg-[#1f0d14] text-[#d9ac5e] hover:text-white font-headline font-bold rounded-[3px] border border-[#d9ac5e]/50 hover:border-[#d9ac5e] transition-all flex items-center justify-center shadow active:scale-95 whitespace-nowrap leading-none shrink-0" title="View all 118 pubs in the Pub Directory">
         <span class="text-[10.5px] sm:text-xs"><span class="hidden sm:inline">The </span>Pubs</span>
-      </button>
+      </a>
 
-      <!-- 2. STOUT SCORE BUTTON -->
+      <!-- 2. ROUTES BUTTON (Direct link to /routes/ directory page) -->
+      <a href="/routes/" class="h-8 w-[58px] sm:w-auto px-1 sm:px-3 md:px-3.5 bg-[#12070b] hover:bg-[#1f0d14] text-[#d9ac5e] hover:text-white font-headline font-bold rounded-[3px] border border-[#d9ac5e]/50 hover:border-[#d9ac5e] transition-all flex items-center justify-center shadow active:scale-95 whitespace-nowrap leading-none shrink-0" title="View all 15 curated crawl routes">
+        <span class="text-[10.5px] sm:text-xs">Routes</span>
+      </a>
+
+      <!-- 3. STOUT SCORE BUTTON -->
       <button onclick="openStoutScoreModal()" class="h-8 w-[58px] sm:w-auto px-1 sm:px-3 md:px-3.5 bg-[#12070b] hover:bg-[#1f0d14] text-[#d9ac5e] hover:text-white font-headline font-bold rounded-[3px] border border-[#d9ac5e]/50 hover:border-[#d9ac5e] transition-all flex items-center justify-center shadow active:scale-95 whitespace-nowrap leading-none shrink-0" title="View stout scores">
         <span class="text-[10.5px] sm:text-xs"><span class="hidden sm:inline">Stout </span>Score</span>
       </button>
@@ -9824,14 +9829,9 @@
       });
     }
 
-    // Directory Modal
+    // Directory Modal -> Redirect straight to /pubs/ directory page
     function openDirectoryModal() {
-      const modal = document.getElementById('directory-modal');
-      if (modal) {
-        modal.scrollTop = 0;
-        modal.classList.remove('hidden');
-        modal.classList.add('flex');
-      }
+      window.location.href = '/pubs/';
     }
 
     function closeDirectoryModal() {
