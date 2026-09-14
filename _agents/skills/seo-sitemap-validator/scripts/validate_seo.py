@@ -76,6 +76,13 @@ def validate_repo(repo_dir: str) -> int:
                     errors.append(f"[{rel_path}] Unbalanced <{tag}> tags: {opens} opens vs {closes} closes.")
             if "modal-mobile-safe" not in content:
                 errors.append(f"[{rel_path}] Missing '.modal-mobile-safe' mobile modal safety class.")
+            # Ensure no modal-mobile-safe element has both 'hidden' and 'flex' simultaneously (which breaks .modal-mobile-safe.flex { display: flex !important })
+            for m_tag in re.findall(r'<[^>]+class=["\'][^"\']*modal-mobile-safe[^"\']*["\'][^>]*>', content):
+                cls_attr = re.search(r'class=["\']([^"\']+)["\']', m_tag)
+                if cls_attr:
+                    classes = cls_attr.group(1).split()
+                    if "hidden" in classes and "flex" in classes:
+                        errors.append(f"[{rel_path}] Modal has both 'hidden' and 'flex' in initial classes (blocks screen on load!): {m_tag[:90]}...")
 
     print(f"=== SEO & Sitemap Validation Summary ===")
     print(f"HTML files scanned : {len(html_files)}")

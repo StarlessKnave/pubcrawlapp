@@ -8260,9 +8260,9 @@
           <button onclick="closePubDetailPopup()" class="text-[#a39890] hover:text-white text-sm px-1">✕</button>
         </div>
 
-                <!-- Pub Pin Menu Photo Gallery Carousel -->
-        <div class="mb-3 rounded-lg overflow-hidden border border-[#d9ac5e]/30 bg-[#12070b]">
-          <div class="relative h-36 sm:h-40 w-full bg-[#0a0406] group">
+        <!-- START_PIN_GALLERY -->
+        <div class="mb-2.5 rounded-lg overflow-hidden border border-[#d9ac5e]/30 bg-[#12070b]">
+          <div class="relative h-24 sm:h-32 w-full bg-[#0a0406] group">
             <img id="pin-gallery-img-${pub.id}"
                  src="${(pub.gallery && pub.gallery[0]) ? pub.gallery[0].url : ''}"
                  alt="${pub.name} Photo"
@@ -8271,18 +8271,18 @@
             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30 pointer-events-none"></div>
             <!-- Top Badge: Google Business Profile Photos Link -->
             <a href="${pub.gbpUrl || '#'}" target="_blank" rel="noopener"
-               class="absolute top-2 right-2 px-2 py-1 rounded bg-[#0a0406]/85 hover:bg-[#d9ac5e] text-[#d9ac5e] hover:text-[#0a0406] border border-[#d9ac5e]/50 text-[10px] font-headline font-bold uppercase tracking-wider transition-all flex items-center gap-1 shadow">
-              <span>📸 Google Business Photos ↗</span>
+               class="absolute top-1.5 right-1.5 px-2 py-0.5 rounded bg-[#0a0406]/90 hover:bg-[#d9ac5e] text-[#d9ac5e] hover:text-[#0a0406] border border-[#d9ac5e]/50 text-[9.5px] font-headline font-bold uppercase tracking-wider transition-all flex items-center gap-1 shadow">
+              <span>📸 Google Photos ↗</span>
             </a>
             <!-- Bottom Caption & Photo Switcher Pills -->
-            <div class="absolute bottom-2 left-2 right-2 flex items-center justify-between gap-2">
+            <div class="absolute bottom-1.5 left-2 right-2 flex items-center justify-between gap-1.5">
               <span id="pin-gallery-caption-${pub.id}" class="text-[10px] text-[#ede5d8] font-medium truncate">
                 ${(pub.gallery && pub.gallery[0]) ? pub.gallery[0].caption : pub.name}
               </span>
               <div class="flex items-center gap-1 shrink-0">
-                <button onclick="switchPinGalleryPhoto('${pub.id}', 0)" id="pin-tab-${pub.id}-0" class="w-5 h-5 rounded-full bg-[#d9ac5e] text-[#0a0406] font-bold text-[10px] flex items-center justify-center">1</button>
-                <button onclick="switchPinGalleryPhoto('${pub.id}', 1)" id="pin-tab-${pub.id}-1" class="w-5 h-5 rounded-full bg-black/70 text-[#ede5d8] border border-white/20 font-bold text-[10px] flex items-center justify-center">2</button>
-                <button onclick="switchPinGalleryPhoto('${pub.id}', 2)" id="pin-tab-${pub.id}-2" class="w-5 h-5 rounded-full bg-black/70 text-[#ede5d8] border border-white/20 font-bold text-[10px] flex items-center justify-center">3</button>
+                <button type="button" onclick="switchPinGalleryPhoto('${pub.id}', 0)" id="pin-tab-${pub.id}-0" class="w-5 h-5 rounded-full bg-[#d9ac5e] text-[#0a0406] font-bold text-[10px] flex items-center justify-center">1</button>
+                <button type="button" onclick="switchPinGalleryPhoto('${pub.id}', 1)" id="pin-tab-${pub.id}-1" class="w-5 h-5 rounded-full bg-black/70 text-[#ede5d8] border border-white/20 font-bold text-[10px] flex items-center justify-center">2</button>
+                <button type="button" onclick="switchPinGalleryPhoto('${pub.id}', 2)" id="pin-tab-${pub.id}-2" class="w-5 h-5 rounded-full bg-black/70 text-[#ede5d8] border border-white/20 font-bold text-[10px] flex items-center justify-center">3</button>
               </div>
             </div>
           </div>
@@ -8389,11 +8389,15 @@
       if (cap) cap.textContent = item.caption;
       if (gbpLink) gbpLink.href = pub.gbpUrl || '#';
       modal.classList.remove('hidden');
+      modal.classList.add('flex');
     }
 
     function closePubGalleryLightbox() {
       const modal = document.getElementById('pub-gallery-lightbox-modal');
-      if (modal) modal.classList.add('hidden');
+      if (modal) {
+        modal.classList.remove('flex');
+        modal.classList.add('hidden');
+      }
     }
 
     function openSinglePubInGoogleMaps(pubId) {
@@ -9521,21 +9525,22 @@
     </div>
   </article>
 
+  <!-- START_LIGHTBOX_MODAL -->
   <!-- Pub Gallery Fullscreen Lightbox Modal (.modal-mobile-safe) -->
-  <div id="pub-gallery-lightbox-modal" class="fixed inset-0 z-[9999] hidden bg-black/90 backdrop-blur-md flex items-start sm:items-center justify-center p-4 overflow-y-auto modal-mobile-safe">
-    <div class="relative max-w-3xl w-full guinness-panel rounded-xl p-4 sm:p-6 border border-[#d9ac5e]/50 my-auto">
+  <div id="pub-gallery-lightbox-modal" class="modal-mobile-safe fixed inset-0 z-50 bg-black/85 backdrop-blur-sm hidden items-start sm:items-center justify-center p-2.5 pt-4 sm:p-4 overflow-y-auto" onclick="if(event.target === this) closePubGalleryLightbox()">
+    <div class="relative max-w-2xl w-full guinness-panel rounded-xl p-4 sm:p-6 border border-[#d9ac5e]/50 my-auto shadow-2xl">
       <div class="flex items-center justify-between mb-3">
-        <span id="lightbox-main-caption" class="font-headline font-bold text-sm sm:text-base text-[#d9ac5e] uppercase tracking-wider">Pub Gallery</span>
-        <button onclick="closePubGalleryLightbox()" class="min-w-[44px] min-h-[44px] rounded-lg bg-[#180d12] text-[#ede5d8] hover:text-[#d9ac5e] border border-[#2a1720] flex items-center justify-center font-bold text-lg">✕</button>
+        <span id="lightbox-main-caption" class="font-headline font-bold text-sm sm:text-base text-[#d9ac5e] uppercase tracking-wider truncate pr-2">Pub Gallery</span>
+        <button type="button" onclick="closePubGalleryLightbox()" class="min-w-[44px] min-h-[44px] rounded-lg bg-[#180d12] text-[#ede5d8] hover:text-[#d9ac5e] border border-[#2a1720] flex items-center justify-center font-bold text-lg shrink-0">✕</button>
       </div>
-      <div class="rounded-lg overflow-hidden bg-[#0a0406] border border-[#2a1720] max-h-[65vh] flex items-center justify-center">
-        <img id="lightbox-main-img" src="" alt="Pub Fullscreen Photo" class="w-full h-auto max-h-[65vh] object-contain" />
+      <div class="rounded-lg overflow-hidden bg-[#0a0406] border border-[#2a1720] max-h-[60vh] flex items-center justify-center">
+        <img id="lightbox-main-img" src="" alt="Pub Fullscreen Photo" class="w-full h-auto max-h-[60vh] object-contain" />
       </div>
       <div class="mt-4 flex flex-wrap items-center justify-between gap-3">
         <a id="lightbox-gbp-link" href="#" target="_blank" rel="noopener" class="br-button-primary px-4 py-2.5 text-xs flex items-center gap-1.5">
           <span>📸 View All Google Business Profile Photos ↗</span>
         </a>
-        <button onclick="closePubGalleryLightbox()" class="br-button-secondary px-4 py-2.5 text-xs">Close Gallery</button>
+        <button type="button" onclick="closePubGalleryLightbox()" class="br-button-secondary px-4 py-2.5 text-xs">Close Gallery</button>
       </div>
     </div>
   </div>
