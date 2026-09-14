@@ -282,6 +282,23 @@
 
     <!-- Hero Header -->
     <div class="guinness-panel p-6 sm:p-8 rounded-[4px] mb-8 border border-[#2a1720]">
+            <!-- Route Hero 5-Photo Cover Banner -->
+      <div id="route-hero-gallery" data-idx="0" data-photos='[{"url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWncObDBZ_5_RNPtbYQVMYf11ngfYhybI-b6SKCmm6ZAV7kyIOGBAw0Tzdfv1mYgivaThUOhEce5L7s5LQgXTZgmfTKdkIZMKmnqwZ4t5aP8nw6PH5tFIdlaEreDaXlWzCUhZ7FxQQ=w800-h600-k-no", "caption": "Stop 1: The Lord Edward"}, {"url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmShmVNppIXePpYgYa4RT0do5ZwJYkOWSh5DyQNNA_UWl4GNj3I-nENZmiSVRa1Shzy8Bi_o90WkYVQ_valn-0VYdr_WxRmLvSN34fg2OTGP2bp0QL3VgIx5PSHom2X_qTjb3wM0bHCGoTf=w800-h600-k-no", "caption": "Stop 2: Dudley&#39;s"}, {"url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWn7VTaYmPBd18M5Kj155uqkpuTk9Thpm_isDGp5RlUdPBVrI8ayWCYYPIbP9a0nqEY6xPdzKoHreir0DJ1HodLu17dCdLZ5QLiw1BI1OaAJi9SJl6zPs8HzAJYPhTJWMB9mXCNxzg=w800-h600-k-no", "caption": "Stop 3: Arthur&#39;s Pub"}, {"url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmmqSgT-Unr9iFrkD9LTrKZjSVARZdnibhL8uE7doDRTIH_hMmMO4JoFP1cNOOSL1oaSK7gshKBfzhNidQ6je4-FJh1r2HLVDPeU6ZzPRMfC7Tv-FAqvmUnKsyFSSa5Qkt5-zA=w800-h600-k-no", "caption": "Stop 4: John Fallon&#39;s \"The Capstan Bar\""}, {"url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlZeThiozkIe3Bn9sw0zv8MqBO0CN_VLgD0p0T134D4HNSzO_NHKydgPX-JeClvkbIPvKsdefCmygu5fTydkaXJUHl_p2kKfLDnx7mCIeLt2eT5V2bU-p9X1wfx2jsTzjBYXOn3bg=w800-h600-k-no", "caption": "Stop 5: Tom Kennedy&#39;s Bar"}]' class="mb-5 rounded-lg overflow-hidden border border-[#d9ac5e]/40 bg-[#0a0406] relative group/routehero">
+        <img id="route-hero-img" src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWncObDBZ_5_RNPtbYQVMYf11ngfYhybI-b6SKCmm6ZAV7kyIOGBAw0Tzdfv1mYgivaThUOhEce5L7s5LQgXTZgmfTKdkIZMKmnqwZ4t5aP8nw6PH5tFIdlaEreDaXlWzCUhZ7FxQQ=w800-h600-k-no" alt="walk-to-guinness featured pub stop photo" class="w-full h-52 sm:h-64 object-cover transition-all duration-300" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/20 pointer-events-none"></div>
+        <button type="button" onclick="stepRouteHeroPhoto(-1)" aria-label="Previous route stop photo"
+                class="absolute left-2 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-[#0a0406]/85 hover:bg-[#d9ac5e] text-[#f5ead8] hover:text-[#0a0406] border border-[#d9ac5e]/50 flex items-center justify-center font-bold text-lg transition-all shadow-md z-10">
+          &#8249;
+        </button>
+        <button type="button" onclick="stepRouteHeroPhoto(1)" aria-label="Next route stop photo"
+                class="absolute right-2 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-[#0a0406]/85 hover:bg-[#d9ac5e] text-[#f5ead8] hover:text-[#0a0406] border border-[#d9ac5e]/50 flex items-center justify-center font-bold text-lg transition-all shadow-md z-10">
+          &#8250;
+        </button>
+        <div class="absolute bottom-2.5 left-3 right-3 flex items-center justify-between gap-2">
+          <span id="route-hero-caption" class="text-xs sm:text-sm text-[#ede5d8] font-medium truncate">Stop 1: The Lord Edward</span>
+          <span id="route-hero-counter" class="px-2.5 py-0.5 rounded bg-black/80 border border-[#d9ac5e]/40 text-xs font-mono text-[#d9ac5e] font-bold shrink-0">1 / 5</span>
+        </div>
+      </div>
       <div class="flex flex-wrap items-center gap-2 mb-2">
         <span class="px-2 py-0.5 rounded-[2px] bg-[#d9ac5e] text-[#0a0406] font-headline font-bold text-xs uppercase">
           5 Historic Stops
@@ -341,6 +358,23 @@
           </div>
           
           <div class="p-4 sm:p-5 rounded-[4px] bg-[#12070b] border border-[#2a1720] hover:border-[#d9ac5e]/50 transition-all shadow-md">
+                        <!-- Stop 1 5-Photo Gallery Strip -->
+            <div id="route-stop-gallery-1" data-idx="0" data-photos='[{"url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWncObDBZ_5_RNPtbYQVMYf11ngfYhybI-b6SKCmm6ZAV7kyIOGBAw0Tzdfv1mYgivaThUOhEce5L7s5LQgXTZgmfTKdkIZMKmnqwZ4t5aP8nw6PH5tFIdlaEreDaXlWzCUhZ7FxQQ=w800-h600-k-no", "caption": "The Lord Edward Photo 1"}, {"url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWl5ovO924mtYe3PD8Vut6Z__eDFmZkWIqpITZx9f6xeUG176tnI7AKo1ZOK0YaJOuKgLkTM9kGY8EG8LC0awDBkt09FBnev5B0K2K1KasFnoRY9amsYcvDR5tla-rX0HYU-acMWRld9Osq8=w800-h600-k-no", "caption": "The Lord Edward Photo 2"}, {"url": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=RNL4n5u8onH4Auv0Uu9XAw&cb_client=search.gws-prod.gps&w=800&h=600&yaw=263.69&pitch=0&thumbfov=90", "caption": "The Lord Edward Photo 3"}, {"url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWncObDBZ_5_RNPtbYQVMYf11ngfYhybI-b6SKCmm6ZAV7kyIOGBAw0Tzdfv1mYgivaThUOhEce5L7s5LQgXTZgmfTKdkIZMKmnqwZ4t5aP8nw6PH5tFIdlaEreDaXlWzCUhZ7FxQQ=w900-h600-p-k-no", "caption": "The Lord Edward Photo 4"}, {"url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWl5ovO924mtYe3PD8Vut6Z__eDFmZkWIqpITZx9f6xeUG176tnI7AKo1ZOK0YaJOuKgLkTM9kGY8EG8LC0awDBkt09FBnev5B0K2K1KasFnoRY9amsYcvDR5tla-rX0HYU-acMWRld9Osq8=w850-h650-k-no", "caption": "The Lord Edward Photo 5"}]' class="mb-3.5 rounded-lg overflow-hidden border border-[#2a1720] bg-[#0a0406] relative group/stopgal">
+              <img id="route-stop-img-1" src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWncObDBZ_5_RNPtbYQVMYf11ngfYhybI-b6SKCmm6ZAV7kyIOGBAw0Tzdfv1mYgivaThUOhEce5L7s5LQgXTZgmfTKdkIZMKmnqwZ4t5aP8nw6PH5tFIdlaEreDaXlWzCUhZ7FxQQ=w800-h600-k-no" alt="The Lord Edward photo" class="w-full h-44 sm:h-52 object-cover transition-all duration-300" loading="lazy" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/20 pointer-events-none"></div>
+              <button type="button" onclick="stepRouteStopPhoto(1, -1)" aria-label="Previous stop photo"
+                      class="absolute left-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-[#0a0406]/85 hover:bg-[#d9ac5e] text-[#f5ead8] hover:text-[#0a0406] border border-[#d9ac5e]/50 flex items-center justify-center font-bold text-base transition-all shadow-md z-10">
+                &#8249;
+              </button>
+              <button type="button" onclick="stepRouteStopPhoto(1, 1)" aria-label="Next stop photo"
+                      class="absolute right-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-[#0a0406]/85 hover:bg-[#d9ac5e] text-[#f5ead8] hover:text-[#0a0406] border border-[#d9ac5e]/50 flex items-center justify-center font-bold text-base transition-all shadow-md z-10">
+                &#8250;
+              </button>
+              <div class="absolute bottom-2 left-2.5 right-2.5 flex items-center justify-between gap-2">
+                <span id="route-stop-caption-1" class="text-[11px] text-[#ede5d8] font-medium truncate">The Lord Edward Photo 1</span>
+                <span id="route-stop-counter-1" class="px-2 py-0.5 rounded bg-black/80 border border-[#d9ac5e]/40 text-[10px] font-mono text-[#d9ac5e] font-bold shrink-0">1 / 5</span>
+              </div>
+            </div>
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
               <div>
                 <span class="text-[10px] text-[#d9ac5e] font-headline font-bold uppercase tracking-wider">The Liberties / Christchurch</span>
@@ -376,6 +410,23 @@
           </div>
           
           <div class="p-4 sm:p-5 rounded-[4px] bg-[#12070b] border border-[#2a1720] hover:border-[#d9ac5e]/50 transition-all shadow-md">
+                        <!-- Stop 2 5-Photo Gallery Strip -->
+            <div id="route-stop-gallery-2" data-idx="0" data-photos='[{"url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmShmVNppIXePpYgYa4RT0do5ZwJYkOWSh5DyQNNA_UWl4GNj3I-nENZmiSVRa1Shzy8Bi_o90WkYVQ_valn-0VYdr_WxRmLvSN34fg2OTGP2bp0QL3VgIx5PSHom2X_qTjb3wM0bHCGoTf=w800-h600-k-no", "caption": "Dudley&#39;s Photo 1"}, {"url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlprBg3ODpFaGpqsU35_90QSlaHqJgidwHpcHNHHffZm20fng2OYPyvaQcyOBH6yHQVfJrIKaBd1OQeMEGnssL_SVkOU_Xp0eQriefMLJhmzttvvkkeMFSybg86t4uYDJ6q5Ug4eg2hUoI=w800-h600-k-no", "caption": "Dudley&#39;s Photo 2"}, {"url": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=i9622rwLWj4-27tiWdtfiw&cb_client=search.gws-prod.gps&w=800&h=600&yaw=172.42&pitch=0&thumbfov=90", "caption": "Dudley&#39;s Photo 3"}, {"url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmShmVNppIXePpYgYa4RT0do5ZwJYkOWSh5DyQNNA_UWl4GNj3I-nENZmiSVRa1Shzy8Bi_o90WkYVQ_valn-0VYdr_WxRmLvSN34fg2OTGP2bp0QL3VgIx5PSHom2X_qTjb3wM0bHCGoTf=w900-h600-p-k-no", "caption": "Dudley&#39;s Photo 4"}, {"url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlprBg3ODpFaGpqsU35_90QSlaHqJgidwHpcHNHHffZm20fng2OYPyvaQcyOBH6yHQVfJrIKaBd1OQeMEGnssL_SVkOU_Xp0eQriefMLJhmzttvvkkeMFSybg86t4uYDJ6q5Ug4eg2hUoI=w850-h650-k-no", "caption": "Dudley&#39;s Photo 5"}]' class="mb-3.5 rounded-lg overflow-hidden border border-[#2a1720] bg-[#0a0406] relative group/stopgal">
+              <img id="route-stop-img-2" src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmShmVNppIXePpYgYa4RT0do5ZwJYkOWSh5DyQNNA_UWl4GNj3I-nENZmiSVRa1Shzy8Bi_o90WkYVQ_valn-0VYdr_WxRmLvSN34fg2OTGP2bp0QL3VgIx5PSHom2X_qTjb3wM0bHCGoTf=w800-h600-k-no" alt="Dudley's photo" class="w-full h-44 sm:h-52 object-cover transition-all duration-300" loading="lazy" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/20 pointer-events-none"></div>
+              <button type="button" onclick="stepRouteStopPhoto(2, -1)" aria-label="Previous stop photo"
+                      class="absolute left-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-[#0a0406]/85 hover:bg-[#d9ac5e] text-[#f5ead8] hover:text-[#0a0406] border border-[#d9ac5e]/50 flex items-center justify-center font-bold text-base transition-all shadow-md z-10">
+                &#8249;
+              </button>
+              <button type="button" onclick="stepRouteStopPhoto(2, 1)" aria-label="Next stop photo"
+                      class="absolute right-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-[#0a0406]/85 hover:bg-[#d9ac5e] text-[#f5ead8] hover:text-[#0a0406] border border-[#d9ac5e]/50 flex items-center justify-center font-bold text-base transition-all shadow-md z-10">
+                &#8250;
+              </button>
+              <div class="absolute bottom-2 left-2.5 right-2.5 flex items-center justify-between gap-2">
+                <span id="route-stop-caption-2" class="text-[11px] text-[#ede5d8] font-medium truncate">Dudley's Photo 1</span>
+                <span id="route-stop-counter-2" class="px-2 py-0.5 rounded bg-black/80 border border-[#d9ac5e]/40 text-[10px] font-mono text-[#d9ac5e] font-bold shrink-0">1 / 5</span>
+              </div>
+            </div>
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
               <div>
                 <span class="text-[10px] text-[#d9ac5e] font-headline font-bold uppercase tracking-wider">The Liberties / Christchurch</span>
@@ -411,6 +462,23 @@
           </div>
           
           <div class="p-4 sm:p-5 rounded-[4px] bg-[#12070b] border border-[#2a1720] hover:border-[#d9ac5e]/50 transition-all shadow-md">
+                        <!-- Stop 3 5-Photo Gallery Strip -->
+            <div id="route-stop-gallery-3" data-idx="0" data-photos='[{"url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWn7VTaYmPBd18M5Kj155uqkpuTk9Thpm_isDGp5RlUdPBVrI8ayWCYYPIbP9a0nqEY6xPdzKoHreir0DJ1HodLu17dCdLZ5QLiw1BI1OaAJi9SJl6zPs8HzAJYPhTJWMB9mXCNxzg=w800-h600-k-no", "caption": "Arthur&#39;s Pub Photo 1"}, {"url": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=MqqbRa0qUBmgzWZKRXGaVw&cb_client=search.gws-prod.gps&w=800&h=600&yaw=198.74&pitch=0&thumbfov=90", "caption": "Arthur&#39;s Pub Photo 2"}, {"url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWn7VTaYmPBd18M5Kj155uqkpuTk9Thpm_isDGp5RlUdPBVrI8ayWCYYPIbP9a0nqEY6xPdzKoHreir0DJ1HodLu17dCdLZ5QLiw1BI1OaAJi9SJl6zPs8HzAJYPhTJWMB9mXCNxzg=w900-h600-p-k-no", "caption": "Arthur&#39;s Pub Photo 3"}, {"url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWn7VTaYmPBd18M5Kj155uqkpuTk9Thpm_isDGp5RlUdPBVrI8ayWCYYPIbP9a0nqEY6xPdzKoHreir0DJ1HodLu17dCdLZ5QLiw1BI1OaAJi9SJl6zPs8HzAJYPhTJWMB9mXCNxzg=w850-h650-k-no", "caption": "Arthur&#39;s Pub Photo 4"}, {"url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWn7VTaYmPBd18M5Kj155uqkpuTk9Thpm_isDGp5RlUdPBVrI8ayWCYYPIbP9a0nqEY6xPdzKoHreir0DJ1HodLu17dCdLZ5QLiw1BI1OaAJi9SJl6zPs8HzAJYPhTJWMB9mXCNxzg=w950-h600-k-no", "caption": "Arthur&#39;s Pub Photo 5"}]' class="mb-3.5 rounded-lg overflow-hidden border border-[#2a1720] bg-[#0a0406] relative group/stopgal">
+              <img id="route-stop-img-3" src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWn7VTaYmPBd18M5Kj155uqkpuTk9Thpm_isDGp5RlUdPBVrI8ayWCYYPIbP9a0nqEY6xPdzKoHreir0DJ1HodLu17dCdLZ5QLiw1BI1OaAJi9SJl6zPs8HzAJYPhTJWMB9mXCNxzg=w800-h600-k-no" alt="Arthur's Pub photo" class="w-full h-44 sm:h-52 object-cover transition-all duration-300" loading="lazy" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/20 pointer-events-none"></div>
+              <button type="button" onclick="stepRouteStopPhoto(3, -1)" aria-label="Previous stop photo"
+                      class="absolute left-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-[#0a0406]/85 hover:bg-[#d9ac5e] text-[#f5ead8] hover:text-[#0a0406] border border-[#d9ac5e]/50 flex items-center justify-center font-bold text-base transition-all shadow-md z-10">
+                &#8249;
+              </button>
+              <button type="button" onclick="stepRouteStopPhoto(3, 1)" aria-label="Next stop photo"
+                      class="absolute right-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-[#0a0406]/85 hover:bg-[#d9ac5e] text-[#f5ead8] hover:text-[#0a0406] border border-[#d9ac5e]/50 flex items-center justify-center font-bold text-base transition-all shadow-md z-10">
+                &#8250;
+              </button>
+              <div class="absolute bottom-2 left-2.5 right-2.5 flex items-center justify-between gap-2">
+                <span id="route-stop-caption-3" class="text-[11px] text-[#ede5d8] font-medium truncate">Arthur's Pub Photo 1</span>
+                <span id="route-stop-counter-3" class="px-2 py-0.5 rounded bg-black/80 border border-[#d9ac5e]/40 text-[10px] font-mono text-[#d9ac5e] font-bold shrink-0">1 / 5</span>
+              </div>
+            </div>
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
               <div>
                 <span class="text-[10px] text-[#d9ac5e] font-headline font-bold uppercase tracking-wider">The Liberties / Christchurch</span>
@@ -446,6 +514,23 @@
           </div>
           
           <div class="p-4 sm:p-5 rounded-[4px] bg-[#12070b] border border-[#2a1720] hover:border-[#d9ac5e]/50 transition-all shadow-md">
+                        <!-- Stop 4 5-Photo Gallery Strip -->
+            <div id="route-stop-gallery-4" data-idx="0" data-photos='[{"url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmmqSgT-Unr9iFrkD9LTrKZjSVARZdnibhL8uE7doDRTIH_hMmMO4JoFP1cNOOSL1oaSK7gshKBfzhNidQ6je4-FJh1r2HLVDPeU6ZzPRMfC7Tv-FAqvmUnKsyFSSa5Qkt5-zA=w800-h600-k-no", "caption": "John Fallon&#39;s \"The Capstan Bar\" Photo 1"}, {"url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlOKq6P6DTNwaOyrIku6HUHOs9XtigJ-kuksZflamreOwBrYwaeCWZVFd4IEqmtH_zPdWyuuztvIU0fFnda36yZErwsPEf3i3HR9i7dzbz17RB3CizwmRrf-FIe_LOdJGw4vwjN=w800-h600-k-no", "caption": "John Fallon&#39;s \"The Capstan Bar\" Photo 2"}, {"url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmNwG9OHO8qlGEAsbocbq0UJhzCDM3Rskelc-Mu-qHxKZ22Cjb5JdOIfD0xE4namgx4li38Jnesfp-Q7IF37_x-NAp9o5H3Tp_ITCIKsCk72A2jEYQSBAVAvOScUCB4JUTYoooVRrGpj9k2=w800-h600-k-no", "caption": "John Fallon&#39;s \"The Capstan Bar\" Photo 3"}, {"url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkVWhoZFDP2wAKyRoD3uKs9bv8Hfg57Vld9bdYWcFmcBjuL4JeZbEvf9ab1ZCF1sv99EVPyeIciEqNQzc5P4q_eruA3SMxMRFvjQ05Ig_buykpgn8CXWIAUu8K4metf50-IGv_hWg=w800-h600-k-no", "caption": "John Fallon&#39;s \"The Capstan Bar\" Photo 4"}, {"url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmmqSgT-Unr9iFrkD9LTrKZjSVARZdnibhL8uE7doDRTIH_hMmMO4JoFP1cNOOSL1oaSK7gshKBfzhNidQ6je4-FJh1r2HLVDPeU6ZzPRMfC7Tv-FAqvmUnKsyFSSa5Qkt5-zA=w900-h600-p-k-no", "caption": "John Fallon&#39;s \"The Capstan Bar\" Photo 5"}]' class="mb-3.5 rounded-lg overflow-hidden border border-[#2a1720] bg-[#0a0406] relative group/stopgal">
+              <img id="route-stop-img-4" src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmmqSgT-Unr9iFrkD9LTrKZjSVARZdnibhL8uE7doDRTIH_hMmMO4JoFP1cNOOSL1oaSK7gshKBfzhNidQ6je4-FJh1r2HLVDPeU6ZzPRMfC7Tv-FAqvmUnKsyFSSa5Qkt5-zA=w800-h600-k-no" alt="John Fallon's "The Capstan Bar" photo" class="w-full h-44 sm:h-52 object-cover transition-all duration-300" loading="lazy" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/20 pointer-events-none"></div>
+              <button type="button" onclick="stepRouteStopPhoto(4, -1)" aria-label="Previous stop photo"
+                      class="absolute left-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-[#0a0406]/85 hover:bg-[#d9ac5e] text-[#f5ead8] hover:text-[#0a0406] border border-[#d9ac5e]/50 flex items-center justify-center font-bold text-base transition-all shadow-md z-10">
+                &#8249;
+              </button>
+              <button type="button" onclick="stepRouteStopPhoto(4, 1)" aria-label="Next stop photo"
+                      class="absolute right-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-[#0a0406]/85 hover:bg-[#d9ac5e] text-[#f5ead8] hover:text-[#0a0406] border border-[#d9ac5e]/50 flex items-center justify-center font-bold text-base transition-all shadow-md z-10">
+                &#8250;
+              </button>
+              <div class="absolute bottom-2 left-2.5 right-2.5 flex items-center justify-between gap-2">
+                <span id="route-stop-caption-4" class="text-[11px] text-[#ede5d8] font-medium truncate">John Fallon's "The Capstan Bar" Photo 1</span>
+                <span id="route-stop-counter-4" class="px-2 py-0.5 rounded bg-black/80 border border-[#d9ac5e]/40 text-[10px] font-mono text-[#d9ac5e] font-bold shrink-0">1 / 5</span>
+              </div>
+            </div>
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
               <div>
                 <span class="text-[10px] text-[#d9ac5e] font-headline font-bold uppercase tracking-wider">The Liberties / Christchurch</span>
@@ -481,6 +566,23 @@
           </div>
           
           <div class="p-4 sm:p-5 rounded-[4px] bg-[#12070b] border border-[#2a1720] hover:border-[#d9ac5e]/50 transition-all shadow-md">
+                        <!-- Stop 5 5-Photo Gallery Strip -->
+            <div id="route-stop-gallery-5" data-idx="0" data-photos='[{"url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlZeThiozkIe3Bn9sw0zv8MqBO0CN_VLgD0p0T134D4HNSzO_NHKydgPX-JeClvkbIPvKsdefCmygu5fTydkaXJUHl_p2kKfLDnx7mCIeLt2eT5V2bU-p9X1wfx2jsTzjBYXOn3bg=w800-h600-k-no", "caption": "Tom Kennedy&#39;s Bar Photo 1"}, {"url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlZeThiozkIe3Bn9sw0zv8MqBO0CN_VLgD0p0T134D4HNSzO_NHKydgPX-JeClvkbIPvKsdefCmygu5fTydkaXJUHl_p2kKfLDnx7mCIeLt2eT5V2bU-p9X1wfx2jsTzjBYXOn3bg=w900-h600-p-k-no", "caption": "Tom Kennedy&#39;s Bar Photo 2"}, {"url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlZeThiozkIe3Bn9sw0zv8MqBO0CN_VLgD0p0T134D4HNSzO_NHKydgPX-JeClvkbIPvKsdefCmygu5fTydkaXJUHl_p2kKfLDnx7mCIeLt2eT5V2bU-p9X1wfx2jsTzjBYXOn3bg=w850-h650-k-no", "caption": "Tom Kennedy&#39;s Bar Photo 3"}, {"url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlZeThiozkIe3Bn9sw0zv8MqBO0CN_VLgD0p0T134D4HNSzO_NHKydgPX-JeClvkbIPvKsdefCmygu5fTydkaXJUHl_p2kKfLDnx7mCIeLt2eT5V2bU-p9X1wfx2jsTzjBYXOn3bg=w950-h600-k-no", "caption": "Tom Kennedy&#39;s Bar Photo 4"}, {"url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlZeThiozkIe3Bn9sw0zv8MqBO0CN_VLgD0p0T134D4HNSzO_NHKydgPX-JeClvkbIPvKsdefCmygu5fTydkaXJUHl_p2kKfLDnx7mCIeLt2eT5V2bU-p9X1wfx2jsTzjBYXOn3bg=w800-h550-p-k-no", "caption": "Tom Kennedy&#39;s Bar Photo 5"}]' class="mb-3.5 rounded-lg overflow-hidden border border-[#2a1720] bg-[#0a0406] relative group/stopgal">
+              <img id="route-stop-img-5" src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlZeThiozkIe3Bn9sw0zv8MqBO0CN_VLgD0p0T134D4HNSzO_NHKydgPX-JeClvkbIPvKsdefCmygu5fTydkaXJUHl_p2kKfLDnx7mCIeLt2eT5V2bU-p9X1wfx2jsTzjBYXOn3bg=w800-h600-k-no" alt="Tom Kennedy's Bar photo" class="w-full h-44 sm:h-52 object-cover transition-all duration-300" loading="lazy" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/20 pointer-events-none"></div>
+              <button type="button" onclick="stepRouteStopPhoto(5, -1)" aria-label="Previous stop photo"
+                      class="absolute left-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-[#0a0406]/85 hover:bg-[#d9ac5e] text-[#f5ead8] hover:text-[#0a0406] border border-[#d9ac5e]/50 flex items-center justify-center font-bold text-base transition-all shadow-md z-10">
+                &#8249;
+              </button>
+              <button type="button" onclick="stepRouteStopPhoto(5, 1)" aria-label="Next stop photo"
+                      class="absolute right-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-[#0a0406]/85 hover:bg-[#d9ac5e] text-[#f5ead8] hover:text-[#0a0406] border border-[#d9ac5e]/50 flex items-center justify-center font-bold text-base transition-all shadow-md z-10">
+                &#8250;
+              </button>
+              <div class="absolute bottom-2 left-2.5 right-2.5 flex items-center justify-between gap-2">
+                <span id="route-stop-caption-5" class="text-[11px] text-[#ede5d8] font-medium truncate">Tom Kennedy's Bar Photo 1</span>
+                <span id="route-stop-counter-5" class="px-2 py-0.5 rounded bg-black/80 border border-[#d9ac5e]/40 text-[10px] font-mono text-[#d9ac5e] font-bold shrink-0">1 / 5</span>
+              </div>
+            </div>
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
               <div>
                 <span class="text-[10px] text-[#d9ac5e] font-headline font-bold uppercase tracking-wider">The Liberties / Christchurch</span>
@@ -616,5 +718,48 @@
     </div>
   </footer>
 
+  <script>
+    function stepRouteHeroPhoto(delta) {
+      const galEl = document.getElementById('route-hero-gallery');
+      if (!galEl) return;
+      let photos = [];
+      try {
+        photos = JSON.parse(galEl.getAttribute('data-photos') || '[]');
+      } catch (e) {
+        return;
+      }
+      if (!photos.length) return;
+      let idx = parseInt(galEl.getAttribute('data-idx') || '0', 10);
+      idx = (idx + delta + photos.length) % photos.length;
+      galEl.setAttribute('data-idx', String(idx));
+      const img = document.getElementById('route-hero-img');
+      if (img) img.src = photos[idx].url;
+      const cap = document.getElementById('route-hero-caption');
+      if (cap) cap.textContent = photos[idx].caption;
+      const counter = document.getElementById('route-hero-counter');
+      if (counter) counter.textContent = (idx + 1) + ' / ' + photos.length;
+    }
+
+    function stepRouteStopPhoto(stopNum, delta) {
+      const galEl = document.getElementById('route-stop-gallery-' + stopNum);
+      if (!galEl) return;
+      let photos = [];
+      try {
+        photos = JSON.parse(galEl.getAttribute('data-photos') || '[]');
+      } catch (e) {
+        return;
+      }
+      if (!photos.length) return;
+      let idx = parseInt(galEl.getAttribute('data-idx') || '0', 10);
+      idx = (idx + delta + photos.length) % photos.length;
+      galEl.setAttribute('data-idx', String(idx));
+      const img = document.getElementById('route-stop-img-' + stopNum);
+      if (img) img.src = photos[idx].url;
+      const cap = document.getElementById('route-stop-caption-' + stopNum);
+      if (cap) cap.textContent = photos[idx].caption;
+      const counter = document.getElementById('route-stop-counter-' + stopNum);
+      if (counter) counter.textContent = (idx + 1) + ' / ' + photos.length;
+    }
+  </script>
 </body>
 </html>

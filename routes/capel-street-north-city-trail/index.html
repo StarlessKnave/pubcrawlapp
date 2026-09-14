@@ -296,6 +296,23 @@
 
     <!-- Hero Header -->
     <div class="guinness-panel p-6 sm:p-8 rounded-[4px] mb-8 border border-[#2a1720]">
+            <!-- Route Hero 5-Photo Cover Banner -->
+      <div id="route-hero-gallery" data-idx="0" data-photos='[{"url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkAntrUt6s8-ZDTLm8asSLk2rSMVgOwbr-M2PGLryOMn6SBOP7FN5Fkk0yiPp9QX3BcHndQOusZ9F_RDCjwH6D431waU3h73X5O639gJ3CUwQfMua4yh4CRPhZ6K9XsqPeGcuXn=w800-h600-k-no", "caption": "Stop 1: Jack Nealons"}, {"url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmmi4DA1EEOPnaK_99nHaupk2LuW_Oz8_xEoD6-NsVJYvvKhKmFm9VIcVS0NZZ-OL1vXpUeN0IgJEfuTI5mHCJx3CjeD5pYN-WXHGD_AiPikf6VB0lilJqdaBHjHahgwDJp7i3RAA=w800-h600-k-no", "caption": "Stop 2: The Boar&#39;s Head"}, {"url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnsxCcKVoxjdxHP0R9290MaANC5zq3hCki4Nd2SHg_gFrzKgmX4Q6ByTpzZxraus2ouTwQUxgEPHUvex3obCdtc05X3pzpCVbcazpAqR-tUAuHKyu4UHL3xJ0UtndpJOl6x5P3A=w800-h600-k-no", "caption": "Stop 3: McNeill&#39;s Pub"}, {"url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnz6UFZjP8iQNXI9vImELaZvbQZLU1Jw1d8Aq8W9D7hPmys03hQnok4FW9oDttttRAD3vvA_oWTNxXad15FeGd2FlmHJu_W1dY6-GFXx18-pBYFEWW_GCiQ5-o5L1cntHw6yDs=w800-h600-k-no", "caption": "Stop 4: Underdog"}, {"url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlof8dYNOvMxgJzCYSAMoCUNmXLJ__0tTsGS8j6TiTSZlccpwhxMy43bwbdTBWuZZfoZ7idXpluMXCXmKBbqHhcWy-BRBd2Jt56W3bsKYPaDi52zBrsTZZBlDRX1Tl1WOXiYv6j=w800-h600-k-no", "caption": "Stop 5: The Celt"}]' class="mb-5 rounded-lg overflow-hidden border border-[#d9ac5e]/40 bg-[#0a0406] relative group/routehero">
+        <img id="route-hero-img" src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkAntrUt6s8-ZDTLm8asSLk2rSMVgOwbr-M2PGLryOMn6SBOP7FN5Fkk0yiPp9QX3BcHndQOusZ9F_RDCjwH6D431waU3h73X5O639gJ3CUwQfMua4yh4CRPhZ6K9XsqPeGcuXn=w800-h600-k-no" alt="capel-street-north-city-trail featured pub stop photo" class="w-full h-52 sm:h-64 object-cover transition-all duration-300" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/20 pointer-events-none"></div>
+        <button type="button" onclick="stepRouteHeroPhoto(-1)" aria-label="Previous route stop photo"
+                class="absolute left-2 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-[#0a0406]/85 hover:bg-[#d9ac5e] text-[#f5ead8] hover:text-[#0a0406] border border-[#d9ac5e]/50 flex items-center justify-center font-bold text-lg transition-all shadow-md z-10">
+          &#8249;
+        </button>
+        <button type="button" onclick="stepRouteHeroPhoto(1)" aria-label="Next route stop photo"
+                class="absolute right-2 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-[#0a0406]/85 hover:bg-[#d9ac5e] text-[#f5ead8] hover:text-[#0a0406] border border-[#d9ac5e]/50 flex items-center justify-center font-bold text-lg transition-all shadow-md z-10">
+          &#8250;
+        </button>
+        <div class="absolute bottom-2.5 left-3 right-3 flex items-center justify-between gap-2">
+          <span id="route-hero-caption" class="text-xs sm:text-sm text-[#ede5d8] font-medium truncate">Stop 1: Jack Nealons</span>
+          <span id="route-hero-counter" class="px-2.5 py-0.5 rounded bg-black/80 border border-[#d9ac5e]/40 text-xs font-mono text-[#d9ac5e] font-bold shrink-0">1 / 5</span>
+        </div>
+      </div>
       <div class="flex flex-wrap items-center gap-2 mb-2">
         <span class="px-2 py-0.5 rounded-[2px] bg-[#d9ac5e] text-[#0a0406] font-headline font-bold text-xs uppercase">
           6 Historic Stops
@@ -355,6 +372,23 @@
           </div>
           
           <div class="p-4 sm:p-5 rounded-[4px] bg-[#12070b] border border-[#2a1720] hover:border-[#d9ac5e]/50 transition-all shadow-md">
+                        <!-- Stop 1 5-Photo Gallery Strip -->
+            <div id="route-stop-gallery-1" data-idx="0" data-photos='[{"url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkAntrUt6s8-ZDTLm8asSLk2rSMVgOwbr-M2PGLryOMn6SBOP7FN5Fkk0yiPp9QX3BcHndQOusZ9F_RDCjwH6D431waU3h73X5O639gJ3CUwQfMua4yh4CRPhZ6K9XsqPeGcuXn=w800-h600-k-no", "caption": "Jack Nealons Photo 1"}, {"url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlNTtedKiY9G_kIeBrIaZ0rnjMw9eXyPfqMfI7arB4SQ9agc0YwpBQn-K_h1yZtySIIBSIzaKsf-0KOTgZIWdJzy4JeiBtNYlPwK9eUZ4MBuCIdoeHdZDCCaumbLqdn184PzlaidQ=w800-h600-k-no", "caption": "Jack Nealons Photo 2"}, {"url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkz6ODsfQEZgxvbLgrQX2Svbv5pkHyL_tPeiQbAzNZIJ3-UzS5rzMhjVu2TZy7SoJ5vF2ZvgC9JwMBo_HGgNd7ex6_JwTI6CLHN1F-u7r3COhu3haRvIni0dmVa24sYOu5DiBt7ew=w800-h600-k-no", "caption": "Jack Nealons Photo 3"}, {"url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkzdA6b9oFOEg1JShYu-xhRljoCc49rP7NT4yYwmD1nI-JQpTyhvwEFslyMC85aMJsU2Xo6iqxvACu7jd9dKTVJ80NrHeYj6LOIuQ_wtcr6TxpJRzOxIizpd49Ak2qHXUtH1At3eC0MUNE=w800-h600-k-no", "caption": "Jack Nealons Photo 4"}, {"url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkAntrUt6s8-ZDTLm8asSLk2rSMVgOwbr-M2PGLryOMn6SBOP7FN5Fkk0yiPp9QX3BcHndQOusZ9F_RDCjwH6D431waU3h73X5O639gJ3CUwQfMua4yh4CRPhZ6K9XsqPeGcuXn=w900-h600-p-k-no", "caption": "Jack Nealons Photo 5"}]' class="mb-3.5 rounded-lg overflow-hidden border border-[#2a1720] bg-[#0a0406] relative group/stopgal">
+              <img id="route-stop-img-1" src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkAntrUt6s8-ZDTLm8asSLk2rSMVgOwbr-M2PGLryOMn6SBOP7FN5Fkk0yiPp9QX3BcHndQOusZ9F_RDCjwH6D431waU3h73X5O639gJ3CUwQfMua4yh4CRPhZ6K9XsqPeGcuXn=w800-h600-k-no" alt="Jack Nealons photo" class="w-full h-44 sm:h-52 object-cover transition-all duration-300" loading="lazy" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/20 pointer-events-none"></div>
+              <button type="button" onclick="stepRouteStopPhoto(1, -1)" aria-label="Previous stop photo"
+                      class="absolute left-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-[#0a0406]/85 hover:bg-[#d9ac5e] text-[#f5ead8] hover:text-[#0a0406] border border-[#d9ac5e]/50 flex items-center justify-center font-bold text-base transition-all shadow-md z-10">
+                &#8249;
+              </button>
+              <button type="button" onclick="stepRouteStopPhoto(1, 1)" aria-label="Next stop photo"
+                      class="absolute right-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-[#0a0406]/85 hover:bg-[#d9ac5e] text-[#f5ead8] hover:text-[#0a0406] border border-[#d9ac5e]/50 flex items-center justify-center font-bold text-base transition-all shadow-md z-10">
+                &#8250;
+              </button>
+              <div class="absolute bottom-2 left-2.5 right-2.5 flex items-center justify-between gap-2">
+                <span id="route-stop-caption-1" class="text-[11px] text-[#ede5d8] font-medium truncate">Jack Nealons Photo 1</span>
+                <span id="route-stop-counter-1" class="px-2 py-0.5 rounded bg-black/80 border border-[#d9ac5e]/40 text-[10px] font-mono text-[#d9ac5e] font-bold shrink-0">1 / 5</span>
+              </div>
+            </div>
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
               <div>
                 <span class="text-[10px] text-[#d9ac5e] font-headline font-bold uppercase tracking-wider">Northside / Smithfield</span>
@@ -390,6 +424,23 @@
           </div>
           
           <div class="p-4 sm:p-5 rounded-[4px] bg-[#12070b] border border-[#2a1720] hover:border-[#d9ac5e]/50 transition-all shadow-md">
+                        <!-- Stop 2 5-Photo Gallery Strip -->
+            <div id="route-stop-gallery-2" data-idx="0" data-photos='[{"url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmmi4DA1EEOPnaK_99nHaupk2LuW_Oz8_xEoD6-NsVJYvvKhKmFm9VIcVS0NZZ-OL1vXpUeN0IgJEfuTI5mHCJx3CjeD5pYN-WXHGD_AiPikf6VB0lilJqdaBHjHahgwDJp7i3RAA=w800-h600-k-no", "caption": "The Boar&#39;s Head Photo 1"}, {"url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkxLcH2891GUVHYF51fS729lvyDdqxkV1inkNlXhqEBXuUvmuvWINtNjeenvLRUWxbtbAC4BjzJYiV_TGsgFoxO2GMlc2jrwhN1yCrzrMgW3kPryIJYH2rBeh3xrttvTHgt7-nNTA=w800-h600-k-no", "caption": "The Boar&#39;s Head Photo 2"}, {"url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlJn8fmNT4qdwIjc2LNCmNHmOZhA10B2QvnFSKQwn9p8oHexSYYBiEqxQjDPqBSWbUiAqaXHT-CaGQ0Y3O6zGG4cc5G2kqvksoKzmsMDZcbzB0G7cnKe-VDDw2N7lJCu_LKhRVi95ZU6vxK=w800-h600-k-no", "caption": "The Boar&#39;s Head Photo 3"}, {"url": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=NmLy8t875HAiM1_hTJxP1w&cb_client=search.gws-prod.gps&w=800&h=600&yaw=36.48&pitch=0&thumbfov=90", "caption": "The Boar&#39;s Head Photo 4"}, {"url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmmi4DA1EEOPnaK_99nHaupk2LuW_Oz8_xEoD6-NsVJYvvKhKmFm9VIcVS0NZZ-OL1vXpUeN0IgJEfuTI5mHCJx3CjeD5pYN-WXHGD_AiPikf6VB0lilJqdaBHjHahgwDJp7i3RAA=w900-h600-p-k-no", "caption": "The Boar&#39;s Head Photo 5"}]' class="mb-3.5 rounded-lg overflow-hidden border border-[#2a1720] bg-[#0a0406] relative group/stopgal">
+              <img id="route-stop-img-2" src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmmi4DA1EEOPnaK_99nHaupk2LuW_Oz8_xEoD6-NsVJYvvKhKmFm9VIcVS0NZZ-OL1vXpUeN0IgJEfuTI5mHCJx3CjeD5pYN-WXHGD_AiPikf6VB0lilJqdaBHjHahgwDJp7i3RAA=w800-h600-k-no" alt="The Boar's Head photo" class="w-full h-44 sm:h-52 object-cover transition-all duration-300" loading="lazy" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/20 pointer-events-none"></div>
+              <button type="button" onclick="stepRouteStopPhoto(2, -1)" aria-label="Previous stop photo"
+                      class="absolute left-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-[#0a0406]/85 hover:bg-[#d9ac5e] text-[#f5ead8] hover:text-[#0a0406] border border-[#d9ac5e]/50 flex items-center justify-center font-bold text-base transition-all shadow-md z-10">
+                &#8249;
+              </button>
+              <button type="button" onclick="stepRouteStopPhoto(2, 1)" aria-label="Next stop photo"
+                      class="absolute right-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-[#0a0406]/85 hover:bg-[#d9ac5e] text-[#f5ead8] hover:text-[#0a0406] border border-[#d9ac5e]/50 flex items-center justify-center font-bold text-base transition-all shadow-md z-10">
+                &#8250;
+              </button>
+              <div class="absolute bottom-2 left-2.5 right-2.5 flex items-center justify-between gap-2">
+                <span id="route-stop-caption-2" class="text-[11px] text-[#ede5d8] font-medium truncate">The Boar's Head Photo 1</span>
+                <span id="route-stop-counter-2" class="px-2 py-0.5 rounded bg-black/80 border border-[#d9ac5e]/40 text-[10px] font-mono text-[#d9ac5e] font-bold shrink-0">1 / 5</span>
+              </div>
+            </div>
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
               <div>
                 <span class="text-[10px] text-[#d9ac5e] font-headline font-bold uppercase tracking-wider">Northside / Smithfield</span>
@@ -425,6 +476,23 @@
           </div>
           
           <div class="p-4 sm:p-5 rounded-[4px] bg-[#12070b] border border-[#2a1720] hover:border-[#d9ac5e]/50 transition-all shadow-md">
+                        <!-- Stop 3 5-Photo Gallery Strip -->
+            <div id="route-stop-gallery-3" data-idx="0" data-photos='[{"url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnsxCcKVoxjdxHP0R9290MaANC5zq3hCki4Nd2SHg_gFrzKgmX4Q6ByTpzZxraus2ouTwQUxgEPHUvex3obCdtc05X3pzpCVbcazpAqR-tUAuHKyu4UHL3xJ0UtndpJOl6x5P3A=w800-h600-k-no", "caption": "McNeill&#39;s Pub Photo 1"}, {"url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWl1dnZLVcnHoKkwWIEarTI9zwbrljJET7vGoWYzizBdt8xVrp9X1WrNq-NbbY5dlasqQo_hGelvA5yV6GI-9h5v2Baene6uRFajO6IA-PKHVvA8AbSeocHVhag_66Z6z4EKgDrv=w800-h600-k-no", "caption": "McNeill&#39;s Pub Photo 2"}, {"url": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=KsjCVGk3Nhmcu1TJgMCHBg&cb_client=search.gws-prod.gps&w=800&h=600&yaw=301.27&pitch=0&thumbfov=90", "caption": "McNeill&#39;s Pub Photo 3"}, {"url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnsxCcKVoxjdxHP0R9290MaANC5zq3hCki4Nd2SHg_gFrzKgmX4Q6ByTpzZxraus2ouTwQUxgEPHUvex3obCdtc05X3pzpCVbcazpAqR-tUAuHKyu4UHL3xJ0UtndpJOl6x5P3A=w900-h600-p-k-no", "caption": "McNeill&#39;s Pub Photo 4"}, {"url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWl1dnZLVcnHoKkwWIEarTI9zwbrljJET7vGoWYzizBdt8xVrp9X1WrNq-NbbY5dlasqQo_hGelvA5yV6GI-9h5v2Baene6uRFajO6IA-PKHVvA8AbSeocHVhag_66Z6z4EKgDrv=w850-h650-k-no", "caption": "McNeill&#39;s Pub Photo 5"}]' class="mb-3.5 rounded-lg overflow-hidden border border-[#2a1720] bg-[#0a0406] relative group/stopgal">
+              <img id="route-stop-img-3" src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnsxCcKVoxjdxHP0R9290MaANC5zq3hCki4Nd2SHg_gFrzKgmX4Q6ByTpzZxraus2ouTwQUxgEPHUvex3obCdtc05X3pzpCVbcazpAqR-tUAuHKyu4UHL3xJ0UtndpJOl6x5P3A=w800-h600-k-no" alt="McNeill's Pub photo" class="w-full h-44 sm:h-52 object-cover transition-all duration-300" loading="lazy" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/20 pointer-events-none"></div>
+              <button type="button" onclick="stepRouteStopPhoto(3, -1)" aria-label="Previous stop photo"
+                      class="absolute left-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-[#0a0406]/85 hover:bg-[#d9ac5e] text-[#f5ead8] hover:text-[#0a0406] border border-[#d9ac5e]/50 flex items-center justify-center font-bold text-base transition-all shadow-md z-10">
+                &#8249;
+              </button>
+              <button type="button" onclick="stepRouteStopPhoto(3, 1)" aria-label="Next stop photo"
+                      class="absolute right-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-[#0a0406]/85 hover:bg-[#d9ac5e] text-[#f5ead8] hover:text-[#0a0406] border border-[#d9ac5e]/50 flex items-center justify-center font-bold text-base transition-all shadow-md z-10">
+                &#8250;
+              </button>
+              <div class="absolute bottom-2 left-2.5 right-2.5 flex items-center justify-between gap-2">
+                <span id="route-stop-caption-3" class="text-[11px] text-[#ede5d8] font-medium truncate">McNeill's Pub Photo 1</span>
+                <span id="route-stop-counter-3" class="px-2 py-0.5 rounded bg-black/80 border border-[#d9ac5e]/40 text-[10px] font-mono text-[#d9ac5e] font-bold shrink-0">1 / 5</span>
+              </div>
+            </div>
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
               <div>
                 <span class="text-[10px] text-[#d9ac5e] font-headline font-bold uppercase tracking-wider">Northside / Smithfield</span>
@@ -460,6 +528,23 @@
           </div>
           
           <div class="p-4 sm:p-5 rounded-[4px] bg-[#12070b] border border-[#2a1720] hover:border-[#d9ac5e]/50 transition-all shadow-md">
+                        <!-- Stop 4 5-Photo Gallery Strip -->
+            <div id="route-stop-gallery-4" data-idx="0" data-photos='[{"url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnz6UFZjP8iQNXI9vImELaZvbQZLU1Jw1d8Aq8W9D7hPmys03hQnok4FW9oDttttRAD3vvA_oWTNxXad15FeGd2FlmHJu_W1dY6-GFXx18-pBYFEWW_GCiQ5-o5L1cntHw6yDs=w800-h600-k-no", "caption": "Underdog Photo 1"}, {"url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlNUB7ww9YcQzoz5Zi2i_t5dSbdA0RibtJmwv8tBM-YvAo5CCocMfPeIaLlFvVOMlgkXRUi9uDFuQsjDGY9T7i5ZWMMuodDcIiRfc8dnTOSIDrtRfwFsLLZ9l_V9t5ooSP2g-HU=w800-h600-k-no", "caption": "Underdog Photo 2"}, {"url": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=-oiXSlOeGiEVaaoI1bJ9UQ&cb_client=search.gws-prod.gps&w=800&h=600&yaw=114.84&pitch=0&thumbfov=90", "caption": "Underdog Photo 3"}, {"url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnz6UFZjP8iQNXI9vImELaZvbQZLU1Jw1d8Aq8W9D7hPmys03hQnok4FW9oDttttRAD3vvA_oWTNxXad15FeGd2FlmHJu_W1dY6-GFXx18-pBYFEWW_GCiQ5-o5L1cntHw6yDs=w900-h600-p-k-no", "caption": "Underdog Photo 4"}, {"url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlNUB7ww9YcQzoz5Zi2i_t5dSbdA0RibtJmwv8tBM-YvAo5CCocMfPeIaLlFvVOMlgkXRUi9uDFuQsjDGY9T7i5ZWMMuodDcIiRfc8dnTOSIDrtRfwFsLLZ9l_V9t5ooSP2g-HU=w850-h650-k-no", "caption": "Underdog Photo 5"}]' class="mb-3.5 rounded-lg overflow-hidden border border-[#2a1720] bg-[#0a0406] relative group/stopgal">
+              <img id="route-stop-img-4" src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnz6UFZjP8iQNXI9vImELaZvbQZLU1Jw1d8Aq8W9D7hPmys03hQnok4FW9oDttttRAD3vvA_oWTNxXad15FeGd2FlmHJu_W1dY6-GFXx18-pBYFEWW_GCiQ5-o5L1cntHw6yDs=w800-h600-k-no" alt="Underdog photo" class="w-full h-44 sm:h-52 object-cover transition-all duration-300" loading="lazy" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/20 pointer-events-none"></div>
+              <button type="button" onclick="stepRouteStopPhoto(4, -1)" aria-label="Previous stop photo"
+                      class="absolute left-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-[#0a0406]/85 hover:bg-[#d9ac5e] text-[#f5ead8] hover:text-[#0a0406] border border-[#d9ac5e]/50 flex items-center justify-center font-bold text-base transition-all shadow-md z-10">
+                &#8249;
+              </button>
+              <button type="button" onclick="stepRouteStopPhoto(4, 1)" aria-label="Next stop photo"
+                      class="absolute right-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-[#0a0406]/85 hover:bg-[#d9ac5e] text-[#f5ead8] hover:text-[#0a0406] border border-[#d9ac5e]/50 flex items-center justify-center font-bold text-base transition-all shadow-md z-10">
+                &#8250;
+              </button>
+              <div class="absolute bottom-2 left-2.5 right-2.5 flex items-center justify-between gap-2">
+                <span id="route-stop-caption-4" class="text-[11px] text-[#ede5d8] font-medium truncate">Underdog Photo 1</span>
+                <span id="route-stop-counter-4" class="px-2 py-0.5 rounded bg-black/80 border border-[#d9ac5e]/40 text-[10px] font-mono text-[#d9ac5e] font-bold shrink-0">1 / 5</span>
+              </div>
+            </div>
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
               <div>
                 <span class="text-[10px] text-[#d9ac5e] font-headline font-bold uppercase tracking-wider">Northside / Smithfield</span>
@@ -495,6 +580,23 @@
           </div>
           
           <div class="p-4 sm:p-5 rounded-[4px] bg-[#12070b] border border-[#2a1720] hover:border-[#d9ac5e]/50 transition-all shadow-md">
+                        <!-- Stop 5 5-Photo Gallery Strip -->
+            <div id="route-stop-gallery-5" data-idx="0" data-photos='[{"url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlof8dYNOvMxgJzCYSAMoCUNmXLJ__0tTsGS8j6TiTSZlccpwhxMy43bwbdTBWuZZfoZ7idXpluMXCXmKBbqHhcWy-BRBd2Jt56W3bsKYPaDi52zBrsTZZBlDRX1Tl1WOXiYv6j=w800-h600-k-no", "caption": "The Celt Photo 1"}, {"url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlfOVYCq1Q1w-jtvBgiFCMEsmzKxt7hDW-mR0N0-tdcqPv4EHTLntUEhVTbs9O7bwsCjRioZ2nPi7cd58qj4dPiUohS1Z0t1GAABb4R7bcfFxi4dVPlUUAUdjeFc0GaAnnzqQ-OomnPKaKn=w800-h600-k-no", "caption": "The Celt Photo 2"}, {"url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWk4Knf87frhn7ze0PKcIZ5ypm_ZOshY74R4T6XQ_7CBdbqfEh7AXApeB4XhK4KTab0Kq1C7vFuC67oAFf959FA2jdtUckJaW47IHa-vSmCu2U9nxzJtEcTMzOoepbJiLdN7SoOfTHpdL3U=w800-h600-k-no", "caption": "The Celt Photo 3"}, {"url": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=Ykk10ZIvZKK4aH4NCxBVMA&cb_client=search.gws-prod.gps&w=800&h=600&yaw=162.89&pitch=0&thumbfov=90", "caption": "The Celt Photo 4"}, {"url": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=Ykk10ZIvZKK4aH4NCxBVMA&cb_client=search.gws-prod.gps&w=800&h=600&yaw=184.89&pitch=4&thumbfov=85", "caption": "The Celt Photo 5"}]' class="mb-3.5 rounded-lg overflow-hidden border border-[#2a1720] bg-[#0a0406] relative group/stopgal">
+              <img id="route-stop-img-5" src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlof8dYNOvMxgJzCYSAMoCUNmXLJ__0tTsGS8j6TiTSZlccpwhxMy43bwbdTBWuZZfoZ7idXpluMXCXmKBbqHhcWy-BRBd2Jt56W3bsKYPaDi52zBrsTZZBlDRX1Tl1WOXiYv6j=w800-h600-k-no" alt="The Celt photo" class="w-full h-44 sm:h-52 object-cover transition-all duration-300" loading="lazy" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/20 pointer-events-none"></div>
+              <button type="button" onclick="stepRouteStopPhoto(5, -1)" aria-label="Previous stop photo"
+                      class="absolute left-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-[#0a0406]/85 hover:bg-[#d9ac5e] text-[#f5ead8] hover:text-[#0a0406] border border-[#d9ac5e]/50 flex items-center justify-center font-bold text-base transition-all shadow-md z-10">
+                &#8249;
+              </button>
+              <button type="button" onclick="stepRouteStopPhoto(5, 1)" aria-label="Next stop photo"
+                      class="absolute right-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-[#0a0406]/85 hover:bg-[#d9ac5e] text-[#f5ead8] hover:text-[#0a0406] border border-[#d9ac5e]/50 flex items-center justify-center font-bold text-base transition-all shadow-md z-10">
+                &#8250;
+              </button>
+              <div class="absolute bottom-2 left-2.5 right-2.5 flex items-center justify-between gap-2">
+                <span id="route-stop-caption-5" class="text-[11px] text-[#ede5d8] font-medium truncate">The Celt Photo 1</span>
+                <span id="route-stop-counter-5" class="px-2 py-0.5 rounded bg-black/80 border border-[#d9ac5e]/40 text-[10px] font-mono text-[#d9ac5e] font-bold shrink-0">1 / 5</span>
+              </div>
+            </div>
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
               <div>
                 <span class="text-[10px] text-[#d9ac5e] font-headline font-bold uppercase tracking-wider">Trinity / Fleet St</span>
@@ -530,6 +632,23 @@
           </div>
           
           <div class="p-4 sm:p-5 rounded-[4px] bg-[#12070b] border border-[#2a1720] hover:border-[#d9ac5e]/50 transition-all shadow-md">
+                        <!-- Stop 6 5-Photo Gallery Strip -->
+            <div id="route-stop-gallery-6" data-idx="0" data-photos='[{"url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlr3iVxxuIvZdCgwbgpYHBO02GO72_-XLM-oT3mktJfjoeTUp0-ZvbjHCW33dNuFaBs25bZiwBrl7zpeH05UgPtvGynzyiapN_LSdYdOCWz8rxbCL_hgRLoRd_r3mF1RNURgBsu9BAzzBA=w800-h600-k-no", "caption": "The Oval Bar Photo 1"}, {"url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnK3wkjrfLavbYTNF3IewJWGFs4HQG90ELmMdwck4oyC4hWF7FSa-vjhRRSswz5n3Hu-GG0LtATdov93JiYmbOLTZiNrA3t0ZSstFAU7ZCiRQZdemv2veTYJYpxVPwyRDqo3V-XP--74gGM=w800-h600-k-no", "caption": "The Oval Bar Photo 2"}, {"url": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=Mvipo_E--azb_rASRm9GAA&cb_client=search.gws-prod.gps&w=800&h=600&yaw=340.35&pitch=0&thumbfov=90", "caption": "The Oval Bar Photo 3"}, {"url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlr3iVxxuIvZdCgwbgpYHBO02GO72_-XLM-oT3mktJfjoeTUp0-ZvbjHCW33dNuFaBs25bZiwBrl7zpeH05UgPtvGynzyiapN_LSdYdOCWz8rxbCL_hgRLoRd_r3mF1RNURgBsu9BAzzBA=w900-h600-p-k-no", "caption": "The Oval Bar Photo 4"}, {"url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnK3wkjrfLavbYTNF3IewJWGFs4HQG90ELmMdwck4oyC4hWF7FSa-vjhRRSswz5n3Hu-GG0LtATdov93JiYmbOLTZiNrA3t0ZSstFAU7ZCiRQZdemv2veTYJYpxVPwyRDqo3V-XP--74gGM=w850-h650-k-no", "caption": "The Oval Bar Photo 5"}]' class="mb-3.5 rounded-lg overflow-hidden border border-[#2a1720] bg-[#0a0406] relative group/stopgal">
+              <img id="route-stop-img-6" src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlr3iVxxuIvZdCgwbgpYHBO02GO72_-XLM-oT3mktJfjoeTUp0-ZvbjHCW33dNuFaBs25bZiwBrl7zpeH05UgPtvGynzyiapN_LSdYdOCWz8rxbCL_hgRLoRd_r3mF1RNURgBsu9BAzzBA=w800-h600-k-no" alt="The Oval Bar photo" class="w-full h-44 sm:h-52 object-cover transition-all duration-300" loading="lazy" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/20 pointer-events-none"></div>
+              <button type="button" onclick="stepRouteStopPhoto(6, -1)" aria-label="Previous stop photo"
+                      class="absolute left-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-[#0a0406]/85 hover:bg-[#d9ac5e] text-[#f5ead8] hover:text-[#0a0406] border border-[#d9ac5e]/50 flex items-center justify-center font-bold text-base transition-all shadow-md z-10">
+                &#8249;
+              </button>
+              <button type="button" onclick="stepRouteStopPhoto(6, 1)" aria-label="Next stop photo"
+                      class="absolute right-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-[#0a0406]/85 hover:bg-[#d9ac5e] text-[#f5ead8] hover:text-[#0a0406] border border-[#d9ac5e]/50 flex items-center justify-center font-bold text-base transition-all shadow-md z-10">
+                &#8250;
+              </button>
+              <div class="absolute bottom-2 left-2.5 right-2.5 flex items-center justify-between gap-2">
+                <span id="route-stop-caption-6" class="text-[11px] text-[#ede5d8] font-medium truncate">The Oval Bar Photo 1</span>
+                <span id="route-stop-counter-6" class="px-2 py-0.5 rounded bg-black/80 border border-[#d9ac5e]/40 text-[10px] font-mono text-[#d9ac5e] font-bold shrink-0">1 / 5</span>
+              </div>
+            </div>
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
               <div>
                 <span class="text-[10px] text-[#d9ac5e] font-headline font-bold uppercase tracking-wider">Trinity / Fleet St</span>
@@ -665,5 +784,48 @@
     </div>
   </footer>
 
+  <script>
+    function stepRouteHeroPhoto(delta) {
+      const galEl = document.getElementById('route-hero-gallery');
+      if (!galEl) return;
+      let photos = [];
+      try {
+        photos = JSON.parse(galEl.getAttribute('data-photos') || '[]');
+      } catch (e) {
+        return;
+      }
+      if (!photos.length) return;
+      let idx = parseInt(galEl.getAttribute('data-idx') || '0', 10);
+      idx = (idx + delta + photos.length) % photos.length;
+      galEl.setAttribute('data-idx', String(idx));
+      const img = document.getElementById('route-hero-img');
+      if (img) img.src = photos[idx].url;
+      const cap = document.getElementById('route-hero-caption');
+      if (cap) cap.textContent = photos[idx].caption;
+      const counter = document.getElementById('route-hero-counter');
+      if (counter) counter.textContent = (idx + 1) + ' / ' + photos.length;
+    }
+
+    function stepRouteStopPhoto(stopNum, delta) {
+      const galEl = document.getElementById('route-stop-gallery-' + stopNum);
+      if (!galEl) return;
+      let photos = [];
+      try {
+        photos = JSON.parse(galEl.getAttribute('data-photos') || '[]');
+      } catch (e) {
+        return;
+      }
+      if (!photos.length) return;
+      let idx = parseInt(galEl.getAttribute('data-idx') || '0', 10);
+      idx = (idx + delta + photos.length) % photos.length;
+      galEl.setAttribute('data-idx', String(idx));
+      const img = document.getElementById('route-stop-img-' + stopNum);
+      if (img) img.src = photos[idx].url;
+      const cap = document.getElementById('route-stop-caption-' + stopNum);
+      if (cap) cap.textContent = photos[idx].caption;
+      const counter = document.getElementById('route-stop-counter-' + stopNum);
+      if (counter) counter.textContent = (idx + 1) + ' / ' + photos.length;
+    }
+  </script>
 </body>
 </html>
