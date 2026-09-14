@@ -927,13 +927,17 @@
       <!-- Quick Filter Pills -->
       <div class="flex flex-wrap items-center gap-1.5 text-xs">
         <span class="text-[#a39890] text-[11px] font-headline uppercase mr-1">Popular Districts:</span>
-        <button onclick="filterDistrict('')" class="filter-pill active px-2.5 py-1 rounded bg-[#d9ac5e] text-[#0a0406] font-bold">All (118)</button>
-        <button onclick="filterDistrict('grafton')" class="filter-pill px-2.5 py-1 rounded bg-[#180d12] text-[#cfbeac] border border-[#2a1720] hover:text-[#d9ac5e]">Grafton / South City</button>
-        <button onclick="filterDistrict('liberties')" class="filter-pill px-2.5 py-1 rounded bg-[#180d12] text-[#cfbeac] border border-[#2a1720] hover:text-[#d9ac5e]">The Liberties</button>
-        <button onclick="filterDistrict('smithfield')" class="filter-pill px-2.5 py-1 rounded bg-[#180d12] text-[#cfbeac] border border-[#2a1720] hover:text-[#d9ac5e]">Smithfield / Northside</button>
-        <button onclick="filterDistrict('fleet')" class="filter-pill px-2.5 py-1 rounded bg-[#180d12] text-[#cfbeac] border border-[#2a1720] hover:text-[#d9ac5e]">Trinity / Fleet St</button>
-        <button onclick="filterDistrict('temple')" class="filter-pill px-2.5 py-1 rounded bg-[#180d12] text-[#cfbeac] border border-[#2a1720] hover:text-[#d9ac5e]">Temple Bar</button>
-        <button onclick="filterRating(9.5)" class="filter-pill px-2.5 py-1 rounded bg-[#180d12] text-[#d9ac5e] border border-[#d9ac5e]/40 font-semibold">⭐ 9.5+ Elite Stout</button>
+        <button id="btn-near-me" onclick="sortByNearMe()" class="filter-pill min-h-[44px] sm:min-h-[34px] px-3.5 py-1.5 rounded bg-[#180d12] text-[#d9ac5e] border border-[#d9ac5e] hover:bg-[#d9ac5e] hover:text-[#0a0406] font-bold transition-all flex items-center gap-1.5 shadow-sm">
+          <span>📍 Near Me</span>
+          <span id="near-me-status" class="text-[10px] opacity-80 hidden"></span>
+        </button>
+        <button onclick="filterDistrict('')" class="filter-pill active min-h-[44px] sm:min-h-[34px] px-3 py-1.5 rounded bg-[#d9ac5e] text-[#0a0406] font-bold flex items-center">All (118)</button>
+        <button onclick="filterDistrict('grafton')" class="filter-pill min-h-[44px] sm:min-h-[34px] px-3 py-1.5 rounded bg-[#180d12] text-[#cfbeac] border border-[#2a1720] hover:text-[#d9ac5e] flex items-center">Grafton / South City</button>
+        <button onclick="filterDistrict('liberties')" class="filter-pill min-h-[44px] sm:min-h-[34px] px-3 py-1.5 rounded bg-[#180d12] text-[#cfbeac] border border-[#2a1720] hover:text-[#d9ac5e] flex items-center">The Liberties</button>
+        <button onclick="filterDistrict('smithfield')" class="filter-pill min-h-[44px] sm:min-h-[34px] px-3 py-1.5 rounded bg-[#180d12] text-[#cfbeac] border border-[#2a1720] hover:text-[#d9ac5e] flex items-center">Smithfield / Northside</button>
+        <button onclick="filterDistrict('fleet')" class="filter-pill min-h-[44px] sm:min-h-[34px] px-3 py-1.5 rounded bg-[#180d12] text-[#cfbeac] border border-[#2a1720] hover:text-[#d9ac5e] flex items-center">Trinity / Fleet St</button>
+        <button onclick="filterDistrict('temple')" class="filter-pill min-h-[44px] sm:min-h-[34px] px-3 py-1.5 rounded bg-[#180d12] text-[#cfbeac] border border-[#2a1720] hover:text-[#d9ac5e] flex items-center">Temple Bar</button>
+        <button onclick="filterRating(9.5)" class="filter-pill min-h-[44px] sm:min-h-[34px] px-3 py-1.5 rounded bg-[#180d12] text-[#d9ac5e] border border-[#d9ac5e]/40 font-semibold flex items-center">⭐ 9.5+ Elite Stout</button>
       </div>
     </div>
 
@@ -950,9 +954,12 @@
              data-name="the brazen head"
              data-district="the liberties / christchurch"
              data-rating="9.3"
+             data-lat="53.344845"
+             data-lng="-6.275815"
              data-tags="oldest in ireland trad music courtyard">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/the-brazen-head/">The Brazen Head</a>
               </h2>
@@ -983,9 +990,12 @@
              data-name="the long hall"
              data-district="south city / grafton"
              data-rating="9.9"
+             data-lat="53.341868"
+             data-lng="-6.265331"
              data-tags="best pint victorian snug antique clock">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/the-long-hall/">The Long Hall</a>
               </h2>
@@ -1016,9 +1026,12 @@
              data-name="mulligan&#x27;s"
              data-district="trinity / fleet st"
              data-rating="9.8"
+             data-lat="53.346959"
+             data-lng="-6.255555"
              data-tags="joyce haunt journalist pub pure pint">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/mulligans/">Mulligan&#x27;s</a>
               </h2>
@@ -1049,9 +1062,12 @@
              data-name="the stag&#x27;s head"
              data-district="south city / grafton"
              data-rating="9.6"
+             data-lat="53.343833"
+             data-lng="-6.263519"
              data-tags="mahogany bar live music snug">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/the-stags-head/">The Stag&#x27;s Head</a>
               </h2>
@@ -1082,9 +1098,12 @@
              data-name="kehoe&#x27;s"
              data-district="south city / grafton"
              data-rating="9.7"
+             data-lat="53.341217"
+             data-lng="-6.259449"
              data-tags="classic snugs grafton st buzz grocery drawers">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/kehoes/">Kehoe&#x27;s</a>
               </h2>
@@ -1115,9 +1134,12 @@
              data-name="grogan&#x27;s castle lounge"
              data-district="south city / grafton"
              data-rating="9.5"
+             data-lat="53.34224"
+             data-lng="-6.262705"
              data-tags="toasties outdoor terrace local art">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/grogans-castle-lounge/">Grogan&#x27;s Castle Lounge</a>
               </h2>
@@ -1148,9 +1170,12 @@
              data-name="the palace bar"
              data-district="temple bar"
              data-rating="9.6"
+             data-lat="53.345896"
+             data-lng="-6.259613"
              data-tags="irish times hangout whiskey palace stained glass">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/the-palace-bar/">The Palace Bar</a>
               </h2>
@@ -1181,9 +1206,12 @@
              data-name="o&#x27;donoghue&#x27;s"
              data-district="baggot mile"
              data-rating="9.4"
+             data-lat="53.338172"
+             data-lng="-6.254169"
              data-tags="the dubliners birthplace live trad 7 nights">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/odonoghues/">O&#x27;Donoghue&#x27;s</a>
               </h2>
@@ -1214,9 +1242,12 @@
              data-name="the cobblestone"
              data-district="northside / smithfield"
              data-rating="9.5"
+             data-lat="53.349848"
+             data-lng="-6.27782"
              data-tags="bodhran &amp; pipes smithfield authentic dublin">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/the-cobblestone/">The Cobblestone</a>
               </h2>
@@ -1247,9 +1278,12 @@
              data-name="toner&#x27;s"
              data-district="baggot mile"
              data-rating="9.7"
+             data-lat="53.337758"
+             data-lng="-6.252438"
              data-tags="wb yeats massive beer garden historic snug">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/toners/">Toner&#x27;s</a>
               </h2>
@@ -1280,9 +1314,12 @@
              data-name="mcdaid&#x27;s"
              data-district="south city / grafton"
              data-rating="9.4"
+             data-lat="53.341225"
+             data-lng="-6.261003"
              data-tags="former morgue literary pub high ceilings">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/mcdaids/">McDaid&#x27;s</a>
               </h2>
@@ -1313,9 +1350,12 @@
              data-name="the temple bar pub"
              data-district="temple bar"
              data-rating="8.8"
+             data-lat="53.345482"
+             data-lng="-6.264225"
              data-tags="iconic red facade 450+ whiskies live music">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/the-temple-bar-pub/">The Temple Bar Pub</a>
               </h2>
@@ -1346,9 +1386,12 @@
              data-name="the foggy dew"
              data-district="temple bar"
              data-rating="9.3"
+             data-lat="53.344457"
+             data-lng="-6.26346"
              data-tags="folk rock late bar craft beers">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/the-foggy-dew/">The Foggy Dew</a>
               </h2>
@@ -1379,9 +1422,12 @@
              data-name="bowe&#x27;s lounge bar"
              data-district="trinity / fleet st"
              data-rating="9.8"
+             data-lat="53.346083"
+             data-lng="-6.257625"
              data-tags="whiskey society top pint victorian wood">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/bowes-lounge-bar/">Bowe&#x27;s Lounge Bar</a>
               </h2>
@@ -1412,9 +1458,12 @@
              data-name="neary&#x27;s"
              data-district="south city / grafton"
              data-rating="9.3"
+             data-lat="53.340697"
+             data-lng="-6.261142"
              data-tags="gas lamps pink marble bar old world">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/nearys/">Neary&#x27;s</a>
               </h2>
@@ -1445,9 +1494,12 @@
              data-name="john fallon&#x27;s &quot;the capstan bar&quot;"
              data-district="the liberties / christchurch"
              data-rating="9.6"
+             data-lat="53.338984"
+             data-lng="-6.273376"
              data-tags="the liberties open fire sawdust heritage">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/john-fallons-the-capstan-bar/">John Fallon&#x27;s &quot;The Capstan Bar&quot;</a>
               </h2>
@@ -1478,9 +1530,12 @@
              data-name="doheny &amp; nesbitt"
              data-district="baggot mile"
              data-rating="9.5"
+             data-lat="53.338089"
+             data-lng="-6.252885"
              data-tags="the doheny debate victorian snug brass taps">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/doheny-nesbitt/">Doheny &amp; Nesbitt</a>
               </h2>
@@ -1511,9 +1566,12 @@
              data-name="porterhouse temple bar"
              data-district="temple bar"
              data-rating="9.2"
+             data-lat="53.345142"
+             data-lng="-6.267377"
              data-tags="oyster stout multi-level bar craft beers">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/porterhouse-temple-bar/">Porterhouse Temple Bar</a>
               </h2>
@@ -1544,9 +1602,12 @@
              data-name="international bar"
              data-district="south city / grafton"
              data-rating="9.3"
+             data-lat="53.343128"
+             data-lng="-6.261807"
              data-tags="carved mahogany nightly comedy central corner">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/international-bar/">International Bar</a>
               </h2>
@@ -1577,9 +1638,12 @@
              data-name="john kavanagh the gravediggers"
              data-district="northside / smithfield"
              data-rating="9.9"
+             data-lat="53.369637"
+             data-lng="-6.27199"
              data-tags="best pint in dublin no music / no tv coddle &amp; tap">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/john-kavanagh-the-gravediggers/">John Kavanagh The Gravediggers</a>
               </h2>
@@ -1610,9 +1674,12 @@
              data-name="merchant&#x27;s arch"
              data-district="temple bar"
              data-rating="9.1"
+             data-lat="53.345943"
+             data-lng="-6.262819"
              data-tags="ha&#x27;penny bridge live trad all day river views">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/merchants-arch/">Merchant&#x27;s Arch</a>
               </h2>
@@ -1643,9 +1710,12 @@
              data-name="the glimmer man"
              data-district="northside / smithfield"
              data-rating="9.6"
+             data-lat="53.3508"
+             data-lng="-6.282"
              data-tags="stoneybatter nostalgic decor vietnamese food yard">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/the-glimmer-man/">The Glimmer Man</a>
               </h2>
@@ -1676,9 +1746,12 @@
              data-name="darkey kelly&#x27;s"
              data-district="the liberties / christchurch"
              data-rating="9.3"
+             data-lat="53.344135"
+             data-lng="-6.269776"
              data-tags="live trad 7 nights christchurch folklore">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/darkey-kellys/">Darkey Kelly&#x27;s</a>
               </h2>
@@ -1709,9 +1782,12 @@
              data-name="slattery&#x27;s d4"
              data-district="south city / grafton"
              data-rating="9.5"
+             data-lat="53.337324"
+             data-lng="-6.234254"
              data-tags="aviva stadium hub superb stout grand canal">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/slatterys-d4/">Slattery&#x27;s D4</a>
               </h2>
@@ -1742,9 +1818,12 @@
              data-name="paddy cullen&#x27;s pub"
              data-district="baggot mile"
              data-rating="9.4"
+             data-lat="53.3275"
+             data-lng="-6.2272"
              data-tags="open fireplace ballsbridge rugby tradition">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/paddy-cullens-pub/">Paddy Cullen&#x27;s Pub</a>
               </h2>
@@ -1775,9 +1854,12 @@
              data-name="the liberty belle"
              data-district="the liberties / christchurch"
              data-rating="9.6"
+             data-lat="53.341582"
+             data-lng="-6.274716"
              data-tags="francis street pure local vibe exceptional stout">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/the-liberty-belle/">The Liberty Belle</a>
               </h2>
@@ -1808,9 +1890,12 @@
              data-name="fidelity bar &amp; studio"
              data-district="northside / smithfield"
              data-rating="9.2"
+             data-lat="53.3486"
+             data-lng="-6.2798"
              data-tags="custom sound system whiplash beer smithfield">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/fidelity-bar-studio/">Fidelity Bar &amp; Studio</a>
               </h2>
@@ -1841,9 +1926,12 @@
              data-name="cleary&#x27;s pub"
              data-district="trinity / fleet st"
              data-rating="9.7"
+             data-lat="53.352336"
+             data-lng="-6.249543"
              data-tags="michael collins haunt 19th-century mahogany top stout">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/clearys-pub/">Cleary&#x27;s Pub</a>
               </h2>
@@ -1874,9 +1962,12 @@
              data-name="old royal oak"
              data-district="the liberties / christchurch"
              data-rating="9.6"
+             data-lat="53.341638"
+             data-lng="-6.303757"
              data-tags="hidden gem kilmainham gaol cozy snugs">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/old-royal-oak/">Old Royal Oak</a>
               </h2>
@@ -1907,9 +1998,12 @@
              data-name="delaney&#x27;s smithfield"
              data-district="northside / smithfield"
              data-rating="9.5"
+             data-lat="53.349621"
+             data-lng="-6.277951"
              data-tags="smithfield traditional bar warm welcome">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/delaneys-smithfield/">Delaney&#x27;s Smithfield</a>
               </h2>
@@ -1940,9 +2034,12 @@
              data-name="the oval bar"
              data-district="trinity / fleet st"
              data-rating="9.4"
+             data-lat="53.348453"
+             data-lng="-6.260339"
              data-tags="1916 rising middle abbey st victorian glaze">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/the-oval-bar/">The Oval Bar</a>
               </h2>
@@ -1973,9 +2070,12 @@
              data-name="caribou"
              data-district="south city / grafton"
              data-rating="9.3"
+             data-lat="53.340973"
+             data-lng="-6.26345"
              data-tags="craft beer taps smash burgers south city">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/caribou/">Caribou</a>
               </h2>
@@ -2006,9 +2106,12 @@
              data-name="the black sheep"
              data-district="northside / smithfield"
              data-rating="9.2"
+             data-lat="53.3496"
+             data-lng="-6.2676"
              data-tags="capel street craft casks board games">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/the-black-sheep/">The Black Sheep</a>
               </h2>
@@ -2039,9 +2142,12 @@
              data-name="davy byrnes"
              data-district="south city / grafton"
              data-rating="9.4"
+             data-lat="53.341843"
+             data-lng="-6.259358"
              data-tags="james joyce gorgonzola &amp; burgundy art deco">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/davy-byrnes/">Davy Byrnes</a>
               </h2>
@@ -2072,9 +2178,12 @@
              data-name="l. mulligan grocer"
              data-district="northside / smithfield"
              data-rating="9.5"
+             data-lat="53.351025"
+             data-lng="-6.282206"
              data-tags="irish food champion scotch eggs craft whiskey">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/l-mulligan-grocer/">L. Mulligan Grocer</a>
               </h2>
@@ -2105,9 +2214,12 @@
              data-name="the hill pub"
              data-district="south city / grafton"
              data-rating="9.5"
+             data-lat="53.3248"
+             data-lng="-6.2525"
              data-tags="ranelagh local institution creamy pint">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/the-hill-pub/">The Hill Pub</a>
               </h2>
@@ -2138,9 +2250,12 @@
              data-name="the storyteller pub"
              data-district="trinity / fleet st"
              data-rating="9.3"
+             data-lat="53.33969"
+             data-lng="-6.242092"
              data-tags="docklands modern irish food cocktails &amp; stout">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/the-storyteller-pub/">The Storyteller Pub</a>
               </h2>
@@ -2171,9 +2286,12 @@
              data-name="hole in the wall, europe’s longest pub"
              data-district="northside / smithfield"
              data-rating="9.6"
+             data-lat="53.3658"
+             data-lng="-6.3228"
              data-tags="europe&#x27;s longest pub phoenix park wall historic coaching inn">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/hole-in-the-wall-europe-s-longest-pub/">Hole in the Wall, Europe’s Longest Pub</a>
               </h2>
@@ -2204,9 +2322,12 @@
              data-name="the harbour bar howth"
              data-district="northside / smithfield"
              data-rating="9.5"
+             data-lat="53.388609"
+             data-lng="-6.073444"
              data-tags="howth harbour fresh oysters coastal views">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/the-harbour-bar-howth/">The Harbour Bar Howth</a>
               </h2>
@@ -2237,9 +2358,12 @@
              data-name="the blue light"
              data-district="south city / grafton"
              data-rating="9.6"
+             data-lat="53.25462"
+             data-lng="-6.231468"
              data-tags="panoramic city view dublin mountains smugglers lore">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/the-blue-light/">The Blue Light</a>
               </h2>
@@ -2270,9 +2394,12 @@
              data-name="johnnie fox&#x27;s pub"
              data-district="south city / grafton"
              data-rating="9.4"
+             data-lat="53.22175"
+             data-lng="-6.21919"
              data-tags="ireland&#x27;s highest pub famous hooley show museum decor">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/johnnie-foxs-pub/">Johnnie Fox&#x27;s Pub</a>
               </h2>
@@ -2303,9 +2430,12 @@
              data-name="ciss maddens"
              data-district="south city / grafton"
              data-rating="9.4"
+             data-lat="53.3432"
+             data-lng="-6.2625"
              data-tags="donnybrook victorian aesthetic great craic">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/ciss-maddens/">Ciss Maddens</a>
               </h2>
@@ -2336,9 +2466,12 @@
              data-name="o&#x27;regan&#x27;s"
              data-district="south city / grafton"
              data-rating="9.3"
+             data-lat="53.3435"
+             data-lng="-6.2652"
              data-tags="fade street creative quarter cocktails &amp; craft">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/oregans/">O&#x27;Regan&#x27;s</a>
               </h2>
@@ -2369,9 +2502,12 @@
              data-name="hogan&#x27;s"
              data-district="south city / grafton"
              data-rating="9.3"
+             data-lat="53.3426"
+             data-lng="-6.2642"
              data-tags="late night basement club spacious seating">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/hogans/">Hogan&#x27;s</a>
               </h2>
@@ -2402,9 +2538,12 @@
              data-name="sheehans pub"
              data-district="south city / grafton"
              data-rating="9.5"
+             data-lat="53.340975"
+             data-lng="-6.261766"
              data-tags="family run near grafton st comforting pints">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/sheehans-pub/">Sheehans Pub</a>
               </h2>
@@ -2435,9 +2574,12 @@
              data-name="the dame tavern"
              data-district="south city / grafton"
              data-rating="9.6"
+             data-lat="53.343821"
+             data-lng="-6.263915"
              data-tags="dame court sunday music session alley vibes">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/the-dame-tavern/">The Dame Tavern</a>
               </h2>
@@ -2468,9 +2610,12 @@
              data-name="the swan bar"
              data-district="south city / grafton"
              data-rating="9.7"
+             data-lat="53.339625"
+             data-lng="-6.265546"
              data-tags="1661 heritage 1916 rising bullet scars victorian marble">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/the-swan-bar/">The Swan Bar</a>
               </h2>
@@ -2501,9 +2646,12 @@
              data-name="hartigans pub"
              data-district="baggot mile"
              data-rating="9.5"
+             data-lat="53.33596"
+             data-lng="-6.25666"
              data-tags="leeson street old school charm no gimmicks">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/hartigans-pub/">Hartigans Pub</a>
               </h2>
@@ -2534,9 +2682,12 @@
              data-name="searsons"
              data-district="baggot mile"
              data-rating="9.4"
+             data-lat="53.333328"
+             data-lng="-6.242901"
              data-tags="patrick kavanagh baggot mile spacious garden">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/searsons/">Searsons</a>
               </h2>
@@ -2567,9 +2718,12 @@
              data-name="mccafferty&#x27;s at the barge"
              data-district="south city / grafton"
              data-rating="9.3"
+             data-lat="53.3308"
+             data-lng="-6.2573"
              data-tags="grand canal banks sunshine pints live trad">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/mccaffertys-at-the-barge/">McCafferty&#x27;s at The Barge</a>
               </h2>
@@ -2600,9 +2754,12 @@
              data-name="jack nealons"
              data-district="northside / smithfield"
              data-rating="9.6"
+             data-lat="53.3481"
+             data-lng="-6.2676"
              data-tags="gold leaf ceiling capel street open fireplace">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/jack-nealons/">Jack Nealons</a>
               </h2>
@@ -2633,9 +2790,12 @@
              data-name="the boar&#x27;s head"
              data-district="northside / smithfield"
              data-rating="9.8"
+             data-lat="53.347374"
+             data-lng="-6.268599"
              data-tags="gaa headquarters pub all-ireland champions top 3 pint">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/the-boars-head/">The Boar&#x27;s Head</a>
               </h2>
@@ -2666,9 +2826,12 @@
              data-name="walsh&#x27;s"
              data-district="northside / smithfield"
              data-rating="9.8"
+             data-lat="53.350388"
+             data-lng="-6.281634"
              data-tags="pub of the year winner stoneybatter snug trad sessions">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/walshs/">Walsh&#x27;s</a>
               </h2>
@@ -2699,9 +2862,12 @@
              data-name="mcneill&#x27;s pub"
              data-district="northside / smithfield"
              data-rating="9.5"
+             data-lat="53.347763"
+             data-lng="-6.268754"
              data-tags="former cobbler &amp; instrument maker fireside sessions capel st">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/mcneills-pub/">McNeill&#x27;s Pub</a>
               </h2>
@@ -2732,9 +2898,12 @@
              data-name="bonobo, smithfield"
              data-district="northside / smithfield"
              data-rating="9.3"
+             data-lat="53.350354"
+             data-lng="-6.274695"
              data-tags="huge beer garden woodfired pizza craft taps">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/bonobo-smithfield/">Bonobo, Smithfield</a>
               </h2>
@@ -2765,9 +2934,12 @@
              data-name="the summit inn"
              data-district="northside / smithfield"
              data-rating="9.4"
+             data-lat="53.372639"
+             data-lng="-6.057914"
              data-tags="howth summit turf fire cliff walk">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/the-summit-inn/">The Summit Inn</a>
               </h2>
@@ -2798,9 +2970,12 @@
              data-name="the ferryman"
              data-district="trinity / fleet st"
              data-rating="9.6"
+             data-lat="53.346008"
+             data-lng="-6.240702"
              data-tags="grand canal dock liffey views historic georgian samuel beckett bridge">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/the-ferryman/">The Ferryman</a>
               </h2>
@@ -2831,9 +3006,12 @@
              data-name="the lord edward"
              data-district="the liberties / christchurch"
              data-rating="9.7"
+             data-lat="53.343119"
+             data-lng="-6.270051"
              data-tags="christchurch view creamiest pint upstairs lounge historic snug">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/the-lord-edward/">The Lord Edward</a>
               </h2>
@@ -2864,9 +3042,12 @@
              data-name="the old stand"
              data-district="south city / grafton"
              data-rating="9.6"
+             data-lat="53.343134"
+             data-lng="-6.262144"
              data-tags="300+ years michael collins haunt rugby heritage toasted special">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/the-old-stand/">The Old Stand</a>
               </h2>
@@ -2897,9 +3078,12 @@
              data-name="the duke"
              data-district="south city / grafton"
              data-rating="9.5"
+             data-lat="53.341965"
+             data-lng="-6.258728"
              data-tags="literary pub crawl victorian charm duke street landmark">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/the-duke/">The Duke</a>
               </h2>
@@ -2930,9 +3114,12 @@
              data-name="devitts of camden street"
              data-district="south city / grafton"
              data-rating="9.7"
+             data-lat="53.335553"
+             data-lng="-6.265528"
              data-tags="daily trad sessions gaa spirit creamy guinness camden strip">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/devitts-of-camden-street/">Devitts of Camden Street</a>
               </h2>
@@ -2963,9 +3150,12 @@
              data-name="the bleeding horse"
              data-district="south city / grafton"
              data-rating="9.3"
+             data-lat="53.333478"
+             data-lng="-6.264745"
              data-tags="est. 1649 medieval hall dickens &amp; joyce coaching inn">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/the-bleeding-horse/">The Bleeding Horse</a>
               </h2>
@@ -2996,9 +3186,12 @@
              data-name="whelan&#x27;s"
              data-district="south city / grafton"
              data-rating="9.4"
+             data-lat="53.336595"
+             data-lng="-6.265875"
              data-tags="iconic live venue ps i love you indie heritage late night">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/whelans/">Whelan&#x27;s</a>
               </h2>
@@ -3029,9 +3222,12 @@
              data-name="ryan&#x27;s of parkgate street (fx buckley)"
              data-district="the liberties / christchurch"
              data-rating="9.8"
+             data-lat="53.348197"
+             data-lng="-6.293463"
              data-tags="gas lamps preserved victorian antique snugs steak &amp; stout">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/ryans-of-parkgate-street-fx-buckley/">Ryan&#x27;s of Parkgate Street (FX Buckley)</a>
               </h2>
@@ -3062,9 +3258,12 @@
              data-name="the dawson lounge"
              data-district="south city / grafton"
              data-rating="9.4"
+             data-lat="53.33976"
+             data-lng="-6.25887"
              data-tags="smallest pub in dublin underground cellar cozy secret dawson st">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/the-dawson-lounge/">The Dawson Lounge</a>
               </h2>
@@ -3095,9 +3294,12 @@
              data-name="the ha&#x27;penny bridge inn"
              data-district="temple bar"
              data-rating="9.4"
+             data-lat="53.345877"
+             data-lng="-6.263314"
              data-tags="ha&#x27;penny bridge riverside comedy cellar bohemian">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/the-hapenny-bridge-inn/">The Ha&#x27;penny Bridge Inn</a>
               </h2>
@@ -3128,9 +3330,12 @@
              data-name="the flowing tide"
              data-district="trinity / fleet st"
              data-rating="9.5"
+             data-lat="53.348545"
+             data-lng="-6.257127"
              data-tags="abbey theatre stained glass northside classic playwrights">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/the-flowing-tide/">The Flowing Tide</a>
               </h2>
@@ -3161,9 +3366,12 @@
              data-name="the bankers bar"
              data-district="trinity / fleet st"
              data-rating="9.4"
+             data-lat="53.343971"
+             data-lng="-6.262494"
              data-tags="old bank vaults trinity quarter traditional vibe cask ales">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/the-bankers-bar/">The Bankers Bar</a>
               </h2>
@@ -3194,9 +3402,12 @@
              data-name="peter&#x27;s pub"
              data-district="south city / grafton"
              data-rating="9.6"
+             data-lat="53.340899"
+             data-lng="-6.263216"
              data-tags="no music / pure chat toasties quiet pints william st snug">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/peters-pub/">Peter&#x27;s Pub</a>
               </h2>
@@ -3227,9 +3438,12 @@
              data-name="the ginger man"
              data-district="south city / grafton"
              data-rating="9.5"
+             data-lat="53.341899"
+             data-lng="-6.249517"
              data-tags="merrion square spectacular decor oscar wilde quarter beer garden">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/the-ginger-man/">The Ginger Man</a>
               </h2>
@@ -3260,9 +3474,12 @@
              data-name="the celt"
              data-district="trinity / fleet st"
              data-rating="9.4"
+             data-lat="53.350573"
+             data-lng="-6.254887"
              data-tags="live trad nightly rustic wood irish hospitality hearty food">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/the-celt/">The Celt</a>
               </h2>
@@ -3293,9 +3510,12 @@
              data-name="underdog"
              data-district="northside / smithfield"
              data-rating="9.6"
+             data-lat="53.347011"
+             data-lng="-6.267947"
              data-tags="independent craft rotating taps irish microbreweries capel st">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/underdog/">Underdog</a>
               </h2>
@@ -3326,9 +3546,12 @@
              data-name="anseo"
              data-district="south city / grafton"
              data-rating="9.3"
+             data-lat="53.335323"
+             data-lng="-6.264995"
              data-tags="vinyl djs camden vibe craft &amp; stout eclectic crowd">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/anseo/">Anseo</a>
               </h2>
@@ -3359,9 +3582,12 @@
              data-name="arthur&#x27;s pub"
              data-district="the liberties / christchurch"
              data-rating="9.5"
+             data-lat="53.343127"
+             data-lng="-6.281702"
              data-tags="guinness quarter blues &amp; trad thomas st open fire">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/arthurs-pub/">Arthur&#x27;s Pub</a>
               </h2>
@@ -3392,9 +3618,12 @@
              data-name="cassidys"
              data-district="trinity / fleet st"
              data-rating="9.4"
+             data-lat="53.346361"
+             data-lng="-6.258737"
              data-tags="board games candlelit free popcorn alternative landmark">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/cassidys/">Cassidys</a>
               </h2>
@@ -3425,9 +3654,12 @@
              data-name="grainger&#x27;s pebble beach"
              data-district="clontarf / north bay"
              data-rating="9.6"
+             data-lat="53.359487"
+             data-lng="-6.18968"
              data-tags="coastal pint creamy guinness locals favorite">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/graingers-pebble-beach/">Grainger&#x27;s Pebble Beach</a>
               </h2>
@@ -3458,9 +3690,12 @@
              data-name="gaffney&#x27;s pub"
              data-district="fairview / north strand"
              data-rating="9.4"
+             data-lat="53.362639"
+             data-lng="-6.241003"
              data-tags="historic snugs victorian mahogany authentic local">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/gaffneys-pub/">Gaffney&#x27;s Pub</a>
               </h2>
@@ -3491,9 +3726,12 @@
              data-name="tom kennedy&#x27;s bar"
              data-district="the liberties / christchurch"
              data-rating="9.3"
+             data-lat="53.3427"
+             data-lng="-6.2825"
              data-tags="liberties heritage unpretentious live music">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/tom-kennedys-bar/">Tom Kennedy&#x27;s Bar</a>
               </h2>
@@ -3524,9 +3762,12 @@
              data-name="the hut"
              data-district="phibsborough &amp; northside"
              data-rating="9.5"
+             data-lat="53.361007"
+             data-lng="-6.272536"
              data-tags="victorian snugs etched glass craft &amp; plain">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/the-hut/">The Hut</a>
               </h2>
@@ -3557,9 +3798,12 @@
              data-name="the yacht tavern"
              data-district="clontarf / north bay"
              data-rating="9.2"
+             data-lat="53.361695"
+             data-lng="-6.215389"
              data-tags="bay views seafood chowder coastal heritage">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/the-yacht-tavern/">The Yacht Tavern</a>
               </h2>
@@ -3590,9 +3834,12 @@
              data-name="j. o&#x27;connell"
              data-district="camden &amp; portobello"
              data-rating="9.5"
+             data-lat="53.330645"
+             data-lng="-6.264169"
              data-tags="historic snug old school local top tier pint">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/j-oconnell/">J. O&#x27;Connell</a>
               </h2>
@@ -3623,9 +3870,12 @@
              data-name="the thomas house"
              data-district="the liberties / christchurch"
              data-rating="9.1"
+             data-lat="53.343092"
+             data-lng="-6.276955"
              data-tags="alternative vibe craft beer &amp; stout vinyl dj">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/the-thomas-house/">The Thomas House</a>
               </h2>
@@ -3656,9 +3906,12 @@
              data-name="the piper&#x27;s corner"
              data-district="capel st &amp; north city"
              data-rating="9.6"
+             data-lat="53.349047"
+             data-lng="-6.257949"
              data-tags="live trad music uilleann pipes irish speaking">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/the-pipers-corner/">The Piper&#x27;s Corner</a>
               </h2>
@@ -3689,9 +3942,12 @@
              data-name="the king&#x27;s inn"
              data-district="capel st &amp; north city"
              data-rating="9.4"
+             data-lat="53.352346"
+             data-lng="-6.2692"
              data-tags="old dublin character unpretentious great guinness">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/the-kings-inn/">The King&#x27;s Inn</a>
               </h2>
@@ -3722,9 +3978,12 @@
              data-name="briodys"
              data-district="capel st &amp; north city"
              data-rating="9.6"
+             data-lat="53.349581"
+             data-lng="-6.258165"
              data-tags="creamy pint no music tv master class pour">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/briodys/">Briodys</a>
               </h2>
@@ -3755,9 +4014,12 @@
              data-name="cumiskeys"
              data-district="phibsborough &amp; northside"
              data-rating="9.5"
+             data-lat="53.365057"
+             data-lng="-6.319404"
              data-tags="phoenix park wall historic snug coaching inn">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/cumiskeys/">Cumiskeys</a>
               </h2>
@@ -3788,9 +4050,12 @@
              data-name="cusack&#x27;s pub"
              data-district="fairview / north strand"
              data-rating="9.3"
+             data-lat="53.357472"
+             data-lng="-6.242422"
              data-tags="croke park craic gaa heritage friendly local">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/cusacks-pub/">Cusack&#x27;s Pub</a>
               </h2>
@@ -3821,9 +4086,12 @@
              data-name="m. o&#x27;brien&#x27;s"
              data-district="georgian quarter / d4"
              data-rating="9.5"
+             data-lat="53.331314"
+             data-lng="-6.251629"
              data-tags="open fireplace canal snug victorian wood">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/m-obriens/">M. O&#x27;Brien&#x27;s</a>
               </h2>
@@ -3854,9 +4122,12 @@
              data-name="dudley&#x27;s"
              data-district="the liberties / christchurch"
              data-rating="9.3"
+             data-lat="53.342655"
+             data-lng="-6.278945"
              data-tags="liberties craft bustling energy great taps">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/dudleys/">Dudley&#x27;s</a>
               </h2>
@@ -3887,9 +4158,12 @@
              data-name="the dalkey duck"
              data-district="coastal south / dalkey"
              data-rating="9.3"
+             data-lat="53.27784"
+             data-lng="-6.107289"
              data-tags="live folk &amp; blues coastal village courtyard garden">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/the-dalkey-duck/">The Dalkey Duck</a>
               </h2>
@@ -3920,9 +4194,12 @@
              data-name="bottler&#x27;s bank"
              data-district="south suburbs / rathgar"
              data-rating="9.3"
+             data-lat="53.312057"
+             data-lng="-6.274967"
              data-tags="village local craft beers cozy atmosphere">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/bottlers-bank/">Bottler&#x27;s Bank</a>
               </h2>
@@ -3953,9 +4230,12 @@
              data-name="harry byrnes"
              data-district="clontarf / north bay"
              data-rating="9.5"
+             data-lat="53.371357"
+             data-lng="-6.203003"
              data-tags="victorian stables beer garden heritage landmark">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/harry-byrnes/">Harry Byrnes</a>
               </h2>
@@ -3986,9 +4266,12 @@
              data-name="fagan&#x27;s bar &amp; restaurant"
              data-district="phibsborough &amp; northside"
              data-rating="9.4"
+             data-lat="53.367446"
+             data-lng="-6.255968"
              data-tags="presidential visit gaa crossroads hearty carvery">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/fagans-bar-restaurant/">Fagan&#x27;s Bar &amp; Restaurant</a>
               </h2>
@@ -4019,9 +4302,12 @@
              data-name="peggy kellys"
              data-district="south suburbs / harold cross"
              data-rating="9.3"
+             data-lat="53.323755"
+             data-lng="-6.278506"
              data-tags="community hub matchday screenings great guinness">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/peggy-kellys/">Peggy Kellys</a>
               </h2>
@@ -4052,9 +4338,12 @@
              data-name="the goat bar &amp; grill"
              data-district="south suburbs / goatstown"
              data-rating="9.2"
+             data-lat="53.288339"
+             data-lng="-6.199698"
              data-tags="since 1730 great food historic crossroad">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/the-goat-bar-grill/">The Goat Bar &amp; Grill</a>
               </h2>
@@ -4085,9 +4374,12 @@
              data-name="the terenure inn"
              data-district="south suburbs / terenure"
              data-rating="9.3"
+             data-lat="53.311356"
+             data-lng="-6.283055"
              data-tags="village centre sport on screen creamy pint">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/the-terenure-inn/">The Terenure Inn</a>
               </h2>
@@ -4118,9 +4410,12 @@
              data-name="the two sisters pub"
              data-district="south suburbs / terenure"
              data-rating="9.4"
+             data-lat="53.309119"
+             data-lng="-6.305349"
              data-tags="top pint of plain gaa &amp; rugby family run">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/the-two-sisters-pub/">The Two Sisters Pub</a>
               </h2>
@@ -4151,9 +4446,12 @@
              data-name="mcsorley&#x27;s of ranelagh"
              data-district="ranelagh &amp; rathmines"
              data-rating="9.2"
+             data-lat="53.323301"
+             data-lng="-6.250081"
              data-tags="ranelagh vibe cocktails &amp; pints high energy">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/mcsorleys-of-ranelagh/">McSorley&#x27;s of Ranelagh</a>
               </h2>
@@ -4184,9 +4482,12 @@
              data-name="smyth&#x27;s pub (ranelagh)"
              data-district="ranelagh &amp; rathmines"
              data-rating="9.4"
+             data-lat="53.324124"
+             data-lng="-6.252349"
              data-tags="snug seating luas stop authentic local">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/smyths-pub-ranelagh/">Smyth&#x27;s Pub (Ranelagh)</a>
               </h2>
@@ -4217,9 +4518,12 @@
              data-name="smyth&#x27;s pub (10 haddington rd)"
              data-district="georgian quarter / d4"
              data-rating="9.3"
+             data-lat="53.334824"
+             data-lng="-6.243506"
              data-tags="aviva matchday grand canal traditional snug">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/smyths-pub-10-haddington-rd/">Smyth&#x27;s Pub (10 Haddington Rd)</a>
               </h2>
@@ -4250,9 +4554,12 @@
              data-name="ryan&#x27;s (camden st)"
              data-district="camden &amp; portobello"
              data-rating="9.4"
+             data-lat="53.33634"
+             data-lng="-6.265965"
              data-tags="snugs camden mile classic pint">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/ryans-camden-st/">Ryan&#x27;s (Camden St)</a>
               </h2>
@@ -4283,9 +4590,12 @@
              data-name="sinnotts bar"
              data-district="south city / grafton"
              data-rating="9.1"
+             data-lat="53.34009"
+             data-lng="-6.261702"
              data-tags="giant screens matchday energy stephens green">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/sinnotts-bar/">Sinnotts Bar</a>
               </h2>
@@ -4316,9 +4626,12 @@
              data-name="frank ryan&#x27;s"
              data-district="smithfield &amp; stoneybatter"
              data-rating="9.6"
+             data-lat="53.347006"
+             data-lng="-6.280049"
              data-tags="bric-a-brac pizza &amp; pint blues &amp; rock">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/frank-ryans/">Frank Ryan&#x27;s</a>
               </h2>
@@ -4349,9 +4662,12 @@
              data-name="rody bolands"
              data-district="ranelagh &amp; rathmines"
              data-rating="9.3"
+             data-lat="53.321131"
+             data-lng="-6.265373"
              data-tags="family owned sport &amp; live music vintage antiques">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/rody-bolands/">Rody Bolands</a>
               </h2>
@@ -4382,9 +4698,12 @@
              data-name="martin b. slattery (rathmines)"
              data-district="ranelagh &amp; rathmines"
              data-rating="9.5"
+             data-lat="53.322155"
+             data-lng="-6.26589"
              data-tags="victorian bar live trad sessions heritage taproom">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/martin-b-slattery-rathmines/">Martin B. Slattery (Rathmines)</a>
               </h2>
@@ -4415,9 +4734,12 @@
              data-name="cassidy&#x27;s of camden street"
              data-district="camden &amp; portobello"
              data-rating="9.4"
+             data-lat="53.334062"
+             data-lng="-6.264938"
              data-tags="live trad sessions monday &amp; wednesday trad camden mile">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/cassidys-of-camden-street/">Cassidy&#x27;s of Camden Street</a>
               </h2>
@@ -4448,9 +4770,12 @@
              data-name="the sitting room at delahunt"
              data-district="camden &amp; portobello"
              data-rating="9.0"
+             data-lat="53.334294"
+             data-lng="-6.264886"
              data-tags="craft cocktails mid-century style quiet calm">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/the-sitting-room-at-delahunt/">The Sitting Room at Delahunt</a>
               </h2>
@@ -4481,9 +4806,12 @@
              data-name="moss lane"
              data-district="trinity &amp; docklands"
              data-rating="9.3"
+             data-lat="53.344845"
+             data-lng="-6.252316"
              data-tags="rare whiskeys knowledgeable barmen cozy snug">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/moss-lane/">Moss Lane</a>
               </h2>
@@ -4514,9 +4842,12 @@
              data-name="the cellar bar at the merrion"
              data-district="georgian quarter / d4"
              data-rating="9.3"
+             data-lat="53.338125"
+             data-lng="-6.253873"
              data-tags="18th-century vaults fine whiskey luxury hotel bar">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/the-cellar-bar-at-the-merrion/">The Cellar Bar at The Merrion</a>
               </h2>
@@ -4547,9 +4878,12 @@
              data-name="bar 1661"
              data-district="capel st &amp; north city"
              data-rating="9.1"
+             data-lat="53.349263"
+             data-lng="-6.270465"
              data-tags="award winning irish poitín world-class cocktails">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/bar-1661/">Bar 1661</a>
               </h2>
@@ -4580,9 +4914,12 @@
              data-name="the sidecar at the westbury"
              data-district="south city / grafton"
              data-rating="9.1"
+             data-lat="53.341132"
+             data-lng="-6.261486"
              data-tags="art deco tableside martini trolley luxury cocktails">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/the-sidecar-at-the-westbury/">The Sidecar at The Westbury</a>
               </h2>
@@ -4613,9 +4950,12 @@
              data-name="9 below"
              data-district="south city / grafton"
              data-rating="9.0"
+             data-lat="53.33945"
+             data-lng="-6.2582"
              data-tags="subterranean lounge vaulted ceilings vintage champagne">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/9-below/">9 Below</a>
               </h2>
@@ -4646,9 +4986,12 @@
              data-name="peruke &amp; periwig"
              data-district="south city / grafton"
              data-rating="9.2"
+             data-lat="53.340097"
+             data-lng="-6.258775"
              data-tags="victorian decor eclectic bookshelves craft cocktails">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/peruke-periwig/">Peruke &amp; Periwig</a>
               </h2>
@@ -4679,9 +5022,12 @@
              data-name="the neptune bar"
              data-district="capel st &amp; north city"
              data-rating="9.3"
+             data-lat="53.347947"
+             data-lng="-6.262366"
              data-tags="thursday trad session northside heritage great pints">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/the-neptune-bar/">The Neptune Bar</a>
               </h2>
@@ -4712,9 +5058,12 @@
              data-name="jonathan swift pub"
              data-district="the liberties / christchurch"
              data-rating="9.2"
+             data-lat="53.342706"
+             data-lng="-6.272563"
              data-tags="sunday trad music christchurch views gulliver lore">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/jonathan-swift-pub/">Jonathan Swift Pub</a>
               </h2>
@@ -4745,9 +5094,12 @@
              data-name="thomas moore inn"
              data-district="camden &amp; portobello"
              data-rating="9.3"
+             data-lat="53.340586"
+             data-lng="-6.265425"
              data-tags="sunday trad sessions historic corner creamy stout">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/thomas-moore-inn/">Thomas Moore Inn</a>
               </h2>
@@ -4778,9 +5130,12 @@
              data-name="the fourth corner"
              data-district="the liberties / christchurch"
              data-rating="9.3"
+             data-lat="53.340591"
+             data-lng="-6.27414"
              data-tags="four corners lore sunday trad liberties craic">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/the-fourth-corner/">The Fourth Corner</a>
               </h2>
@@ -4811,9 +5166,12 @@
              data-name="irish whiskey museum bar"
              data-district="south city / grafton"
              data-rating="9.2"
+             data-lat="53.344154"
+             data-lng="-6.259567"
              data-tags="whiskey flights trinity college views all-ireland distilleries">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
               <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
                 <a href="/pubs/irish-whiskey-museum-bar/">Irish Whiskey Museum Bar</a>
               </h2>
@@ -4890,6 +5248,103 @@
       activeDistrictFilter = '';
       updateActivePill();
       applyFilters();
+    }
+
+
+    // --- Upgrade #2: Near Me Geolocation Distance Filter ---
+    let nearMeActive = false;
+    let userLat = null;
+    let userLng = null;
+
+    function calculateHaversineKm(lat1, lon1, lat2, lon2) {
+      const R = 6371; // Earth radius km
+      const dLat = (lat2 - lat1) * Math.PI / 180;
+      const dLon = (lon2 - lon1) * Math.PI / 180;
+      const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+                Math.sin(dLon / 2) * Math.sin(dLon / 2);
+      const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+      return R * c;
+    }
+
+    function applyNearMeCoords(lat, lng, labelText) {
+      userLat = lat;
+      userLng = lng;
+      nearMeActive = true;
+      const grid = document.getElementById('pubs-grid');
+      const cardArray = Array.from(document.querySelectorAll('.pub-card'));
+
+      cardArray.forEach(card => {
+        const cLat = parseFloat(card.getAttribute('data-lat') || '53.3444');
+        const cLng = parseFloat(card.getAttribute('data-lng') || '-6.2597');
+        const distKm = calculateHaversineKm(lat, lng, cLat, cLng);
+        const walkMins = Math.max(1, Math.round((distKm / 4.8) * 60));
+        card.setAttribute('data-distance-km', distKm.toFixed(3));
+
+        const badge = card.querySelector('.near-me-badge');
+        if (badge) {
+          badge.textContent = distKm < 10
+            ? `📍 ${distKm.toFixed(2)} km • ${walkMins}m walk`
+            : `📍 ${distKm.toFixed(1)} km from Dublin`;
+          badge.classList.remove('hidden');
+        }
+      });
+
+      cardArray.sort((a, b) => {
+        return parseFloat(a.getAttribute('data-distance-km') || '999') -
+               parseFloat(b.getAttribute('data-distance-km') || '999');
+      });
+
+      cardArray.forEach(card => grid.appendChild(card));
+
+      const statusSpan = document.getElementById('near-me-status');
+      if (statusSpan) {
+        statusSpan.textContent = `(${labelText})`;
+        statusSpan.classList.remove('hidden');
+      }
+      applyFilters();
+    }
+
+    function sortByNearMe() {
+      const btn = document.getElementById('btn-near-me');
+      if (btn) {
+        document.querySelectorAll('.filter-pill').forEach(p => {
+          p.classList.remove('bg-[#d9ac5e]', 'text-[#0a0406]', 'font-bold');
+          p.classList.add('bg-[#180d12]', 'text-[#cfbeac]');
+        });
+        btn.classList.remove('bg-[#180d12]', 'text-[#cfbeac]');
+        btn.classList.add('bg-[#d9ac5e]', 'text-[#0a0406]', 'font-bold');
+      }
+
+      if (!navigator.geolocation) {
+        // Fallback to Dublin City Centre (College Green / Trinity)
+        applyNearMeCoords(53.3444, -6.2597, 'City Centre');
+        return;
+      }
+
+      const statusSpan = document.getElementById('near-me-status');
+      if (statusSpan) {
+        statusSpan.textContent = '(Locating...)';
+        statusSpan.classList.remove('hidden');
+      }
+
+      navigator.geolocation.getCurrentPosition(
+        pos => {
+          const lat = pos.coords.latitude;
+          const lng = pos.coords.longitude;
+          // If user is >30km outside Dublin, use Dublin City Centre so distances stay meaningful
+          const distFromDublin = calculateHaversineKm(lat, lng, 53.3444, -6.2597);
+          if (distFromDublin > 30) {
+            applyNearMeCoords(53.3444, -6.2597, 'Dublin Centre');
+          } else {
+            applyNearMeCoords(lat, lng, 'GPS Active');
+          }
+        },
+        err => {
+          applyNearMeCoords(53.3444, -6.2597, 'Dublin Centre');
+        },
+        { enableHighAccuracy: true, timeout: 8000, maximumAge: 60000 }
+      );
     }
 
     function updateActivePill() {
