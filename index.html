@@ -1063,7 +1063,7 @@
     </aside>
 
     <!-- 4. FLOATING SELECTED PUB DETAIL POPUP (Positioned Higher Up) -->
-    <div id="pub-detail-popup" class="hidden absolute top-3 sm:top-4 right-2 sm:right-4 z-50 w-80 sm:w-96 max-w-[calc(100vw-1rem)] sm:max-w-[calc(100vw-2rem)] max-h-[calc(100vh-6.5rem)] md:max-h-[calc(100vh-5rem)] overflow-y-auto guinness-panel bg-[#0a0406]/95 backdrop-blur-[24px] rounded-[4px] shadow-2xl p-4 pb-6 transition-all border border-[#d9ac5e]">
+    <div id="pub-detail-popup" class="hidden absolute top-3 sm:top-4 right-2 sm:right-4 z-50 w-[22rem] sm:w-[27rem] md:w-[29rem] max-w-[calc(100vw-1rem)] sm:max-w-[calc(100vw-2rem)] max-h-[calc(100vh-6.5rem)] md:max-h-[calc(100vh-5rem)] overflow-y-auto guinness-panel bg-[#0a0406]/95 backdrop-blur-[24px] rounded-[4px] shadow-2xl p-4 pb-6 transition-all border border-[#d9ac5e]">
       <!-- Populated dynamically -->
     </div>
 
@@ -9204,45 +9204,41 @@
           <button onclick="closePubDetailPopup()" class="text-[#a39890] hover:text-white text-sm px-1">✕</button>
         </div>
 
-                                                        <!-- START_PIN_GALLERY -->
-        <div class="mb-2.5 rounded-lg overflow-hidden border border-[#d9ac5e]/30 bg-[#12070b]">
-          <div class="relative h-28 sm:h-36 w-full bg-[#0a0406] group">
+                                                                <!-- START_PIN_GALLERY -->
+        <div class="mb-3 rounded-lg overflow-hidden border border-[#d9ac5e]/30 bg-[#12070b]">
+          <div class="relative h-48 sm:h-64 w-full bg-[#0a0406] group">
             <img id="pin-gallery-img-${pub.id}"
                  src="${(pub.gallery && pub.gallery[0]) ? pub.gallery[0].url : ''}"
                  alt="${pub.name} Google Business Profile Photo"
                  onclick="openPubGalleryLightbox('${pub.id}', window['currentPinPhotoIdx_' + '${pub.id}'] || 0)"
                  class="w-full h-full object-cover cursor-pointer transition-opacity duration-200" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/30 pointer-events-none"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/20 pointer-events-none"></div>
             <!-- Left & Right Side Scrolling Arrows -->
             <button type="button"
                     onclick="event.stopPropagation(); stepPinGalleryPhoto('${pub.id}', -1)"
                     aria-label="Previous photo"
-                    class="absolute left-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-[#0a0406]/85 hover:bg-[#d9ac5e] text-[#f5ead8] hover:text-[#0a0406] border border-[#d9ac5e]/50 flex items-center justify-center font-bold text-base transition-all shadow-md z-10">
+                    class="absolute left-2 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-[#0a0406]/85 hover:bg-[#d9ac5e] text-[#f5ead8] hover:text-[#0a0406] border border-[#d9ac5e]/50 flex items-center justify-center font-bold text-lg transition-all shadow-md z-10">
               &#8249;
             </button>
             <button type="button"
                     onclick="event.stopPropagation(); stepPinGalleryPhoto('${pub.id}', 1)"
                     aria-label="Next photo"
-                    class="absolute right-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-[#0a0406]/85 hover:bg-[#d9ac5e] text-[#f5ead8] hover:text-[#0a0406] border border-[#d9ac5e]/50 flex items-center justify-center font-bold text-base transition-all shadow-md z-10">
+                    class="absolute right-2 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-[#0a0406]/85 hover:bg-[#d9ac5e] text-[#f5ead8] hover:text-[#0a0406] border border-[#d9ac5e]/50 flex items-center justify-center font-bold text-lg transition-all shadow-md z-10">
               &#8250;
             </button>
-            <!-- Top Badge: Google Business Profile Photos Link -->
-            <a href="${pub.gbpUrl || '#'}" target="_blank" rel="noopener"
-               class="absolute top-1.5 right-1.5 px-2 py-0.5 rounded bg-[#0a0406]/90 hover:bg-[#d9ac5e] text-[#d9ac5e] hover:text-[#0a0406] border border-[#d9ac5e]/50 text-[9.5px] font-headline font-bold uppercase tracking-wider transition-all flex items-center gap-1 shadow">
-              <span>📸 Google Photos (5) ↗</span>
-            </a>
             <!-- Bottom Caption & Photo Counter Badge -->
-            <div class="absolute bottom-1.5 left-2 right-2 flex items-center justify-between gap-1.5">
-              <span id="pin-gallery-caption-${pub.id}" class="text-[10px] text-[#ede5d8] font-medium truncate">
+            <div class="absolute bottom-2 left-2.5 right-2.5 flex items-center justify-between gap-2">
+              <span id="pin-gallery-caption-${pub.id}" class="text-[11px] text-[#ede5d8] font-medium truncate">
                 ${(pub.gallery && pub.gallery[0]) ? pub.gallery[0].caption : pub.name}
               </span>
-              <span id="pin-gallery-counter-${pub.id}" class="px-2 py-0.5 rounded bg-black/75 border border-[#d9ac5e]/30 text-[10px] font-mono text-[#d9ac5e] font-bold shrink-0">
+              <span id="pin-gallery-counter-${pub.id}" class="px-2.5 py-0.5 rounded bg-black/80 border border-[#d9ac5e]/40 text-[10.5px] font-mono text-[#d9ac5e] font-bold shrink-0">
                 1 / 5
               </span>
             </div>
           </div>
         </div>
         <!-- END_PIN_GALLERY -->
+        
         
         
         
@@ -10378,10 +10374,7 @@
         <span id="lightbox-counter" class="absolute bottom-2 right-2 px-2.5 py-0.5 rounded bg-[#0a0406]/85 text-[#d9ac5e] border border-[#d9ac5e]/40 font-headline font-bold text-xs">1 / 5</span>
       </div>
       <div id="lightbox-thumbs" class="mt-3 flex items-center justify-center gap-2 overflow-x-auto py-1"></div>
-      <div class="mt-4 flex flex-wrap items-center justify-between gap-3">
-        <a id="lightbox-gbp-link" href="#" target="_blank" rel="noopener" class="br-button-primary px-4 py-2.5 text-xs flex items-center gap-1.5">
-          <span>📸 View All Google Business Profile Photos ↗</span>
-        </a>
+      <div class="mt-4 flex items-center justify-end gap-3">
         <button type="button" onclick="closePubGalleryLightbox()" class="br-button-secondary px-4 py-2.5 text-xs">Close Gallery</button>
       </div>
     </div>
