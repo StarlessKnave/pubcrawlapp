@@ -67,6 +67,19 @@ def validate_repo(repo_dir: str) -> int:
             if not canon_url.startswith("https://dublinpubcrawl.app/"):
                 errors.append(f"[{rel_path}] Invalid canonical URL: {canon_url}")
 
+        # Validate all Schema.org JSON-LD blocks parse cleanly with json.loads()
+        ld_blocks = re.findall(
+            r'<script[^>]*type=["\']application/ld\+json["\'][^>]*>(.*?)</script>',
+            content,
+            re.DOTALL | re.IGNORECASE,
+        )
+        for ld_idx, ld_body in enumerate(ld_blocks):
+            try:
+                import json as _json
+                _json.loads(ld_body)
+            except Exception as e:
+                errors.append(f"[{rel_path}] Invalid Schema.org JSON-LD block #{ld_idx + 1}: {e}")
+
         # Check tag balance on index.html
         if rel_path == "index.html":
             for tag in ["div", "header", "section", "script"]:

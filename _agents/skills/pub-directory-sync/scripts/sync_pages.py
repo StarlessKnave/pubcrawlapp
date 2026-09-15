@@ -19,12 +19,37 @@ def sync_file(filepath: str, dry_run: bool = False) -> bool:
     # 1. Enforce non-www canonical URLs
     updated = updated.replace("https://www.dublinpubcrawl.app", "https://dublinpubcrawl.app")
 
-    # 2. Enforce Dublin Pub Crawl <span style="color: #d9ac5e;">Directory</span> in headers
+    # 2. Clean any HTML <span> tags that accidentally leaked into <script type="application/ld+json"> blocks
+    def clean_ld_json(m):
+        block_open = m.group(1)
+        block_body = m.group(2)
+        block_close = m.group(3)
+        # Strip any <span style="color: #d9ac5e;">Directory</span> inside JSON-LD back to plain Directory
+        block_body = block_body.replace(
+            '<span style="color: #d9ac5e;">Directory</span>', "Directory"
+        )
+        block_body = block_body.replace(
+            "<span style='color: #d9ac5e;'>Directory</span>", "Directory"
+        )
+        return block_open + block_body + block_close
+
     updated = re.sub(
-        r"Dublin Pub Crawl Directory(?!</span>)",
-        'Dublin Pub Crawl <span style="color: #d9ac5e;">Directory</span>',
+        r'(<script[^>]*type=["\']application/ld\+json["\'][^>]*>)(.*?)(</script>)',
+        clean_ld_json,
         updated,
+        flags=re.DOTALL | re.IGNORECASE,
     )
+
+    # 3. Enforce Dublin Pub Crawl <span style="color: #d9ac5e;">Directory</span> ONLY in visible <h1>/<h2>/<p> headers (never inside <script>, <title>, or <meta>)
+    parts = re.split(r'(<script.*?</script>|<head.*?</head>)', updated, flags=re.DOTALL | re.IGNORECASE)
+    for i in range(len(parts)):
+        if not parts[i].lower().startswith(("<script", "<head")):
+            parts[i] = re.sub(
+                r"Dublin Pub Crawl Directory(?!</span>)",
+                'Dublin Pub Crawl <span style="color: #d9ac5e;">Directory</span>',
+                parts[i],
+            )
+    updated = "".join(parts)
 
     if updated != original:
         if not dry_run:
