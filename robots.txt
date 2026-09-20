@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
+Disallow: /*?add=*
+Disallow: /*?focus=*
+Disallow: /*?crawl=*
 
 Sitemap: https://dublinpubcrawl.app/sitemap.xml
+Sitemap: https://dublinpubcrawl.app/sitemap-2026.xml

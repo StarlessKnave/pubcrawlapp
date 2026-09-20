@@ -53,208 +53,376 @@
 
   <!-- JSON-LD Rich Structured Data (Schema.org) for Google Search Rich Snippets -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Organization",
-        "@id": "https://dublinpubcrawl.app/#organization",
-        "name": "Dublin Pub Crawl Generator",
-        "url": "https://dublinpubcrawl.app/",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://dublinpubcrawl.app/favicon-512x512.png",
-          "width": 512,
-          "height": 512
-        }
-      },
-      {
-        "@type": "WebApplication",
-        "@id": "https://dublinpubcrawl.app/#webapp",
-        "name": "Dublin Pub Crawl Generator",
-        "url": "https://dublinpubcrawl.app/",
-        "image": "https://dublinpubcrawl.app/favicon-512x512.png",
-        "applicationCategory": "TravelApplication",
-        "operatingSystem": "All",
-        "browserRequirements": "Requires JavaScript",
-        "description": "Interactive Dublin pub crawl generator and historic pub guide mapping 118 authentic heritage venues with live hours, Guinness stout ratings, and Google Maps walking routes.",
-        "offers": {
-          "@type": "Offer",
-          "price": "0",
-          "priceCurrency": "EUR"
-        },
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.9",
-          "ratingCount": "320",
-          "bestRating": "5",
-          "worstRating": "1"
-        },
-        "featureList": [
-          "Curated 118 Historic Dublin Pubs",
-          "One-Tap Google Maps Walking Navigation",
-          "Guinness Stout Quality Scores",
-          "Live Real-Time Opening Hours",
-          "Themed Crawls (Heritage, Trad Music, Victorian Snugs, Literary)",
-          "QR Code Export to Mobile"
-        ]
-      },
-      {
-        "@type": "FAQPage",
-        "@id": "https://dublinpubcrawl.app/#faq",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "What is the best pub crawl route in Dublin?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "The Classic Heritage Crawl is Dublin's most iconic pub crawl route, featuring historic pubs like Bowes, The Palace Bar, The Long Hall, Kehoe's, and Mulligan's. It covers approximately 1.8 km of walkable distance through Dublin city centre."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Where can you find the best pint of Guinness in Dublin?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Top-rated pubs for Guinness stout quality in Dublin include John Kavanagh 'The Gravediggers' in Glasnevin, Mulligan's of Poolbeg Street, Bowes Lounge on Fleet Street, and The Long Hall on South Great George's Street, each boasting a 9.5+ Stout Score."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How do I do a self-guided pub crawl in Dublin?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "You can use the Dublin Pub Crawl Generator to customize a 3 to 7 stop route based on your preferred pub vibe (Heritage, Trad Music, Victorian Snugs, or Literary). You can export the walking itinerary directly to Google Maps or send it to your phone via QR code."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What are the best alternatives to Temple Bar pubs in Dublin?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "For authentic pub atmosphere without inflated tourist prices, explore the historic Liberties district (Fallon's, The Lord Edward, The Spire), Smithfield & Stoneybatter (The Cobblestone, Frank Ryan's), or South City Centre (Kehoe's, Neary's, Peter's Pub)."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Where can I hear live traditional Irish music in Dublin pubs?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "The Cobblestone in Smithfield is world-famous for spontaneous, unamplified trad sessions 7 nights a week. Other authentic music pubs include O'Donoghue's on Merrion Row, The Piper's Corner on Marlborough Street, and Devitts of Camden Street."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Do Dublin pubs accept credit cards or do I need cash?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Almost all Dublin pubs accept contactless, debit, and credit cards (Visa and Mastercard), including Apple Pay and Google Pay. However, carrying €20–€30 in cash is recommended for tipping musicians during trad sessions, using cloakrooms, or visiting traditional cash-only snugs."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What time do historic pubs close in Dublin?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Under Irish licensing laws, standard closing times are 11:30 PM Monday through Thursday, 12:30 AM on Friday and Saturday, and 11:00 PM on Sunday. Heritage pubs provide 30 minutes 'drinking-up time' after last orders before patrons must vacate."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How much does a pint of Guinness cost in Dublin in 2026?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "In traditional Dublin heritage pubs outside Temple Bar, a pint of Guinness typically costs between €5.80 and €6.80. Inside tourist-heavy Temple Bar, prices frequently exceed €8.50 to €10.00, especially during late-night live music sessions."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What is the proper etiquette for ordering Guinness in Dublin?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Always order your Guinness first before other drinks so the bartender can begin the two-part pour (which takes 119.5 seconds to settle). Never reach for or drink the pint while it is still settling and cloudy—wait until the stout is deep ruby-black with a crisp, creamy white dome."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Is a self-guided pub crawl safe in Dublin?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes, Dublin city centre is very walkable and safe for self-guided pub crawls. Stick to well-lit main streets when walking between central districts (such as Grafton Street, George's Street, and Dame Street), keep your phone secure, and drink plenty of water between heritage pints."
-            }
-          }
-        ]
-      },
-      {
-        "@type": "ItemList",
-        "@id": "https://dublinpubcrawl.app/#pubs-list",
-        "name": "Top Historic Dublin Heritage Pubs",
-        "description": "Curated selection of Dublin's most celebrated historic pubs and taverns.",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "item": {
-              "@type": "BarOrPub",
-              "name": "The Long Hall",
-              "address": "51 S Great George's St, Dublin 2",
-              "geo": { "@type": "GeoCoordinates", "latitude": 53.341498, "longitude": -6.265275 }
-            }
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "item": {
-              "@type": "BarOrPub",
-              "name": "Mulligan's",
-              "address": "8 Poolbeg St, Dublin 2",
-              "geo": { "@type": "GeoCoordinates", "latitude": 53.346412, "longitude": -6.256085 }
-            }
-          },
-          {
-            "@type": "ListItem",
-            "position": 3,
-            "item": {
-              "@type": "BarOrPub",
-              "name": "The Palace Bar",
-              "address": "21 Fleet St, Temple Bar, Dublin 2",
-              "geo": { "@type": "GeoCoordinates", "latitude": 53.345672, "longitude": -6.259923 }
-            }
-          },
-          {
-            "@type": "ListItem",
-            "position": 4,
-            "item": {
-              "@type": "BarOrPub",
-              "name": "John Kavanagh 'The Gravediggers'",
-              "address": "1 Prospect Square, Glasnevin, Dublin 9",
-              "geo": { "@type": "GeoCoordinates", "latitude": 53.367015, "longitude": -6.273845 }
-            }
-          },
-          {
-            "@type": "ListItem",
-            "position": 5,
-            "item": {
-              "@type": "BarOrPub",
-              "name": "The Cobblestone",
-              "address": "77 King St N, Smithfield, Dublin 7",
-              "geo": { "@type": "GeoCoordinates", "latitude": 53.349912, "longitude": -6.277845 }
-            }
-          },
-          {
-            "@type": "ListItem",
-            "position": 6,
-            "item": {
-              "@type": "BarOrPub",
-              "name": "Bowes Lounge",
-              "address": "31 Fleet St, Dublin 2",
-              "geo": { "@type": "GeoCoordinates", "latitude": 53.345912, "longitude": -6.259125 }
-            }
-          }
-        ]
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://dublinpubcrawl.app/#organization",
+      "name": "Dublin Pub Crawl Generator",
+      "url": "https://dublinpubcrawl.app/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://dublinpubcrawl.app/favicon-512x512.png",
+        "width": 512,
+        "height": 512
       }
-    ]
-  }
+    },
+    {
+      "@type": "WebApplication",
+      "@id": "https://dublinpubcrawl.app/#webapp",
+      "name": "Dublin Pub Crawl Generator",
+      "url": "https://dublinpubcrawl.app/",
+      "image": "https://dublinpubcrawl.app/favicon-512x512.png",
+      "applicationCategory": "TravelApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript",
+      "description": "Interactive Dublin pub crawl generator and historic pub guide mapping 118 authentic heritage venues with live hours, Guinness stout ratings, and Google Maps walking routes.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "ratingCount": "320",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "featureList": [
+        "Curated 118 Historic Dublin Pubs",
+        "One-Tap Google Maps Walking Navigation",
+        "Guinness Stout Quality Scores",
+        "Live Real-Time Opening Hours",
+        "Themed Crawls (Heritage, Trad Music, Victorian Snugs, Literary)",
+        "QR Code Export to Mobile"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://dublinpubcrawl.app/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the best pub crawl route in Dublin?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The Classic Heritage Crawl is Dublin's most iconic pub crawl route, featuring historic pubs like Bowes, The Palace Bar, The Long Hall, Kehoe's, and Mulligan's. It covers approximately 1.8 km of walkable distance through Dublin city centre."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where can you find the best pint of Guinness in Dublin?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Top-rated pubs for Guinness stout quality in Dublin include John Kavanagh 'The Gravediggers' in Glasnevin, Mulligan's of Poolbeg Street, Bowes Lounge on Fleet Street, and The Long Hall on South Great George's Street, each boasting a 9.5+ Stout Score."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I do a self-guided pub crawl in Dublin?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can use the Dublin Pub Crawl Generator to customize a 3 to 7 stop route based on your preferred pub vibe (Heritage, Trad Music, Victorian Snugs, or Literary). You can export the walking itinerary directly to Google Maps or send it to your phone via QR code."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are the best alternatives to Temple Bar pubs in Dublin?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For authentic pub atmosphere without inflated tourist prices, explore the historic Liberties district (Fallon's, The Lord Edward, The Spire), Smithfield & Stoneybatter (The Cobblestone, Frank Ryan's), or South City Centre (Kehoe's, Neary's, Peter's Pub)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where can I hear live traditional Irish music in Dublin pubs?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The Cobblestone in Smithfield is world-famous for spontaneous, unamplified trad sessions 7 nights a week. Other authentic music pubs include O'Donoghue's on Merrion Row, The Piper's Corner on Marlborough Street, and Devitts of Camden Street."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do Dublin pubs accept credit cards or do I need cash?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Almost all Dublin pubs accept contactless, debit, and credit cards (Visa and Mastercard), including Apple Pay and Google Pay. However, carrying €20–€30 in cash is recommended for tipping musicians during trad sessions, using cloakrooms, or visiting traditional cash-only snugs."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What time do historic pubs close in Dublin?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Under Irish licensing laws, standard closing times are 11:30 PM Monday through Thursday, 12:30 AM on Friday and Saturday, and 11:00 PM on Sunday. Heritage pubs provide 30 minutes 'drinking-up time' after last orders before patrons must vacate."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does a pint of Guinness cost in Dublin in 2026?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "In traditional Dublin heritage pubs outside Temple Bar, a pint of Guinness typically costs between €5.80 and €6.80. Inside tourist-heavy Temple Bar, prices frequently exceed €8.50 to €10.00, especially during late-night live music sessions."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the proper etiquette for ordering Guinness in Dublin?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Always order your Guinness first before other drinks so the bartender can begin the two-part pour (which takes 119.5 seconds to settle). Never reach for or drink the pint while it is still settling and cloudy—wait until the stout is deep ruby-black with a crisp, creamy white dome."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is a self-guided pub crawl safe in Dublin?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, Dublin city centre is very walkable and safe for self-guided pub crawls. Stick to well-lit main streets when walking between central districts (such as Grafton Street, George's Street, and Dame Street), keep your phone secure, and drink plenty of water between heritage pints."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://dublinpubcrawl.app/#pubs-list",
+      "name": "Top Historic Dublin Heritage Pubs",
+      "description": "Curated selection of Dublin's most celebrated historic pubs and taverns.",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "BarOrPub",
+            "name": "The Long Hall",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "51 S Great George's St, D02 F654",
+              "addressLocality": "Dublin",
+              "addressRegion": "Dublin",
+              "postalCode": "D02 F654",
+              "addressCountry": "IE"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 53.341498,
+              "longitude": -6.265275
+            },
+            "url": "https://dublinpubcrawl.app/pubs/the-long-hall/",
+            "image": [
+              "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmKsJ1q713A8K6NbizfMg1FcOcwbX3c0doAHoL2FJASvGBes0Zkk4YPKgPaiWy8fjUECcojft1yKxEtXSbVQ39lCcXDOHtE-M6MA5w9eLOS640FdY3X2an3_2Hof-If_oClhrGZ=w800-h600-k-no",
+              "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlsJOBkBIbYo7pNDxyMcu7TyW8UOIBUiC66n2jTLZHCAlpvQ3Ahh5p3tle3RHtlKYMutAVpQzGsdvTkl5yoSj7QMz4y15pIJAn6DR6Aj6JMxLdi_i-jqzTqbI-vsdnms7HCZxql=w800-h600-k-no",
+              "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkpJw-sXKh0MwZPoW0EIQzWT5RerdjXccdoW2dkNJTAIOScyOw3IbBjayTXDecr3AqQDD07dRVBbdl2SMQFWPVp_t7fRNxWl3AXNhECfEB-VCGt_mNuFz-W-ZUY7xAw4acCzmw=w800-h600-k-no",
+              "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnTGcHjZcETZtr-0SXRawOqoRH8iqQpsnlgZP_eg6P9vPC4s-IGnOjoofCSvo1J2JJHQ-r8ZOM7Jg8_FLUdf9IObLfIam1KqbjL-ne5-1PiiCd3s-svATkPokdU-P7nxdv_jcQgWx2tzrd2=w800-h600-k-no",
+              "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmKsJ1q713A8K6NbizfMg1FcOcwbX3c0doAHoL2FJASvGBes0Zkk4YPKgPaiWy8fjUECcojft1yKxEtXSbVQ39lCcXDOHtE-M6MA5w9eLOS640FdY3X2an3_2Hof-If_oClhrGZ=w900-h600-p-k-no"
+            ],
+            "priceRange": "€€",
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "9.9",
+              "bestRating": "10",
+              "worstRating": "1",
+              "ratingCount": 322
+            }
+          },
+          "url": "https://dublinpubcrawl.app/pubs/the-long-hall/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "BarOrPub",
+            "name": "Mulligan's",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "8 Poolbeg St, D02 W380",
+              "addressLocality": "Dublin",
+              "addressRegion": "Dublin",
+              "postalCode": "D02 W380",
+              "addressCountry": "IE"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 53.346412,
+              "longitude": -6.256085
+            },
+            "url": "https://dublinpubcrawl.app/pubs/mulligans/",
+            "image": [
+              "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnhEXMVwyQBHDqtG8jR2dKKsiwltQ6CYMxm37rMZLfK9_umTvOmmunNp0XPJnRmN_89NqW79e482sTQBwbEF4e931MmcLePL1HJnouzoFJFTPzArZAZ3hYDjIl5ESSsbjjafE3kNw=w800-h600-k-no",
+              "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnKWWg-eaAcuGDcyfEmU5GIREzx7ONIcyQ-_vizX16iudgKkRlsDkwa7kwnJLtDJ0rJ4tgW2rdkqNd4GG6UBUcLgDmzj8L9GTVhd0VfujXBjo26piX2zjyAp-gmuKBcskPDHjpt=w800-h600-k-no",
+              "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWm2Q_OiHEyAeimiWrKP-5DqARhzh25K4oDTwiX0o-388OFhi6jlhTe7iqiTTd_nBStrPoPRI8Gf_Z4by6_fFVTvIKINoTuzN3pA9OAvAHudEDOjoKOr8kSD8I9KwFwnbzI104zF=w800-h600-k-no",
+              "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlVbOsTUcVxp9ynnwoeoFDokC5aWW1FX9Nvm07_BwsKW7Kk2dOcKgEGIajWytkwxxo5dysZfLTSsscNRuSYJBNXtKlj3NnGLSkvWOFgIKhDegzEY-55ST6xH-WWHWO3Be3kVC2czID-ZQcG=w800-h600-k-no",
+              "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=ejSyfYar_hlHPJS6ZPEHLg&cb_client=search.gws-prod.gps&w=114&h=120&yaw=331.09808&pitch=0&thumbfov=100"
+            ],
+            "priceRange": "€€",
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "9.8",
+              "bestRating": "10",
+              "worstRating": "1",
+              "ratingCount": 335
+            }
+          },
+          "url": "https://dublinpubcrawl.app/pubs/mulligans/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "BarOrPub",
+            "name": "The Palace Bar",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "21 Fleet St, Temple Bar, D02 H950",
+              "addressLocality": "Dublin",
+              "addressRegion": "Dublin",
+              "postalCode": "D02 H950",
+              "addressCountry": "IE"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 53.345672,
+              "longitude": -6.259923
+            },
+            "url": "https://dublinpubcrawl.app/pubs/the-palace-bar/",
+            "image": [
+              "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmwXHJXyrutObNcdvVbUclp1pekbbIdxdeBO7NQqI_14a2nk2uwFfk6qfFntEw59FauZ_C8J5b-4bw2Gbg6_L7xkFnccrW_ysYs-32HwV5ejylq5nIxqWV4pYkoNCeB0ypXV_W-82tKC7hY=w800-h600-k-no",
+              "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkG3bnjM58-iABcqlUtJOvC42GPUa5ucbFnOknqV5gKV9JIN2v9QznF06uiF5bnUVmJ8UbW05OCOl82Frh3mpxnNBn8Ot-Fjn8s71xX17liIl6NZFQJIzqu3S60smImN21UOGI=w800-h600-k-no",
+              "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=R4o_26Emxti8DTCPK84YTw&cb_client=search.gws-prod.gps&w=211&h=120&yaw=18.438345&pitch=0&thumbfov=100",
+              "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmwXHJXyrutObNcdvVbUclp1pekbbIdxdeBO7NQqI_14a2nk2uwFfk6qfFntEw59FauZ_C8J5b-4bw2Gbg6_L7xkFnccrW_ysYs-32HwV5ejylq5nIxqWV4pYkoNCeB0ypXV_W-82tKC7hY=w900-h600-p-k-no",
+              "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkG3bnjM58-iABcqlUtJOvC42GPUa5ucbFnOknqV5gKV9JIN2v9QznF06uiF5bnUVmJ8UbW05OCOl82Frh3mpxnNBn8Ot-Fjn8s71xX17liIl6NZFQJIzqu3S60smImN21UOGI=w1000-h750-k-no"
+            ],
+            "priceRange": "€€",
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "9.6",
+              "bestRating": "10",
+              "worstRating": "1",
+              "ratingCount": 330
+            }
+          },
+          "url": "https://dublinpubcrawl.app/pubs/the-palace-bar/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "item": {
+            "@type": "BarOrPub",
+            "name": "John Kavanagh 'The Gravediggers'",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "1 Prospect Square, Glasnevin, D09 V6R6",
+              "addressLocality": "Dublin",
+              "addressRegion": "Dublin",
+              "postalCode": "D09 V6R6",
+              "addressCountry": "IE"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 53.367015,
+              "longitude": -6.273845
+            },
+            "url": "https://dublinpubcrawl.app/pubs/john-kavanagh-the-gravediggers/",
+            "image": [
+              "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWn1cH0gPP5tCq37MaAf7iATuasotfB9pJgO7gFmlf0QXeYu_1fGi46hfn9mzPUk2kV34vavuS_UW_vfYEhcPLpZw2Mss0x8oUURb-o9XmcAWVpE8mpOPa6lFq8F3X0IFCd4L69YnA=w800-h600-k-no",
+              "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlCv6Ym9etgpQwj3E1s3w34r5efHAJV7dA1GIggXtr35lYiUs08svGlKQQy6MQcJfV2JjFIVNNlkutdQhMzAjGYQ6f4yRRyFQOwM4hPyw5UtYAW1tHbJCbOWOqIbtYgTAUgDLLa=w800-h600-k-no",
+              "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWntLbI4OOlV_ItFS7GztU9QkKvk53nzOHgvM5pzUD1vav7ttDBCZff793DTqi6f2sB4yYDk8YJJdikA3zz7_M4bitl3uAIbQ9kHa4-Fr-Gq_UfBL63AjWWoupcRmzVgGwWg7uJm=w800-h600-k-no",
+              "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnn-LuEbojN7qbzEfeqRW6vC9dQrK_-pbtzlWcuIQID-opvG9oPlGLl7AbTcV6dJoX06k-eLD9EkhMVaHQdeyHEHLoTgYRdisBfQYYYHyghOzBgWjUrZIdIFH5O1CAV2Ml0XUKwXU5l5PyQ=w800-h600-k-no",
+              "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWn1cH0gPP5tCq37MaAf7iATuasotfB9pJgO7gFmlf0QXeYu_1fGi46hfn9mzPUk2kV34vavuS_UW_vfYEhcPLpZw2Mss0x8oUURb-o9XmcAWVpE8mpOPa6lFq8F3X0IFCd4L69YnA=w900-h600-p-k-no"
+            ],
+            "priceRange": "€€",
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "9.9",
+              "bestRating": "10",
+              "worstRating": "1",
+              "ratingCount": 349
+            }
+          },
+          "url": "https://dublinpubcrawl.app/pubs/john-kavanagh-the-gravediggers/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "item": {
+            "@type": "BarOrPub",
+            "name": "The Cobblestone",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "77 King St N, Smithfield, D07 X256",
+              "addressLocality": "Dublin",
+              "addressRegion": "Dublin",
+              "postalCode": "D07 X256",
+              "addressCountry": "IE"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 53.349912,
+              "longitude": -6.277845
+            },
+            "url": "https://dublinpubcrawl.app/pubs/the-cobblestone/",
+            "image": [
+              "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnhbXcgbZzk6hlQW5x962gPkSh6ZDZSieeAKKBGTsDah8tbNT_RosJJe1Nw4-alWOBa1RmAKRtH-ZqLKT4lgFUqdmmiOF3_xj1WaKHtCwliZY22kyLMYE7Dk5JqhWu1jUEv7i2t=w800-h600-k-no",
+              "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlnP1WgXJVkIoSvuHkS0soqbi6SJfQa01OdUMDf4VW3F168vsymrnKlcAJuLAiFae6wOonmNn5-BVvJY-IlzBQJtuOhrmprQMYdr8yrzUMkBlLiBLgF1V5l48wi5aB6T0OrDIahZgfYNxo4=w800-h600-k-no",
+              "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmp_SlKqX7lNyK33iD4VU6w0KkYbfo0nCGJG2zj1vrsAwbJWl0Wu7qBuUR_CCGA5439t_4JllYklneXkJFZPrQ1zCLgKu9tVIThzpB8IXrZ7vjFhPm6xSIyJ3UR6OTOrxaArzmr=w800-h600-k-no",
+              "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=DEbcvPXoKYwSwjBKzalRgg&cb_client=search.gws-prod.gps&w=114&h=120&yaw=280.68124&pitch=0&thumbfov=100",
+              "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnhbXcgbZzk6hlQW5x962gPkSh6ZDZSieeAKKBGTsDah8tbNT_RosJJe1Nw4-alWOBa1RmAKRtH-ZqLKT4lgFUqdmmiOF3_xj1WaKHtCwliZY22kyLMYE7Dk5JqhWu1jUEv7i2t=w900-h600-p-k-no"
+            ],
+            "priceRange": "€€",
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "9.5",
+              "bestRating": "10",
+              "worstRating": "1",
+              "ratingCount": 304
+            }
+          },
+          "url": "https://dublinpubcrawl.app/pubs/the-cobblestone/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "item": {
+            "@type": "BarOrPub",
+            "name": "Bowes Lounge",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "31 Fleet St, D02 Y886",
+              "addressLocality": "Dublin",
+              "addressRegion": "Dublin",
+              "postalCode": "D02 Y886",
+              "addressCountry": "IE"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 53.345912,
+              "longitude": -6.259125
+            },
+            "url": "https://dublinpubcrawl.app/pubs/bowes-lounge-bar/",
+            "image": [
+              "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmnkw3sZL2meWQPdVshKecEz7U5KaBFsmlSM0WNULAT_poHlTYw8QnCK8S0lR6AWlE9X0Q9sO0KHSbP5z59xBHK35XHXeDiyGkPuFZcnzp8Fh6pgtST350dtn4ajfJW5mIrRiG2=w800-h600-k-no",
+              "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWn0z00nhhDDDBQX34sguMPhTWAC6IbjhHoQS9eNVVsP2dEGQyipn6zi_GbddGyXcrGIv--5VFtuCP5liTuoAOWx-mQNkqDoIYpoLHWB2fLAJn9cl9XdO9zwNv9xy18AogeR5TEVSQ=w800-h600-k-no",
+              "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWl8to3Ox2xtcajuA5tJKQrRLz8qLuRBpSs-nBvX4Vo8r5GYeFm9hXOATmryGnzB2xiEyMqCOXKA2MRWfWHoMinXqoWHF4yTQ3XEsOyR-hJwVR-cMwSUHl7lc4YYVTc8EF62igjKvNSbgLDo=w800-h600-k-no",
+              "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=bj7Th2G1kclrR8d7J4GYmA&cb_client=search.gws-prod.gps&w=114&h=120&yaw=199.40096&pitch=0&thumbfov=100",
+              "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmnkw3sZL2meWQPdVshKecEz7U5KaBFsmlSM0WNULAT_poHlTYw8QnCK8S0lR6AWlE9X0Q9sO0KHSbP5z59xBHK35XHXeDiyGkPuFZcnzp8Fh6pgtST350dtn4ajfJW5mIrRiG2=w900-h600-p-k-no"
+            ],
+            "priceRange": "€€",
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "9.8",
+              "bestRating": "10",
+              "worstRating": "1",
+              "ratingCount": 327
+            }
+          },
+          "url": "https://dublinpubcrawl.app/pubs/bowes-lounge-bar/"
+        }
+      ]
+    }
+  ]
+}
   </script>
   
   <!-- Favicons for Google Search Results & Web Browsers (Guinness Tulip Pint Gold Badge) -->
@@ -10377,6 +10545,156 @@
       </div>
     </div>
   </div>
+
+
+  <!-- SEO Crawl Graph Directory (Depth-1 Internal Links to All 15 Routes & 118 Pubs) -->
+  <nav id="seo-crawl-graph-directory" aria-label="Complete Dublin Pub Crawl & Historic Tavern Directory" class="bg-[#0a0406] border-t border-[#d9ac5e]/20 py-8 px-4 sm:px-8 text-[#f5ead8]">
+    <div class="max-w-7xl mx-auto space-y-6">
+      <div>
+        <h2 class="text-sm font-bold uppercase tracking-widest text-[#d9ac5e] mb-3">15 Curated Dublin Pub Crawl Routes</h2>
+        <ul class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2">
+          <li><a href="/routes/baggot-mile-georgian-quarter/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">The Baggot Mile (Georgian Quarter)</a></li>
+          <li><a href="/routes/camden-street-portobello-trail/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">Camden Street & Portobello Trail</a></li>
+          <li><a href="/routes/capel-street-north-city-trail/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">Capel Street & North City Trail</a></li>
+          <li><a href="/routes/classic-heritage-crawl/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">The Classic Heritage Crawl</a></li>
+          <li><a href="/routes/dublin-cocktail-experience/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">The Dublin Cocktail Experience</a></li>
+          <li><a href="/routes/dublin-whiskey-trail/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">The Dublin Whiskey Trail</a></li>
+          <li><a href="/routes/glasnevin-phibsborough-trail/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">Glasnevin & Phibsborough Pilgrimage</a></li>
+          <li><a href="/routes/guinness-perfection-pilgrimage/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">Guinness 9.5+ Perfection Pilgrimage</a></li>
+          <li><a href="/routes/historic-liberties-trail/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">The Historic Liberties & Dublin 8</a></li>
+          <li><a href="/routes/literary-dublin-pub-crawl/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">Literary Dublin Pub Crawl</a></li>
+          <li><a href="/routes/smithfield-stoneybatter-trail/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">Smithfield & Stoneybatter Trail</a></li>
+          <li><a href="/routes/temple-bar-historic-quays/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">Temple Bar & Historic Quays Trail</a></li>
+          <li><a href="/routes/traditional-irish-music-trail/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">Live Trad Music & Fiddle Trail</a></li>
+          <li><a href="/routes/victorian-snug-trail/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">Victorian Snugs & Gin Palaces</a></li>
+          <li><a href="/routes/walk-to-guinness/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">The Walk to Guinness Storehouse</a></li>
+        </ul>
+      </div>
+      <div class="pt-4 border-t border-[#d9ac5e]/10">
+        <h2 class="text-sm font-bold uppercase tracking-widest text-[#d9ac5e] mb-3">Dublin Pub Crawl <span style="color: #d9ac5e;">Directory</span> — All 118 Historic Pubs</h2>
+        <ul class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-x-3 gap-y-1.5">
+          <li><a href="/pubs/9-below/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">9 Below</a></li>
+          <li><a href="/pubs/anseo/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">Anseo</a></li>
+          <li><a href="/pubs/arthurs-pub/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">Arthur's Pub</a></li>
+          <li><a href="/pubs/bar-1661/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">Bar 1661</a></li>
+          <li><a href="/pubs/bonobo-smithfield/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">Bonobo, Smithfield</a></li>
+          <li><a href="/pubs/bottlers-bank/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">Bottler's Bank</a></li>
+          <li><a href="/pubs/bowes-lounge-bar/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">Bowe's Lounge Bar</a></li>
+          <li><a href="/pubs/briodys/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">Briodys</a></li>
+          <li><a href="/pubs/caribou/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">Caribou</a></li>
+          <li><a href="/pubs/cassidys-of-camden-street/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">Cassidy's of Camden Street</a></li>
+          <li><a href="/pubs/cassidys/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">Cassidys</a></li>
+          <li><a href="/pubs/ciss-maddens/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">Ciss Maddens</a></li>
+          <li><a href="/pubs/clearys-pub/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">Cleary's Pub</a></li>
+          <li><a href="/pubs/cumiskeys/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">Cumiskeys</a></li>
+          <li><a href="/pubs/cusacks-pub/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">Cusack's Pub</a></li>
+          <li><a href="/pubs/darkey-kellys/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">Darkey Kelly's</a></li>
+          <li><a href="/pubs/davy-byrnes/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">Davy Byrnes</a></li>
+          <li><a href="/pubs/delaneys-smithfield/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">Delaney's Smithfield</a></li>
+          <li><a href="/pubs/devitts-of-camden-street/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">Devitts of Camden Street</a></li>
+          <li><a href="/pubs/doheny-nesbitt/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">Doheny & Nesbitt</a></li>
+          <li><a href="/pubs/dudleys/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">Dudley's</a></li>
+          <li><a href="/pubs/fagans-bar-restaurant/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">Fagan's Bar & Restaurant</a></li>
+          <li><a href="/pubs/fidelity-bar-studio/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">Fidelity Bar & Studio</a></li>
+          <li><a href="/pubs/frank-ryans/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">Frank Ryan's</a></li>
+          <li><a href="/pubs/gaffneys-pub/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">Gaffney's Pub</a></li>
+          <li><a href="/pubs/graingers-pebble-beach/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">Grainger's Pebble Beach</a></li>
+          <li><a href="/pubs/grogans-castle-lounge/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">Grogan's Castle Lounge</a></li>
+          <li><a href="/pubs/harry-byrnes/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">Harry Byrnes</a></li>
+          <li><a href="/pubs/hartigans-pub/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">Hartigans Pub</a></li>
+          <li><a href="/pubs/hogans/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">Hogan's</a></li>
+          <li><a href="/pubs/hole-in-the-wall-europe-s-longest-pub/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">Hole in the Wall, Europe’s Longest Pub</a></li>
+          <li><a href="/pubs/international-bar/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">International Bar</a></li>
+          <li><a href="/pubs/irish-whiskey-museum-bar/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">Irish Whiskey Museum Bar</a></li>
+          <li><a href="/pubs/j-oconnell/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">J. O'Connell</a></li>
+          <li><a href="/pubs/jack-nealons/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">Jack Nealons</a></li>
+          <li><a href="/pubs/john-fallons-the-capstan-bar/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">John Fallon's "The Capstan Bar"</a></li>
+          <li><a href="/pubs/john-kavanagh-the-gravediggers/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">John Kavanagh The Gravediggers</a></li>
+          <li><a href="/pubs/johnnie-foxs-pub/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">Johnnie Fox's Pub</a></li>
+          <li><a href="/pubs/jonathan-swift-pub/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">Jonathan Swift Pub</a></li>
+          <li><a href="/pubs/kehoes/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">Kehoe's</a></li>
+          <li><a href="/pubs/l-mulligan-grocer/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">L. Mulligan Grocer</a></li>
+          <li><a href="/pubs/m-obriens/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">M. O'Brien's</a></li>
+          <li><a href="/pubs/martin-b-slattery-rathmines/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">Martin B. Slattery (Rathmines)</a></li>
+          <li><a href="/pubs/mccaffertys-at-the-barge/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">McCafferty's at The Barge</a></li>
+          <li><a href="/pubs/mcdaids/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">McDaid's</a></li>
+          <li><a href="/pubs/mcneills-pub/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">McNeill's Pub</a></li>
+          <li><a href="/pubs/mcsorleys-of-ranelagh/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">McSorley's of Ranelagh</a></li>
+          <li><a href="/pubs/merchants-arch/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">Merchant's Arch</a></li>
+          <li><a href="/pubs/moss-lane/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">Moss Lane</a></li>
+          <li><a href="/pubs/mulligans/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">Mulligan's</a></li>
+          <li><a href="/pubs/nearys/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">Neary's</a></li>
+          <li><a href="/pubs/odonoghues/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">O'Donoghue's</a></li>
+          <li><a href="/pubs/oregans/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">O'Regan's</a></li>
+          <li><a href="/pubs/old-royal-oak/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">Old Royal Oak</a></li>
+          <li><a href="/pubs/paddy-cullens-pub/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">Paddy Cullen's Pub</a></li>
+          <li><a href="/pubs/peggy-kellys/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">Peggy Kellys</a></li>
+          <li><a href="/pubs/peruke-periwig/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">Peruke & Periwig</a></li>
+          <li><a href="/pubs/peters-pub/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">Peter's Pub</a></li>
+          <li><a href="/pubs/porterhouse-temple-bar/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">Porterhouse Temple Bar</a></li>
+          <li><a href="/pubs/rody-bolands/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">Rody Bolands</a></li>
+          <li><a href="/pubs/ryans-camden-st/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">Ryan's (Camden St)</a></li>
+          <li><a href="/pubs/ryans-of-parkgate-street-fx-buckley/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">Ryan's of Parkgate Street (FX Buckley)</a></li>
+          <li><a href="/pubs/searsons/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">Searsons</a></li>
+          <li><a href="/pubs/sheehans-pub/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">Sheehans Pub</a></li>
+          <li><a href="/pubs/sinnotts-bar/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">Sinnotts Bar</a></li>
+          <li><a href="/pubs/slatterys-d4/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">Slattery's D4</a></li>
+          <li><a href="/pubs/smyths-pub-10-haddington-rd/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">Smyth's Pub (10 Haddington Rd)</a></li>
+          <li><a href="/pubs/smyths-pub-ranelagh/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">Smyth's Pub (Ranelagh)</a></li>
+          <li><a href="/pubs/the-bankers-bar/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">The Bankers Bar</a></li>
+          <li><a href="/pubs/the-black-sheep/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">The Black Sheep</a></li>
+          <li><a href="/pubs/the-bleeding-horse/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">The Bleeding Horse</a></li>
+          <li><a href="/pubs/the-blue-light/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">The Blue Light</a></li>
+          <li><a href="/pubs/the-boars-head/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">The Boar's Head</a></li>
+          <li><a href="/pubs/the-brazen-head/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">The Brazen Head</a></li>
+          <li><a href="/pubs/the-cellar-bar-at-the-merrion/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">The Cellar Bar at The Merrion</a></li>
+          <li><a href="/pubs/the-celt/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">The Celt</a></li>
+          <li><a href="/pubs/the-cobblestone/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">The Cobblestone</a></li>
+          <li><a href="/pubs/the-dalkey-duck/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">The Dalkey Duck</a></li>
+          <li><a href="/pubs/the-dame-tavern/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">The Dame Tavern</a></li>
+          <li><a href="/pubs/the-dawson-lounge/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">The Dawson Lounge</a></li>
+          <li><a href="/pubs/the-duke/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">The Duke</a></li>
+          <li><a href="/pubs/the-ferryman/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">The Ferryman</a></li>
+          <li><a href="/pubs/the-flowing-tide/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">The Flowing Tide</a></li>
+          <li><a href="/pubs/the-foggy-dew/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">The Foggy Dew</a></li>
+          <li><a href="/pubs/the-fourth-corner/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">The Fourth Corner</a></li>
+          <li><a href="/pubs/the-ginger-man/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">The Ginger Man</a></li>
+          <li><a href="/pubs/the-glimmer-man/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">The Glimmer Man</a></li>
+          <li><a href="/pubs/the-goat-bar-grill/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">The Goat Bar & Grill</a></li>
+          <li><a href="/pubs/the-hapenny-bridge-inn/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">The Ha'penny Bridge Inn</a></li>
+          <li><a href="/pubs/the-harbour-bar-howth/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">The Harbour Bar Howth</a></li>
+          <li><a href="/pubs/the-hill-pub/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">The Hill Pub</a></li>
+          <li><a href="/pubs/the-hut/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">The Hut</a></li>
+          <li><a href="/pubs/the-kings-inn/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">The King's Inn</a></li>
+          <li><a href="/pubs/the-liberty-belle/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">The Liberty Belle</a></li>
+          <li><a href="/pubs/the-long-hall/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">The Long Hall</a></li>
+          <li><a href="/pubs/the-lord-edward/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">The Lord Edward</a></li>
+          <li><a href="/pubs/the-neptune-bar/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">The Neptune Bar</a></li>
+          <li><a href="/pubs/the-old-stand/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">The Old Stand</a></li>
+          <li><a href="/pubs/the-oval-bar/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">The Oval Bar</a></li>
+          <li><a href="/pubs/the-palace-bar/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">The Palace Bar</a></li>
+          <li><a href="/pubs/the-pipers-corner/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">The Piper's Corner</a></li>
+          <li><a href="/pubs/the-sidecar-at-the-westbury/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">The Sidecar at The Westbury</a></li>
+          <li><a href="/pubs/the-sitting-room-at-delahunt/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">The Sitting Room at Delahunt</a></li>
+          <li><a href="/pubs/the-stags-head/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">The Stag's Head</a></li>
+          <li><a href="/pubs/the-storyteller-pub/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">The Storyteller Pub</a></li>
+          <li><a href="/pubs/the-summit-inn/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">The Summit Inn</a></li>
+          <li><a href="/pubs/the-swan-bar/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">The Swan Bar</a></li>
+          <li><a href="/pubs/the-temple-bar-pub/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">The Temple Bar Pub</a></li>
+          <li><a href="/pubs/the-terenure-inn/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">The Terenure Inn</a></li>
+          <li><a href="/pubs/the-thomas-house/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">The Thomas House</a></li>
+          <li><a href="/pubs/the-two-sisters-pub/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">The Two Sisters Pub</a></li>
+          <li><a href="/pubs/the-yacht-tavern/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">The Yacht Tavern</a></li>
+          <li><a href="/pubs/thomas-moore-inn/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">Thomas Moore Inn</a></li>
+          <li><a href="/pubs/tom-kennedys-bar/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">Tom Kennedy's Bar</a></li>
+          <li><a href="/pubs/toners/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">Toner's</a></li>
+          <li><a href="/pubs/underdog/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">Underdog</a></li>
+          <li><a href="/pubs/walshs/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">Walsh's</a></li>
+          <li><a href="/pubs/whelans/" class="text-[#cbbca2] hover:text-[#d9ac5e] transition-colors text-xs">Whelan's</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
 </body>
 </html>
