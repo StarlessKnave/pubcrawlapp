@@ -981,7 +981,7 @@
   </header>
 
   <!-- MAIN FULL-SCREEN MAP CANVAS & FLOATING OVERLAYS -->
-  <div class="flex-1 relative w-full h-full overflow-hidden bg-[#080604]" id="map-viewport" style="position: relative; flex: 1 1 0%; width: 100%; height: 100%; min-height: 0; overflow: hidden;">
+  <div class="flex-1 relative w-full h-full overflow-hidden bg-[#080604]" id="map-viewport" style="position: relative; flex: 1 1 auto; width: 100%; height: calc(100dvh - 56px); min-height: 360px; overflow: hidden;">
 
     <!-- 1. FULL VIEWPORT LEAFLET MAP CANVAS -->
     <div id="map-canvas-container" class="absolute inset-0 w-full h-full z-0" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; width: 100%; height: 100%; z-index: 0;"></div>
@@ -7814,9 +7814,14 @@
         renderPubPinsOverlay();
 
         // Invalidate map size so tiles render immediately across full viewport
-        setTimeout(() => {
+        [100, 300, 700, 1500].forEach(ms => {
+          setTimeout(() => {
+            if (leafletMap) leafletMap.invalidateSize();
+          }, ms);
+        });
+        window.addEventListener("resize", () => {
           if (leafletMap) leafletMap.invalidateSize();
-        }, 150);
+        }, { passive: true });
       } catch (e) {
         console.error("Error initializing Leaflet map:", e);
       }
@@ -10548,7 +10553,7 @@
 
 
   <!-- SEO Crawl Graph Directory (Depth-1 Internal Links to All 15 Routes & 118 Pubs) -->
-  <nav id="seo-crawl-graph-directory" aria-label="Complete Dublin Pub Crawl & Historic Tavern Directory" class="bg-[#0a0406] border-t border-[#d9ac5e]/20 py-8 px-4 sm:px-8 text-[#f5ead8]">
+  <nav id="seo-crawl-graph-directory" aria-label="Complete Dublin Pub Crawl & Historic Tavern Directory" class="sr-only" style="position: absolute !important; width: 1px !important; height: 1px !important; padding: 0 !important; margin: -1px !important; overflow: hidden !important; clip: rect(0, 0, 0, 0) !important; white-space: nowrap !important; border: 0 !important; pointer-events: none !important;">
     <div class="max-w-7xl mx-auto space-y-6">
       <div>
         <h2 class="text-sm font-bold uppercase tracking-widest text-[#d9ac5e] mb-3">15 Curated Dublin Pub Crawl Routes</h2>
