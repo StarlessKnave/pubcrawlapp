@@ -111,7 +111,7 @@
 
   <!-- Schema.org Structured Data -->
   <script type="application/ld+json">
-  {
+{
   "@context": "https://schema.org",
   "@graph": [
     {
@@ -135,7 +135,7 @@
       "@type": "ItemList",
       "name": "Dublin's 118 Historic Heritage Pubs",
       "description": "Complete curated index of authentic Dublin heritage pubs, Victorian snugs, and legendary Guinness stout ratings.",
-      "numberOfItems": 118,
+      "numberOfItems": 122,
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -362,7 +362,7 @@
         {
           "@type": "ListItem",
           "position": 38,
-          "name": "Hole in the Wall, Europe\u2019s Longest Pub",
+          "name": "Hole in the Wall, Europe’s Longest Pub",
           "url": "https://dublinpubcrawl.app/pubs/hole-in-the-wall-europe-s-longest-pub/"
         },
         {
@@ -844,6 +844,30 @@
           "position": 118,
           "name": "Irish Whiskey Museum Bar",
           "url": "https://dublinpubcrawl.app/pubs/irish-whiskey-museum-bar/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 119,
+          "name": "O'Reilly's",
+          "url": "https://dublinpubcrawl.app/pubs/oreillys-merrion-street/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 120,
+          "name": "The Oarsman",
+          "url": "https://dublinpubcrawl.app/pubs/the-oarsman/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 121,
+          "name": "The Old Schoolhouse",
+          "url": "https://dublinpubcrawl.app/pubs/the-old-schoolhouse-swords/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 122,
+          "name": "The Cock Tavern",
+          "url": "https://dublinpubcrawl.app/pubs/the-cock-tavern-swords/"
         }
       ]
     }
@@ -871,7 +895,7 @@
         </span>
       </a>
       <div class="flex items-center gap-1 sm:gap-1.5 text-xs shrink-0 justify-end">
-        <a href="/pubs/" class="h-8 w-[58px] sm:w-auto px-1 sm:px-3 bg-[#12070b] hover:bg-[#1f0d14] text-[#d9ac5e] hover:text-white font-headline font-bold rounded-[3px] border border-[#d9ac5e]/50 hover:border-[#d9ac5e] transition-all flex items-center justify-center text-center shadow active:scale-95 whitespace-nowrap leading-none shrink-0" title="View 118 Dublin Pubs">
+        <a href="/pubs/" class="h-8 w-[58px] sm:w-auto px-1 sm:px-3 bg-[#12070b] hover:bg-[#1f0d14] text-[#d9ac5e] hover:text-white font-headline font-bold rounded-[3px] border border-[#d9ac5e]/50 hover:border-[#d9ac5e] transition-all flex items-center justify-center text-center shadow active:scale-95 whitespace-nowrap leading-none shrink-0" title="View 122 Dublin Pubs">
           <span class="text-[10.5px] sm:text-xs"><span class="hidden sm:inline">The </span>Pubs</span>
         </a>
         <a href="/routes/" class="h-8 w-[58px] sm:w-auto px-1 sm:px-3 bg-[#12070b] hover:bg-[#1f0d14] text-[#d9ac5e] hover:text-white font-headline font-bold rounded-[3px] border border-[#d9ac5e]/50 hover:border-[#d9ac5e] transition-all flex items-center justify-center text-center shadow active:scale-95 whitespace-nowrap leading-none shrink-0" title="View Curated Routes">
@@ -896,7 +920,7 @@
     <!-- Hero Section -->
     <div class="guinness-panel p-6 sm:p-10 rounded-xl mb-8 text-center relative overflow-hidden">
       <span class="px-3 py-1 text-xs font-bold font-headline rounded bg-[#d9ac5e] text-[#0a0406] uppercase tracking-wider inline-block mb-3">
-        118 Curated Historic Venues
+        122 Curated Historic Venues
       </span>
       <h1 class="text-3xl sm:text-5xl font-headline font-bold text-white uppercase tracking-wide mb-3">
         Dublin Pub Crawl <span style="color: #d9ac5e;">Directory</span>
@@ -919,7 +943,7 @@
     <div class="mb-6 space-y-3">
       <!-- Search Input -->
       <div class="relative">
-        <input type="text" id="pub-search-input" placeholder="Search 118 pubs by name, district, or keyword (e.g. Victorian, trad, snug)..."
+        <input type="text" id="pub-search-input" placeholder="Search 122 pubs by name, district, or keyword (e.g. Victorian, trad, snug)..."
                class="w-full bg-[#12070b] border border-[#2a1720] focus:border-[#d9ac5e] rounded-lg px-4 py-3 text-sm text-[#ede5d8] placeholder-[#71655d] outline-none transition-colors" />
         <svg class="absolute right-3.5 top-3.5 w-4 h-4 text-[#71655d]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
       </div>
@@ -931,7 +955,7 @@
           <span>📍 Near Me</span>
           <span id="near-me-status" class="text-[10px] opacity-80 hidden"></span>
         </button>
-        <button onclick="filterDistrict('')" class="filter-pill active min-h-[44px] sm:min-h-[34px] px-3 py-1.5 rounded bg-[#d9ac5e] text-[#0a0406] font-bold flex items-center">All (118)</button>
+        <button onclick="filterDistrict('')" class="filter-pill active min-h-[44px] sm:min-h-[34px] px-3 py-1.5 rounded bg-[#d9ac5e] text-[#0a0406] font-bold flex items-center">All (122)</button>
         <button onclick="filterDistrict('grafton')" class="filter-pill min-h-[44px] sm:min-h-[34px] px-3 py-1.5 rounded bg-[#180d12] text-[#cfbeac] border border-[#2a1720] hover:text-[#d9ac5e] flex items-center">Grafton / South City</button>
         <button onclick="filterDistrict('liberties')" class="filter-pill min-h-[44px] sm:min-h-[34px] px-3 py-1.5 rounded bg-[#180d12] text-[#cfbeac] border border-[#2a1720] hover:text-[#d9ac5e] flex items-center">The Liberties</button>
         <button onclick="filterDistrict('smithfield')" class="filter-pill min-h-[44px] sm:min-h-[34px] px-3 py-1.5 rounded bg-[#180d12] text-[#cfbeac] border border-[#2a1720] hover:text-[#d9ac5e] flex items-center">Smithfield / Northside</button>
@@ -943,12 +967,220 @@
 
     <!-- Active Count Summary -->
     <div class="mb-4 flex items-center justify-between text-xs text-[#a39890]">
-      <span id="pub-count-label">Showing all 118 Dublin Pubs</span>
+      <span id="pub-count-label">Showing all 122 Dublin Pubs</span>
       <span class="italic text-[11px]">Click any pub for verified hours and reviews</span>
     </div>
 
     <!-- 118 Pub Cards Grid -->
     <div id="pubs-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+
+        <div class="pub-card guinness-panel p-4 rounded-xl flex flex-col justify-between gap-3 group hover:border-[#d9ac5e]/50 transition-all"
+             data-name="o&#x27;reilly&#x27;s"
+             data-district="baggot street / georgian quarter"
+             data-rating="9.3"
+             data-lat="53.3383058"
+             data-lng="-6.2536299"
+             data-tags="victorian lounge merrion square stained glass">
+          <div>
+          <!-- Directory Card 5-Photo Gallery Strip -->
+          <div id="dir-card-gallery-oreillys-merrion-street" data-idx="0" data-photos='["https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmHFCDH8dmsyw1aLhLhmVAR5ISneWpIsi5BMXisJsSeRZ2CcD0pGbGhaJMZ5HNhg8qhseQFBysQf6PZuaZEiQuLYj-mojBWcD6eoEpDSLn9Rzfbbw0teNsVWcMiB4GcenkNeCuU=w800-h600-k-no", "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkrkNlZ8njZ56CsSvvt2KvCA87KKIR6Y7Or6e6V-J1W4yr3RGb5hzznhKI-t6RhSAEF3oX7V1kZmt3gcAc_XA63swe2x5OJlx3mlByaZgbyqXmWnbWBHh92CpZlO909_1yizSk=w800-h600-k-no", "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=m4b_rLSEVxDCrglpbdQxiA&cb_client=search.gws-prod.gps&w=211&h=120&yaw=326.97928&pitch=0&thumbfov=100", "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmHFCDH8dmsyw1aLhLhmVAR5ISneWpIsi5BMXisJsSeRZ2CcD0pGbGhaJMZ5HNhg8qhseQFBysQf6PZuaZEiQuLYj-mojBWcD6eoEpDSLn9Rzfbbw0teNsVWcMiB4GcenkNeCuU=w900-h600-p-k-no", "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkrkNlZ8njZ56CsSvvt2KvCA87KKIR6Y7Or6e6V-J1W4yr3RGb5hzznhKI-t6RhSAEF3oX7V1kZmt3gcAc_XA63swe2x5OJlx3mlByaZgbyqXmWnbWBHh92CpZlO909_1yizSk=w1000-h750-k-no"]' class="dir-card-gallery mb-3 rounded-lg overflow-hidden border border-[#2a1720] bg-[#0a0406] relative group/gal">
+            <img id="dir-gal-img-oreillys-merrion-street" src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmHFCDH8dmsyw1aLhLhmVAR5ISneWpIsi5BMXisJsSeRZ2CcD0pGbGhaJMZ5HNhg8qhseQFBysQf6PZuaZEiQuLYj-mojBWcD6eoEpDSLn9Rzfbbw0teNsVWcMiB4GcenkNeCuU=w800-h600-k-no" alt="O&#x27;Reilly&#x27;s photo" class="w-full h-36 object-cover transition-all duration-300" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-black/15 pointer-events-none"></div>
+            <button type="button" onclick="stepDirCardPhoto('oreillys-merrion-street', -1)" aria-label="Previous photo"
+                    class="absolute left-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-[#0a0406]/85 hover:bg-[#d9ac5e] text-[#f5ead8] hover:text-[#0a0406] border border-[#d9ac5e]/50 flex items-center justify-center font-bold text-base transition-all shadow-md z-10">
+              &#8249;
+            </button>
+            <button type="button" onclick="stepDirCardPhoto('oreillys-merrion-street', 1)" aria-label="Next photo"
+                    class="absolute right-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-[#0a0406]/85 hover:bg-[#d9ac5e] text-[#f5ead8] hover:text-[#0a0406] border border-[#d9ac5e]/50 flex items-center justify-center font-bold text-base transition-all shadow-md z-10">
+              &#8250;
+            </button>
+            <div class="absolute bottom-2 right-2 flex items-center justify-end">
+              <span id="dir-gal-counter-oreillys-merrion-street" class="px-2 py-0.5 rounded bg-black/75 border border-[#d9ac5e]/30 text-[10px] font-mono text-[#d9ac5e] font-bold">1 / 5</span>
+            </div>
+          </div>
+            <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
+              <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
+                <a href="/pubs/oreillys-merrion-street/">O&#x27;Reilly&#x27;s</a>
+              </h2>
+              <span class="px-2 py-0.5 text-xs font-bold rounded bg-[#d9ac5e]/15 text-[#d9ac5e] border border-[#d9ac5e]/30 shrink-0">
+                ⭐ 9.3
+              </span>
+            </div>
+            <div class="flex items-center gap-1.5 text-[11.5px] text-[#a39890] mb-2">
+              <span>Baggot Street / Georgian Quarter</span>
+              <span>&bull;</span>
+              <span>Est. 1919</span>
+            </div>
+            <p class="text-xs text-[#cfbeac] line-clamp-2 leading-relaxed mb-3">
+              Ornate Victorian pub opposite Government Buildings and Merrion Square, renowned for its carved mahogany bar, stained glass, and creamy pints of Guinness.
+            </p>
+          </div>
+          <div class="pt-3 border-t border-[#2a1720] flex items-center justify-between gap-2">
+            <a href="/pubs/oreillys-merrion-street/" class="text-xs font-headline font-bold uppercase text-[#d9ac5e] hover:text-white transition-colors">
+              Pub Guide &amp; Hours →
+            </a>
+            <a href="https://dublinpubcrawl.app/?add=oreillys_merrion" class="br-button-secondary px-2.5 py-1 text-[11px] font-headline uppercase shrink-0" rel="nofollow">
+              + Crawl
+            </a>
+          </div>
+        </div>
+
+        <div class="pub-card guinness-panel p-4 rounded-xl flex flex-col justify-between gap-3 group hover:border-[#d9ac5e]/50 transition-all"
+             data-name="the oarsman"
+             data-district="ballsbridge / d4"
+             data-rating="9.5"
+             data-lat="53.341656"
+             data-lng="-6.22786"
+             data-tags="est. 1815 ringsend heritage gastropub &amp; stout">
+          <div>
+          <!-- Directory Card 5-Photo Gallery Strip -->
+          <div id="dir-card-gallery-the-oarsman" data-idx="0" data-photos='["https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlXDWC-hA__mBLDGJ77VlLGj7Eqdqu-QFjTWXf6rNVU_PPOGM_jfj6Jt36xra78plVwdpZu3to4kWB7a526-ZkyRc5si8GF3zbRIls0r6EjGMhYza-d0IntLOlN2AM4YwFUo4WCk3hc3Dnr=w800-h600-k-no", "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWncJKKImw-XbQ3X_xlXiy18wxE0X4b1dZ8m41NTbiqi15J0Vumo0lPi6Rvy3HYy10SFYxZLo-uVX8LJF0m8do2_hizYXIJ_WtkYvley9VtXTOYOH6S_ak-QE6yWox66VB-kvQanKkjP-tZj=w800-h600-k-no", "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=tdctbxmZe1iSpuWlBtPVlQ&cb_client=search.gws-prod.gps&w=211&h=120&yaw=218.23947&pitch=0&thumbfov=100", "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=tdctbxmZe1iSpuWlBtPVlQ&cb_client=search.gws-prod.grass&w=211&h=120&yaw=216.76048&pitch=0.17372245&thumbfov=100", "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlXDWC-hA__mBLDGJ77VlLGj7Eqdqu-QFjTWXf6rNVU_PPOGM_jfj6Jt36xra78plVwdpZu3to4kWB7a526-ZkyRc5si8GF3zbRIls0r6EjGMhYza-d0IntLOlN2AM4YwFUo4WCk3hc3Dnr=w900-h600-p-k-no"]' class="dir-card-gallery mb-3 rounded-lg overflow-hidden border border-[#2a1720] bg-[#0a0406] relative group/gal">
+            <img id="dir-gal-img-the-oarsman" src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlXDWC-hA__mBLDGJ77VlLGj7Eqdqu-QFjTWXf6rNVU_PPOGM_jfj6Jt36xra78plVwdpZu3to4kWB7a526-ZkyRc5si8GF3zbRIls0r6EjGMhYza-d0IntLOlN2AM4YwFUo4WCk3hc3Dnr=w800-h600-k-no" alt="The Oarsman photo" class="w-full h-36 object-cover transition-all duration-300" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-black/15 pointer-events-none"></div>
+            <button type="button" onclick="stepDirCardPhoto('the-oarsman', -1)" aria-label="Previous photo"
+                    class="absolute left-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-[#0a0406]/85 hover:bg-[#d9ac5e] text-[#f5ead8] hover:text-[#0a0406] border border-[#d9ac5e]/50 flex items-center justify-center font-bold text-base transition-all shadow-md z-10">
+              &#8249;
+            </button>
+            <button type="button" onclick="stepDirCardPhoto('the-oarsman', 1)" aria-label="Next photo"
+                    class="absolute right-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-[#0a0406]/85 hover:bg-[#d9ac5e] text-[#f5ead8] hover:text-[#0a0406] border border-[#d9ac5e]/50 flex items-center justify-center font-bold text-base transition-all shadow-md z-10">
+              &#8250;
+            </button>
+            <div class="absolute bottom-2 right-2 flex items-center justify-end">
+              <span id="dir-gal-counter-the-oarsman" class="px-2 py-0.5 rounded bg-black/75 border border-[#d9ac5e]/30 text-[10px] font-mono text-[#d9ac5e] font-bold">1 / 5</span>
+            </div>
+          </div>
+            <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
+              <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
+                <a href="/pubs/the-oarsman/">The Oarsman</a>
+              </h2>
+              <span class="px-2 py-0.5 text-xs font-bold rounded bg-[#d9ac5e]/15 text-[#d9ac5e] border border-[#d9ac5e]/30 shrink-0">
+                ⭐ 9.5
+              </span>
+            </div>
+            <div class="flex items-center gap-1.5 text-[11.5px] text-[#a39890] mb-2">
+              <span>Ballsbridge / D4</span>
+              <span>&bull;</span>
+              <span>Est. 1815</span>
+            </div>
+            <p class="text-xs text-[#cfbeac] line-clamp-2 leading-relaxed mb-3">
+              Family-run Ringsend heritage tavern dating back to 1815 beside the River Dodder and Grand Canal Dock, pairing immaculate pints of Guinness with acclaimed Irish kitchen fare.
+            </p>
+          </div>
+          <div class="pt-3 border-t border-[#2a1720] flex items-center justify-between gap-2">
+            <a href="/pubs/the-oarsman/" class="text-xs font-headline font-bold uppercase text-[#d9ac5e] hover:text-white transition-colors">
+              Pub Guide &amp; Hours →
+            </a>
+            <a href="https://dublinpubcrawl.app/?add=the_oarsman" class="br-button-secondary px-2.5 py-1 text-[11px] font-headline uppercase shrink-0" rel="nofollow">
+              + Crawl
+            </a>
+          </div>
+        </div>
+
+        <div class="pub-card guinness-panel p-4 rounded-xl flex flex-col justify-between gap-3 group hover:border-[#d9ac5e]/50 transition-all"
+             data-name="the old schoolhouse"
+             data-district="northside / suburban heritage"
+             data-rating="9.2"
+             data-lat="53.4569946"
+             data-lng="-6.2226822"
+             data-tags="converted 1831 schoolhouse open turf fire swords village">
+          <div>
+          <!-- Directory Card 5-Photo Gallery Strip -->
+          <div id="dir-card-gallery-the-old-schoolhouse-swords" data-idx="0" data-photos='["https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkoTvP72dC5xsV3nbnPw-5kNwBLZ8hetYXtqLK53V7qaK-HNZ9QsKPUWV76kLGaMsZBJdx2o_NA9prQleBpXwpnSn-HEf3PgaJGwmQTHfj3SwJDpCutK6KaK0SbqqZKI6JukDJrx408e-mk=w800-h600-k-no", "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWn4vgtuFnAoriW4bFv0kNjeL5ccZJjeTfGG7AxHWjnvVdGJA0xb26cwYCla23bg9FkTsWV2cudpZyhui2S5ctAmhpsB2vu6RYAQdwMBWh_7wO6F_weO03ocXyUzCF1qzmVyAPAG=w800-h600-k-no", "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=K7kVLLhtGsOFP1MfW5SJbQ&cb_client=search.gws-prod.gps&w=211&h=120&yaw=47.444702&pitch=0&thumbfov=100", "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkoTvP72dC5xsV3nbnPw-5kNwBLZ8hetYXtqLK53V7qaK-HNZ9QsKPUWV76kLGaMsZBJdx2o_NA9prQleBpXwpnSn-HEf3PgaJGwmQTHfj3SwJDpCutK6KaK0SbqqZKI6JukDJrx408e-mk=w900-h600-p-k-no", "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWn4vgtuFnAoriW4bFv0kNjeL5ccZJjeTfGG7AxHWjnvVdGJA0xb26cwYCla23bg9FkTsWV2cudpZyhui2S5ctAmhpsB2vu6RYAQdwMBWh_7wO6F_weO03ocXyUzCF1qzmVyAPAG=w1000-h750-k-no"]' class="dir-card-gallery mb-3 rounded-lg overflow-hidden border border-[#2a1720] bg-[#0a0406] relative group/gal">
+            <img id="dir-gal-img-the-old-schoolhouse-swords" src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkoTvP72dC5xsV3nbnPw-5kNwBLZ8hetYXtqLK53V7qaK-HNZ9QsKPUWV76kLGaMsZBJdx2o_NA9prQleBpXwpnSn-HEf3PgaJGwmQTHfj3SwJDpCutK6KaK0SbqqZKI6JukDJrx408e-mk=w800-h600-k-no" alt="The Old Schoolhouse photo" class="w-full h-36 object-cover transition-all duration-300" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-black/15 pointer-events-none"></div>
+            <button type="button" onclick="stepDirCardPhoto('the-old-schoolhouse-swords', -1)" aria-label="Previous photo"
+                    class="absolute left-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-[#0a0406]/85 hover:bg-[#d9ac5e] text-[#f5ead8] hover:text-[#0a0406] border border-[#d9ac5e]/50 flex items-center justify-center font-bold text-base transition-all shadow-md z-10">
+              &#8249;
+            </button>
+            <button type="button" onclick="stepDirCardPhoto('the-old-schoolhouse-swords', 1)" aria-label="Next photo"
+                    class="absolute right-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-[#0a0406]/85 hover:bg-[#d9ac5e] text-[#f5ead8] hover:text-[#0a0406] border border-[#d9ac5e]/50 flex items-center justify-center font-bold text-base transition-all shadow-md z-10">
+              &#8250;
+            </button>
+            <div class="absolute bottom-2 right-2 flex items-center justify-end">
+              <span id="dir-gal-counter-the-old-schoolhouse-swords" class="px-2 py-0.5 rounded bg-black/75 border border-[#d9ac5e]/30 text-[10px] font-mono text-[#d9ac5e] font-bold">1 / 5</span>
+            </div>
+          </div>
+            <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
+              <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
+                <a href="/pubs/the-old-schoolhouse-swords/">The Old Schoolhouse</a>
+              </h2>
+              <span class="px-2 py-0.5 text-xs font-bold rounded bg-[#d9ac5e]/15 text-[#d9ac5e] border border-[#d9ac5e]/30 shrink-0">
+                ⭐ 9.2
+              </span>
+            </div>
+            <div class="flex items-center gap-1.5 text-[11.5px] text-[#a39890] mb-2">
+              <span>Northside / Suburban Heritage</span>
+              <span>&bull;</span>
+              <span>Est. 1831</span>
+            </div>
+            <p class="text-xs text-[#cfbeac] line-clamp-2 leading-relaxed mb-3">
+              Housed in a historic 19th-century stone schoolhouse overlooking the Ward River Valley in Swords, featuring cosy snugs, open turf fires, and lively traditional music.
+            </p>
+          </div>
+          <div class="pt-3 border-t border-[#2a1720] flex items-center justify-between gap-2">
+            <a href="/pubs/the-old-schoolhouse-swords/" class="text-xs font-headline font-bold uppercase text-[#d9ac5e] hover:text-white transition-colors">
+              Pub Guide &amp; Hours →
+            </a>
+            <a href="https://dublinpubcrawl.app/?add=old_schoolhouse_swords" class="br-button-secondary px-2.5 py-1 text-[11px] font-headline uppercase shrink-0" rel="nofollow">
+              + Crawl
+            </a>
+          </div>
+        </div>
+
+        <div class="pub-card guinness-panel p-4 rounded-xl flex flex-col justify-between gap-3 group hover:border-[#d9ac5e]/50 transition-all"
+             data-name="the cock tavern"
+             data-district="northside / suburban heritage"
+             data-rating="9.3"
+             data-lat="53.4578883"
+             data-lng="-6.2204665"
+             data-tags="coaching inn heritage swords main street local pint">
+          <div>
+          <!-- Directory Card 5-Photo Gallery Strip -->
+          <div id="dir-card-gallery-the-cock-tavern-swords" data-idx="0" data-photos='["https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnoGiwDPi90NyBGGAB8jGYn8cvZaUchKLrdUmMGPI2TW6rCi9YZOmN2isbQUu2IL9bUuBw8UmkkmyWyLHVj3wL--4sGTsR3lsXXri-vPkCD9S5iwNg2cSy84SgUu_nCD3JVPxsk-w=w800-h600-k-no", "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnz52C2xvlYOqCe1G7MXpLUNKTfK891mBdsvsOC1Zh10KxHBltwFdAXh1-2-kXZBRqRnv09cy3zI_-zFjm4W6XPUx4rwS1UMhX2TEu-Qk33Iismzcz3e1DGaq1deeMRoNHT7bwA=w800-h600-k-no", "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=6nbGK8QioG5s7n0XgpHvNg&cb_client=search.gws-prod.gps&w=211&h=120&yaw=88.06388&pitch=0&thumbfov=100", "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnoGiwDPi90NyBGGAB8jGYn8cvZaUchKLrdUmMGPI2TW6rCi9YZOmN2isbQUu2IL9bUuBw8UmkkmyWyLHVj3wL--4sGTsR3lsXXri-vPkCD9S5iwNg2cSy84SgUu_nCD3JVPxsk-w=w900-h600-p-k-no", "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnz52C2xvlYOqCe1G7MXpLUNKTfK891mBdsvsOC1Zh10KxHBltwFdAXh1-2-kXZBRqRnv09cy3zI_-zFjm4W6XPUx4rwS1UMhX2TEu-Qk33Iismzcz3e1DGaq1deeMRoNHT7bwA=w1000-h750-k-no"]' class="dir-card-gallery mb-3 rounded-lg overflow-hidden border border-[#2a1720] bg-[#0a0406] relative group/gal">
+            <img id="dir-gal-img-the-cock-tavern-swords" src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnoGiwDPi90NyBGGAB8jGYn8cvZaUchKLrdUmMGPI2TW6rCi9YZOmN2isbQUu2IL9bUuBw8UmkkmyWyLHVj3wL--4sGTsR3lsXXri-vPkCD9S5iwNg2cSy84SgUu_nCD3JVPxsk-w=w800-h600-k-no" alt="The Cock Tavern photo" class="w-full h-36 object-cover transition-all duration-300" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-black/15 pointer-events-none"></div>
+            <button type="button" onclick="stepDirCardPhoto('the-cock-tavern-swords', -1)" aria-label="Previous photo"
+                    class="absolute left-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-[#0a0406]/85 hover:bg-[#d9ac5e] text-[#f5ead8] hover:text-[#0a0406] border border-[#d9ac5e]/50 flex items-center justify-center font-bold text-base transition-all shadow-md z-10">
+              &#8249;
+            </button>
+            <button type="button" onclick="stepDirCardPhoto('the-cock-tavern-swords', 1)" aria-label="Next photo"
+                    class="absolute right-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-[#0a0406]/85 hover:bg-[#d9ac5e] text-[#f5ead8] hover:text-[#0a0406] border border-[#d9ac5e]/50 flex items-center justify-center font-bold text-base transition-all shadow-md z-10">
+              &#8250;
+            </button>
+            <div class="absolute bottom-2 right-2 flex items-center justify-end">
+              <span id="dir-gal-counter-the-cock-tavern-swords" class="px-2 py-0.5 rounded bg-black/75 border border-[#d9ac5e]/30 text-[10px] font-mono text-[#d9ac5e] font-bold">1 / 5</span>
+            </div>
+          </div>
+            <div class="flex items-start justify-between gap-2 mb-2">
+              <span class="near-me-badge hidden px-2 py-0.5 text-[10px] font-headline font-bold uppercase tracking-wider rounded bg-[#d9ac5e] text-[#0a0406] shrink-0"></span>
+              <h2 class="font-headline font-bold text-white text-base group-hover:text-[#d9ac5e] transition-colors leading-snug">
+                <a href="/pubs/the-cock-tavern-swords/">The Cock Tavern</a>
+              </h2>
+              <span class="px-2 py-0.5 text-xs font-bold rounded bg-[#d9ac5e]/15 text-[#d9ac5e] border border-[#d9ac5e]/30 shrink-0">
+                ⭐ 9.3
+              </span>
+            </div>
+            <div class="flex items-center gap-1.5 text-[11.5px] text-[#a39890] mb-2">
+              <span>Northside / Suburban Heritage</span>
+              <span>&bull;</span>
+              <span>Est. 1856</span>
+            </div>
+            <p class="text-xs text-[#cfbeac] line-clamp-2 leading-relaxed mb-3">
+              One of North County Dublin&#x27;s oldest traditional coaching inns on Swords Main Street, prized by locals for its warm timber lounge, lively banter, and top-drawer pint of Guinness.
+            </p>
+          </div>
+          <div class="pt-3 border-t border-[#2a1720] flex items-center justify-between gap-2">
+            <a href="/pubs/the-cock-tavern-swords/" class="text-xs font-headline font-bold uppercase text-[#d9ac5e] hover:text-white transition-colors">
+              Pub Guide &amp; Hours →
+            </a>
+            <a href="https://dublinpubcrawl.app/?add=the_cock_tavern" class="br-button-secondary px-2.5 py-1 text-[11px] font-headline uppercase shrink-0" rel="nofollow">
+              + Crawl
+            </a>
+          </div>
+        </div>
       
         <div class="pub-card guinness-panel p-4 rounded-xl flex flex-col justify-between gap-3 group hover:border-[#d9ac5e]/50 transition-all"
              data-name="the brazen head"
@@ -2930,8 +3162,8 @@
              data-name="the harbour bar howth"
              data-district="northside / smithfield"
              data-rating="9.5"
-             data-lat="53.388609"
-             data-lng="-6.073444"
+             data-lat="53.3869923"
+             data-lng="-6.0664234"
              data-tags="howth harbour fresh oysters coastal views">
           <div>
                                                                                           <!-- Directory Card 5-Photo Gallery Strip -->
