@@ -920,8 +920,18 @@
       transform-origin: center;
     }
   </style>
+  <script id="gsc-query-param-canonicalizer">
+    (function() {
+      if (window.location.search && /(?:[?&])(add|focus|crawl|route|pub)=/i.test(window.location.search)) {
+        var m = document.createElement('meta');
+        m.name = 'robots';
+        m.content = 'noindex, follow';
+        document.head.appendChild(m);
+      }
+    })();
+  </script>
 </head>
-<body class="bg-[#0a0406] text-[#ede5d8] h-full flex flex-col antialiased overflow-hidden selection:bg-[#d9ac5e] selection:text-[#0b0407] font-body" style="height: 100%; width: 100%; margin: 0; padding: 0; display: flex; flex-direction: column; overflow: hidden; background-color: #0a0406;">
+<body class="bg-[#0a0406] text-[#ede5d8] min-h-screen flex flex-col antialiased overflow-x-hidden overflow-y-auto selection:bg-[#d9ac5e] selection:text-[#0b0407] font-body" style="min-height: 100dvh; width: 100%; margin: 0; padding: 0; display: flex; flex-direction: column; overflow-x: hidden; overflow-y: auto; background-color: #0a0406;">
 
 
   <!-- Google Tag Manager (noscript) -->
@@ -981,7 +991,7 @@
   </header>
 
   <!-- MAIN FULL-SCREEN MAP CANVAS & FLOATING OVERLAYS -->
-  <div class="flex-1 relative w-full h-full overflow-hidden bg-[#080604]" id="map-viewport" style="position: relative; flex: 1 1 auto; width: 100%; height: calc(100dvh - 56px); min-height: 360px; overflow: hidden;">
+  <div class="flex-1 relative w-full h-full overflow-hidden bg-[#080604]" id="map-viewport" style="position: relative; flex: 0 0 calc(100dvh - 56px); flex-shrink: 0 !important; width: 100%; height: calc(100dvh - 56px); min-height: 480px; overflow: hidden;">
 
     <!-- 1. FULL VIEWPORT LEAFLET MAP CANVAS -->
     <div id="map-canvas-container" class="absolute inset-0 w-full h-full z-0" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; width: 100%; height: 100%; z-index: 0;"></div>
@@ -2153,7 +2163,8 @@
         "caption": "The Brazen Head"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Brazen%20Head%2C%2020%20Lower%20Bridge%20St%2C%20Merchants%20Quay%2C%20D08%20WC64%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Brazen%20Head%2C%2020%20Lower%20Bridge%20St%2C%20Merchants%20Quay%2C%20D08%20WC64%2C%20Dublin",
+    "slug": "the-brazen-head"
   },
   {
     "id": "long_hall",
@@ -2200,7 +2211,8 @@
         "caption": "The Long Hall"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Long%20Hall%2C%2051%20S%20Great%20George%27s%20St%2C%20D02%20F654%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Long%20Hall%2C%2051%20S%20Great%20George%27s%20St%2C%20D02%20F654%2C%20Dublin",
+    "slug": "the-long-hall"
   },
   {
     "id": "mulligans",
@@ -2247,7 +2259,8 @@
         "caption": "Mulligan's"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Mulligan%27s%2C%208%20Poolbeg%20St%2C%20D02%20W380%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Mulligan%27s%2C%208%20Poolbeg%20St%2C%20D02%20W380%2C%20Dublin",
+    "slug": "mulligans"
   },
   {
     "id": "stags_head",
@@ -2294,7 +2307,8 @@
         "caption": "The Stag's Head"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Stag%27s%20Head%2C%201%20Dame%20Ct%2C%20D02%20P984%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Stag%27s%20Head%2C%201%20Dame%20Ct%2C%20D02%20P984%2C%20Dublin",
+    "slug": "the-stags-head"
   },
   {
     "id": "kehoes",
@@ -2340,7 +2354,8 @@
         "caption": "Kehoe's"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Kehoe%27s%2C%209%20S%20Anne%20St%2C%20D02%20NY88%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Kehoe%27s%2C%209%20S%20Anne%20St%2C%20D02%20NY88%2C%20Dublin",
+    "slug": "kehoes"
   },
   {
     "id": "grogans",
@@ -2386,7 +2401,8 @@
         "caption": "Grogan's Castle Lounge"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Grogan%27s%20Castle%20Lounge%2C%2015%20S%20William%20St%2C%20D02%20H840%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Grogan%27s%20Castle%20Lounge%2C%2015%20S%20William%20St%2C%20D02%20H840%2C%20Dublin",
+    "slug": "grogans-castle-lounge"
   },
   {
     "id": "palace_bar",
@@ -2433,7 +2449,8 @@
         "caption": "The Palace Bar"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Palace%20Bar%2C%2021%20Fleet%20St%2C%20Temple%20Bar%2C%20D02%20H950%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Palace%20Bar%2C%2021%20Fleet%20St%2C%20Temple%20Bar%2C%20D02%20H950%2C%20Dublin",
+    "slug": "the-palace-bar"
   },
   {
     "id": "odonoghues",
@@ -2477,7 +2494,8 @@
         "caption": "O'Donoghue's"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=O%27Donoghue%27s%2C%2014%20Merrion%20Row%2C%20D02%20Y890%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=O%27Donoghue%27s%2C%2014%20Merrion%20Row%2C%20D02%20Y890%2C%20Dublin",
+    "slug": "odonoghues"
   },
   {
     "id": "cobblestone",
@@ -2522,7 +2540,8 @@
         "caption": "The Cobblestone"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Cobblestone%2C%2077%20King%20St%20N%2C%20Smithfield%2C%20D07%20X256%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Cobblestone%2C%2077%20King%20St%20N%2C%20Smithfield%2C%20D07%20X256%2C%20Dublin",
+    "slug": "the-cobblestone"
   },
   {
     "id": "toners",
@@ -2569,7 +2588,8 @@
         "caption": "Toner's"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Toner%27s%2C%20139%20Baggot%20Street%20Lower%2C%20D02%20N822%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Toner%27s%2C%20139%20Baggot%20Street%20Lower%2C%20D02%20N822%2C%20Dublin",
+    "slug": "toners"
   },
   {
     "id": "mcdaids",
@@ -2614,7 +2634,8 @@
         "caption": "McDaid's"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=McDaid%27s%2C%203%20Harry%20St%2C%20D02%20H889%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=McDaid%27s%2C%203%20Harry%20St%2C%20D02%20H889%2C%20Dublin",
+    "slug": "mcdaids"
   },
   {
     "id": "temple_bar_pub",
@@ -2658,7 +2679,8 @@
         "caption": "The Temple Bar Pub"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Temple%20Bar%20Pub%2C%2047-48%20Temple%20Bar%2C%20D02%20N950%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Temple%20Bar%20Pub%2C%2047-48%20Temple%20Bar%2C%20D02%20N950%2C%20Dublin",
+    "slug": "the-temple-bar-pub"
   },
   {
     "id": "foggy_dew",
@@ -2703,7 +2725,8 @@
         "caption": "The Foggy Dew"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Foggy%20Dew%2C%201%20Fownes%20St%20Upper%2C%20Temple%20Bar%2C%20D02%20C962%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Foggy%20Dew%2C%201%20Fownes%20St%20Upper%2C%20Temple%20Bar%2C%20D02%20C962%2C%20Dublin",
+    "slug": "the-foggy-dew"
   },
   {
     "id": "bowes_lounge",
@@ -2749,7 +2772,8 @@
         "caption": "Bowe's Lounge Bar"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Bowe%27s%20Lounge%20Bar%2C%2031%20Fleet%20St%2C%20D02%20Y886%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Bowe%27s%20Lounge%20Bar%2C%2031%20Fleet%20St%2C%20D02%20Y886%2C%20Dublin",
+    "slug": "bowes-lounge-bar"
   },
   {
     "id": "nearys",
@@ -2794,7 +2818,8 @@
         "caption": "Neary's"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Neary%27s%2C%201%20Chatham%20St%2C%20D02%20P628%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Neary%27s%2C%201%20Chatham%20St%2C%20D02%20P628%2C%20Dublin",
+    "slug": "nearys"
   },
   {
     "id": "fallons",
@@ -2840,7 +2865,8 @@
         "caption": "John Fallon's \"The Capstan Bar\""
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=John%20Fallon%27s%20%22The%20Capstan%20Bar%22%2C%20129%20The%20Coombe%2C%20D08%20R673%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=John%20Fallon%27s%20%22The%20Capstan%20Bar%22%2C%20129%20The%20Coombe%2C%20D08%20R673%2C%20Dublin",
+    "slug": "john-fallons-the-capstan-bar"
   },
   {
     "id": "doheny_nesbitt",
@@ -2886,7 +2912,8 @@
         "caption": "Doheny & Nesbitt"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Doheny%20%26%20Nesbitt%2C%205%20Baggot%20Street%20Lower%2C%20D02%20F768%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Doheny%20%26%20Nesbitt%2C%205%20Baggot%20Street%20Lower%2C%20D02%20F768%2C%20Dublin",
+    "slug": "doheny-nesbitt"
   },
   {
     "id": "porterhouse_temple_bar",
@@ -2931,7 +2958,8 @@
         "caption": "Porterhouse Temple Bar"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Porterhouse%20Temple%20Bar%2C%2016-18%20Parliament%20St%2C%20Temple%20Bar%2C%20D02%20Y097%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Porterhouse%20Temple%20Bar%2C%2016-18%20Parliament%20St%2C%20Temple%20Bar%2C%20D02%20Y097%2C%20Dublin",
+    "slug": "porterhouse-temple-bar"
   },
   {
     "id": "international_bar",
@@ -2976,7 +3004,8 @@
         "caption": "International Bar"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=International%20Bar%2C%2023%20Wicklow%20St%2C%20D02%20KV97%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=International%20Bar%2C%2023%20Wicklow%20St%2C%20D02%20KV97%2C%20Dublin",
+    "slug": "international-bar"
   },
   {
     "id": "gravediggers",
@@ -3023,7 +3052,8 @@
         "caption": "John Kavanagh The Gravediggers"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=John%20Kavanagh%20The%20Gravediggers%2C%201%20Prospect%20Square%2C%20Glasnevin%2C%20D09%20V6R6%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=John%20Kavanagh%20The%20Gravediggers%2C%201%20Prospect%20Square%2C%20Glasnevin%2C%20D09%20V6R6%2C%20Dublin",
+    "slug": "john-kavanagh-the-gravediggers"
   },
   {
     "id": "merchants_arch",
@@ -3068,7 +3098,8 @@
         "caption": "Merchant's Arch"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Merchant%27s%20Arch%2C%2048-49%20Wellington%20Quay%2C%20Temple%20Bar%2C%20D02%20Y078%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Merchant%27s%20Arch%2C%2048-49%20Wellington%20Quay%2C%20Temple%20Bar%2C%20D02%20Y078%2C%20Dublin",
+    "slug": "merchants-arch"
   },
   {
     "id": "glimmer_man",
@@ -3113,7 +3144,8 @@
         "caption": "The Glimmer Man"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Glimmer%20Man%2C%2014%20Stoneybatter%2C%20D07%20Y365%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Glimmer%20Man%2C%2014%20Stoneybatter%2C%20D07%20Y365%2C%20Dublin",
+    "slug": "the-glimmer-man"
   },
   {
     "id": "darkey_kellys",
@@ -3158,7 +3190,8 @@
         "caption": "Darkey Kelly's"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Darkey%20Kelly%27s%2C%2019%20Fishamble%20St%2C%20Christchurch%2C%20D08%20X228%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Darkey%20Kelly%27s%2C%2019%20Fishamble%20St%2C%20Christchurch%2C%20D08%20X228%2C%20Dublin",
+    "slug": "darkey-kellys"
   },
   {
     "id": "slatterys_d4",
@@ -3203,7 +3236,8 @@
         "caption": "Slattery's D4"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Slattery%27s%20D4%2C%2062%20Grand%20Canal%20Street%20Upper%2C%20Beggar%27s%20Bush%2C%20D04%20V0X4%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Slattery%27s%20D4%2C%2062%20Grand%20Canal%20Street%20Upper%2C%20Beggar%27s%20Bush%2C%20D04%20V0X4%2C%20Dublin",
+    "slug": "slatterys-d4"
   },
   {
     "id": "paddy_cullens",
@@ -3248,7 +3282,8 @@
         "caption": "Paddy Cullen's Pub"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Paddy%20Cullen%27s%20Pub%2C%2014%20Merrion%20Rd%2C%20Ballsbridge%2C%20D04%20P920%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Paddy%20Cullen%27s%20Pub%2C%2014%20Merrion%20Rd%2C%20Ballsbridge%2C%20D04%20P920%2C%20Dublin",
+    "slug": "paddy-cullens-pub"
   },
   {
     "id": "liberty_belle",
@@ -3293,7 +3328,8 @@
         "caption": "The Liberty Belle"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Liberty%20Belle%2C%2033%20Francis%20St%2C%20The%20Liberties%2C%20D08%20P7K1%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Liberty%20Belle%2C%2033%20Francis%20St%2C%20The%20Liberties%2C%20D08%20P7K1%2C%20Dublin",
+    "slug": "the-liberty-belle"
   },
   {
     "id": "fidelity_bar",
@@ -3337,7 +3373,8 @@
         "caption": "Fidelity Bar & Studio"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Fidelity%20Bar%20%26%20Studio%2C%2079%20Queen%20St%2C%20Smithfield%2C%20D07%20W9R6%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Fidelity%20Bar%20%26%20Studio%2C%2079%20Queen%20St%2C%20Smithfield%2C%20D07%20W9R6%2C%20Dublin",
+    "slug": "fidelity-bar-studio"
   },
   {
     "id": "clearys",
@@ -3384,7 +3421,8 @@
         "caption": "Cleary's Pub"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Cleary%27s%20Pub%2C%2036%20Amiens%20St%2C%20Mountjoy%2C%20D01%20N884%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Cleary%27s%20Pub%2C%2036%20Amiens%20St%2C%20Mountjoy%2C%20D01%20N884%2C%20Dublin",
+    "slug": "clearys-pub"
   },
   {
     "id": "old_royal_oak",
@@ -3430,7 +3468,8 @@
         "caption": "Old Royal Oak"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Old%20Royal%20Oak%2C%2011%20Kilmainham%20Ln%2C%20Kilmainham%2C%20D08%20P7X0%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Old%20Royal%20Oak%2C%2011%20Kilmainham%20Ln%2C%20Kilmainham%2C%20D08%20P7X0%2C%20Dublin",
+    "slug": "old-royal-oak"
   },
   {
     "id": "delaneys_smithfield",
@@ -3475,7 +3514,8 @@
         "caption": "Delaney's Smithfield"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Delaney%27s%20Smithfield%2C%2083%20King%20St%20N%2C%20Smithfield%2C%20D07%20Y3P0%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Delaney%27s%20Smithfield%2C%2083%20King%20St%20N%2C%20Smithfield%2C%20D07%20Y3P0%2C%20Dublin",
+    "slug": "delaneys-smithfield"
   },
   {
     "id": "oval_bar",
@@ -3520,7 +3560,8 @@
         "caption": "The Oval Bar"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Oval%20Bar%2C%2078%20Middle%20Abbey%20St%2C%20North%20City%2C%20D01%20T858%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Oval%20Bar%2C%2078%20Middle%20Abbey%20St%2C%20North%20City%2C%20D01%20T858%2C%20Dublin",
+    "slug": "the-oval-bar"
   },
   {
     "id": "caribou",
@@ -3564,7 +3605,8 @@
         "caption": "Caribou"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Caribou%2C%2015%20Stephen%20Street%20Lower%2C%20D02%20X003%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Caribou%2C%2015%20Stephen%20Street%20Lower%2C%20D02%20X003%2C%20Dublin",
+    "slug": "caribou"
   },
   {
     "id": "black_sheep",
@@ -3608,7 +3650,8 @@
         "caption": "The Black Sheep"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Black%20Sheep%2C%2061%20Capel%20St%2C%20North%20City%2C%20D01%20E1W2%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Black%20Sheep%2C%2061%20Capel%20St%2C%20North%20City%2C%20D01%20E1W2%2C%20Dublin",
+    "slug": "the-black-sheep"
   },
   {
     "id": "davy_byrnes",
@@ -3653,7 +3696,8 @@
         "caption": "Davy Byrnes"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Davy%20Byrnes%2C%2021%20Duke%20St%2C%20D02%20X677%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Davy%20Byrnes%2C%2021%20Duke%20St%2C%20D02%20X677%2C%20Dublin",
+    "slug": "davy-byrnes"
   },
   {
     "id": "mulligan_grocer",
@@ -3698,7 +3742,8 @@
         "caption": "L. Mulligan Grocer"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=L.%20Mulligan%20Grocer%2C%2018%20Stoneybatter%2C%20D07%20T440%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=L.%20Mulligan%20Grocer%2C%2018%20Stoneybatter%2C%20D07%20T440%2C%20Dublin",
+    "slug": "l-mulligan-grocer"
   },
   {
     "id": "hill_pub",
@@ -3743,7 +3788,8 @@
         "caption": "The Hill Pub"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Hill%20Pub%2C%2018-19%20Mount%20Pleasant%20Ave%20Upper%2C%20Ranelagh%2C%20D06%20YT25%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Hill%20Pub%2C%2018-19%20Mount%20Pleasant%20Ave%20Upper%2C%20Ranelagh%2C%20D06%20YT25%2C%20Dublin",
+    "slug": "the-hill-pub"
   },
   {
     "id": "storyteller_pub",
@@ -3787,7 +3833,8 @@
         "caption": "The Storyteller Pub"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Storyteller%20Pub%2C%20Grand%20Canal%20Quay%2C%20Docklands%2C%20D02%20X268%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Storyteller%20Pub%2C%20Grand%20Canal%20Quay%2C%20Docklands%2C%20D02%20X268%2C%20Dublin",
+    "slug": "the-storyteller-pub"
   },
   {
     "id": "hole_in_the_wall",
@@ -3832,7 +3879,8 @@
         "caption": "Hole in the Wall, Europe’s Longest Pub"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Hole%20in%20the%20Wall%2C%20Europe%E2%80%99s%20Longest%20Pub%2C%20345%20Blackhorse%20Ave%2C%20Phoenix%20Park%2C%20D07%20P3W9%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Hole%20in%20the%20Wall%2C%20Europe%E2%80%99s%20Longest%20Pub%2C%20345%20Blackhorse%20Ave%2C%20Phoenix%20Park%2C%20D07%20P3W9%2C%20Dublin",
+    "slug": "hole-in-the-wall-europe-s-longest-pub"
   },
   {
     "id": "harbour_bar_howth",
@@ -3877,7 +3925,8 @@
         "caption": "The Harbour Bar Howth"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Harbour%20Bar%20Howth%2C%201-2%20Harbour%20Rd%2C%20Howth%2C%20Co.%20Dublin%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Harbour%20Bar%20Howth%2C%201-2%20Harbour%20Rd%2C%20Howth%2C%20Co.%20Dublin%2C%20Dublin",
+    "slug": "the-harbour-bar-howth"
   },
   {
     "id": "blue_light",
@@ -3922,7 +3971,8 @@
         "caption": "The Blue Light"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Blue%20Light%2C%20Barnacullia%2C%20Sandyford%2C%20D18%20E0F9%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Blue%20Light%2C%20Barnacullia%2C%20Sandyford%2C%20D18%20E0F9%2C%20Dublin",
+    "slug": "the-blue-light"
   },
   {
     "id": "johnnie_foxs",
@@ -3967,7 +4017,8 @@
         "caption": "Johnnie Fox's Pub"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Johnnie%20Fox%27s%20Pub%2C%20Glencullen%2C%20Co.%20Dublin%2C%20D18%20F9K8%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Johnnie%20Fox%27s%20Pub%2C%20Glencullen%2C%20Co.%20Dublin%2C%20D18%20F9K8%2C%20Dublin",
+    "slug": "johnnie-foxs-pub"
   },
   {
     "id": "ciss_maddens",
@@ -4012,7 +4063,8 @@
         "caption": "Ciss Maddens"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Ciss%20Maddens%2C%2046%20Drury%20St%2C%20D02%20F890%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Ciss%20Maddens%2C%2046%20Drury%20St%2C%20D02%20F890%2C%20Dublin",
+    "slug": "ciss-maddens"
   },
   {
     "id": "oregans",
@@ -4056,7 +4108,8 @@
         "caption": "O'Regan's"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=O%27Regan%27s%2C%2019%20Fade%20St%2C%20D02%20F651%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=O%27Regan%27s%2C%2019%20Fade%20St%2C%20D02%20F651%2C%20Dublin",
+    "slug": "oregans"
   },
   {
     "id": "hogans",
@@ -4100,7 +4153,8 @@
         "caption": "Hogan's"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Hogan%27s%2C%2035%20S%20Great%20George%27s%20St%2C%20D02%20PF95%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Hogan%27s%2C%2035%20S%20Great%20George%27s%20St%2C%20D02%20PF95%2C%20Dublin",
+    "slug": "hogans"
   },
   {
     "id": "sheehans",
@@ -4145,7 +4199,8 @@
         "caption": "Sheehans Pub"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Sheehans%20Pub%2C%2017%20Chatham%20St%2C%20D02%20H006%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Sheehans%20Pub%2C%2017%20Chatham%20St%2C%20D02%20H006%2C%20Dublin",
+    "slug": "sheehans-pub"
   },
   {
     "id": "dame_tavern",
@@ -4191,7 +4246,8 @@
         "caption": "The Dame Tavern"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Dame%20Tavern%2C%2018%20Dame%20Ct%2C%20D02%20W596%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Dame%20Tavern%2C%2018%20Dame%20Ct%2C%20D02%20W596%2C%20Dublin",
+    "slug": "the-dame-tavern"
   },
   {
     "id": "swan_bar",
@@ -4238,7 +4294,8 @@
         "caption": "The Swan Bar"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Swan%20Bar%2C%2057-58%20York%20St%2C%20Aungier%20St%2C%20D02%20F670%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Swan%20Bar%2C%2057-58%20York%20St%2C%20Aungier%20St%2C%20D02%20F670%2C%20Dublin",
+    "slug": "the-swan-bar"
   },
   {
     "id": "hartigans",
@@ -4283,7 +4340,8 @@
         "caption": "Hartigans Pub"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Hartigans%20Pub%2C%20100%20Leeson%20St%20Lower%2C%20D02%20X028%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Hartigans%20Pub%2C%20100%20Leeson%20St%20Lower%2C%20D02%20X028%2C%20Dublin",
+    "slug": "hartigans-pub"
   },
   {
     "id": "searsons",
@@ -4328,7 +4386,8 @@
         "caption": "Searsons"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Searsons%2C%2042-44%20Baggot%20Street%20Upper%2C%20D04%20V2H2%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Searsons%2C%2042-44%20Baggot%20Street%20Upper%2C%20D04%20V2H2%2C%20Dublin",
+    "slug": "searsons"
   },
   {
     "id": "mccaffertys_barge",
@@ -4373,7 +4432,8 @@
         "caption": "McCafferty's at The Barge"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=McCafferty%27s%20at%20The%20Barge%2C%2042%20Charlemont%20St%2C%20Grand%20Canal%2C%20D02%20R593%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=McCafferty%27s%20at%20The%20Barge%2C%2042%20Charlemont%20St%2C%20Grand%20Canal%2C%20D02%20R593%2C%20Dublin",
+    "slug": "mccaffertys-at-the-barge"
   },
   {
     "id": "jack_nealons",
@@ -4419,7 +4479,8 @@
         "caption": "Jack Nealons"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Jack%20Nealons%2C%20165%20Capel%20St%2C%20North%20City%2C%20D01%20P4A0%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Jack%20Nealons%2C%20165%20Capel%20St%2C%20North%20City%2C%20D01%20P4A0%2C%20Dublin",
+    "slug": "jack-nealons"
   },
   {
     "id": "boars_head",
@@ -4464,7 +4525,8 @@
         "caption": "The Boar's Head"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Boar%27s%20Head%2C%20149%20Capel%20St%2C%20North%20City%2C%20D01%20T282%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Boar%27s%20Head%2C%20149%20Capel%20St%2C%20North%20City%2C%20D01%20T282%2C%20Dublin",
+    "slug": "the-boars-head"
   },
   {
     "id": "walshs",
@@ -4511,7 +4573,8 @@
         "caption": "Walsh's"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Walsh%27s%2C%206-7%20Stoneybatter%2C%20D07%20TD34%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Walsh%27s%2C%206-7%20Stoneybatter%2C%20D07%20TD34%2C%20Dublin",
+    "slug": "walshs"
   },
   {
     "id": "mcneills",
@@ -4557,7 +4620,8 @@
         "caption": "McNeill's Pub"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=McNeill%27s%20Pub%2C%20140%20Capel%20St%2C%20North%20City%2C%20D01%20N8C8%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=McNeill%27s%20Pub%2C%20140%20Capel%20St%2C%20North%20City%2C%20D01%20N8C8%2C%20Dublin",
+    "slug": "mcneills-pub"
   },
   {
     "id": "bonobo",
@@ -4601,7 +4665,8 @@
         "caption": "Bonobo, Smithfield"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Bonobo%2C%20Smithfield%2C%20119%20Church%20St%20Upper%2C%20Smithfield%2C%20D07%20Y9P1%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Bonobo%2C%20Smithfield%2C%20119%20Church%20St%20Upper%2C%20Smithfield%2C%20D07%20Y9P1%2C%20Dublin",
+    "slug": "bonobo-smithfield"
   },
   {
     "id": "summit_inn",
@@ -4646,7 +4711,8 @@
         "caption": "The Summit Inn"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Summit%20Inn%2C%20Howth%20Summit%2C%20D13%20K382%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Summit%20Inn%2C%20Howth%20Summit%2C%20D13%20K382%2C%20Dublin",
+    "slug": "the-summit-inn"
   },
   {
     "id": "the_ferryman",
@@ -4692,7 +4758,8 @@
         "caption": "The Ferryman"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Ferryman%2C%2035%20Sir%20John%20Rogerson%27s%20Quay%2C%20Grand%20Canal%20Dock%2C%20D02%20R9K8%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Ferryman%2C%2035%20Sir%20John%20Rogerson%27s%20Quay%2C%20Grand%20Canal%20Dock%2C%20D02%20R9K8%2C%20Dublin",
+    "slug": "the-ferryman"
   },
   {
     "id": "the_lord_edward",
@@ -4739,7 +4806,8 @@
         "caption": "The Lord Edward"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Lord%20Edward%2C%2020%20Christchurch%20Pl%2C%20Wood%20Quay%2C%20D08%20X8H2%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Lord%20Edward%2C%2020%20Christchurch%20Pl%2C%20Wood%20Quay%2C%20D08%20X8H2%2C%20Dublin",
+    "slug": "the-lord-edward"
   },
   {
     "id": "the_old_stand",
@@ -4786,7 +4854,8 @@
         "caption": "The Old Stand"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Old%20Stand%2C%2037%20Exchequer%20St%2C%20D02%20F983%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Old%20Stand%2C%2037%20Exchequer%20St%2C%20D02%20F983%2C%20Dublin",
+    "slug": "the-old-stand"
   },
   {
     "id": "the_duke",
@@ -4832,7 +4901,8 @@
         "caption": "The Duke"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Duke%2C%209%20Duke%20St%2C%20D02%20H302%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Duke%2C%209%20Duke%20St%2C%20D02%20H302%2C%20Dublin",
+    "slug": "the-duke"
   },
   {
     "id": "devitts_camden",
@@ -4879,7 +4949,8 @@
         "caption": "Devitts of Camden Street"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Devitts%20of%20Camden%20Street%2C%2078%20Camden%20St%20Lower%2C%20D02%20C642%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Devitts%20of%20Camden%20Street%2C%2078%20Camden%20St%20Lower%2C%20D02%20C642%2C%20Dublin",
+    "slug": "devitts-of-camden-street"
   },
   {
     "id": "the_bleeding_horse",
@@ -4925,7 +4996,8 @@
         "caption": "The Bleeding Horse"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Bleeding%20Horse%2C%2024-25%20Camden%20St%20Upper%2C%20D02%20Y006%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Bleeding%20Horse%2C%2024-25%20Camden%20St%20Upper%2C%20D02%20Y006%2C%20Dublin",
+    "slug": "the-bleeding-horse"
   },
   {
     "id": "whelans_dublin",
@@ -4972,7 +5044,8 @@
         "caption": "Whelan's"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Whelan%27s%2C%2025%20Wexford%20St%2C%20D02%20H527%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Whelan%27s%2C%2025%20Wexford%20St%2C%20D02%20H527%2C%20Dublin",
+    "slug": "whelans"
   },
   {
     "id": "ryans_parkgate",
@@ -5019,7 +5092,8 @@
         "caption": "Ryan's of Parkgate Street (FX Buckley)"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Ryan%27s%20of%20Parkgate%20Street%20%28FX%20Buckley%29%2C%2028%20Parkgate%20St%2C%20D08%20CP28%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Ryan%27s%20of%20Parkgate%20Street%20%28FX%20Buckley%29%2C%2028%20Parkgate%20St%2C%20D08%20CP28%2C%20Dublin",
+    "slug": "ryans-of-parkgate-street-fx-buckley"
   },
   {
     "id": "the_dawson_lounge",
@@ -5065,7 +5139,8 @@
         "caption": "The Dawson Lounge"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Dawson%20Lounge%2C%2025%20Dawson%20St%2C%20D02%20X224%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Dawson%20Lounge%2C%2025%20Dawson%20St%2C%20D02%20X224%2C%20Dublin",
+    "slug": "the-dawson-lounge"
   },
   {
     "id": "hapenny_bridge_inn",
@@ -5112,7 +5187,8 @@
         "caption": "The Ha'penny Bridge Inn"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Ha%27penny%20Bridge%20Inn%2C%2042%20Wellington%20Quay%2C%20Temple%20Bar%2C%20D02%20NY28%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Ha%27penny%20Bridge%20Inn%2C%2042%20Wellington%20Quay%2C%20Temple%20Bar%2C%20D02%20NY28%2C%20Dublin",
+    "slug": "the-hapenny-bridge-inn"
   },
   {
     "id": "the_flowing_tide",
@@ -5159,7 +5235,8 @@
         "caption": "The Flowing Tide"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Flowing%20Tide%2C%209%20Lower%20Abbey%20St%2C%20North%20City%2C%20D01%20K8F3%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Flowing%20Tide%2C%209%20Lower%20Abbey%20St%2C%20North%20City%2C%20D01%20K8F3%2C%20Dublin",
+    "slug": "the-flowing-tide"
   },
   {
     "id": "the_bankers_bar",
@@ -5205,7 +5282,8 @@
         "caption": "The Bankers Bar"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Bankers%20Bar%2C%2016%20Trinity%20St%2C%20D02%20ND89%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Bankers%20Bar%2C%2016%20Trinity%20St%2C%20D02%20ND89%2C%20Dublin",
+    "slug": "the-bankers-bar"
   },
   {
     "id": "peters_pub",
@@ -5252,7 +5330,8 @@
         "caption": "Peter's Pub"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Peter%27s%20Pub%2C%201%20Johnson%20Pl%2C%20South%20City%2C%20D02%20YY82%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Peter%27s%20Pub%2C%201%20Johnson%20Pl%2C%20South%20City%2C%20D02%20YY82%2C%20Dublin",
+    "slug": "peters-pub"
   },
   {
     "id": "the_ginger_man",
@@ -5298,7 +5377,8 @@
         "caption": "The Ginger Man"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Ginger%20Man%2C%2039-40%20Fenian%20St%2C%20D02%20TH52%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Ginger%20Man%2C%2039-40%20Fenian%20St%2C%20D02%20TH52%2C%20Dublin",
+    "slug": "the-ginger-man"
   },
   {
     "id": "the_celt_dublin",
@@ -5344,7 +5424,8 @@
         "caption": "The Celt"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Celt%2C%2081%20Talbot%20St%2C%20North%20City%2C%20D01%20C8P2%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Celt%2C%2081%20Talbot%20St%2C%20North%20City%2C%20D01%20C8P2%2C%20Dublin",
+    "slug": "the-celt"
   },
   {
     "id": "underdog_dublin",
@@ -5390,7 +5471,8 @@
         "caption": "Underdog"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Underdog%2C%2016-18%20Capel%20St%2C%20North%20City%2C%20D01%20FP82%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Underdog%2C%2016-18%20Capel%20St%2C%20North%20City%2C%20D01%20FP82%2C%20Dublin",
+    "slug": "underdog"
   },
   {
     "id": "anseo_dublin",
@@ -5436,7 +5518,8 @@
         "caption": "Anseo"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Anseo%2C%2018%20Camden%20St%20Lower%2C%20D02%20H260%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Anseo%2C%2018%20Camden%20St%20Lower%2C%20D02%20H260%2C%20Dublin",
+    "slug": "anseo"
   },
   {
     "id": "arthurs_pub_liberties",
@@ -5483,7 +5566,8 @@
         "caption": "Arthur's Pub"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Arthur%27s%20Pub%2C%2028%20Thomas%20St%2C%20The%20Liberties%2C%20D08%20P7X0%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Arthur%27s%20Pub%2C%2028%20Thomas%20St%2C%20The%20Liberties%2C%20D08%20P7X0%2C%20Dublin",
+    "slug": "arthurs-pub"
   },
   {
     "id": "cassidys_westmoreland",
@@ -5529,7 +5613,8 @@
         "caption": "Cassidys"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Cassidys%2C%2027%20Westmoreland%20St%2C%20D02%20K299%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Cassidys%2C%2027%20Westmoreland%20St%2C%20D02%20K299%2C%20Dublin",
+    "slug": "cassidys"
   },
   {
     "id": "graingers_pebble_beach",
@@ -5575,7 +5660,8 @@
         "caption": "Grainger's Pebble Beach"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Grainger%27s%20Pebble%20Beach%2C%2018%20Conquer%20Hill%20Rd%2C%20Clontarf%2C%20D03%20DC97%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Grainger%27s%20Pebble%20Beach%2C%2018%20Conquer%20Hill%20Rd%2C%20Clontarf%2C%20D03%20DC97%2C%20Dublin",
+    "slug": "graingers-pebble-beach"
   },
   {
     "id": "gaffneys_fairview",
@@ -5621,7 +5707,8 @@
         "caption": "Gaffney's Pub"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Gaffney%27s%20Pub%2C%207%20Fairview%20Strand%2C%20Fairview%2C%20D03%20X262%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Gaffney%27s%20Pub%2C%207%20Fairview%20Strand%2C%20Fairview%2C%20D03%20X262%2C%20Dublin",
+    "slug": "gaffneys-pub"
   },
   {
     "id": "tom_kennedys_bar",
@@ -5667,7 +5754,8 @@
         "caption": "Tom Kennedy's Bar"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Tom%20Kennedy%27s%20Bar%2C%20135%20Thomas%20St%2C%20The%20Liberties%2C%20D08%20R6K8%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Tom%20Kennedy%27s%20Bar%2C%20135%20Thomas%20St%2C%20The%20Liberties%2C%20D08%20R6K8%2C%20Dublin",
+    "slug": "tom-kennedys-bar"
   },
   {
     "id": "the_hut_phibsborough",
@@ -5714,7 +5802,8 @@
         "caption": "The Hut"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Hut%2C%20159%20Phibsborough%20Rd%2C%20Phibsborough%2C%20D07%20HA21%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Hut%2C%20159%20Phibsborough%20Rd%2C%20Phibsborough%2C%20D07%20HA21%2C%20Dublin",
+    "slug": "the-hut"
   },
   {
     "id": "the_yacht_tavern",
@@ -5759,7 +5848,8 @@
         "caption": "The Yacht Tavern"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Yacht%20Tavern%2C%2073%20Clontarf%20Rd%2C%20Clontarf%2C%20D03%20X381%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Yacht%20Tavern%2C%2073%20Clontarf%20Rd%2C%20Clontarf%2C%20D03%20X381%2C%20Dublin",
+    "slug": "the-yacht-tavern"
   },
   {
     "id": "j_oconnell_portobello",
@@ -5806,7 +5896,8 @@
         "caption": "J. O'Connell"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=J.%20O%27Connell%2C%2029%20S%20Richmond%20St%2C%20Portobello%2C%20D02%20C678%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=J.%20O%27Connell%2C%2029%20S%20Richmond%20St%2C%20Portobello%2C%20D02%20C678%2C%20Dublin",
+    "slug": "j-oconnell"
   },
   {
     "id": "the_thomas_house",
@@ -5852,7 +5943,8 @@
         "caption": "The Thomas House"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Thomas%20House%2C%2086%20Thomas%20St%2C%20The%20Liberties%2C%20D08%20P761%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Thomas%20House%2C%2086%20Thomas%20St%2C%20The%20Liberties%2C%20D08%20P761%2C%20Dublin",
+    "slug": "the-thomas-house"
   },
   {
     "id": "pipers_corner",
@@ -5898,7 +5990,8 @@
         "caption": "The Piper's Corner"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Piper%27s%20Corner%2C%20105-106%20Marlborough%20St%2C%20North%20City%2C%20D01%20T884%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Piper%27s%20Corner%2C%20105-106%20Marlborough%20St%2C%20North%20City%2C%20D01%20T884%2C%20Dublin",
+    "slug": "the-pipers-corner"
   },
   {
     "id": "the_kings_inn",
@@ -5944,7 +6037,8 @@
         "caption": "The King's Inn"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20King%27s%20Inn%2C%2020%20Bolton%20St%2C%20North%20City%2C%20D01%20W260%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20King%27s%20Inn%2C%2020%20Bolton%20St%2C%20North%20City%2C%20D01%20W260%2C%20Dublin",
+    "slug": "the-kings-inn"
   },
   {
     "id": "briodys_marlborough",
@@ -5991,7 +6085,8 @@
         "caption": "Briodys"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Briodys%2C%2097%20Marlborough%20St%2C%20North%20City%2C%20D01%20XW93%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Briodys%2C%2097%20Marlborough%20St%2C%20North%20City%2C%20D01%20XW93%2C%20Dublin",
+    "slug": "briodys"
   },
   {
     "id": "cumiskeys_blackhorse",
@@ -6038,7 +6133,8 @@
         "caption": "Cumiskeys"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Cumiskeys%2C%2048%20Blackhorse%20Ave%2C%20Cabra%2C%20D07%20Y3P8%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Cumiskeys%2C%2048%20Blackhorse%20Ave%2C%20Cabra%2C%20D07%20Y3P8%2C%20Dublin",
+    "slug": "cumiskeys"
   },
   {
     "id": "cusacks_north_strand",
@@ -6083,7 +6179,8 @@
         "caption": "Cusack's Pub"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Cusack%27s%20Pub%2C%2048%20North%20Strand%20Rd%2C%20North%20Strand%2C%20D01%20A2K1%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Cusack%27s%20Pub%2C%2048%20North%20Strand%20Rd%2C%20North%20Strand%2C%20D01%20A2K1%2C%20Dublin",
+    "slug": "cusacks-pub"
   },
   {
     "id": "m_obriens_sussex",
@@ -6130,7 +6227,8 @@
         "caption": "M. O'Brien's"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=M.%20O%27Brien%27s%2C%208-9%20Sussex%20Terrace%2C%20Leeson%20St%2C%20D04%20H5R9%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=M.%20O%27Brien%27s%2C%208-9%20Sussex%20Terrace%2C%20Leeson%20St%2C%20D04%20H5R9%2C%20Dublin",
+    "slug": "m-obriens"
   },
   {
     "id": "dudleys_thomas_st",
@@ -6176,7 +6274,8 @@
         "caption": "Dudley's"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Dudley%27s%2C%2047%20Thomas%20St%2C%20The%20Liberties%2C%20D08%20R6X0%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Dudley%27s%2C%2047%20Thomas%20St%2C%20The%20Liberties%2C%20D08%20R6X0%2C%20Dublin",
+    "slug": "dudleys"
   },
   {
     "id": "the_dalkey_duck",
@@ -6222,7 +6321,8 @@
         "caption": "The Dalkey Duck"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Dalkey%20Duck%2C%2061%20Castle%20St%2C%20Dalkey%2C%20Co.%20Dublin%2C%20A96%20F2X3%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Dalkey%20Duck%2C%2061%20Castle%20St%2C%20Dalkey%2C%20Co.%20Dublin%2C%20A96%20F2X3%2C%20Dublin",
+    "slug": "the-dalkey-duck"
   },
   {
     "id": "bottlers_bank_rathgar",
@@ -6267,7 +6367,8 @@
         "caption": "Bottler's Bank"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Bottler%27s%20Bank%2C%2019%20Rathgar%20Rd%2C%20Rathgar%2C%20D06%20H9Y8%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Bottler%27s%20Bank%2C%2019%20Rathgar%20Rd%2C%20Rathgar%2C%20D06%20H9Y8%2C%20Dublin",
+    "slug": "bottlers-bank"
   },
   {
     "id": "harry_byrnes_clontarf",
@@ -6313,7 +6414,8 @@
         "caption": "Harry Byrnes"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Harry%20Byrnes%2C%20107%20Howth%20Rd%2C%20Clontarf%2C%20D03%20R283%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Harry%20Byrnes%2C%20107%20Howth%20Rd%2C%20Clontarf%2C%20D03%20R283%2C%20Dublin",
+    "slug": "harry-byrnes"
   },
   {
     "id": "fagans_drumcondra",
@@ -6359,7 +6461,8 @@
         "caption": "Fagan's Bar & Restaurant"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Fagan%27s%20Bar%20%26%20Restaurant%2C%20146%20Drumcondra%20Rd%20Lower%2C%20Drumcondra%2C%20D09%20K5Y8%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Fagan%27s%20Bar%20%26%20Restaurant%2C%20146%20Drumcondra%20Rd%20Lower%2C%20Drumcondra%2C%20D09%20K5Y8%2C%20Dublin",
+    "slug": "fagans-bar-restaurant"
   },
   {
     "id": "peggy_kellys_harolds_cross",
@@ -6404,7 +6507,8 @@
         "caption": "Peggy Kellys"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Peggy%20Kellys%2C%20155%20Harold%27s%20Cross%20Rd%2C%20Harold%27s%20Cross%2C%20D6W%20K718%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Peggy%20Kellys%2C%20155%20Harold%27s%20Cross%20Rd%2C%20Harold%27s%20Cross%2C%20D6W%20K718%2C%20Dublin",
+    "slug": "peggy-kellys"
   },
   {
     "id": "the_goat_grill_goatstown",
@@ -6449,7 +6553,8 @@
         "caption": "The Goat Bar & Grill"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Goat%20Bar%20%26%20Grill%2C%2014%20Lower%20Kilmacud%20Rd%2C%20Goatstown%2C%20D14%20Y970%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Goat%20Bar%20%26%20Grill%2C%2014%20Lower%20Kilmacud%20Rd%2C%20Goatstown%2C%20D14%20Y970%2C%20Dublin",
+    "slug": "the-goat-bar-grill"
   },
   {
     "id": "the_terenure_inn",
@@ -6494,7 +6599,8 @@
         "caption": "The Terenure Inn"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Terenure%20Inn%2C%2094%20Terenure%20Rd%20N%2C%20Terenure%2C%20D6W%20EH39%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Terenure%20Inn%2C%2094%20Terenure%20Rd%20N%2C%20Terenure%2C%20D6W%20EH39%2C%20Dublin",
+    "slug": "the-terenure-inn"
   },
   {
     "id": "the_two_sisters_terenure",
@@ -6540,7 +6646,8 @@
         "caption": "The Two Sisters Pub"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Two%20Sisters%20Pub%2C%2026-30%20Wainsfort%20Dr%2C%20Terenure%2C%20D6W%20XA33%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Two%20Sisters%20Pub%2C%2026-30%20Wainsfort%20Dr%2C%20Terenure%2C%20D6W%20XA33%2C%20Dublin",
+    "slug": "the-two-sisters-pub"
   },
   {
     "id": "r_mcsorleys_ranelagh",
@@ -6585,7 +6692,8 @@
         "caption": "McSorley's of Ranelagh"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=McSorley%27s%20of%20Ranelagh%2C%205%20Sandford%20Rd%2C%20Ranelagh%2C%20D06%20F2V6%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=McSorley%27s%20of%20Ranelagh%2C%205%20Sandford%20Rd%2C%20Ranelagh%2C%20D06%20F2V6%2C%20Dublin",
+    "slug": "mcsorleys-of-ranelagh"
   },
   {
     "id": "smyths_ranelagh",
@@ -6631,7 +6739,8 @@
         "caption": "Smyth's Pub (Ranelagh)"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Smyth%27s%20Pub%20%28Ranelagh%29%2C%2010%20Ranelagh%2C%20Ranelagh%2C%20D06%20V407%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Smyth%27s%20Pub%20%28Ranelagh%29%2C%2010%20Ranelagh%2C%20Ranelagh%2C%20D06%20V407%2C%20Dublin",
+    "slug": "smyths-pub-ranelagh"
   },
   {
     "id": "smyths_haddington_rd",
@@ -6677,7 +6786,8 @@
         "caption": "Smyth's Pub (10 Haddington Rd)"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Smyth%27s%20Pub%20%2810%20Haddington%20Rd%29%2C%2010%20Haddington%20Rd%2C%20Ballsbridge%2C%20D04%20N8P9%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Smyth%27s%20Pub%20%2810%20Haddington%20Rd%29%2C%2010%20Haddington%20Rd%2C%20Ballsbridge%2C%20D04%20N8P9%2C%20Dublin",
+    "slug": "smyths-pub-10-haddington-rd"
   },
   {
     "id": "ryans_camden_st",
@@ -6724,7 +6834,8 @@
         "caption": "Ryan's (Camden St)"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Ryan%27s%20%28Camden%20St%29%2C%2045%20Camden%20St%20Lower%2C%20Saint%20Kevin%27s%2C%20D02%20NW99%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Ryan%27s%20%28Camden%20St%29%2C%2045%20Camden%20St%20Lower%2C%20Saint%20Kevin%27s%2C%20D02%20NW99%2C%20Dublin",
+    "slug": "ryans-camden-st"
   },
   {
     "id": "sinnotts_bar",
@@ -6769,7 +6880,8 @@
         "caption": "Sinnotts Bar"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Sinnotts%20Bar%2C%20South%20King%20St%2C%20St%20Stephen%27s%20Green%2C%20D02%20T972%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Sinnotts%20Bar%2C%20South%20King%20St%2C%20St%20Stephen%27s%20Green%2C%20D02%20T972%2C%20Dublin",
+    "slug": "sinnotts-bar"
   },
   {
     "id": "frank_ryans_smithfield",
@@ -6816,7 +6928,8 @@
         "caption": "Frank Ryan's"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Frank%20Ryan%27s%2C%205%20Queen%20St%2C%20Smithfield%2C%20D07%20W6P8%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Frank%20Ryan%27s%2C%205%20Queen%20St%2C%20Smithfield%2C%20D07%20W6P8%2C%20Dublin",
+    "slug": "frank-ryans"
   },
   {
     "id": "rody_bolands_rathmines",
@@ -6861,7 +6974,8 @@
         "caption": "Rody Bolands"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Rody%20Bolands%2C%2012-14%20Upper%20Rathmines%20Rd%2C%20Rathmines%2C%20D06%20R286%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Rody%20Bolands%2C%2012-14%20Upper%20Rathmines%20Rd%2C%20Rathmines%2C%20D06%20R286%2C%20Dublin",
+    "slug": "rody-bolands"
   },
   {
     "id": "martin_b_slattery_rathmines",
@@ -6907,7 +7021,8 @@
         "caption": "Martin B. Slattery (Rathmines)"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Martin%20B.%20Slattery%20%28Rathmines%29%2C%20217%20Rathmines%20Rd%20Lower%2C%20Rathmines%2C%20D06%20P2W4%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Martin%20B.%20Slattery%20%28Rathmines%29%2C%20217%20Rathmines%20Rd%20Lower%2C%20Rathmines%2C%20D06%20P2W4%2C%20Dublin",
+    "slug": "martin-b-slattery-rathmines"
   },
   {
     "id": "cassidys_camden",
@@ -6953,7 +7068,8 @@
         "caption": "Cassidy's of Camden Street"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Cassidy%27s%20of%20Camden%20Street%2C%2042%20Camden%20St%20Lower%2C%20Saint%20Kevin%27s%2C%20D02%20H684%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Cassidy%27s%20of%20Camden%20Street%2C%2042%20Camden%20St%20Lower%2C%20Saint%20Kevin%27s%2C%20D02%20H684%2C%20Dublin",
+    "slug": "cassidys-of-camden-street"
   },
   {
     "id": "sitting_room_delahunt",
@@ -6998,7 +7114,8 @@
         "caption": "The Sitting Room at Delahunt"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Sitting%20Room%20at%20Delahunt%2C%2039%20Camden%20St%20Lower%2C%20Saint%20Kevin%27s%2C%20D02%20K277%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Sitting%20Room%20at%20Delahunt%2C%2039%20Camden%20St%20Lower%2C%20Saint%20Kevin%27s%2C%20D02%20K277%2C%20Dublin",
+    "slug": "the-sitting-room-at-delahunt"
   },
   {
     "id": "moss_lane",
@@ -7043,7 +7160,8 @@
         "caption": "Moss Lane"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Moss%20Lane%2C%2037%20Pearse%20St%2C%20Grand%20Canal%20Dock%2C%20D02%20K840%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Moss%20Lane%2C%2037%20Pearse%20St%2C%20Grand%20Canal%20Dock%2C%20D02%20K840%2C%20Dublin",
+    "slug": "moss-lane"
   },
   {
     "id": "cellar_bar_merrion",
@@ -7088,7 +7206,8 @@
         "caption": "The Cellar Bar at The Merrion"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Cellar%20Bar%20at%20The%20Merrion%2C%20Upper%20Merrion%20St%2C%20Georgian%20Quarter%2C%20D02%20NH96%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Cellar%20Bar%20at%20The%20Merrion%2C%20Upper%20Merrion%20St%2C%20Georgian%20Quarter%2C%20D02%20NH96%2C%20Dublin",
+    "slug": "the-cellar-bar-at-the-merrion"
   },
   {
     "id": "bar_1661",
@@ -7133,7 +7252,8 @@
         "caption": "Bar 1661"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Bar%201661%2C%201-5%20Green%20St%2C%20Rotunda%2C%20D07%20YT6H%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Bar%201661%2C%201-5%20Green%20St%2C%20Rotunda%2C%20D07%20YT6H%2C%20Dublin",
+    "slug": "bar-1661"
   },
   {
     "id": "sidecar_westbury",
@@ -7178,7 +7298,8 @@
         "caption": "The Sidecar at The Westbury"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Sidecar%20at%20The%20Westbury%2C%20Balfe%20St%2C%20South%20City%2C%20D02%20CH66%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Sidecar%20at%20The%20Westbury%2C%20Balfe%20St%2C%20South%20City%2C%20D02%20CH66%2C%20Dublin",
+    "slug": "the-sidecar-at-the-westbury"
   },
   {
     "id": "nine_below",
@@ -7222,7 +7343,8 @@
         "caption": "9 Below"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=9%20Below%2C%209%20St%20Stephen%27s%20Green%2C%20D02%20X859%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=9%20Below%2C%209%20St%20Stephen%27s%20Green%2C%20D02%20X859%2C%20Dublin",
+    "slug": "9-below"
   },
   {
     "id": "peruke_and_periwig",
@@ -7267,7 +7389,8 @@
         "caption": "Peruke & Periwig"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Peruke%20%26%20Periwig%2C%2031%20Dawson%20St%2C%20Dublin%202%2C%20D02%20C890%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Peruke%20%26%20Periwig%2C%2031%20Dawson%20St%2C%20Dublin%202%2C%20D02%20C890%2C%20Dublin",
+    "slug": "peruke-periwig"
   },
   {
     "id": "neptune_abbey_st",
@@ -7313,7 +7436,8 @@
         "caption": "The Neptune Bar"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Neptune%20Bar%2C%2053%20Middle%20Abbey%20St%2C%20North%20City%2C%20D01%20X5F1%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Neptune%20Bar%2C%2053%20Middle%20Abbey%20St%2C%20North%20City%2C%20D01%20X5F1%2C%20Dublin",
+    "slug": "the-neptune-bar"
   },
   {
     "id": "jonathan_swift_pub",
@@ -7359,7 +7483,8 @@
         "caption": "Jonathan Swift Pub"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Jonathan%20Swift%20Pub%2C%204%20Christchurch%20Pl%2C%20The%20Liberties%2C%20D08%20K729%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Jonathan%20Swift%20Pub%2C%204%20Christchurch%20Pl%2C%20The%20Liberties%2C%20D08%20K729%2C%20Dublin",
+    "slug": "jonathan-swift-pub"
   },
   {
     "id": "thomas_moore_inn",
@@ -7405,7 +7530,8 @@
         "caption": "Thomas Moore Inn"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Thomas%20Moore%20Inn%2C%2012%20Aungier%20St%2C%20Dublin%202%2C%20D02%20X682%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Thomas%20Moore%20Inn%2C%2012%20Aungier%20St%2C%20Dublin%202%2C%20D02%20X682%2C%20Dublin",
+    "slug": "thomas-moore-inn"
   },
   {
     "id": "the_fourth_corner",
@@ -7451,7 +7577,8 @@
         "caption": "The Fourth Corner"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Fourth%20Corner%2C%2050%20Patrick%20St%2C%20The%20Liberties%2C%20D08%20E780%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Fourth%20Corner%2C%2050%20Patrick%20St%2C%20The%20Liberties%2C%20D08%20E780%2C%20Dublin",
+    "slug": "the-fourth-corner"
   },
   {
     "id": "irish_whiskey_museum_bar",
@@ -7496,7 +7623,8 @@
         "caption": "Irish Whiskey Museum Bar"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Irish%20Whiskey%20Museum%20Bar%2C%20119%20Grafton%20St%2C%20South%20City%2C%20D02%20E620%2C%20Dublin"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=Irish%20Whiskey%20Museum%20Bar%2C%20119%20Grafton%20St%2C%20South%20City%2C%20D02%20E620%2C%20Dublin",
+    "slug": "irish-whiskey-museum-bar"
   },
   {
     "id": "oreillys_merrion",
@@ -7541,7 +7669,8 @@
         "caption": "O'Reilly's"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=O'Reilly's%2C%2017%20Merrion%20St%20Upper,%20Dublin%202,%20D02%20WV59"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=O'Reilly's%2C%2017%20Merrion%20St%20Upper,%20Dublin%202,%20D02%20WV59",
+    "slug": "oreillys-merrion-street"
   },
   {
     "id": "the_oarsman",
@@ -7586,7 +7715,8 @@
         "caption": "The Oarsman"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Oarsman%2C%208-10%20Bridge%20St,%20Ringsend,%20Dublin%204,%20D04%20N294"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Oarsman%2C%208-10%20Bridge%20St,%20Ringsend,%20Dublin%204,%20D04%20N294",
+    "slug": "the-oarsman"
   },
   {
     "id": "old_schoolhouse_swords",
@@ -7631,7 +7761,8 @@
         "caption": "The Old Schoolhouse"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Old%20Schoolhouse%2C%20Church%20Rd,%20Townparks,%20Swords,%20Co.%20Dublin,%20K67%20K093"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Old%20Schoolhouse%2C%20Church%20Rd,%20Townparks,%20Swords,%20Co.%20Dublin,%20K67%20K093",
+    "slug": "the-old-schoolhouse-swords"
   },
   {
     "id": "the_cock_tavern",
@@ -7676,7 +7807,8 @@
         "caption": "The Cock Tavern"
       }
     ],
-    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Cock%20Tavern%2C%2031%20Main%20St,%20Townparks,%20Swords,%20Co.%20Dublin,%20K67%20X923"
+    "gbpUrl": "https://www.google.com/maps/search/?api=1&query=The%20Cock%20Tavern%2C%2031%20Main%20St,%20Townparks,%20Swords,%20Co.%20Dublin,%20K67%20X923",
+    "slug": "the-cock-tavern-swords"
   }
 ];
 
@@ -9429,9 +9561,12 @@
       showPubPopup(pubId);
     }
 
+    const EXACT_PUB_SLUGS = {"the brazen head": "the-brazen-head", "the long hall": "the-long-hall", "mulligan's": "mulligans", "the stag's head": "the-stags-head", "kehoe's": "kehoes", "grogan's castle lounge": "grogans-castle-lounge", "the palace bar": "the-palace-bar", "o'donoghue's": "odonoghues", "the cobblestone": "the-cobblestone", "toner's": "toners", "mcdaid's": "mcdaids", "the temple bar pub": "the-temple-bar-pub", "the foggy dew": "the-foggy-dew", "bowe's lounge bar": "bowes-lounge-bar", "neary's": "nearys", "john fallon's \"the capstan bar\"": "john-fallons-the-capstan-bar", "doheny & nesbitt": "doheny-nesbitt", "porterhouse temple bar": "porterhouse-temple-bar", "international bar": "international-bar", "john kavanagh the gravediggers": "john-kavanagh-the-gravediggers", "merchant's arch": "merchants-arch", "the glimmer man": "the-glimmer-man", "darkey kelly's": "darkey-kellys", "slattery's d4": "slatterys-d4", "paddy cullen's pub": "paddy-cullens-pub", "the liberty belle": "the-liberty-belle", "fidelity bar & studio": "fidelity-bar-studio", "cleary's pub": "clearys-pub", "old royal oak": "old-royal-oak", "delaney's smithfield": "delaneys-smithfield", "the oval bar": "the-oval-bar", "caribou": "caribou", "the black sheep": "the-black-sheep", "davy byrnes": "davy-byrnes", "l. mulligan grocer": "l-mulligan-grocer", "the hill pub": "the-hill-pub", "the storyteller pub": "the-storyteller-pub", "hole in the wall, europe’s longest pub": "hole-in-the-wall-europe-s-longest-pub", "the harbour bar howth": "the-harbour-bar-howth", "the blue light": "the-blue-light", "johnnie fox's pub": "johnnie-foxs-pub", "ciss maddens": "ciss-maddens", "o'regan's": "oregans", "hogan's": "hogans", "sheehans pub": "sheehans-pub", "the dame tavern": "the-dame-tavern", "the swan bar": "the-swan-bar", "hartigans pub": "hartigans-pub", "searsons": "searsons", "mccafferty's at the barge": "mccaffertys-at-the-barge", "jack nealons": "jack-nealons", "the boar's head": "the-boars-head", "walsh's": "walshs", "mcneill's pub": "mcneills-pub", "bonobo, smithfield": "bonobo-smithfield", "the summit inn": "the-summit-inn", "the ferryman": "the-ferryman", "the lord edward": "the-lord-edward", "the old stand": "the-old-stand", "the duke": "the-duke", "devitts of camden street": "devitts-of-camden-street", "the bleeding horse": "the-bleeding-horse", "whelan's": "whelans", "ryan's of parkgate street (fx buckley)": "ryans-of-parkgate-street-fx-buckley", "the dawson lounge": "the-dawson-lounge", "the ha'penny bridge inn": "the-hapenny-bridge-inn", "the flowing tide": "the-flowing-tide", "the bankers bar": "the-bankers-bar", "peter's pub": "peters-pub", "the ginger man": "the-ginger-man", "the celt": "the-celt", "underdog": "underdog", "anseo": "anseo", "arthur's pub": "arthurs-pub", "cassidys": "cassidys", "grainger's pebble beach": "graingers-pebble-beach", "gaffney's pub": "gaffneys-pub", "tom kennedy's bar": "tom-kennedys-bar", "the hut": "the-hut", "the yacht tavern": "the-yacht-tavern", "j. o'connell": "j-oconnell", "the thomas house": "the-thomas-house", "the piper's corner": "the-pipers-corner", "the king's inn": "the-kings-inn", "briodys": "briodys", "cumiskeys": "cumiskeys", "cusack's pub": "cusacks-pub", "m. o'brien's": "m-obriens", "dudley's": "dudleys", "the dalkey duck": "the-dalkey-duck", "bottler's bank": "bottlers-bank", "harry byrnes": "harry-byrnes", "fagan's bar & restaurant": "fagans-bar-restaurant", "peggy kellys": "peggy-kellys", "the goat bar & grill": "the-goat-bar-grill", "the terenure inn": "the-terenure-inn", "the two sisters pub": "the-two-sisters-pub", "mcsorley's of ranelagh": "mcsorleys-of-ranelagh", "smyth's pub (ranelagh)": "smyths-pub-ranelagh", "smyth's pub (10 haddington rd)": "smyths-pub-10-haddington-rd", "ryan's (camden st)": "ryans-camden-st", "sinnotts bar": "sinnotts-bar", "frank ryan's": "frank-ryans", "rody bolands": "rody-bolands", "martin b. slattery (rathmines)": "martin-b-slattery-rathmines", "cassidy's of camden street": "cassidys-of-camden-street", "the sitting room at delahunt": "the-sitting-room-at-delahunt", "moss lane": "moss-lane", "the cellar bar at the merrion": "the-cellar-bar-at-the-merrion", "bar 1661": "bar-1661", "the sidecar at the westbury": "the-sidecar-at-the-westbury", "9 below": "9-below", "peruke & periwig": "peruke-periwig", "the neptune bar": "the-neptune-bar", "jonathan swift pub": "jonathan-swift-pub", "thomas moore inn": "thomas-moore-inn", "the fourth corner": "the-fourth-corner", "irish whiskey museum bar": "irish-whiskey-museum-bar", "o'reilly's": "oreillys-merrion-street", "the oarsman": "the-oarsman", "the old schoolhouse": "the-old-schoolhouse-swords", "the cock tavern": "the-cock-tavern-swords"};
     function getPubSlug(name) {
       if (!name) return '';
-      return name.toLowerCase().replace(/['"]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+      const k = name.toLowerCase();
+      if (EXACT_PUB_SLUGS[k]) return EXACT_PUB_SLUGS[k];
+      return k.replace(/['"]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
     }
 
     function showPubPopup(pubId) {
@@ -10733,7 +10868,7 @@
 
 
   <!-- SEO Crawl Graph Directory (Depth-1 Internal Links to All 15 Routes & 118 Pubs) -->
-  <nav id="seo-crawl-graph-directory" aria-label="Complete Dublin Pub Crawl & Historic Tavern Directory" class="sr-only" style="position: absolute !important; width: 1px !important; height: 1px !important; padding: 0 !important; margin: -1px !important; overflow: hidden !important; clip: rect(0, 0, 0, 0) !important; white-space: nowrap !important; border: 0 !important; pointer-events: none !important;">
+  <nav id="seo-crawl-graph-directory" aria-label="Complete Dublin Pub Crawl & Historic Tavern Directory" class="bg-[#0a0406] border-t border-[#d9ac5e]/20 py-8 px-4 sm:px-8 text-[#f5ead8] w-full shrink-0" style="position: relative; width: 100%; flex-shrink: 0;">
     <div class="max-w-7xl mx-auto space-y-6">
       <div>
         <h2 class="text-sm font-bold uppercase tracking-widest text-[#d9ac5e] mb-3">15 Curated Dublin Pub Crawl Routes</h2>
