@@ -920,16 +920,6 @@
       transform-origin: center;
     }
   </style>
-  <script id="gsc-query-param-canonicalizer">
-    (function() {
-      if (window.location.search && /(?:[?&])(add|focus|crawl|route|pub)=/i.test(window.location.search)) {
-        var m = document.createElement('meta');
-        m.name = 'robots';
-        m.content = 'noindex, follow';
-        document.head.appendChild(m);
-      }
-    })();
-  </script>
 </head>
 <body class="bg-[#0a0406] text-[#ede5d8] min-h-screen flex flex-col antialiased overflow-x-hidden overflow-y-auto selection:bg-[#d9ac5e] selection:text-[#0b0407] font-body" style="min-height: 100dvh; width: 100%; margin: 0; padding: 0; display: flex; flex-direction: column; overflow-x: hidden; overflow-y: auto; background-color: #0a0406;">
 
