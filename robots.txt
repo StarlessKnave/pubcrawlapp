@@ -2,4 +2,3 @@ User-agent: *
 Allow: /
 
 Sitemap: https://dublinpubcrawl.app/sitemap.xml
-Sitemap: https://dublinpubcrawl.app/sitemap-2026.xml

@@ -58,6 +58,23 @@ def validate_repo(repo_dir: str) -> int:
         if "www.dublinpubcrawl.app" in content:
             errors.append(f"[{rel_path}] Contains forbidden 'www.dublinpubcrawl.app' reference.")
 
+        # Check for parameterized duplicate crawl URLs (?add=, ?focus=, ?crawl=)
+        if re.search(r"https://dublinpubcrawl\.app/\?(?:add|focus|crawl)=", content):
+            errors.append(f"[{rel_path}] Contains parameterized '?add=/focus=/crawl=' URL (use '#add=/focus=/crawl=' hash fragments instead).")
+
+        # Check for raw JS template ${...} inside href= or src= attributes (causes 404 crawls by Googlebot Wave-1 parser)
+        if re.search(r'(?:href|src)=["\'][^"\']*\$\{[^"\']*\}[^"\']*["\']', content):
+            errors.append(f"[{rel_path}] Contains raw JS template '${{...}}' inside href/src attribute.")
+
+        # Check for empty <img src=""> attributes
+        if re.search(r'<img\b[^>]*\bsrc=["\']\s*["\']', content):
+            errors.append(f"[{rel_path}] Contains empty <img src=''> attribute.")
+
+        # Check that each page has strictly 1 <h1> tag
+        h1_count = len(re.findall(r"<h1\b", content, re.IGNORECASE))
+        if h1_count != 1:
+            errors.append(f"[{rel_path}] Expected exactly 1 <h1> tag, found {h1_count}.")
+
         # Check canonical tag
         canon_match = re.search(r'<link\s+rel=["\']canonical["\']\s+href=["\']([^"\']+)["\']', content)
         if not canon_match:
