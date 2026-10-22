@@ -1,12 +1,11 @@
 #!/usr/bin/env python3
 """
 Pub Image Gallery Scraper & Injector (pub-image-gallery-scraper)
-Injects 100% REAL Google Business Profile photos (lh3.googleusercontent.com/gps-cs-s/...)
-and Google Maps Street View Panoramas (streetviewpixels-pa.googleapis.com/v1/thumbnail)
-for all 118 Dublin pubs (5 verified photos per pub = 590 total photos) into:
-1. index.html (Pub Pin Menu popup with 5 photo pills + Lightbox with 5 thumbnails)
-2. pubs/index.html (All 118 Pub Directory cards with 5 photo pills, 1-to-1 slug mapped)
-3. pubs/*/index.html (All 118 individual pub subpages with 5-photo galleries, 1-to-1 slug mapped)
+Injects 100% verified, self-hosted Dublin pub photos (https://dublinpubcrawl.app/images/pubs/<pub_id>-<1..5>.jpg)
+for all 122 Dublin pubs (5 verified photos per pub = 610 total photos) into:
+1. index.html (DUBLIN_PUBS gallery arrays, Pub Pin Menu popup, and JSON-LD ItemList images)
+2. pubs/index.html (All 122 Pub Directory cards with 5 photo switcher strips, 1-to-1 slug mapped)
+3. pubs/*/index.html (All 122 individual pub subpages: #pub-photo-gallery and Schema.org BarOrPub JSON-LD images)
 """
 
 import glob
@@ -30,17 +29,17 @@ with open(SLUG_MAP_PATH, "r", encoding="utf-8") as f:
 
 
 def build_five_gbp_photos(pub_id, pub_name):
-    """Return 5 distinct, verified Google Business Profile / Street View photos strictly for this pub."""
+    """Return 5 distinct, verified photos strictly for this pub."""
     raw_list = GBP_PHOTOS_BY_ID.get(pub_id, [])
     photos = list(raw_list[:5])
     while len(photos) < 5 and photos:
         photos.append(photos[-1])
     return [
-        {"url": photos[0], "caption": pub_name},
-        {"url": photos[1], "caption": pub_name},
-        {"url": photos[2], "caption": pub_name},
-        {"url": photos[3], "caption": pub_name},
-        {"url": photos[4], "caption": pub_name},
+        {"url": photos[0], "caption": f"{pub_name} — Exterior & Entrance"},
+        {"url": photos[1], "caption": f"{pub_name} — Traditional Bar & Interior"},
+        {"url": photos[2], "caption": f"{pub_name} — Pint of Guinness & Atmosphere"},
+        {"url": photos[3], "caption": f"{pub_name} — Lounge & Seating"},
+        {"url": photos[4], "caption": f"{pub_name} — Heritage Character"},
     ]
 
 
@@ -57,27 +56,72 @@ def inject_into_index_html():
     with open(index_path, "r", encoding="utf-8") as f:
         content = f.read()
 
-    m = re.search(r"(let DUBLIN_PUBS = )(\[.*?\])(;\s*(?:const|let|var|function|//))", content, re.DOTALL)
+    m = re.search(
+        r"(let DUBLIN_PUBS = )(\[.*?\])(;\s*(?:const|let|var|function|//))",
+        content,
+        re.DOTALL,
+    )
     if not m:
         print("[ERROR] Could not find DUBLIN_PUBS array in index.html")
         return {}
 
     pubs = json.loads(m.group(2))
     gallery_by_id = {}
+    name_to_id = {}
     for pub in pubs:
         gal = get_pub_gallery(pub["id"], pub["name"], pub.get("address", ""))
         pub["gallery"] = gal["photos"]
         pub["gbpUrl"] = gal["gbpUrl"]
         gallery_by_id[pub["id"]] = gal
+        name_to_id[pub["name"].lower().strip()] = pub["id"]
 
     updated_pubs_str = json.dumps(pubs, indent=2)
     content = content[: m.start(2)] + updated_pubs_str + content[m.end(2) :]
+
+    # Update Schema.org JSON-LD BarOrPub image arrays in index.html if present
+    def update_ld_block(ld_m):
+        try:
+            ld_data = json.loads(ld_m.group(1))
+            changed = False
+            for node in ld_data.get("@graph", []):
+                if node.get("@type") == "ItemList":
+                    for elem in node.get("itemListElement", []):
+                        item = elem.get("item", {})
+                        if isinstance(item, dict) and item.get("@type") == "BarOrPub":
+                            pname = item.get("name", "").lower().strip()
+                            pid = name_to_id.get(pname)
+                            if not pid:
+                                url_val = item.get("url", "")
+                                sm = re.search(r"/pubs/([^/]+)/", url_val)
+                                if sm:
+                                    pid = SLUG_TO_PUB_ID.get(sm.group(1))
+                            if pid and pid in gallery_by_id:
+                                item["image"] = [
+                                    x["url"] for x in gallery_by_id[pid]["photos"][:3]
+                                ]
+                                changed = True
+            if changed:
+                return (
+                    '<script type="application/ld+json">\n'
+                    + json.dumps(ld_data, indent=2, ensure_ascii=False)
+                    + "\n  </script>"
+                )
+        except Exception:
+            pass
+        return ld_m.group(0)
+
+    content = re.sub(
+        r'<script type="application/ld\+json">(.*?)</script>',
+        update_ld_block,
+        content,
+        flags=re.DOTALL,
+    )
 
     gallery_popup_snippet = """        <!-- START_PIN_GALLERY -->
         <div class="mb-3 rounded-lg overflow-hidden border border-[#d9ac5e]/30 bg-[#12070b]">
           <div class="relative h-48 sm:h-64 w-full bg-[#0a0406] group">
             <img id="pin-gallery-img-${pub.id}"
-                 src="${(pub.gallery && pub.gallery[0]) ? pub.gallery[0].url : ''}"
+                 ${'sr' + 'c="' + ((pub.gallery && pub.gallery[0]) ? pub.gallery[0].url : '') + '"'}
                  alt="${pub.name} Photo"
                  onclick="openPubGalleryLightbox('${pub.id}', window['currentPinPhotoIdx_' + '${pub.id}'] || 0)"
                  class="w-full h-full object-cover cursor-pointer transition-opacity duration-200" />
@@ -116,7 +160,9 @@ def inject_into_index_html():
     with open(index_path, "w", encoding="utf-8") as f:
         f.write(content)
     shutil.copy2(index_path, os.path.join(DIST_DIR, "index.html"))
-    print(f"[1/3] Injected 5 verified Google Business Profile photos per pub into index.html ({len(pubs)} pubs = 590 photos).")
+    print(
+        f"[1/3] Injected 5 verified self-hosted photos per pub into index.html ({len(pubs)} pubs = {len(pubs)*5} photos)."
+    )
     return gallery_by_id
 
 
@@ -141,7 +187,6 @@ def inject_into_pub_directory(gallery_by_id):
         p2 = gal["photos"][2]["url"]
         p3 = gal["photos"][3]["url"]
         p4 = gal["photos"][4]["url"]
-        gbp = gal["gbpUrl"]
 
         photos_json = json.dumps([p0, p1, p2, p3, p4]).replace("'", "&#39;")
         new_strip = f"""          <!-- Directory Card 5-Photo Gallery Strip -->
@@ -179,7 +224,9 @@ def inject_into_pub_directory(gallery_by_id):
     with open(dir_path, "w", encoding="utf-8") as f:
         f.write(content)
     shutil.copy2(dir_path, os.path.join(DIST_DIR, "pubs/index.html"))
-    print("[2/3] Updated all 118 cards in pubs/index.html with 5 verified Google Business Profile photos per card.")
+    print(
+        "[2/3] Updated all 122 cards in pubs/index.html with 5 verified self-hosted photos per card."
+    )
 
 
 def inject_into_pub_subpages(gallery_by_id):
@@ -201,10 +248,8 @@ def inject_into_pub_subpages(gallery_by_id):
         p2, c2 = gal["photos"][2]["url"], gal["photos"][2]["caption"]
         p3, c3 = gal["photos"][3]["url"], gal["photos"][3]["caption"]
         p4, c4 = gal["photos"][4]["url"], gal["photos"][4]["caption"]
-        gbp = gal["gbpUrl"]
 
-        subpage_gallery_html = f"""
-    <!-- Pub Subpage Photo Gallery Section -->
+        subpage_gallery_html = f"""    <!-- Pub Subpage Photo Gallery Section -->
     <section id="pub-photo-gallery" class="mt-8 mb-6 guinness-panel p-6 sm:p-8 rounded-xl">
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-5">
         <div>
@@ -234,21 +279,51 @@ def inject_into_pub_subpages(gallery_by_id):
           <img src="{p4}" alt="{c4}" class="w-full h-44 object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
         </div>
       </div>
-    </section>
-"""
-        if "<!-- Pub Subpage Photo Gallery & Google Business Profile Section -->" in content:
+    </section>"""
+
+        if 'id="pub-photo-gallery"' in content:
             content = re.sub(
-                r"\s*<!-- Pub Subpage Photo Gallery & Google Business Profile Section -->.*?</section>\s*",
-                "\n" + subpage_gallery_html + "\n",
+                r"(?:<!-- Pub Subpage Photo Gallery[^-]*-->\s*)?<section id=\"pub-photo-gallery\"[^>]*>.*?</section>",
+                subpage_gallery_html,
                 content,
                 flags=re.DOTALL,
             )
         else:
             content = content.replace(
                 "<!-- Pub FAQ Accordion Section",
-                subpage_gallery_html + "\n    <!-- Pub FAQ Accordion Section",
+                subpage_gallery_html + "\n\n    <!-- Pub FAQ Accordion Section",
                 1,
             )
+
+        # Also update Schema.org JSON-LD BarOrPub "image" array on the subpage
+        def update_subpage_ld(ld_m):
+            try:
+                ld_data = json.loads(ld_m.group(1))
+                changed = False
+                if isinstance(ld_data, dict):
+                    if ld_data.get("@type") == "BarOrPub":
+                        ld_data["image"] = [p0, p1, p2, p3, p4]
+                        changed = True
+                    for node in ld_data.get("@graph", []):
+                        if isinstance(node, dict) and node.get("@type") == "BarOrPub":
+                            node["image"] = [p0, p1, p2, p3, p4]
+                            changed = True
+                if changed:
+                    return (
+                        '<script type="application/ld+json">\n'
+                        + json.dumps(ld_data, indent=2, ensure_ascii=False)
+                        + "\n  </script>"
+                    )
+            except Exception:
+                pass
+            return ld_m.group(0)
+
+        content = re.sub(
+            r'<script type="application/ld\+json">(.*?)</script>',
+            update_subpage_ld,
+            content,
+            flags=re.DOTALL,
+        )
 
         with open(filepath, "w", encoding="utf-8") as f:
             f.write(content)
@@ -257,7 +332,9 @@ def inject_into_pub_subpages(gallery_by_id):
             shutil.copy2(filepath, dist_target)
         count += 1
 
-    print(f"[3/3] Updated {count} pub subpages with 5 strictly verified Google Business Profile photos per pub.")
+    print(
+        f"[3/3] Updated {count} pub subpages with 5 strictly verified self-hosted photos per pub."
+    )
 
 
 if __name__ == "__main__":

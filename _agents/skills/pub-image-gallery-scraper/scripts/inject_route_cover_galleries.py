@@ -392,6 +392,38 @@ def inject_into_route_subpages(route_stops_by_slug, route_covers_by_slug):
         )
         content = content.replace("</body>", subpage_js)
 
+        # Also update Schema.org JSON-LD ItemList BarOrPub "image" arrays on the route subpage
+        stop_photos_by_pos = {s["stop_num"]: [p["url"] for p in s["photos"][:5]] for s in stops if s.get("photos")}
+
+        def update_route_ld(ld_m):
+            try:
+                ld_data = json.loads(ld_m.group(1))
+                changed = False
+                for node in ld_data.get("@graph", []):
+                    if isinstance(node, dict) and node.get("@type") == "ItemList":
+                        for elem in node.get("itemListElement", []):
+                            pos = elem.get("position")
+                            item = elem.get("item", {})
+                            if pos in stop_photos_by_pos and isinstance(item, dict):
+                                item["image"] = stop_photos_by_pos[pos]
+                                changed = True
+                if changed:
+                    return (
+                        '<script type="application/ld+json">\n'
+                        + json.dumps(ld_data, indent=2, ensure_ascii=False)
+                        + "\n  </script>"
+                    )
+            except Exception:
+                pass
+            return ld_m.group(0)
+
+        content = re.sub(
+            r'<script type="application/ld\+json">(.*?)</script>',
+            update_route_ld,
+            content,
+            flags=re.DOTALL,
+        )
+
         with open(filepath, "w", encoding="utf-8") as f:
             f.write(content)
         dist_sub = os.path.join(DIST_DIR, f"routes/{slug}/index.html")
