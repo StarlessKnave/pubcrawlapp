@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" class="h-full" style="height: 100%; width: 100%; margin: 0; padding: 0;">
 <head>
-  <!-- Google Tag Manager -->
+  <meta charset="UTF-8">
+<!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -18,9 +19,7 @@
 
     gtag('config', 'AW-18420396316');
   </script>
-
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
   <title>Dublin Pub Crawl Generator | Best Dublin Pubs & Guinness Crawl Map</title>
   <meta name="description" content="Plan the ultimate self-guided Dublin pub crawl across 122 curated heritage pubs. Features Guinness stout ratings, live opening hours, and 1-click Google Maps walking routes.">
   <meta name="keywords" content="dublin pub crawl, best pubs in dublin, dublin pub map, self guided pub crawl dublin, best guinness in dublin, historic dublin pubs, temple bar alternatives, dublin pub route, trad music pubs dublin">
@@ -484,6 +483,25 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
   
   <style>
+    /* Wave-1 Static Critical Layout & Visibility Fallbacks (Before Tailwind JIT) */
+    .hidden { display: none; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0; }
+    .flex { display: flex; }
+    .grid { display: grid; }
+    .block { display: block; }
+    .inline-flex { display: inline-flex; }
+    .relative { position: relative; }
+    .absolute { position: absolute; }
+    .fixed { position: fixed; }
+    .sticky { position: sticky; }
+    .w-full { width: 100%; }
+    .max-w-5xl { max-width: 64rem; }
+    .max-w-4xl { max-width: 56rem; }
+    .max-w-7xl { max-width: 80rem; }
+    .mx-auto { margin-left: auto; margin-right: auto; }
+    .object-cover { object-fit: cover; }
+    .overflow-hidden { overflow: hidden; }
+
     /* Essential Base Layout & Fallback Rules */
     :root {
       --color-brand-black: #0a0406;

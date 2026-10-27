@@ -19,12 +19,12 @@ def sync_file(filepath: str, dry_run: bool = False) -> bool:
     # 1. Enforce non-www canonical URLs
     updated = updated.replace("https://www.dublinpubcrawl.app", "https://dublinpubcrawl.app")
 
-    # 2. Clean any HTML <span> tags that accidentally leaked into <script type="application/ld+json"> blocks
+    # 2. Clean any HTML <span> tags that accidentally leaked into <script type="application/ld+json"> or <head> blocks
     def clean_ld_json(m):
         block_open = m.group(1)
         block_body = m.group(2)
         block_close = m.group(3)
-        # Strip any <span style="color: #d9ac5e;">Directory</span> inside JSON-LD back to plain Directory
+        # Strip any <span style="color: #d9ac5e;">Directory</span> inside JSON-LD or <head> back to plain Directory
         block_body = block_body.replace(
             '<span style="color: #d9ac5e;">Directory</span>', "Directory"
         )
@@ -35,6 +35,12 @@ def sync_file(filepath: str, dry_run: bool = False) -> bool:
 
     updated = re.sub(
         r'(<script[^>]*type=["\']application/ld\+json["\'][^>]*>)(.*?)(</script>)',
+        clean_ld_json,
+        updated,
+        flags=re.DOTALL | re.IGNORECASE,
+    )
+    updated = re.sub(
+        r'(<head\b[^>]*>)(.*?)(</head>)',
         clean_ld_json,
         updated,
         flags=re.DOTALL | re.IGNORECASE,

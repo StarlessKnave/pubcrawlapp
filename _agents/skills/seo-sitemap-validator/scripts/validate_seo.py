@@ -75,6 +75,16 @@ def validate_repo(repo_dir: str) -> int:
         if h1_count != 1:
             errors.append(f"[{rel_path}] Expected exactly 1 <h1> tag, found {h1_count}.")
 
+        # Check that <head> <title> and <meta> tags contain no raw HTML <span> tags or broken quotes
+        head_part = content.split("</head>")[0] if "</head>" in content else content
+        title_m = re.search(r"<title>(.*?)</title>", head_part, re.DOTALL | re.IGNORECASE)
+        if title_m and ("<" in title_m.group(1) or ">" in title_m.group(1)):
+            errors.append(f"[{rel_path}] <title> contains raw HTML tags: {title_m.group(1)[:80]}")
+        for meta_m in re.finditer(r"<meta\b[^>]*>", head_part, re.IGNORECASE):
+            m_str = meta_m.group(0)
+            if m_str.count("<") > 1 or m_str.count('"') % 2 != 0:
+                errors.append(f"[{rel_path}] Malformed <meta> tag in <head>: {m_str[:90]}")
+
         # Check canonical tag
         canon_match = re.search(r'<link\s+rel=["\']canonical["\']\s+href=["\']([^"\']+)["\']', content)
         if not canon_match:
