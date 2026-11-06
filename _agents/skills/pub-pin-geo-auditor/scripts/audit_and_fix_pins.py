@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Pub Map Pin & Geolocation Auditor (pub-pin-geo-auditor)
-Audits all 118 Dublin pubs across index.html, pubs/index.html, and pubs/*/index.html
+Audits all 122 Dublin pubs across index.html, pubs/index.html, and pubs/*/index.html
 for displaced or low-precision map pins, and synchronizes exact 6-decimal-place GPS coordinates.
 """
 
@@ -222,7 +222,7 @@ def run_audit(apply_fixes=False):
             })
 
     if not displaced_findings:
-        print("All 118 pub pins are within 0.5m of verified ground-truth coordinates across index.html, pubs/index.html, and all 118 pub subpages!")
+        print("All 122 pub pins are within 0.5m of verified ground-truth coordinates across index.html, pubs/index.html, and all 122 pub subpages!")
         return 0
 
     print(f"Found {len(displaced_findings)} pubs requiring coordinate synchronization across index.html, pubs/index.html, or pubs/*/index.html:")
@@ -290,7 +290,7 @@ def run_audit(apply_fixes=False):
         f.write(new_dir_content)
     if os.path.exists(DIST_DIR):
         shutil.copy2(dir_path, os.path.join(DIST_DIR, "pubs/index.html"))
-    print("[3/3] Synchronized data-lat and data-lng attributes across all 118 cards in pubs/index.html.")
+    print("[3/3] Synchronized data-lat and data-lng attributes across all 122 cards in pubs/index.html.")
     print("=== Pin Geolocation Audit & Fix Complete! ===")
     return 0
 

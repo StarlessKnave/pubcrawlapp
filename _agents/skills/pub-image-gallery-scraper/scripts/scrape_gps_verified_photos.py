@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Scrapes strictly GPS-verified Google Maps place photos (distance <= 150m) for all 118 Dublin pubs."""
+"""Scrapes strictly GPS-verified Google Maps place photos (distance <= 150m) for all 122 Dublin pubs."""
 
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import json

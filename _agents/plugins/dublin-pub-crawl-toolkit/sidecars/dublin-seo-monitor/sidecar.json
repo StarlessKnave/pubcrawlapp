@@ -6,5 +6,5 @@
     "CHECK_INTERVAL_SECONDS": "3600"
   },
   "display_name": "Dublin Pub Crawl SEO & Uptime Monitor",
-  "description": "Hourly health check of all 136 sitemap URLs on dublinpubcrawl.app for HTTP 200 status, canonical non-www consistency, and zero 301 redirect loops."
+  "description": "Hourly health check of all 140 sitemap URLs on dublinpubcrawl.app for HTTP 200 status, canonical non-www consistency, and zero 301 redirect loops."
 }

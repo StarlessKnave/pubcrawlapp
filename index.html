@@ -21,7 +21,7 @@
   </script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
   <title>Dublin Pub Crawl Generator | Best Dublin Pubs & Guinness Crawl Map</title>
-  <meta name="description" content="Plan the ultimate self-guided Dublin pub crawl across 122 curated heritage pubs. Features Guinness stout ratings, live opening hours, and 1-click Google Maps walking routes.">
+  <meta name="description" content="Plan the ultimate self-guided Dublin pub crawl across 122 curated heritage pubs. Features Guinness stout ratings, typical opening hours, and 1-click Google Maps walking routes.">
   <meta name="keywords" content="dublin pub crawl, best pubs in dublin, dublin pub map, self guided pub crawl dublin, best guinness in dublin, historic dublin pubs, temple bar alternatives, dublin pub route, trad music pubs dublin">
   <link rel="canonical" href="https://dublinpubcrawl.app/">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
@@ -36,7 +36,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://dublinpubcrawl.app/">
   <meta property="og:title" content="Dublin Pub Crawl Generator | Best Dublin Pubs & Guinness Crawl Map">
-  <meta property="og:description" content="Plan the ultimate self-guided Dublin pub crawl across 122 curated heritage pubs with Guinness ratings, live opening times, and 1-click Google Maps walking directions.">
+  <meta property="og:description" content="Plan the ultimate self-guided Dublin pub crawl across 122 curated heritage pubs with Guinness ratings, typical opening times, and 1-click Google Maps walking directions.">
   <meta property="og:image" content="https://dublinpubcrawl.app/og-image.png">
   <meta property="og:image:secure_url" content="https://dublinpubcrawl.app/og-image.png">
   <meta property="og:image:type" content="image/png">
@@ -47,7 +47,7 @@
   
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Dublin Pub Crawl Generator | Best Dublin Pubs & Guinness Crawl Map">
-  <meta name="twitter:description" content="Plan the ultimate self-guided Dublin pub crawl across 122 curated heritage pubs with Guinness ratings, live opening times, and 1-click Google Maps walking directions.">
+  <meta name="twitter:description" content="Plan the ultimate self-guided Dublin pub crawl across 122 curated heritage pubs with Guinness ratings, typical opening times, and 1-click Google Maps walking directions.">
   <meta name="twitter:image" content="https://dublinpubcrawl.app/og-image.png">
 
   <!-- JSON-LD Rich Structured Data (Schema.org) for Google Search Rich Snippets -->
@@ -76,7 +76,7 @@
       "applicationCategory": "TravelApplication",
       "operatingSystem": "All",
       "browserRequirements": "Requires JavaScript",
-      "description": "Interactive Dublin pub crawl generator and historic pub guide mapping 122 authentic heritage venues with live hours, Guinness stout ratings, and Google Maps walking routes.",
+      "description": "Interactive Dublin pub crawl generator and historic pub guide mapping 122 authentic heritage venues with typical hours, Guinness stout ratings, and Google Maps walking routes.",
       "offers": {
         "@type": "Offer",
         "price": "0",
@@ -93,7 +93,7 @@
         "Curated 122 Historic Dublin Pubs",
         "One-Tap Google Maps Walking Navigation",
         "Guinness Stout Quality Scores",
-        "Live Real-Time Opening Hours",
+        "Typical Opening Hours Guide",
         "Themed Crawls (Heritage, Trad Music, Victorian Snugs, Literary)",
         "QR Code Export to Mobile"
       ]
@@ -107,7 +107,7 @@
           "name": "What is the best pub crawl route in Dublin?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The Classic Heritage Crawl is Dublin's most iconic pub crawl route, featuring historic pubs like Bowes, The Palace Bar, The Long Hall, Kehoe's, and Mulligan's. It covers approximately 1.8 km of walkable distance through Dublin city centre."
+            "text": "The Classic Heritage Crawl is Dublin's most iconic pub crawl route, visiting six historic pubs: The Brazen Head, The Long Hall, The Stag's Head, Kehoe's, Grogan's Castle Lounge and The Palace Bar. It covers roughly 2–2.5 km on foot through Dublin city centre."
           }
         },
         {
@@ -1025,17 +1025,17 @@
       <div id="walk-stats-bar" class="guinness-panel rounded-[3px] px-4 py-2 shadow-2xl flex items-center gap-3.5 text-xs border border-[#d9ac5e]/30 backdrop-blur-md">
         <div>
           <span class="text-[9px] text-[#a39890] uppercase tracking-wider block font-headline font-semibold">Total Walk</span>
-          <span class="font-headline font-bold text-sm text-[#d9ac5e]" id="float-metric-dist">1.6 km</span>
+          <span class="font-headline font-bold text-sm text-[#d9ac5e]" id="float-metric-dist">0.00 km</span>
         </div>
         <div class="h-6 w-px bg-white/10"></div>
         <div>
           <span class="text-[9px] text-[#a39890] uppercase tracking-wider block font-headline font-semibold">Walk Time</span>
-          <span class="font-headline font-bold text-sm text-white" id="float-metric-walk">~20m</span>
+          <span class="font-headline font-bold text-sm text-white" id="float-metric-walk">~0m</span>
         </div>
         <div class="h-6 w-px bg-white/10"></div>
         <div>
           <span class="text-[9px] text-[#a39890] uppercase tracking-wider block font-headline font-semibold">Est. Night</span>
-          <span class="font-headline font-bold text-sm text-white" id="float-metric-total">~3.5h</span>
+          <span class="font-headline font-bold text-sm text-white" id="float-metric-total">--</span>
         </div>
       </div>
     </div>
@@ -1200,14 +1200,14 @@
       <!-- Stops Count Controller (Adjust number of stops directly on itinerary page) -->
       <div id="itinerary-stops-controller" class="px-3.5 py-2 bg-[#12070b] border-b border-[#2a1720] flex items-center justify-between gap-2 shrink-0">
         <div class="flex items-center gap-1.5 min-w-0">
-          <span class="text-xs font-headline font-bold text-[#d9ac5e] uppercase tracking-wider" id="itinerary-stops-badge">5 Stops</span>
-          <span class="text-[10px] text-[#a39890] truncate font-body" id="itinerary-walk-summary">• ~2.4 km walk</span>
+          <span class="text-xs font-headline font-bold text-[#d9ac5e] uppercase tracking-wider" id="itinerary-stops-badge">0 Stops</span>
+          <span class="text-[10px] text-[#a39890] truncate font-body" id="itinerary-walk-summary"></span>
         </div>
         
         <div class="flex items-center gap-1.5 shrink-0 bg-[#0a0406] px-2 py-1 rounded-[2px] border border-[#d9ac5e]/25 shadow-inner">
           <span class="text-[9.5px] text-[#a39890] font-headline font-bold uppercase tracking-wider">Stops</span>
           <button onclick="adjustItineraryStopCount(-1)" class="w-5 h-5 rounded-[2px] bg-[#180d12] hover:bg-[#2a1420] text-[#d9ac5e] hover:text-white font-black text-xs flex items-center justify-center border border-white/10 active:scale-90 transition-all" title="Decrease stop count">−</button>
-          <span id="itinerary-stops-count-num" class="text-xs font-mono font-bold text-white min-w-[16px] text-center">5</span>
+          <span id="itinerary-stops-count-num" class="text-xs font-mono font-bold text-white min-w-[16px] text-center">0</span>
           <button onclick="adjustItineraryStopCount(1)" class="w-5 h-5 rounded-[2px] bg-[#180d12] hover:bg-[#2a1420] text-[#d9ac5e] hover:text-white font-black text-xs flex items-center justify-center border border-white/10 active:scale-90 transition-all" title="Increase stop count">+</button>
         </div>
       </div>
@@ -1558,6 +1558,7 @@
           <div id="hours-modal-schedule" class="flex flex-col gap-1.5 bg-[#0a0406] p-3 rounded-[3px] border border-white/10">
             <!-- Populated dynamically -->
           </div>
+          <p class="mt-2 text-[10.5px] text-[#a39890] leading-snug">Typical Dublin licensing hours, not venue-confirmed. Hours change on bank holidays and for private events, so check with the pub before you go.</p>
         </div>
 
         <div class="mt-3 pt-3 border-t border-[#2a1720] flex justify-end">
@@ -1701,7 +1702,7 @@
       <div class="px-4 py-2.5 bg-gradient-to-r from-[#1c0e15] to-[#12070b] border-b border-[#d9ac5e]/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2.5">
         <div class="flex items-center gap-2 text-xs">
           <span class="text-[#d9ac5e] font-headline font-bold uppercase tracking-wider">Pub Directory Hub:</span>
-          <span class="text-[#cfbeac] text-[11px] sm:text-xs">Browse all 122 individual pub guide pages with verified opening hours &amp; Guinness Stout Scores™</span>
+          <span class="text-[#cfbeac] text-[11px] sm:text-xs">Browse all 122 individual pub guide pages with typical opening hours &amp; Guinness Stout Scores™</span>
         </div>
         <a href="/pubs/" class="br-button-primary px-3.5 py-1.5 text-xs font-headline font-bold uppercase flex items-center gap-1.5 shrink-0 shadow whitespace-nowrap">
           <span>Open Pub Directory</span>
@@ -1754,7 +1755,7 @@
           <div class="w-px h-6 bg-white/10"></div>
           <div>
             <span class="text-[10px] text-[#a39890] block font-headline uppercase">Walking Distance</span>
-            <span id="export-dist-count" class="font-headline font-bold text-[#d9ac5e] text-sm">2.4 km</span>
+            <span id="export-dist-count" class="font-headline font-bold text-[#d9ac5e] text-sm">0.00 km</span>
           </div>
           <div class="w-px h-6 bg-white/10"></div>
           <div>
@@ -1828,7 +1829,7 @@
           <div class="mt-3.5 pt-2.5 border-t border-[#2a1720] flex items-center justify-between">
             <span class="font-headline font-bold text-white text-xs">From €30 / person</span>
             <a href="https://www.getyourguide.com/dublin-l31/guinness-storehouse-self-guided-tour-with-free-pint-t45105/?partner_id=RP4UVT3&currency=EUR&cmp=share_to_earn&cmp=CL" 
-               target="_blank" rel="noopener noreferrer" 
+               target="_blank" rel="sponsored noopener noreferrer" 
                class="br-button-primary px-4 py-1.5 text-xs">
               Book
             </a>
@@ -1850,7 +1851,7 @@
           <div class="mt-3.5 pt-2.5 border-t border-[#2a1720] flex items-center justify-between">
             <span class="font-headline font-bold text-white text-xs">From €35 / person</span>
             <a href="https://www.getyourguide.com/dublin-l31/dublin-irish-coffee-masterclass-at-the-temple-bar-pub-t1411659/?partner_id=RP4UVT3&currency=EUR&cmp=share_to_earn&cmp=CL" 
-               target="_blank" rel="noopener noreferrer" 
+               target="_blank" rel="sponsored noopener noreferrer" 
                class="br-button-gold-outline px-4 py-1.5 text-xs">
               Book
             </a>
@@ -1872,7 +1873,7 @@
           <div class="mt-3.5 pt-2.5 border-t border-[#2a1720] flex items-center justify-between">
             <span class="font-headline font-bold text-white text-xs">From €38 / person</span>
             <a href="https://www.getyourguide.com/dublin-l31/dublin-jameson-distillery-secret-whiskey-tasting-experience-t801522/?partner_id=RP4UVT3&currency=EUR&cmp=share_to_earn&cmp=CL" 
-               target="_blank" rel="noopener noreferrer" 
+               target="_blank" rel="sponsored noopener noreferrer" 
                class="br-button-gold-outline px-4 py-1.5 text-xs">
               Book
             </a>
@@ -1894,7 +1895,7 @@
           <div class="mt-3.5 pt-2.5 border-t border-[#2a1720] flex items-center justify-between">
             <span class="font-headline font-bold text-white text-xs">From €22 / person</span>
             <a href="https://www.getyourguide.com/dublin-l31/dublin-teeling-whiskey-distillery-tour-tasting-t138878/?partner_id=RP4UVT3&currency=EUR&cmp=share_to_earn&cmp=CL" 
-               target="_blank" rel="noopener noreferrer" 
+               target="_blank" rel="sponsored noopener noreferrer" 
                class="br-button-gold-outline px-4 py-1.5 text-xs">
               Book
             </a>
@@ -1916,7 +1917,7 @@
           <div class="mt-3.5 pt-2.5 border-t border-[#2a1720] flex items-center justify-between">
             <span class="font-headline font-bold text-white text-xs">From €25 / person</span>
             <a href="https://www.getyourguide.com/dublin-l31/dublin-howth-cliffs-guided-tour-t398843/?partner_id=RP4UVT3&currency=EUR&cmp=share_to_earn&cmp=CL" 
-               target="_blank" rel="noopener noreferrer" 
+               target="_blank" rel="sponsored noopener noreferrer" 
                class="br-button-gold-outline px-4 py-1.5 text-xs">
               Book
             </a>
@@ -1938,7 +1939,7 @@
           <div class="mt-3.5 pt-2.5 border-t border-[#2a1720] flex items-center justify-between">
             <span class="font-headline font-bold text-white text-xs">From €35 / person</span>
             <a href="https://www.getyourguide.com/dublin-l31/dublin-music-and-dance-show-at-the-irish-house-party-t385904/?partner_id=RP4UVT3&currency=EUR&cmp=share_to_earn&cmp=CL" 
-               target="_blank" rel="noopener noreferrer" 
+               target="_blank" rel="sponsored noopener noreferrer" 
                class="br-button-gold-outline px-4 py-1.5 text-xs">
               Book
             </a>
@@ -1960,7 +1961,7 @@
           <div class="mt-3.5 pt-2.5 border-t border-[#2a1720] flex items-center justify-between">
             <span class="font-headline font-bold text-white text-xs">From €45 / person</span>
             <a href="https://www.getyourguide.com/wicklow-l155841/kilkenny-wicklow-mountains-glendalough-from-dublin-t38157/?partner_id=RP4UVT3&currency=EUR&cmp=share_to_earn&cmp=CL" 
-               target="_blank" rel="noopener noreferrer" 
+               target="_blank" rel="sponsored noopener noreferrer" 
                class="br-button-gold-outline px-4 py-1.5 text-xs">
               Book
             </a>
@@ -1982,7 +1983,7 @@
           <div class="mt-3.5 pt-2.5 border-t border-[#2a1720] flex items-center justify-between">
             <span class="font-headline font-bold text-white text-xs">From €75 / person</span>
             <a href="https://www.getyourguide.com/dublin-l31/cliffs-of-moher-day-tour-from-dublin-t37868/?partner_id=RP4UVT3&currency=EUR&cmp=share_to_earn&cmp=CL&cmp=CL&cmp=CL" 
-               target="_blank" rel="noopener noreferrer" 
+               target="_blank" rel="sponsored noopener noreferrer" 
                class="br-button-gold-outline px-4 py-1.5 text-xs">
               Book
             </a>
@@ -1993,7 +1994,7 @@
 
       <!-- Modal Footer -->
       <div class="p-3 border-t border-[#2a1720] bg-[#0a0406] flex items-center justify-between text-xs text-[#a39890] shrink-0 font-body">
-        <span class="text-[11px]">Official partner links with instant mobile voucher confirmation.</span>
+        <span class="text-[11px] pr-3">Bookings go through our partner GetYourGuide. We may earn a small commission at no extra cost to you.</span>
         <button onclick="closeExperiencesModal()" class="br-button-gold-outline px-3 py-1 text-xs">
           Close
         </button>
@@ -9513,7 +9514,7 @@
 
         <!-- Crawl Action Banner -->
         <a href="https://www.getyourguide.com/dublin-l31/guinness-storehouse-self-guided-tour-with-free-pint-t45105/?partner_id=RP4UVT3&currency=EUR&cmp=share_to_earn&cmp=CL" 
-           target="_blank" rel="noopener noreferrer" 
+           target="_blank" rel="sponsored noopener noreferrer" 
            class="br-button-primary w-full mb-3 py-3 text-xs sm:text-sm flex items-center justify-center gap-2 active:scale-98 tracking-wider font-headline font-bold shadow-lg">
           <span>BOOK TOUR & FREE GRAVITY BAR PINT</span>
         </a>
@@ -9541,7 +9542,7 @@
             <p class="text-xs text-gray-200 truncate font-body">Steps from Arthur's, Fallon's & Brazen Head</p>
           </div>
           <a href="https://www.getyourguide.com/dublin-l31/guinness-storehouse-self-guided-tour-with-free-pint-t45105/?partner_id=RP4UVT3&currency=EUR&cmp=share_to_earn&cmp=CL" 
-             target="_blank" rel="noopener noreferrer" 
+             target="_blank" rel="sponsored noopener noreferrer" 
              class="br-button-primary px-3.5 py-2 text-xs rounded-[2px] shadow shrink-0 active:scale-95 transition-all uppercase font-headline font-bold">
             Book
           </a>
@@ -9562,7 +9563,7 @@
             <span>Google Maps</span>
           </a>
           <a href="https://www.getyourguide.com/dublin-l31/guinness-storehouse-self-guided-tour-with-free-pint-t45105/?partner_id=RP4UVT3&currency=EUR&cmp=share_to_earn&cmp=CL" 
-             target="_blank" rel="noopener noreferrer" 
+             target="_blank" rel="sponsored noopener noreferrer" 
              class="br-button-primary flex-1 py-3 text-xs rounded-[3px] transition-all shadow flex items-center justify-center gap-1.5 active:scale-95 uppercase tracking-wider font-headline font-bold">
             <span>Book Tickets</span>
           </a>
@@ -9662,7 +9663,7 @@
               <div class="text-xs font-headline font-bold text-white uppercase tracking-wide truncate">Temple Bar Irish Coffee Masterclass</div>
             </div>
             <a href="https://www.getyourguide.com/dublin-l31/dublin-irish-coffee-masterclass-at-the-temple-bar-pub-t1411659/?partner_id=RP4UVT3&currency=EUR&cmp=share_to_earn&cmp=CL" 
-               target="_blank" rel="noopener noreferrer" 
+               target="_blank" rel="sponsored noopener noreferrer" 
                class="br-button-primary px-3 py-1.5 text-xs rounded-[2px] shadow shrink-0 active:scale-95 transition-all uppercase">
               Book ↗
             </a>
@@ -9676,7 +9677,7 @@
               <div class="text-xs font-headline font-bold text-white uppercase tracking-wide truncate">Guinness Storehouse (Free Pint)</div>
             </div>
             <a href="https://www.getyourguide.com/dublin-l31/guinness-storehouse-self-guided-tour-with-free-pint-t45105/?partner_id=RP4UVT3&currency=EUR&cmp=share_to_earn&cmp=CL" 
-               target="_blank" rel="noopener noreferrer" 
+               target="_blank" rel="sponsored noopener noreferrer" 
                class="br-button-primary px-3 py-1.5 text-xs rounded-[2px] shadow shrink-0 active:scale-95 transition-all uppercase">
               Book ↗
             </a>
@@ -9690,7 +9691,7 @@
               <div class="text-xs font-headline font-bold text-white uppercase tracking-wide truncate">Jameson Bow St. Secret Tasting</div>
             </div>
             <a href="https://www.getyourguide.com/dublin-l31/dublin-jameson-distillery-secret-whiskey-tasting-experience-t801522/?partner_id=RP4UVT3&currency=EUR&cmp=share_to_earn&cmp=CL" 
-               target="_blank" rel="noopener noreferrer" 
+               target="_blank" rel="sponsored noopener noreferrer" 
                class="br-button-primary px-3 py-1.5 text-xs rounded-[2px] shadow shrink-0 active:scale-95 transition-all uppercase">
               Book ↗
             </a>
@@ -9704,7 +9705,7 @@
               <div class="text-xs font-headline font-bold text-white uppercase tracking-wide truncate">The Irish House Party Trad Show</div>
             </div>
             <a href="https://www.getyourguide.com/dublin-l31/dublin-music-and-dance-show-at-the-irish-house-party-t385904/?partner_id=RP4UVT3&currency=EUR&cmp=share_to_earn&cmp=CL" 
-               target="_blank" rel="noopener noreferrer" 
+               target="_blank" rel="sponsored noopener noreferrer" 
                class="br-button-primary px-3 py-1.5 text-xs rounded-[2px] shadow shrink-0 active:scale-95 transition-all uppercase">
               Book ↗
             </a>
@@ -10158,25 +10159,8 @@
         submitBtn.textContent = "Submitting...";
       }
 
-      // Add to local pub list immediately
-      const newId = `nom_${Date.now()}`;
-      const newPub = {
-        id: newId,
-        name: name,
-        address: `${name}, ${district}, Dublin`,
-        district: district,
-        lat: 53.3430 + (Math.random() - 0.5) * 0.012,
-        lng: -6.2620 + (Math.random() - 0.5) * 0.018,
-        year: year,
-        guinnessRating: rating,
-        vibe: "Community Nominated",
-        tags: ["Community Pick", "Nominated"],
-        highlight: why,
-        bestDrink: "Pint of Plain & Toastie",
-        themes: ["classic", "guinness"],
-        hours: STANDARD_PUB_HOURS
-      };
-      DUBLIN_PUBS.unshift(newPub);
+      // Nominations are reviewed by hand before they appear in the directory,
+      // so nothing is added to the map or the crawl generator here.
 
       // Send nomination via Web3Forms
       const payload = {
@@ -10199,18 +10183,16 @@
         },
         body: JSON.stringify(payload)
       })
-      .then(res => res.json())
-      .then(data => {
+      .then(res => res.json().then(data => ({ ok: res.ok, data })))
+      .then(({ ok, data }) => {
+        if (!ok || (data && data.success === false)) throw new Error((data && data.message) || 'Submission failed');
         closeNominateModal();
         document.getElementById('nominate-form').reset();
-        renderDirectoryGrid();
-        showToast(`"${name}" nominated successfully! ☘️`);
+        showToast(`Thanks! "${name}" has been sent for review ☘️`);
       })
       .catch(err => {
-        closeNominateModal();
-        document.getElementById('nominate-form').reset();
-        renderDirectoryGrid();
-        showToast(`"${name}" nominated and added to directory! ☘️`);
+        console.warn('Nomination failed:', err);
+        showToast(`Sorry, we couldn't send your nomination. Please check your connection and try again.`);
       })
       .finally(() => {
         if (submitBtn) {
@@ -10691,7 +10673,7 @@
           <h2 class="text-sm font-headline font-bold text-[#d9ac5e] uppercase tracking-wider">About Dublin Pub Crawl</h2>
           <p class="text-xs text-[#ebdcc8]">
             Dublin Pub Crawl is an interactive web companion mapping 122 authentic heritage venues across Dublin's historic quarters.
-            Every stop features rooftop-accurate GPS coordinates, real-time live opening hours, curated Guinness Stout Scores, and 1-tap Google Maps turn-by-turn walking routes.
+            Every stop features GPS coordinates, typical opening hours, curated Guinness Stout Scores, and 1-tap Google Maps turn-by-turn walking routes.
           </p>
         </section>
 
@@ -10752,7 +10734,7 @@
                 <span class="text-[#d9ac5e] text-xs group-open:rotate-180 transition-transform">▼</span>
               </summary>
               <p class="mt-2 text-xs text-[#a39890] leading-relaxed font-body">
-                The Classic Heritage Crawl is Dublin's most iconic pub crawl route, featuring historic pubs like Bowes, The Palace Bar, The Long Hall, Kehoe's, and Mulligan's. It covers approximately 1.8 km of walkable distance through Dublin city centre.
+                The Classic Heritage Crawl is Dublin's most iconic pub crawl route, visiting six historic pubs: The Brazen Head, The Long Hall, The Stag's Head, Kehoe's, Grogan's Castle Lounge and The Palace Bar. It covers roughly 2–2.5 km on foot through Dublin city centre.
               </p>
             </details>
 

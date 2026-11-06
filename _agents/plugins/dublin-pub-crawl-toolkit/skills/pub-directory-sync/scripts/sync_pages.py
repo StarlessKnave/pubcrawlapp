@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Synchronize shared headers, canonical URLs, and brand spans across all 136 pages."""
+"""Synchronize shared headers, canonical URLs, and brand spans across all 140 pages."""
 
 import argparse
 import glob

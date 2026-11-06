@@ -11,8 +11,8 @@ Official Jetski plugin for **Dublin Pub Crawl** (`https://dublinpubcrawl.app/`).
 - Mandatory `<5` iteration `Critic-PreDeploy` inspection loop before any deployment.
 
 ### Skills (`skills/`)
-1. **`pub-directory-sync`**: Synchronize shared headers, gold "Directory" spans, and canonical URLs across all 136 pages.
-2. **`seo-sitemap-validator`**: Audit `CNAME`, `sitemap.xml` (136 pages), canonical tags, and HTML DOM tag balance.
+1. **`pub-directory-sync`**: Synchronize shared headers, gold "Directory" spans, and canonical URLs across all 140 pages.
+2. **`seo-sitemap-validator`**: Audit `CNAME`, `sitemap.xml` (140 pages), canonical tags, and HTML DOM tag balance.
 3. **`github-one-click-deploy`**: Automated validation, `<5` iteration Critic loop check, `dist/` sync, Git commit/push, and live HTTP 200 verification.
 
 ### Subagents (`agents/`)

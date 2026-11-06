@@ -1,16 +1,16 @@
 ---
 name: pub-directory-sync
-description: Synchronize shared headers, footers, navigation links, canonical tags, and brand styling across all 118 Dublin pub subpages (pubs/*/index.html) and 15 route subpages (routes/*/index.html). Use whenever updating navigation menus, directory headers, canonical domain settings, or global UI components across the static directory.
+description: Synchronize shared headers, footers, navigation links, canonical tags, and brand styling across all 122 Dublin pub subpages (pubs/*/index.html) and 15 route subpages (routes/*/index.html). Use whenever updating navigation menus, directory headers, canonical domain settings, or global UI components across the static directory.
 ---
 
 # Pub & Route Directory Sync Skill
 
-This skill ensures all **118 pub pages** (`pubs/*/index.html`), the **main pub directory** (`pubs/index.html`), and all **15 route pages** (`routes/*/index.html`) stay 100% synchronized with the global design system and canonical URLs.
+This skill ensures all **122 pub pages** (`pubs/*/index.html`), the **main pub directory** (`pubs/index.html`), and all **15 route pages** (`routes/*/index.html`) stay 100% synchronized with the global design system and canonical URLs.
 
 ## When to Use
 - Updating header titles or navigation bar links across all pub/route pages.
 - Applying global styling updates (e.g., Guinness Storehouse dark palette `#0a0406` and `#d9ac5e` gold highlights).
-- Enforcing non-www canonical URLs (`https://dublinpubcrawl.app/`) across all 136 pages.
+- Enforcing non-www canonical URLs (`https://dublinpubcrawl.app/`) across all 140 pages.
 - Synchronizing changes between `scratch/github_repo/` and `dist/`.
 
 ## Helper Script Usage
