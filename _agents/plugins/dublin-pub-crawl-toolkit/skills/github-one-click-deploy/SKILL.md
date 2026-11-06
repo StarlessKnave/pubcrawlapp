@@ -22,7 +22,7 @@ bash /usr/local/google/home/mlutsenko/.gemini/jetski/brain/e27a5ad0-e69d-4464-9c
 ```
 
 ### What `deploy.sh` Executes
-1. Runs `pub-directory-sync/scripts/sync_pages.py` to ensure all 136 pages and headers match.
+1. Runs `pub-directory-sync/scripts/sync_pages.py` to ensure all 140 pages and headers match.
 2. Runs `seo-sitemap-validator/scripts/validate_seo.py` to verify zero canonical or DOM errors.
 3. Mirrors updated files to `/usr/local/google/home/mlutsenko/.gemini/jetski/brain/e27a5ad0-e69d-4464-9c64-f352667a9e82/dist/`.
 4. Stages all changes (`git add -A`), commits with the provided message, and pushes to `origin main`.

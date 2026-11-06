@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Upgrade #1: Inject FAQPage JSON-LD + visible FAQ accordion across all 118 pub pages (pubs/*/index.html).
+Upgrade #1: Inject FAQPage JSON-LD + visible FAQ accordion across all 122 pub pages (pubs/*/index.html).
 Upgrade #2: Inject data-lat / data-lng coordinates + '📍 Near Me' Geolocation Sort & Distance Badges in pubs/index.html.
 """
 
@@ -75,7 +75,7 @@ def upgrade_pub_pages():
             },
             {
                 "q": f"What makes {pub_name} famous on a Dublin pub crawl?",
-                "a": f"{desc} It is one of the 118 curated historic heritage taverns featured in the Dublin Pub Crawl Directory.",
+                "a": f"{desc} It is one of the 122 curated historic heritage taverns featured in the Dublin Pub Crawl Directory.",
             },
         ]
 

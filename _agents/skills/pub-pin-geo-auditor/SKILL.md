@@ -1,11 +1,11 @@
 ---
 name: pub-pin-geo-auditor
-description: Audits and fixes Dublin pub GPS coordinates and map pin locations across index.html (DUBLIN_PUBS), pubs/index.html (data-lat/data-lng), and all 118 pub subpages (pubs/*/index.html JSON-LD GeoCoordinates and walking directions). Use whenever a pub map pin is out of place, has low precision, or when adding/verifying pub locations.
+description: Audits and fixes Dublin pub GPS coordinates and map pin locations across index.html (DUBLIN_PUBS), pubs/index.html (data-lat/data-lng), and all 122 pub subpages (pubs/*/index.html JSON-LD GeoCoordinates and walking directions). Use whenever a pub map pin is out of place, has low precision, or when adding/verifying pub locations.
 ---
 
 # Pub Map Pin & Geolocation Auditor Skill (`pub-pin-geo-auditor`)
 
-This skill audits all **118 Dublin pubs** across the interactive map (`index.html`), the Pub Directory (`pubs/index.html`), and individual pub pages (`pubs/*/index.html`) against OpenStreetMap Nominatim and verified ground-truth Eircode/building coordinates.
+This skill audits all **122 Dublin pubs** across the interactive map (`index.html`), the Pub Directory (`pubs/index.html`), and individual pub pages (`pubs/*/index.html`) against OpenStreetMap Nominatim and verified ground-truth Eircode/building coordinates.
 
 ## What It Fixes
 1. **Displaced or Approximate Pins**: Detects any pub whose stored `lat`/`lng` has low precision ($\le 4$ decimal places) or deviates from its verified Dublin street address / Eircode.

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate SEO canonicals, sitemap.xml (136 pages), CNAME, and HTML tag balance."""
+"""Validate SEO canonicals, sitemap.xml (140 pages), CNAME, and HTML tag balance."""
 
 import argparse
 import glob

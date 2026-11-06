@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Continuous Uptime & SEO Monitor for https://dublinpubcrawl.app/ (136 pages)."""
+"""Continuous Uptime & SEO Monitor for https://dublinpubcrawl.app/ (140 pages)."""
 
 import argparse
 import concurrent.futures

@@ -3,10 +3,10 @@
 Pub Image Gallery Scraper & Injector (pub-image-gallery-scraper)
 Injects 100% REAL Google Business Profile photos (lh3.googleusercontent.com/gps-cs-s/...)
 and Google Maps Street View Panoramas (streetviewpixels-pa.googleapis.com/v1/thumbnail)
-for all 118 Dublin pubs into:
+for all 122 Dublin pubs into:
 1. index.html (Pub Pin Menu popup + .modal-mobile-safe Lightbox)
-2. pubs/index.html (All 118 Pub Directory cards)
-3. pubs/*/index.html (All 118 individual pub subpages)
+2. pubs/index.html (All 122 Pub Directory cards)
+3. pubs/*/index.html (All 122 individual pub subpages)
 """
 
 import glob
@@ -22,7 +22,7 @@ GBP_JSON_PATH = os.path.join(
     REPO_DIR, "_agents/skills/pub-image-gallery-scraper/data/google_business_profile_photos.json"
 )
 
-# Load scraped Google Business Profile photos for all 118 pubs
+# Load scraped Google Business Profile photos for all 122 pubs
 with open(GBP_JSON_PATH, "r", encoding="utf-8") as f:
     GBP_PHOTOS_BY_ID = json.load(f)
 
@@ -213,7 +213,7 @@ def inject_into_pub_directory(gallery_by_id):
     with open(dir_path, "w", encoding="utf-8") as f:
         f.write(content)
     shutil.copy2(dir_path, os.path.join(DIST_DIR, "pubs/index.html"))
-    print("[2/3] Updated all 118 cards in pubs/index.html with real Google Business Profile photos.")
+    print("[2/3] Updated all 122 cards in pubs/index.html with real Google Business Profile photos.")
 
 
 def inject_into_pub_subpages(gallery_by_id):

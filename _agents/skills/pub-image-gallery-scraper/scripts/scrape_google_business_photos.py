@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Scrape real Google Business Profile photos (lh3.googleusercontent.com/gps-cs-s/... and streetviewpixels-pa.googleapis.com)
-directly from Google Maps for all 118 Dublin pubs, with STRICT single-place isolation and GPS verification.
+directly from Google Maps for all 122 Dublin pubs, with STRICT single-place isolation and GPS verification.
 Guarantees:
 - Only extracts photos from inside the single verified place block data[0][1][best_idx][14] matching the pub's GPS coordinates.
 - Never extracts photos from "People also search for" or nearby search results.
@@ -30,7 +30,7 @@ HEADERS = {
 
 
 def build_slug_to_id_map(pubs):
-    """Build an exact 1-to-1 mapping between all 118 pub directory slugs and DUBLIN_PUBS IDs."""
+    """Build an exact 1-to-1 mapping between all 122 pub directory slugs and DUBLIN_PUBS IDs."""
     subpages = sorted(
         [
             os.path.basename(os.path.dirname(p))
@@ -182,7 +182,7 @@ def main():
     pubs = json.loads(m.group(1))
 
     slug_to_id = build_slug_to_id_map(pubs)
-    print(f"Built exact 1-to-1 slug_to_pub_id map ({len(slug_to_id)}/118 pubs matched).")
+    print(f"Built exact 1-to-1 slug_to_pub_id map ({len(slug_to_id)}/122 pubs matched).")
     print(f"Scraping 5 strictly verified Google Maps Business Profile & Street View photos per pub ({len(pubs)} pubs)...")
 
     raw_results = {}

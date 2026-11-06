@@ -1,6 +1,6 @@
 # AGENTS.md — Dublin Pub Crawl Architecture & Deployment Rules
 
-This repository powers **Dublin Pub Crawl** (`https://dublinpubcrawl.app/`), an interactive Dublin pub guide, crawl builder, and 118-pub directory with curated routes and the Guinness Stout Score™ evaluation engine.
+This repository powers **Dublin Pub Crawl** (`https://dublinpubcrawl.app/`), an interactive Dublin pub guide, crawl builder, and 122-pub directory with curated routes and the Guinness Stout Score™ evaluation engine.
 
 ---
 
@@ -39,7 +39,7 @@ To prevent top cutoff and viewport clipping on iOS Safari and Android Chrome:
 2. **Trailing Slashes**: All directory and subpage URLs MUST end with a trailing slash `/` (e.g., `https://dublinpubcrawl.app/pubs/the-stags-head/`).
 3. **Canonical Tags & Sitemap Synchronization**:
    - Every page's `<link rel="canonical" href="...">` and `<meta property="og:url" content="...">` must match its exact `https://dublinpubcrawl.app/.../` URL in `sitemap.xml`.
-   - Total indexed pages in `sitemap.xml`: **136 pages** (Home, `/routes/`, `/pubs/`, 15 route subpages, and 118 individual pub subpages).
+   - Total indexed pages in `sitemap.xml`: **140 pages** (Home, `/routes/`, `/pubs/`, 15 route subpages, and 122 individual pub subpages).
 
 ---
 
@@ -51,7 +51,7 @@ Before executing **ANY** deployment (`git push`, running `_agents/skills/github-
 2. **Iterative Quality Gate (`< 5` Iterations)**:
    - Each iteration inspects:
      1. **HTML & DOM Integrity**: Balanced tags (`<div>`, `<header>`, `<section>`, `<script>`), no orphaned closing tags.
-     2. **Canonical & CNAME Compliance**: Zero `www.dublinpubcrawl.app` leaks; `CNAME` is strictly `dublinpubcrawl.app`; all 136 URLs in `sitemap.xml` are valid.
+     2. **Canonical & CNAME Compliance**: Zero `www.dublinpubcrawl.app` leaks; `CNAME` is strictly `dublinpubcrawl.app`; all 140 URLs in `sitemap.xml` are valid.
      3. **Mobile Modal Safety**: All modal overlays retain `.modal-mobile-safe` and `items-start sm:items-center`.
      4. **Brand & Typography Consistency**: Guinness Storehouse palette (`#0a0406`, `#d9ac5e`) and gold "Directory" span in pub headers.
    - If `Critic-PreDeploy` reports any **CRITICAL** or **HIGH** findings, fix them immediately and re-run `Critic-PreDeploy`.
