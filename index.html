@@ -632,6 +632,9 @@
       border: none !important;
       overflow: visible !important;
     }
+    .walk-route-line { filter: drop-shadow(0 0 4px rgba(217, 172, 94, 0.55)); }
+    .leaflet-control-attribution { background: rgba(10, 4, 6, 0.7) !important; color: #cbbca2 !important; font-size: 9px !important; }
+    .leaflet-control-attribution a { color: #d9ac5e !important; }
     .leaflet-tile {
       filter: contrast(1.08) brightness(0.94) saturate(1.1);
       image-rendering: -webkit-optimize-contrast;
@@ -8053,6 +8056,7 @@
     let satTileLayer = null;
     let streetTileLayer = null;
     let pubMarkersLayer = null;
+    let routeLinesLayer = null;
     let userGpsMarker = null;
     let currentMapLayer = 'y'; // 'y' = Satellite Hybrid Only
 
@@ -8102,7 +8106,10 @@
         });
 
         satTileLayer.addTo(leafletMap);
+        routeLinesLayer = L.layerGroup().addTo(leafletMap);
         pubMarkersLayer = L.layerGroup().addTo(leafletMap);
+        // Only shows text while a layer with an attribution (the walking route) is on the map
+        L.control.attribution({ position: 'bottomleft', prefix: false }).addTo(leafletMap);
 
         // Re-render markers on zoom end to adapt label visibility cleanly
         leafletMap.on('zoomend', () => {
@@ -8275,6 +8282,102 @@
       pubMarkersLayer.addLayer(storehouseMarker);
 
       renderUserGpsMarker();
+      renderWalkingRouteLines();
+    }
+
+
+    // ==========================================
+    // 3b. STREET-FOLLOWING WALKING ROUTE LINES
+    // ==========================================
+    // Walking paths come from the FOSSGIS OSRM foot-routing server (OpenStreetMap data,
+    // no API key). While a request is in flight, or if it fails, stops are joined by a
+    // dashed straight line so the crawl order is always visible.
+    const WALK_ROUTER_URL = 'https://routing.openstreetmap.de/routed-foot/route/v1/foot/';
+    const WALK_ROUTE_ATTRIBUTION = 'Walking routes &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors, <a href="https://routing.openstreetmap.de/" target="_blank" rel="noopener">FOSSGIS</a>';
+    const walkRouteCache = new Map();   // routeKey -> { coords, km, legsKm } | 'failed'
+    let drawnRouteKey = null;
+    let walkRouteAbort = null;
+    let routedWalkInfo = null;          // { key, km, legsKm } for the current crawl, when known
+
+    function getCrawlRouteKey(route) {
+      return route.map(p => `${(+p.lng).toFixed(6)},${(+p.lat).toFixed(6)}`).join(';');
+    }
+
+    function drawRoutePolyline(latLngs, isRouted) {
+      routeLinesLayer.clearLayers();
+      // Dark casing underneath, gold line on top (Google Maps-style two-tone route)
+      L.polyline(latLngs, {
+        color: '#0a0406', weight: isRouted ? 9 : 7, opacity: 0.75,
+        lineCap: 'round', lineJoin: 'round', interactive: false
+      }).addTo(routeLinesLayer);
+      L.polyline(latLngs, {
+        color: '#d9ac5e', weight: isRouted ? 5 : 3.5, opacity: isRouted ? 0.95 : 0.85,
+        dashArray: isRouted ? null : '2 9', lineCap: 'round', lineJoin: 'round',
+        interactive: false, className: isRouted ? 'walk-route-line' : 'walk-route-line-pending',
+        attribution: isRouted ? WALK_ROUTE_ATTRIBUTION : undefined
+      }).addTo(routeLinesLayer);
+    }
+
+    function applyRoutedResult(key, result) {
+      routedWalkInfo = { key, km: result.km, legsKm: result.legsKm };
+      drawRoutePolyline(result.coords, true);
+      drawnRouteKey = key;
+      // Refresh distance/time read-outs with real street distances
+      if (typeof renderAllViews === 'function') renderAllViews();
+    }
+
+    function renderWalkingRouteLines() {
+      if (!leafletMap || !routeLinesLayer) return;
+      const route = currentCrawlRoute.filter(p => Number.isFinite(+p.lat) && Number.isFinite(+p.lng));
+
+      if (route.length < 2) {
+        if (walkRouteAbort) { walkRouteAbort.abort(); walkRouteAbort = null; }
+        routeLinesLayer.clearLayers();
+        drawnRouteKey = null;
+        routedWalkInfo = null;
+        return;
+      }
+
+      const key = getCrawlRouteKey(route);
+      if (key === drawnRouteKey) return;            // already drawn (e.g. a zoom re-render)
+
+      const cached = walkRouteCache.get(key);
+      if (cached && cached !== 'failed') { applyRoutedResult(key, cached); return; }
+
+      // Immediate fallback: dashed straight lines in crawl order
+      routedWalkInfo = null;
+      drawRoutePolyline(route.map(p => [+p.lat, +p.lng]), false);
+      drawnRouteKey = key;
+      if (cached === 'failed') return;
+
+      if (walkRouteAbort) walkRouteAbort.abort();
+      const controller = new AbortController();
+      walkRouteAbort = controller;
+      const timeout = setTimeout(() => controller.abort(), 9000);
+
+      fetch(`${WALK_ROUTER_URL}${key}?overview=full&geometries=geojson&steps=false&continue_straight=false`, { signal: controller.signal })
+        .then(res => { if (!res.ok) throw new Error(`HTTP ${res.status}`); return res.json(); })
+        .then(data => {
+          const r = data && data.code === 'Ok' && data.routes && data.routes[0];
+          if (!r || !r.geometry || !r.geometry.coordinates) throw new Error('No route');
+          const result = {
+            coords: r.geometry.coordinates.map(([lng, lat]) => [lat, lng]),
+            km: r.distance / 1000,
+            legsKm: (r.legs || []).map(l => l.distance / 1000)
+          };
+          walkRouteCache.set(key, result);
+          // Only draw if the crawl hasn't changed while we were waiting
+          if (getCrawlRouteKey(currentCrawlRoute) === key) applyRoutedResult(key, result);
+        })
+        .catch(err => {
+          if (err && err.name === 'AbortError' && walkRouteAbort !== controller) return; // superseded
+          walkRouteCache.set(key, 'failed');
+          console.warn('Walking route unavailable, showing straight lines:', err);
+        })
+        .finally(() => {
+          clearTimeout(timeout);
+          if (walkRouteAbort === controller) walkRouteAbort = null;
+        });
     }
 
     let userGpsAccuracyCircle = null;
@@ -9215,8 +9318,12 @@
         return { totalKm: "0.00", walkTimeMin: 0, totalTimeHours: "0.0" };
       }
       let totalKm = 0;
-      for (let i = 0; i < currentCrawlRoute.length - 1; i++) {
-        totalKm += getDistanceKm(currentCrawlRoute[i].lat, currentCrawlRoute[i].lng, currentCrawlRoute[i + 1].lat, currentCrawlRoute[i + 1].lng);
+      if (routedWalkInfo && routedWalkInfo.key === getCrawlRouteKey(currentCrawlRoute)) {
+        totalKm = routedWalkInfo.km;   // real street walking distance
+      } else {
+        for (let i = 0; i < currentCrawlRoute.length - 1; i++) {
+          totalKm += getDistanceKm(currentCrawlRoute[i].lat, currentCrawlRoute[i].lng, currentCrawlRoute[i + 1].lat, currentCrawlRoute[i + 1].lng);
+        }
       }
       const walkTimeMin = Math.round(totalKm * 12);
       const totalTimeHours = ((walkTimeMin + currentCrawlRoute.length * 40) / 60).toFixed(1);
@@ -9378,7 +9485,8 @@
         let legInfoHtml = '';
         if (!isLast) {
           const next = currentCrawlRoute[index + 1];
-          const distM = Math.round(getDistanceKm(pub.lat, pub.lng, next.lat, next.lng) * 1000);
+          const routedLegKm = (routedWalkInfo && routedWalkInfo.key === getCrawlRouteKey(currentCrawlRoute) && routedWalkInfo.legsKm[index] != null) ? routedWalkInfo.legsKm[index] : null;
+          const distM = Math.round((routedLegKm != null ? routedLegKm : getDistanceKm(pub.lat, pub.lng, next.lat, next.lng)) * 1000);
           const walkM = Math.max(1, Math.round(distM / 80));
           legInfoHtml = `
             <div class="flex items-center gap-2 pl-6 py-1 text-[11px] text-[#968069] font-medium">
