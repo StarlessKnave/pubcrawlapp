@@ -48,7 +48,8 @@ def validate_repo(repo_dir: str) -> int:
     for html_file in html_files:
         rel_path = os.path.relpath(html_file, repo_dir)
         # Skip files inside _agents/
-        if rel_path.startswith("_agents/"):
+        # /go/ pages are noindex affiliate redirect stubs (blocked in robots.txt), not site pages
+        if rel_path.startswith("_agents/") or rel_path.startswith("go/"):
             continue
 
         with open(html_file, "r", encoding="utf-8") as f:
