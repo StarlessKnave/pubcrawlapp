@@ -50,8 +50,9 @@ def upgrade_pub_pages():
 
         pub_name = bar_node.get("name", slug.replace("-", " ").title())
         desc = bar_node.get("description", "Historic Dublin pub serving draught Guinness.")
-        rating_val = bar_node.get("aggregateRating", {}).get("ratingValue", "9.2")
-        rating_cnt = bar_node.get("aggregateRating", {}).get("ratingCount", 180)
+        # Stout Score is our own editorial rating: stored as a Review by the site, never as an AggregateRating
+        rating_val = (bar_node.get("review", {}).get("reviewRating", {}).get("ratingValue")
+                      or bar_node.get("aggregateRating", {}).get("ratingValue", "9.2"))
         street = bar_node.get("address", {}).get("streetAddress", "Dublin")
         geo = bar_node.get("geo", {})
         lat = geo.get("latitude", 53.3444)
@@ -63,7 +64,7 @@ def upgrade_pub_pages():
         faq_items = [
             {
                 "q": f"What is the Guinness Stout Score™ rating at {pub_name}?",
-                "a": f"{pub_name} holds a verified Guinness Stout Score™ of {rating_val}/10 based on {rating_cnt} independent pint evaluations across cellar temperature (6–8°C), line hygiene, 119.5-second two-part surge, glassware cleanliness, and dome creaminess.",
+                "a": f"{pub_name} holds a Guinness Stout Score™ of {rating_val}/10, our editorial rating of cellar temperature (6–8°C), line hygiene, the two-part pour, glassware and the head.",
             },
             {
                 "q": f"Where is {pub_name} located in Dublin?",
@@ -71,7 +72,7 @@ def upgrade_pub_pages():
             },
             {
                 "q": f"What are the opening hours for {pub_name}?",
-                "a": f"{pub_name} is open Monday–Thursday from 10:30 to 23:30, Friday–Saturday from 10:30 to 00:30, and Sunday from 12:30 to 23:00 (hours may vary on Irish bank holidays).",
+                "a": f"Typical Dublin pub hours are about 10:30–23:30 Monday–Thursday, 10:30–00:30 Friday–Saturday and 12:30–23:00 on Sunday. These are not confirmed by {pub_name}, so check with the pub before you go, especially on bank holidays.",
             },
             {
                 "q": f"What makes {pub_name} famous on a Dublin pub crawl?",
